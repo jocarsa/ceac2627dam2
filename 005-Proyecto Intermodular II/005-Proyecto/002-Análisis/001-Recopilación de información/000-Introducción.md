@@ -1,0 +1,2 @@
+# Recopilación de información
+

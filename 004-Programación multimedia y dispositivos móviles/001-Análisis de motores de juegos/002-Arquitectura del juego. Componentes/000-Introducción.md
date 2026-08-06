@@ -1,0 +1,2 @@
+# Arquitectura del juego. Componentes
+

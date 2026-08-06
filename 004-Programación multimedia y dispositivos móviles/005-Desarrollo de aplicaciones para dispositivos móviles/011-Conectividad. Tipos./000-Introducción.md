@@ -1,0 +1,2 @@
+# Conectividad. Tipos.
+

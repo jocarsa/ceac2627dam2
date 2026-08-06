@@ -1,0 +1,2 @@
+# Operaciones de consulta. Herramientas
+

@@ -1,0 +1,2 @@
+# Pruebas manuales y automáticas
+

@@ -1,0 +1,2 @@
+# Información fácilmente accesible.
+

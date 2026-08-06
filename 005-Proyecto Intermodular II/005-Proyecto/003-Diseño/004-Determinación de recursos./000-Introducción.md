@@ -1,0 +1,2 @@
+# Determinación de recursos.
+
