@@ -1,0 +1,362 @@
+- DAM2
+	- Acceso a datos
+		- 1. Desarrolla aplicaciones que gestionan información almacenada en ficheros identificando el campo de aplicación de los mismos y utilizando clases específicas.
+		- Criterios de evaluación:
+			- a) Se han utilizado clases para la gestión de ficheros y directorios.
+			- b) Se han valorado las ventajas y los inconvenientes de las distintas formas de acceso.
+			- c) Se han utilizado clases para recuperar información almacenada en ficheros.
+			- d) Se han utilizado clases para almacenar información en ficheros.
+			- e) Se han utilizado clases para realizar conversiones entre diferentes formatos de ficheros.
+			- f) Se han previsto y gestionado las excepciones.
+			- g) Se han probado y documentado las aplicaciones desarrolladas.
+		- 2. Desarrolla aplicaciones que gestionan información almacenada en bases de datos relacionales identificando y utilizando mecanismos de conexión.
+		- Criterios de evaluación:
+			- a) Se han valorado las ventajas e inconvenientes de utilizar conectores.
+			- b) Se han utilizado gestores de bases de datos embebidos e independientes.
+			- c) Se ha utilizado el conector idóneo en la aplicación.
+			- d) Se ha establecido la conexión.
+			- e) Se ha definido la estructura de la base de datos.
+			- f) Se han desarrollado aplicaciones que modifican el contenido de la base de datos.
+			- g) Se han definido los objetos destinados a almacenar el resultado de las consultas.
+			- h) Se han desarrollado aplicaciones que efectúan consultas.
+			- i) Se han eliminado los objetos una vez finalizada su función.
+			- j) Se han gestionado las transacciones.
+			- k) Se han ejecutado procedimientos almacenados en la base de datos.
+		- 3. Gestiona la persistencia de los datos identificando herramientas de mapeo objeto relacional (ORM) y desarrollando aplicaciones que las utilizan.
+		- Criterios de evaluación:
+			- a) Se ha instalado la herramienta ORM.
+			- b) Se ha configurado la herramienta ORM.
+			- c) Se han definido configuraciones de mapeo.
+			- d) Se han aplicado mecanismos de persistencia a los objetos.
+			- e) Se han desarrollado aplicaciones que modifican y recuperan objetos persistentes.
+			- f) Se han desarrollado aplicaciones que realizan consultas usando el lenguaje SQL.
+			- g) Se han gestionado las transacciones.
+		- 4. Desarrolla aplicaciones que gestionan la información almacenada en bases de datos objeto relacionales y orientadas a objetos valorando sus características y utilizando los mecanismos de acceso incorporados.
+		- Criterios de evaluación:
+			- a) Se han identificado las ventajas e inconvenientes de las bases de datos que almacenan objetos.
+			- b) Se han establecido y cerrado conexiones.
+			- c) Se ha gestionado la persistencia de objetos simples.
+			- d) Se ha gestionado la persistencia de objetos estructurados.
+			- e) Se han desarrollado aplicaciones que realizan consultas.
+			- f) Se han modificado los objetos almacenados.
+			- g) Se han gestionado las transacciones.
+			- h) Se han probado y documentado las aplicaciones desarrolladas.
+		- 5. Desarrolla aplicaciones que gestionan la información almacenada en bases de datos documentales nativas evaluando y utilizando clases específicas.
+		- Criterios de evaluación:
+			- a) Se han valorado las ventajas e inconvenientes de utilizar bases de datos documentales nativas.
+			- b) Se ha establecido la conexión con la base de datos.
+			- c) Se han desarrollado aplicaciones que efectúan consultas sobre el contenido de la base de datos.
+			- d) Se han añadido y eliminado colecciones de la base de datos.
+			- e) Se han desarrollado aplicaciones para añadir, modificar y eliminar documentos de la base de datos.
+			- 6. Programa componentes de acceso a datos identificando las características que debe poseer un componente y utilizando herramientas de desarrollo.
+		- Criterios de evaluación:
+			- a) Se han valorado las ventajas e inconvenientes de utilizar programación orientada a componentes.
+			- b) Se han identificado herramientas de desarrollo de componentes.
+			- c) Se han programado componentes que gestionan información almacenada en ficheros.
+			- d) Se han programado componentes que gestionan mediante conectores información almacenada en bases de datos.
+			- e) Se han programado componentes que gestionan información usando mapeo objeto relacional.
+			- f) Se han programado componentes que gestionan información almacenada en bases de datos objeto relacionales y orientadas a objetos.
+			- g) Se han programado componentes que gestionan información almacenada en una base de datos documental nativa.
+			- h) Se han probado y documentado los componentes desarrollados.
+			- i) Se han integrado los componentes desarrollados en aplicaciones.
+	- Programación de servicios y procesos. 
+		- 1. Desarrolla aplicaciones compuestas por varios procesos reconociendo y aplicando principios de programación paralela.
+		- Criterios de evaluación:
+			- a) Se han reconocido las características de la programación concurrente y sus ámbitos de aplicación.
+			- b) Se han identificado las diferencias entre programación paralela y programación distribuida, sus ventajas e inconvenientes.
+			- c) Se han analizado las características de los procesos y de su ejecución por el sistema operativo.
+			- d) Se han caracterizado los hilos de ejecución y descrito su relación con los procesos.
+			- e) Se han utilizado clases para programar aplicaciones que crean subprocesos.
+			- f) Se han utilizado mecanismos para compartir información con los subprocesos iniciados.
+			- g) Se han utilizado mecanismos para sincronizar y obtener el valor devuelto por los subprocesos iniciados.
+			- h) Se han desarrollado aplicaciones que gestionen y utilicen procesos para la ejecución de varias tareas en paralelo.
+			- i) Se han depurado y documentado las aplicaciones desarrolladas.
+		- 2. Desarrolla aplicaciones compuestas por varios hilos de ejecución analizando y aplicando librerías específicas del lenguaje de programación.
+		- Criterios de evaluación:
+			- a) Se han identificado situaciones en las que resulte útil la utilización de varios hilos en un programa.
+			- b) Se han reconocido los mecanismos para crear, iniciar y finalizar hilos.
+			- c) Se han programado aplicaciones que implementen varios hilos.
+			- d) Se han identificado los posibles estados de ejecución de un hilo y programado aplicaciones que los gestionen.
+			- e) Se han utilizado mecanismos para compartir información entre varios hilos de un mismo proceso.
+			- f) Se han desarrollado programas formados por varios hilos sincronizados mediante técnicas específicas.
+			- g) Se ha establecido y controlado la prioridad de cada uno de los hilos de ejecución.
+			- h) Se han depurado y documentado los programas desarrollados.
+			- i) Se ha analizado el contexto de ejecución de los hilos.
+			- j) Se han analizado librerías específicas del lenguaje de programación que permiten la programacióm multihilo.
+			- k) Se han reconocido los problemas derivados de la compartición de información entre los hilos de un mismo proceso.
+		- 3. Programa mecanismos de comunicación en red empleando sockets y analizando el escenario de ejecución.
+		- Criterios de evaluación:
+			- a) Se han identificado escenarios que precisan establecer comunicación en red entre varias aplicaciones.
+			- b) Se han identificado los roles de cliente y de servidor y sus funciones asociadas.
+			- c) Se han reconocido librerías y mecanismos del lenguaje de programación que permiten programar aplicaciones en red.
+			- d) Se ha analizado el concepto de socket, sus tipos y características.
+			- e) Se han utilizado sockets para programar una aplicación cliente que se comunique con un servidor.
+			- f) Se ha desarrollado una aplicación servidor en red y verificado su funcionamiento.
+			- g) Se han desarrollado aplicaciones que utilizan sockets para intercambiar
+			- h) información.
+			- i) Se han utilizado hilos para posibilitar la comunicación simultánea de varios clientes con el servidor.
+			- j) Se han caracterizado los modelos de comunicación más usuales en las arquitecturas de aplicaciones distribuidas.
+			- k) Se han depurado y documentado las aplicaciones desarrolladas.
+		- 4. Desarrolla aplicaciones que ofrecen servicios en red, utilizando librerías de clases y aplicando criterios de eficiencia y disponibilidad.
+		- Criterios de evaluación:
+			- a) Se han identificado diferentes protocolos estándar de comunicación para la implementación de servicios en red.
+			- b) Se han reconocido las ventajas de la utilización de protocolos estándar para la comunicación entre aplicaciones y procesos.
+			- c) Se han analizado librerías que permitan implementar servicios en red utilizando protocolos estándar de comunicación.
+			- d) Se han desarrollado y probado servicios de comunicación en red.
+			- e) Se han utilizado clientes de comunicaciones para verificar el funcionamiento de los servicios.
+			- f) Se han incorporado mecanismos para posibilitar la comunicación simultánea de varios clientes con el servicio.
+			- g) Se ha verificado la disponibilidad del servicio.
+			- h) Se han depurado y documentado las aplicaciones desarrolladas.
+		- 5. Protege las aplicaciones y los datos definiendo y aplicando criterios de seguridad en el acceso, almacenamiento y transmisión de la información.
+		- Criterios de evaluación:
+			- a) Se han identificado y aplicado principios y prácticas de programación segura.
+			- b) Se han analizado las principales técnicas y prácticas criptográficas.
+			- c) Se han definido e implantado políticas de seguridad para limitar y controlar el acceso de los usuarios a las aplicaciones desarrolladas.
+			- d) Se han utilizado esquemas de seguridad basados en roles.
+			- e) Se han empleado algoritmos criptográficos para proteger el acceso a la información almacenada.
+			- f) Se han identificado métodos para asegurar la información transmitida.
+			- g) Se han desarrollado aplicaciones que utilicen comunicaciones seguras para la transmisión de información.
+			- h) Se han depurado y documentado las aplicaciones desarrolladas.
+	- Desarrollo de interfaces
+		- 1. Genera interfaces gráficos de usuario mediante editores visuales utilizando las funcionalidades del editor y adaptando el código generado.
+		- Criterios de evaluación:
+			- a) Se han analizado las herramientas y librerías disponibles para la generación de interfaces gráficos.
+			- b) Se ha creado un interfaz gráfico utilizando las herramientas de un editor visual.
+			- c) Se han utilizado las funciones del editor para ubicar los componentes del interfaz.
+			- d) Se han modificado las propiedades de los componentes para adecuarlas a las necesidades de la aplicación.
+			- e) Se ha analizado el código generado por el editor visual.
+			- f) Se ha modificado el código generado por el editor visual.
+			- g) Se han asociado a los eventos las acciones correspondientes.
+			- h) Se ha desarrollado una aplicación que incluye el interfaz gráfico obtenido.
+		- 2. Genera interfaces naturales de usuario utilizando herramientas visuales.
+		- Criterios de evaluación:
+			- a) Se han identificado las herramientas disponibles para el aprendizaje automático relacionadas con las interfaces de usuario.
+			- b) Se ha creado una interfaz natural de usuario utilizando las herramientas disponibles.
+			- c) Se ha utilizado el reconocimiento de voz para implementar acciones en las interfaces naturales de usuario.
+			- d) Se ha incorporado la detección del movimiento del cuerpo para implementar acciones en las interfaces naturales de usuario.
+			- e) Se han integrado elementos de detección de partes del cuerpo para implementar acciones en las interfaces naturales de usuario.
+			- f) Se ha integrado la realidad aumentada en los interfaces de usuario.
+		- 3. Crea componentes visuales valorando y empleando herramientas específicas.
+		- Criterios de evaluación:
+			- a) Se han identificado las herramientas para diseño y prueba de componentes.
+			- b) Se han creado componentes visuales.
+			- c) Se han definido sus métodos y propiedades con asignación de valores por defecto.
+			- d) Se han determinado los eventos a los que debe responder el componente y se les han asociado las acciones correspondientes.
+			- e) Se han realizado pruebas unitarias sobre los componentes desarrollados.
+			- f) Se han documentado los componentes creados.
+			- g) Se han empaquetado componentes.
+			- h) Se han programado aplicaciones cuyo interfaz gráfico utiliza los componentes creados.
+		- 4. Diseña interfaces gráficas identificando y aplicando criterios de usabilidad y accesibilidad.
+		- Criterios de evaluación:
+			- a) Se han identificado los principales estándares de usabilidad y accesibilidad.
+			- b) Se ha valorado la importancia del uso de estándares para la creación de interfaces.
+			- c) Se han creado diferentes tipos de menús cuya estructura y contenido siguen los estándares establecidos.
+			- d) Se han distribuido las acciones en menús, barras de herramientas, botones de comando, entre otros, siguiendo un criterio coherente.
+			- e) Se han distribuido adecuadamente los controles en la interfaz de usuario.
+			- f) Se ha utilizado el tipo de control más apropiado en cada caso.
+			- g) Se ha diseñado el aspecto de la interfaz de usuario (colores y fuentes entre otros) atendiendo a su legibilidad.
+			- h) Se ha verificado que los mensajes generados por la aplicación son adecuados en extensión y claridad.
+			- i) Se han realizado pruebas para evaluar la usabilidad y accesibilidad de la aplicación.
+		- 5. Crea informes evaluando y utilizando herramientas gráficas.
+		- Criterios de evaluación:
+			- a) Se ha establecido la estructura del informe.
+			- b) Se han generado informes básicos a partir de diferentes fuentes de datos mediante asistentes.
+			- c) Se han establecido filtros sobre los valores a presentar en los informes.
+			- d) Se han incluido valores calculados, recuentos y totales.
+			- e) Se han incluido gráficos generados a partir de los datos.
+			- f) Se han utilizado herramientas para generar el código correspondiente a los informes de una aplicación.
+			- g) Se ha modificado el código correspondiente a los informes.
+			- h) Se ha desarrollado una aplicación que incluye informes incrustados.
+		- 6. Documenta aplicaciones seleccionando y utilizando herramientas específicas.
+		- Criterios de evaluación:
+			- a) Se han identificado sistemas de generación de ayudas.
+			- b) Se han generado ayudas en los formatos habituales.
+			- c) Se han generado ayudas sensibles al contexto.
+			- d) Se ha documentado la estructura de la información persistente.
+			- e) Se ha confeccionado el manual de usuario y la guía de referencia.
+			- f) Se han confeccionado los manuales de instalación, configuración y administración.
+			- g) Se han confeccionado tutoriales.
+		- 7. Prepara aplicaciones para su distribución evaluando y utilizando herramientas específicas.
+		- Criterios de evaluación:
+			- a) Se han empaquetado los componentes que requiere la aplicación.
+			- b) Se ha personalizado el asistente de instalación.
+			- c) Se han generado paquetes de instalación utilizando el entorno de desarrollo.
+			- d) Se han generado paquetes de instalación utilizando herramientas externas.
+			- e) Se han firmado digitalmente las aplicaciones para su distribución.
+			- f) Se han generado paquetes instalables en modo desatendido.
+			- g) Se ha preparado el paquete de instalación para que la aplicación pueda ser correctamente desinstalada.
+			- h) Se ha preparado la aplicación para ser distribuida a través de diferentes canales de distribución.
+		- 8. Evalúa el funcionamiento de aplicaciones diseñando y ejecutando pruebas.
+		- Criterios de evaluación:
+			- a) Se ha establecido una estrategia de pruebas.
+			- b) Se han realizado pruebas de integración de los distintos elementos.
+			- c) Se han realizado pruebas de regresión.
+			- d) Se han realizado pruebas de volumen y estrés.
+			- e) Se han realizado pruebas de seguridad.
+			- f) Se han realizado pruebas de uso de recursos por parte de la aplicación.
+			- g) Se ha documentado la estrategia de pruebas y los resultados obtenidos.
+	- Programación multimedia y dispositivos móviles
+		- 1. Aplica tecnologías de desarrollo para dispositivos móviles evaluando sus características y capacidades.
+		- Criterios de evaluación:
+			- a) Se han analizado las limitaciones que plantea la ejecución de aplicaciones en los dispositivos móviles.
+			- b) Se han identificado las tecnologías de desarrollo de aplicaciones para dispositivos móviles.
+			- c) Se han instalado, configurado y utilizado entornos de trabajo para el desarrollo de aplicaciones para dispositivos móviles.
+			- d) Se han identificado configuraciones que clasifican los dispositivos móviles en base a sus características.
+			- e) Se han descrito perfiles que establecen la relación entre el dispositivo y la aplicación.
+			- f) Se ha analizado la estructura de aplicaciones existentes para dispositivos móviles identificando las clases utilizadas.
+			- g) Se han realizado modificaciones sobre aplicaciones existentes.
+			- h) Se han utilizado emuladores para comprobar el funcionamiento de las aplicaciones.
+		- 2. Desarrolla aplicaciones para dispositivos móviles analizando y empleando las tecnologías y librerías específicas.
+		- Criterios de evaluación:
+			- a) Se ha generado la estructura de clases necesaria para la aplicación.
+			- b) Se han analizado y utilizado las clases que modelan ventanas, menús, alertas y controles para el desarrollo de aplicaciones gráficas sencillas.
+			- c) Se han utilizado las clases necesarias para la conexión y comunicación con dispositivos inalámbricos.
+			- d) Se han desarrollado aplicaciones que hacen uso de las funcionalidades proporcionadas por los sensores.
+			- e) Se han utilizado las clases necesarias para establecer conexiones y comunicaciones HTTP y HTTPS.
+			- f) Se han utilizado las clases necesarias para establecer conexiones con almacenes de datos garantizando la persistencia.
+			- g) Se han realizado pruebas de interacción usuario-aplicación para optimizar las aplicaciones desarrolladas a partir de emuladores.
+			- h) Se han empaquetado y desplegado las aplicaciones desarrolladas en dispositivos móviles reales.
+			- i) Se han documentado los procesos necesarios para el desarrollo de las aplicaciones.
+			- j) Se han establecido los permisos requeridos para el funcionamiento de las aplicaciones.
+		- 3. Desarrolla programas que integran contenidos multimedia analizando y empleando las tecnologías y librerías específicas.
+		- Criterios de evaluación:
+			- a) Se han analizado entornos de desarrollo multimedia.
+			- b) Se han reconocido las clases que permiten la captura, procesamiento y almacenamiento de datos multimedia.
+			- c) Se han utilizado clases para la conversión de datos multimedia de un formato a otro.
+			- d) Se han utilizado clases para procesar datos multimedia.
+			- e) Se han utilizado clases para el control de eventos, tipos de media y excepciones, entre otros.
+			- f) Se han utilizado clases para la creación y control de animaciones.
+			- g) Se han utilizado clases para reproducir contenidos multimedia.
+			- h) Se han depurado y documentado los programas desarrollados.
+		- 4. Selecciona y prueba motores de juegos analizando la arquitectura de juegos 2D y 3D.
+		- Criterios de evaluación:
+			- a) Se han identificado los elementos que componen la arquitectura de un juego 2D y 3D.
+			- b) Se han analizado los componentes de un motor de juegos.
+			- c) Se han analizado entornos de desarrollo de juegos.
+			- d) Se han analizado diferentes motores de juegos, sus características y funcionalidades.
+			- e) Se han identificado los bloques funcionales de un juego existente.
+			- f) Se ha reconocido la representación lógica y espacial de una escena gráfica sobre un juego existente.
+		- 5. Desarrolla juegos 2D y 3D sencillos utilizando motores de juegos.
+		- Criterios de evaluación:
+			- a) Se ha establecido la lógica de un nuevo juego.
+			- b) Se han creado los objetos necesarios para el juego y definido sus características.
+			- c) Se han creado las escenas del juego y distribuido los objetos en las mismas.
+			- d) Se han creado materiales para determinar las propiedades finales de la superficie de un objeto.
+			- e) Se han establecido las propiedades físicas de los objetos.
+			- f) Se ha incorporado sonido a los diferentes eventos del juego.
+			- g) Se han utilizado cámaras y configurado la iluminación.
+			- h) Se han desarrollado e implantado juegos para dispositivos móviles.
+			- i) Se han realizado pruebas de funcionamiento y optimización de los juegos desarrollados.
+			- j) Se han documentado las fases de diseño y desarrollo de los juegos creados.
+	- Sistemas de gestión empresarial
+		- 1. Identifica sistemas de planificación de recursos empresariales y de gestión de relaciones con clientes (ERP-CRM) reconociendo sus características y verificando la configuración del sistema informático.
+		- Criterios de evaluación:
+			- a) Se han reconocido los diferentes sistemas ERP-CRM que existen en el mercado.
+			- b) Se han identificado los diferentes tipos de licencia de los sistemas ERP-CRM.
+			- c) Se han comparado sistemas ERP-CRM en función de sus características y requisitos.
+			- d) Se ha identificado el sistema operativo adecuado a cada sistema ERP-CRM.
+			- e) Se ha identificado el sistema gestor de datos adecuado a cada sistema ERP-CRM.
+			- f) Se han verificado las configuraciones del sistema operativo y del gestor de datos para garantizar la funcionalidad del ERP-CRM.
+			- g) Se han documentado las operaciones realizadas.
+			- h) Se han documentado las incidencias producidas durante el proceso.
+		- 2. Implanta sistemas ERP-CRM interpretando la documentación técnica e identificando las diferentes opciones y módulos.
+		- Criterios de evaluación:
+			- a) Se han identificado los módulos que componen el ERP-CRM.
+			- b) Se han realizado diferentes tipos de instalaciones.
+			- c) Se han configurado los módulos instalados.
+			- d) Se han realizado instalaciones adaptadas a las necesidades planteadas en diferentes supuestos.
+			- e) Se ha verificado el funcionamiento del ERP-CRM.
+			- f) Se han documentado las operaciones realizadas y las incidencias.
+		- 3. Realiza operaciones de gestión, consulta y análisis de la información siguiendo las especificaciones de diseño y utilizando las herramientas proporcionadas por los sistemas ERP-CRM.
+		- Criterios de evaluación:
+			- a) Se han utilizado herramientas y lenguajes de consulta y manipulación de datos proporcionados por los sistemas ERP-CRM.
+			- b) Se han generado formularios.
+			- c) Se han generado informes.
+			- d) Se han exportado datos e informes.
+			- e) Se han automatizado las extracciones de datos mediante procesos.
+			- f) Se ha verificado el rendimiento del sistema ERP-CRM.
+			- g) Se han documentado las operaciones realizadas y las incidencias observadas.
+			- h) Se ha obtenido información relevante a partir de los datos procesados.
+		- 4. Adapta sistemas ERP-CRM identificando los requerimientos de un supuesto empresarial y utilizando las herramientas proporcionadas por los mismos.
+		- Criterios de evaluación:
+			- a) Se han identificado las posibilidades de adaptación del ERP-CRM.
+			- b) Se han adaptado definiciones de campos, tablas y vistas de la base de datos del ERP-CRM.
+			- c) Se han adaptado consultas.
+			- d) Se han adaptado interfaces de entrada de datos y de procesos.
+			- e) Se han personalizado informes.
+			- f) Se han creado paneles de control.
+			- g) Se han adaptado procedimientos almacenados de servidor.
+			- h) Se han realizado pruebas.
+			- i) Se han documentado las operaciones realizadas y las incidencias observadas.
+			- j) Se han realizado integraciones con otro sistema de gestión empresarial.
+		- 5. Desarrolla componentes para un sistema ERP-CRM analizando y utilizando el lenguaje de programación incorporado.
+		- Criterios de evaluación:
+			- a) Se han reconocido las sentencias del lenguaje propio del sistema ERP-CRM.
+			- b) Se han utilizado los elementos de programación del lenguaje para crear componentes de manipulación de datos y extracción de información.
+			- c) Se han modificado componentes software para añadir nuevas funcionalidades al sistema.
+			- d) Se han integrado los nuevos componentes software en el sistema ERP-CRM.
+			- e) Se ha verificado el correcto funcionamiento de los componentes creados.
+			- f) Se han documentado todos los componentes creados o modificados.
+			- g) Se ha analizado la arquitectura del ERP-CRM.
+	- Proyecto intermodular II:
+		- 1. Caracteriza las empresas del sector atendiendo a su organización y al tipo de producto
+		- o servicio que ofrecen.
+		- Criterios de evaluación:
+			- a) Se han identificado las empresas tipo más representativas del sector.
+			- b) Se ha descrito la estructura organizativa de las empresas.
+			- c) Se han caracterizado los principales departamentos.
+			- d) Se han determinado las funciones de cada departamento.
+			- e) Se ha evaluado el volumen de negocio de acuerdo a las necesidades de los clientes.
+			- f) Se ha definido la estrategia para dar respuesta a las demandas.
+			- g) Se han valorado los recursos humanos y materiales necesarios.
+			- h) Se ha realizado el seguimiento de los resultados de acuerdo a la estrategia aplicada.
+			- i) Se han relacionado los productos o servicios con su posible contribución a los ODS
+			- (Objetivos de Desarrollo Sostenible).
+		- 2. Plantea soluciones a las necesidades del sector teniendo en cuenta la viabilidad de las
+		- mismas, los costes asociados y elaborando un pequeño proyecto.
+		- Criterios de evaluación:
+			- a) Se han identificado las necesidades.
+			- b) Se han planteado en grupo posibles soluciones.
+			- c) Se ha obtenido la información relativa a las soluciones planteadas.
+			- d) Se han identificado aspectos innovadores que puedan ser de aplicación.
+			- e) Se ha realizado el estudio de viabilidad técnica.
+			- f) Se han identificado las partes que componen el proyecto.
+			- g) Se han previsto los recursos materiales y humanos para realizarlo.
+			- h) Se ha realizado el presupuesto económico correspondiente.
+			- i) Se ha definido y elaborado la documentación para su diseño.
+			- j) Se han identificado los aspectos relacionados con la calidad del proyecto.
+			- 13
+			- k) Se han presentado en público las ideas más relevantes de los proyectos propuestos.
+		- 3. Planifica la ejecución de las actividades propuestas a la solución planteada,
+		- determinando el plan de intervención y elaborando la documentación correspondiente.
+		- Criterios de evaluación:
+			- a) Se han temporizado las secuencias de las actividades.
+			- b) Se han determinado los recursos y la logística de cada actividad.
+			- c) Se han identificado permisos y autorizaciones en caso de ser necesarios.
+			- d) Se han identificado las actividades que implican riesgos en su ejecución.
+			- e) Se ha tenido en cuenta el plan de prevención de riesgos y los medios y equipos
+			- necesarios.
+			- f) Se han asignado recursos materiales y humanos a cada actividad.
+			- g) Se han tenido en cuenta posibles imprevistos.
+			- h) Se han propuesto soluciones a los posibles imprevistos.
+			- i) Se ha elaborado la documentación necesaria.
+		- 4. Realiza el seguimiento de la ejecución de las actividades planteadas, verificando que
+		- se cumple con la planificación.
+		- Criterios de evaluación:
+		- a) Se ha definido el procedimiento de seguimiento de las actividades.
+			- b) Se ha verificado la calidad de los resultados de las actividades.
+			- c) Se han identificado posibles desviaciones de la planificación y/o los resultados
+			- esperados.
+			- d) Se ha informado de las desviaciones en caso de ser necesario.
+			- e) Se han solucionado las desviaciones y se han documentado las intervenciones.
+			- f) Se ha definido y elaborado la documentación necesaria para la evaluación de las
+			- actividades y del proyecto en su conjunto.
+		- 5. Transmite información con claridad, de manera ordenada y estructurada.
+		- Criterios de evaluación:
+			- a) Se ha mantenido una actitud ordenada y metódica en la transmisión de la información.
+			- a) Se ha transmitido información verbal tanto horizontal como verticalmente.
+			- b) Se ha transmitido información entre los miembros del grupo utilizando medios
+			- informáticos.
+			- c) Se han conocido los términos técnicos en otras lenguas que sean estándares del
+			- sector.
+- 
