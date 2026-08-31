@@ -1,2 +1,0 @@
-# Planificación de interfaces gráficas
-

@@ -1,2 +1,0 @@
-# Mantenimiento del estado.
-

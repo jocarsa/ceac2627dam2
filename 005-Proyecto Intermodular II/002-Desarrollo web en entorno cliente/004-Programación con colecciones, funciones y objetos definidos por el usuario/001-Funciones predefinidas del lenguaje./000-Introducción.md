@@ -1,2 +1,0 @@
-# Funciones predefinidas del lenguaje.
-

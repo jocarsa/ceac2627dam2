@@ -1,2 +1,0 @@
-# Controles de servidor.
-

@@ -1,2 +1,0 @@
-# Prioridades. Puntos de verificación.
-

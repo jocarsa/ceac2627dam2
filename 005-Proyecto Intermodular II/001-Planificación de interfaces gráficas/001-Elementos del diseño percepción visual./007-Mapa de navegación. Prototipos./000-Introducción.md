@@ -1,2 +1,0 @@
-# Mapa de navegación. Prototipos.
-

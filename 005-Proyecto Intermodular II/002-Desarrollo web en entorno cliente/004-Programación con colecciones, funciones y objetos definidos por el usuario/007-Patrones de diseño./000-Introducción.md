@@ -1,2 +1,0 @@
-# Patrones de diseño.
-

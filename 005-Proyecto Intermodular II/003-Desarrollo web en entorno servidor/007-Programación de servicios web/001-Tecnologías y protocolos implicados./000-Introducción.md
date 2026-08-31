@@ -1,2 +1,0 @@
-# Tecnologías y protocolos implicados.
-

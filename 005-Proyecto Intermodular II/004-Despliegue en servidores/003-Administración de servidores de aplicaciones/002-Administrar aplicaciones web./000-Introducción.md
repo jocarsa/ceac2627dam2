@@ -1,2 +1,0 @@
-# Administrar aplicaciones web.
-

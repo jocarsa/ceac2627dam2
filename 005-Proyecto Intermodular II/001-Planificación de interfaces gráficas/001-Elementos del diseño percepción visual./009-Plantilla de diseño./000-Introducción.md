@@ -1,2 +1,0 @@
-# Plantilla de diseño.
-

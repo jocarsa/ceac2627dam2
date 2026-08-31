@@ -1,2 +1,0 @@
-# Implantación de contenido multimedia
-

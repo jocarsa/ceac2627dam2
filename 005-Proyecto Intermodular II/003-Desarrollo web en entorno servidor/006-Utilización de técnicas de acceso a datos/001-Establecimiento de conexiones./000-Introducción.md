@@ -1,2 +1,0 @@
-# Establecimiento de conexiones.
-

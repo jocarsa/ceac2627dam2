@@ -1,2 +1,0 @@
-# Obtención remota de información.
-

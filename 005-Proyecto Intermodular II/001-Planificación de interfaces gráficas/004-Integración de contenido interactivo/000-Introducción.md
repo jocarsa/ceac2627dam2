@@ -1,2 +1,0 @@
-# Integración de contenido interactivo
-

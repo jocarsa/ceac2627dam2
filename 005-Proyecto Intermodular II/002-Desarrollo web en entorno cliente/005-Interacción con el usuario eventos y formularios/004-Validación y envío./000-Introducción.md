@@ -1,2 +1,0 @@
-# Validación y envío.
-

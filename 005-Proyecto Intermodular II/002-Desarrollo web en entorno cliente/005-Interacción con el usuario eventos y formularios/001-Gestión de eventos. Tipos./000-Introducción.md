@@ -1,2 +1,0 @@
-# Gestión de eventos. Tipos.
-

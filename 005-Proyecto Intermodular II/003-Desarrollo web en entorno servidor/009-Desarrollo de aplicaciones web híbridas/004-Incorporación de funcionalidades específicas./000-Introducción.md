@@ -1,2 +1,0 @@
-# Incorporación de funcionalidades específicas.
-

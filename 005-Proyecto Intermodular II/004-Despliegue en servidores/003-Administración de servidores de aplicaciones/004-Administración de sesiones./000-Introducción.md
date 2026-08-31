@@ -1,2 +1,0 @@
-# Administración de sesiones.
-

@@ -1,2 +1,0 @@
-# Frameworks de documentación.
-

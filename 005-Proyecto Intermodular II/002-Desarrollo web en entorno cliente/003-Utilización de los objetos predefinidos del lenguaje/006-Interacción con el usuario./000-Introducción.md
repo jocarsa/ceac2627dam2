@@ -1,2 +1,0 @@
-# Interacción con el usuario.
-

@@ -1,2 +1,0 @@
-# Arquitecturas web. Modelos.
-

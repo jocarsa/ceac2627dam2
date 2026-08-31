@@ -1,2 +1,0 @@
-# Tomas de decisión.
-

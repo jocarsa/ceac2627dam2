@@ -1,2 +1,0 @@
-# Velocidad de conexión.
-

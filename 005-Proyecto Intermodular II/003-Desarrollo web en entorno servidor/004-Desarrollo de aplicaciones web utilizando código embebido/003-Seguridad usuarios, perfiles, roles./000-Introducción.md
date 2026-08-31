@@ -1,2 +1,0 @@
-# Seguridad usuarios, perfiles, roles.
-

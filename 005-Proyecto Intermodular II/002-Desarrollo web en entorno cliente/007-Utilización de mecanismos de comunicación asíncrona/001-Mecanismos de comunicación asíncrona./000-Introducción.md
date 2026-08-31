@@ -1,2 +1,0 @@
-# Mecanismos de comunicación asíncrona.
-

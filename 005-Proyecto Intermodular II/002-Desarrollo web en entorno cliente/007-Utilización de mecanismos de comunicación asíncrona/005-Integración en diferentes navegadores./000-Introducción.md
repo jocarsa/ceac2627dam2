@@ -1,2 +1,0 @@
-# Integración en diferentes navegadores.
-

@@ -1,2 +1,0 @@
-# Pruebas y depuración.
-

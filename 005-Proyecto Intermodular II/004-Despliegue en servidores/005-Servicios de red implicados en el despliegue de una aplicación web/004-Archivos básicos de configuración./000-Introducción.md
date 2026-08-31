@@ -1,2 +1,0 @@
-# Archivos básicos de configuración.
-

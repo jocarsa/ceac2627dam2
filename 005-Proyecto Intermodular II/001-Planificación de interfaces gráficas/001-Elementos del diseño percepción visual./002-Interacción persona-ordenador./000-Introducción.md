@@ -1,2 +1,0 @@
-# Interacción persona-ordenador.
-

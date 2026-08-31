@@ -1,2 +1,0 @@
-# Prueba y documentación.
-

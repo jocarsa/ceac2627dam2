@@ -1,2 +1,0 @@
-# Prueba, depuración y documentación.
-
