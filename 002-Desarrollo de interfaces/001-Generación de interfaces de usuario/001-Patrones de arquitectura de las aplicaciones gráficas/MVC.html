@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ejemplo MVC - Contador</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        #contador {
+            font-size: 40px;
+            margin: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Contador</h1>
+
+    <!-- VISTA -->
+    <p id="contador">0</p>
+    <button id="botonSumar">Sumar</button>
+
+
+    <script>
+
+        // =====================================
+        // MODELO
+        // =====================================
+
+        // Contiene los datos de la aplicación.
+        let contador = 0;
+
+
+
+        // =====================================
+        // VISTA
+        // =====================================
+
+        // Obtenemos los elementos de la interfaz.
+        const texto = document.getElementById("contador");
+        const boton = document.getElementById("botonSumar");
+
+
+        // Actualiza lo que ve el usuario.
+        function actualizarVista() {
+            texto.textContent = contador;
+        }
+
+
+
+        // =====================================
+        // CONTROLADOR
+        // =====================================
+
+        // Modifica el modelo y solicita
+        // actualizar la vista.
+        function sumar() {
+            contador++;
+
+            actualizarVista();
+        }
+
+
+
+        // =====================================
+        // EVENTOS
+        // =====================================
+
+        // Cuando el usuario pulsa el botón,
+        // ejecutamos el controlador.
+        boton.addEventListener("click", sumar);
+
+    </script>
+
+</body>
+</html>

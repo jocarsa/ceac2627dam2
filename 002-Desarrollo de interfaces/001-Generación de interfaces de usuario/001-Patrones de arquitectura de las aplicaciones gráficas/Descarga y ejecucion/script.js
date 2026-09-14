@@ -1,0 +1,1 @@
+console.log("El archivo JavaScript se ha ejecutado");
