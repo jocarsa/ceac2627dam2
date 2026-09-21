@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Inscripción</title>
+
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+
+            max-width: 600px;
+
+            margin: 40px auto;
+        }
+
+
+        fieldset {
+            margin-bottom: 20px;
+
+            padding: 20px;
+        }
+
+
+        .campo {
+            margin-bottom: 15px;
+        }
+
+
+        .campo > label {
+            display: block;
+
+            margin-bottom: 5px;
+        }
+
+
+        textarea {
+            width: 100%;
+        }
+
+
+        button {
+            padding: 10px 20px;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <h1>
+        Inscripción al curso
+    </h1>
+
+
+    <form>
+
+
+        <fieldset>
+
+            <legend>
+                Datos personales
+            </legend>
+
+
+            <div class="campo">
+
+                <label for="nombre">
+                    Nombre
+                </label>
+
+                <input
+                    type="text"
+                    id="nombre"
+                    required
+                >
+
+            </div>
+
+
+            <div class="campo">
+
+                <label for="correo">
+                    Correo electrónico
+                </label>
+
+                <input
+                    type="email"
+                    id="correo"
+                    required
+                >
+
+            </div>
+
+
+            <div class="campo">
+
+                <label for="edad">
+                    Edad
+                </label>
+
+                <input
+                    type="number"
+                    id="edad"
+                    min="16"
+                >
+
+            </div>
+
+
+        </fieldset>
+
+
+        <fieldset>
+
+            <legend>
+                Turno
+            </legend>
+
+
+            <label>
+
+                <input
+                    type="radio"
+                    name="turno"
+                >
+
+                Mañana
+
+            </label>
+
+
+            <label>
+
+                <input
+                    type="radio"
+                    name="turno"
+                >
+
+                Tarde
+
+            </label>
+
+
+        </fieldset>
+
+
+        <fieldset>
+
+            <legend>
+                Intereses
+            </legend>
+
+
+            <label>
+
+                <input type="checkbox">
+
+                Desarrollo web
+
+            </label>
+
+
+            <label>
+
+                <input type="checkbox">
+
+                Bases de datos
+
+            </label>
+
+
+            <label>
+
+                <input type="checkbox">
+
+                Videojuegos
+
+            </label>
+
+
+        </fieldset>
+
+
+        <div class="campo">
+
+            <label for="provincia">
+                Provincia
+            </label>
+
+
+            <select id="provincia">
+
+                <option>Valencia</option>
+                <option>Alicante</option>
+                <option>Castellón</option>
+
+            </select>
+
+        </div>
+
+
+        <div class="campo">
+
+            <label for="observaciones">
+                Observaciones
+            </label>
+
+
+            <textarea
+                id="observaciones"
+                rows="5">
+            </textarea>
+
+        </div>
+
+
+        <button type="submit">
+            Enviar inscripción
+        </button>
+
+
+    </form>
+
+
+</body>
+
+</html>
