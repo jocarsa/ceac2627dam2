@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+  <head>
+  </head>
+  <body>
+    <canvas id="lienzo" width=4000 height=6000></canvas>
+    <script>
+      let lienzo = document.querySelector("#lienzo")
+      let contexto = lienzo.getContext("2d") // Voy a pintar en 2D
+      // Creo una imagen
+      var imagen = new Image();				// Creo una instancia de imagen
+      imagen.src = "josevicente.jpg"	// Cargo una imagen
+      imagen.onload = function(){			// Ejecuto una funcion
+      	contexto.drawImage(imagen,0,0)	// Pinto la imagen en el lienzo
+        // Ahora quiero coger un color
+        // De la imagen cojo un trozo que está en 0,0 y mide 1,1
+        let pixel = contexto.getImageData(0,0,1,1);
+        let color = pixel.data
+        console.log(color)
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+<!doctype html>
+<html>
+  <head>
+  </head>
+  <body>
+    <script>
+      let trabajador = new Worker("trabajador1.js");
+      console.log("Te envío un mensaje");
+      trabajador.postMessage();
+      
+      
+    </script>
+  </body>
+</html>
