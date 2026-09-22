@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Diseño responsive</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+
+        .contenedor {
+            display: flex;
+            gap: 20px;
+        }
+
+        .tarjeta {
+            flex: 1;
+
+            padding: 20px;
+
+            border: 1px solid #999;
+
+            border-radius: 8px;
+        }
+
+
+        /* Para pantallas pequeñas */
+
+        @media (max-width: 600px) {
+
+            .contenedor {
+                flex-direction: column;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Productos</h1>
+
+    <div class="contenedor">
+
+        <article class="tarjeta">
+            <h2>Producto 1</h2>
+            <p>Descripción del producto.</p>
+        </article>
+
+
+        <article class="tarjeta">
+            <h2>Producto 2</h2>
+            <p>Descripción del producto.</p>
+        </article>
+
+
+        <article class="tarjeta">
+            <h2>Producto 3</h2>
+            <p>Descripción del producto.</p>
+        </article>
+
+    </div>
+
+</body>
+
+</html>
