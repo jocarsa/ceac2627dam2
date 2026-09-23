@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+  <head>
+  </head>
+  <body>
+    <script>
+      let trabajadores = [];
+      let numerotrabajadores = 10;
+      let trabajador = new Worker("trabajador2.js");
+      console.log("Te envío un mensaje");
+      trabajador.postMessage("hola");
+      
+      trabajador.onmessage = function(){
+      	console.log("El trabajador me ha respondido")
+      }
+    </script>
+  </body>
+</html>

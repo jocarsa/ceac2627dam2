@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+  <head>
+  </head>
+  <body>
+    <script>
+      // Condiciones iniciales
+      let trabajadores = []; 	// Array vacío
+      let numerotrabajadores = 10;	// Numero de trabajadores
+      // Recorro el array y añado nuevos workers (creo instancia)
+      for(let i = 0;i<numerotrabajadores;i++){
+      	trabajadores.push(new Worker("trabajador3.js"))
+      }
+      // Recorro el array y a cada worker le lanzo una bienvenida
+      for(let i = 0;i<numerotrabajadores;i++){
+      	trabajadores[i].postMessage("hola");
+      }
+      // Recorro el array para escuchar cuando acaben
+      for(let i = 0;i<numerotrabajadores;i++){
+      	trabajadores[i].onmessage = function(){
+          console.log("El trabajador me ha respondido")
+        }
+      }
+      
+    </script>
+  </body>
+</html>
