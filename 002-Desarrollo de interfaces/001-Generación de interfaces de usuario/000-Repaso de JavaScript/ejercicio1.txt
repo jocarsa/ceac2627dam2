@@ -1,0 +1,31 @@
+Crea un programa de gestión de inscripción de alumnos
+
+Cada alumno tiene los siguientes datos:
+	- nombre
+	- edad
+	- tieneMatricula
+	- bloqueado
+	- precioCurso
+	- descuento
+	- nota
+
+Crea una función calcularPrecioFinal()
+
+Crea una función puedeAcceder() que compruebe que el alumno es mayor de edad, está matriculado y no esta bloqueado
+
+Crea una función obtenerCalificacion(). Posibles valores a devolver:
+	- Nota no válida
+	- Suspenso
+	- Aprobado
+	- Bien
+	- Notable
+	- Sobresaliente
+
+Muestra un mensaje con toda la información del alumno que utilice las funciones creadas anteriormente
+
+Ampliación 1: añade un campo "modalidad" a partir del cual se obtenga un descuento extra.
+	- Presencial -> Sin descuento
+	- Semi-presencial -> 10% de descuento
+	- Online -> 20% de descuento
+
+Ampliación 2: Integra este código en un formulario para que los valores de las variables sean extraídos de aquí y el resultado sea devuelto en la interfaz.
