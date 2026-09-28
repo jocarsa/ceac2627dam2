@@ -24,3 +24,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "ProyectoMultimedia"
 include(":app")
+include(":introduccionkotlin")
