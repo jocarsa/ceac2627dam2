@@ -1,21 +1,20 @@
 const edad = 20;
 
 
-const mensaje =
-    edad >= 18
-        ? "Mayor de edad"
-        : "Menor de edad";
+const mensaje = edad >= 18 ? "Mayor de edad" : "Menor de edad";
 
+if (edad >= 18) {
+    
+} else {
+
+}
 
 console.log(mensaje);
 
 const activo = true;
 
 
-const estado =
-    activo
-        ? "Activo"
-        : "Inactivo";
+const estado = activo ? "Activo" : "Inactivo";
 
 
 console.log(

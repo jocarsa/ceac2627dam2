@@ -1,11 +1,3 @@
-const producto = "Teclado";
-const precio = 79.99;
-
-const mensaje =
-    `${producto} cuesta ${precio} €`;
-
-console.log(mensaje);
-
 const edad = 16;
 
 if (edad >= 18) {
