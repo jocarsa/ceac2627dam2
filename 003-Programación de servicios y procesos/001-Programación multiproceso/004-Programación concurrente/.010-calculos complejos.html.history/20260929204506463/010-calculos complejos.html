@@ -1,0 +1,189 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <style>
+    html,body{
+      margin:0;
+      padding:0;
+      overflow:hidden;
+      background:#111;
+    }
+
+    canvas{
+      display:block;
+    }
+  </style>
+</head>
+
+<body>
+
+<canvas></canvas>
+
+<script>
+
+const lienzo = document.querySelector("canvas");
+const contexto = lienzo.getContext("2d");
+
+const anchura = window.innerWidth;
+const altura = window.innerHeight;
+
+lienzo.width = anchura;
+lienzo.height = altura;
+
+
+class Bichito{
+
+  constructor(x,y,r,g,b,radio,angulo,velocidad){
+
+    this.x = x;
+    this.y = y;
+
+    this.r = r;
+    this.g = g;
+    this.b = b;
+
+    this.radio = radio;
+
+    this.angulo = angulo;
+    this.velocidad = velocidad;
+
+  }
+
+}
+
+
+const numerobichitos = 500;
+const numeroworkers = 12;
+
+let bichitos = [];
+let trabajadores = [];
+
+
+// Crear bichitos
+
+for(let i = 0; i < numerobichitos; i++){
+
+  bichitos.push(
+
+    new Bichito(
+
+      Math.random() * anchura,
+      Math.random() * altura,
+
+      Math.floor(Math.random() * 256),
+      Math.floor(Math.random() * 256),
+      Math.floor(Math.random() * 256),
+
+      2 + Math.random() * 3,
+
+      // Ángulo 0 - 2PI
+      Math.random() * Math.PI * 2,
+
+      // Velocidad
+      1 + Math.random() * 3
+
+    )
+
+  );
+
+}
+
+
+// Reparto equilibrado
+
+const base =
+  Math.floor(numerobichitos / numeroworkers);
+
+const resto =
+  numerobichitos % numeroworkers;
+
+let posicion = 0;
+
+
+for(let i = 0; i < numeroworkers; i++){
+
+  let cantidad =
+    base + (i < resto ? 1 : 0);
+
+  let lote = bichitos.slice(
+    posicion,
+    posicion + cantidad
+  );
+
+  posicion += cantidad;
+
+
+  let trabajador =
+    new Worker("workerbichitos.js");
+
+
+  trabajador.onmessage = function(evento){
+
+    const lote = evento.data;
+
+
+    // Pintar los bichitos recibidos
+
+    for(let i = 0; i < lote.length; i++){
+
+      const b = lote[i];
+
+      contexto.fillStyle =
+        "rgb(" +
+        b.r + "," +
+        b.g + "," +
+        b.b +
+        ")";
+
+
+      contexto.beginPath();
+
+      contexto.arc(
+        b.x,
+        b.y,
+        b.radio,
+        0,
+        Math.PI * 2
+      );
+
+      contexto.fill();
+
+    }
+
+
+    // El worker puede calcular el siguiente frame
+
+    trabajador.postMessage({
+      tipo:"continuar"
+    });
+
+  };
+
+
+  trabajador.postMessage({
+
+    tipo:"iniciar",
+
+    bichitos:lote,
+
+    anchura:anchura,
+    altura:altura
+
+  });
+
+
+  trabajadores.push(trabajador);
+
+}
+
+
+// Liberamos la copia principal
+
+bichitos = null;
+
+</script>
+
+</body>
+</html>

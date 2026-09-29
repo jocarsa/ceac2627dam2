@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+  <head>
+  </head>
+  <body>
+    <canvas width="512px" heigth="512px"></canvas>
+    <script>
+      let lienzo = document.querySelector("canvas")
+      let trabajador = new Worker("002-trabajador1.js")
+      trabajador.postMessage("te envío un mensaje")
+      trabajador.onmessage = function(datos){
+      	console.log("El trabajador ha dicho hola")
+      }
+    </script>
+  </body>
+</html>

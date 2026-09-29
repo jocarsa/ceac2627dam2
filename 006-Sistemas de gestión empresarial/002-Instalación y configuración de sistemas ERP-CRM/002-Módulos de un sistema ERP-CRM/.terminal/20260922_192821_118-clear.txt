@@ -1,0 +1,5 @@
+Datetime: 2026-09-22T17:28:21.118Z
+Working directory: /var/www/html/ceac2627dam2/006-Sistemas de gestión empresarial/002-Instalación y configuración de sistemas ERP-CRM/002-Módulos de un sistema ERP-CRM
+Command: clear
+
+Result:

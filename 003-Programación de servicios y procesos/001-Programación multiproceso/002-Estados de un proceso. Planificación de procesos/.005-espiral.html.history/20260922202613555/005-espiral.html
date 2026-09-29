@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+  <head>
+  </head>
+  <body>
+    <canvas id="lienzo" width="2048" height="2048"></canvas>
+
+    <script>
+      const lienzo = document.querySelector("#lienzo")
+      const contexto = lienzo.getContext("2d")
+      
+      let imagen = new Image()
+      imagen.src = "josevicenterecortado.jpg"
+      
+      let temporizador
+      let anchocacho = 64
+
+      // Número de bloques
+      let columnas = 2048 / anchocacho
+      let filas = 2048 / anchocacho
+
+      // Empezamos en el centro
+      let bloqueX = Math.floor(columnas / 2)
+      let bloqueY = Math.floor(filas / 2)
+
+      // Dirección inicial: derecha
+      let direccionX = 1
+      let direccionY = 0
+
+      let pasos = 1
+      let pasosRealizados = 0
+      let cambiosDireccion = 0
+
+      let procesados = 0
+      let total = columnas * filas
+      
+      imagen.onload = function(){
+        contexto.drawImage(imagen,0,0,2048,2048)
+        temporizador = setTimeout(bucle,1000)
+      }
+      
+      function bucle(){
+
+        let x = bloqueX * anchocacho
+        let y = bloqueY * anchocacho
+
+        // Solo procesamos bloques que estén dentro del canvas
+        if(
+          bloqueX >= 0 &&
+          bloqueX < columnas &&
+          bloqueY >= 0 &&
+          bloqueY < filas
+        ){
+          procesaCacho(x,y)
+          procesados++
+        }
+
+        // Avanzamos en la dirección actual
+        bloqueX += direccionX
+        bloqueY += direccionY
+
+        pasosRealizados++
+
+        // Hemos terminado este lado de la espiral
+        if(pasosRealizados >= pasos){
+
+          pasosRealizados = 0
+
+          // Giramos 90 grados
+          let temporal = direccionX
+          direccionX = -direccionY
+          direccionY = temporal
+
+          cambiosDireccion++
+
+          // Cada dos giros aumentamos
+          // la longitud del recorrido
+          if(cambiosDireccion % 2 == 0){
+            pasos++
+          }
+        }
+
+        if(procesados < total){
+          temporizador = setTimeout(bucle,100)
+        }
+      }
+      
+      function procesaCacho(x,y){
+
+        let cacho = contexto.getImageData(
+          x,
+          y,
+          anchocacho,
+          anchocacho
+        )
+
+        let datos = cacho.data
+
+        for(let i = 0;i < datos.length;i += 4){
+          datos[i]   = 255-datos[i]
+          datos[i+1] = 255-datos[i+1]
+          datos[i+2] = 255-datos[i+2]
+        }
+
+        contexto.putImageData(cacho,x,y)
+      }
+    </script>
+  </body>
+</html>

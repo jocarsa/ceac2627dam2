@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+  <head>
+  </head>
+  <body>
+    <canvas width="512px" heigth="512px"></canvas>
+    <script>
+      let lienzo = document.querySelector("canvas")
+      let contexto = lienzo.getContext("2d")
+      let trabajador = new Worker("004-trabajador1.js")
+      let cacho = contexto.getImageData(0,0,128,128)
+      trabajador.postMessage(cacho.data)
+      trabajador.onmessage = function(datos){
+      	console.log("Yo soy el jefe y los datos que ha enviado el trabajador son:")
+        console.log(datos)
+      }
+    </script>
+  </body>
+</html>

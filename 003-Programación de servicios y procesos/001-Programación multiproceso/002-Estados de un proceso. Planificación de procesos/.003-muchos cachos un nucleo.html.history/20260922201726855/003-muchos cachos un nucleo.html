@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+  </head>
+  <body>
+    <canvas id="lienzo" width=2048 height=2048></canvas>
+    <script>
+      const lienzo = document.querySelector("#lienzo")
+      const contexto = lienzo.getContext("2d")
+      
+      let imagen = new Image();
+      imagen.src = "josevicenterecortado.jpg"
+      
+      imagen.onload = function(){
+      	contexto.drawImage(imagen,0,0,2048,2048)
+        let cacho = contexto.getImageData(0,0,256,256);
+        console.log(cacho)
+        let datos = cacho.data;
+        for(let i = 0;i<cacho.data.length;i+=4){
+        	datos[i] = 255-datos[i] // Invierto el canal rojo
+          datos[i+1] = 255-datos[i+1]	// Invierto el canal verde
+          datos[i+2] = 255-datos[i+2]	// Invierto el canal azul
+        }
+        contexto.putImageData(cacho,0,0)
+      }
+    </script>
+  </body>
+</html>

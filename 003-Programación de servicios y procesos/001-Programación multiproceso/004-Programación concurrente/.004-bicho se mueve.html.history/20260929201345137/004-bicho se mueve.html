@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+  </head>
+  <body>
+    <canvas></canvas>
+    <script>
+      const lienzo = document.querySelector("canvas");
+      const contexto = lienzo.getContext("2d");
+      
+      let anchura = window.innerWidth;
+      let altura = window.innerHeight;
+      
+      // Ahora le doy al lienzo la misma anchura y altura que la ventana
+      lienzo.width = anchura
+      lienzo.height = altura
+      
+      contexto.fillRect(40,40,4,4)
+      
+      let temporizador = setTimeout("bucle()",1000)
+      
+      function bucle(){
+      	clearTimeout(temporizador)
+        temporizador = setTimeout("bucle()",1000)
+      }
+    </script>
+ 	</body>
+</html>

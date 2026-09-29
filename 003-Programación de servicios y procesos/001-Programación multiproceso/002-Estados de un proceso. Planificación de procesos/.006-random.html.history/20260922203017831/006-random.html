@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+  <head>
+  </head>
+  <body>
+    <canvas id="lienzo" width="2048" height="2048"></canvas>
+
+    <script>
+      const lienzo = document.querySelector("#lienzo")
+      const contexto = lienzo.getContext("2d")
+      
+      let imagen = new Image()
+      imagen.src = "josevicenterecortado.jpg"
+      
+      let temporizador
+      let anchocacho = 16
+
+      let cachos = []
+      let actual = 0
+      
+      imagen.onload = function(){
+        contexto.drawImage(imagen,0,0,2048,2048)
+
+        // Creo todos los cachos
+        for(let y = 0;y < 2048;y += anchocacho){
+          for(let x = 0;x < 2048;x += anchocacho){
+            cachos.push({
+              x:x,
+              y:y
+            })
+          }
+        }
+
+        // Barajo los cachos
+        for(let i = cachos.length-1;i > 0;i--){
+          let j = Math.floor(Math.random()*(i+1))
+          
+          let temporal = cachos[i]
+          cachos[i] = cachos[j]
+          cachos[j] = temporal
+        }
+
+        console.log("Número de cachos:",cachos.length)
+
+        temporizador = setTimeout(bucle,1000)
+      }
+      
+      function bucle(){
+
+        if(actual < cachos.length){
+
+          let cacho = cachos[actual]
+
+          procesaCacho(
+            cacho.x,
+            cacho.y
+          )
+
+          actual++
+
+          temporizador = setTimeout(bucle,10)
+        }
+      }
+      
+      function procesaCacho(x,y){
+
+        let cacho = contexto.getImageData(
+          x,
+          y,
+          anchocacho,
+          anchocacho
+        )
+
+        let datos = cacho.data
+
+        for(let i = 0;i < datos.length;i += 4){
+          datos[i] = 255-datos[i]
+          datos[i+1] = 255-datos[i+1]
+          datos[i+2] = 255-datos[i+2]
+        }
+
+        contexto.putImageData(cacho,x,y)
+      }
+    </script>
+  </body>
+</html>

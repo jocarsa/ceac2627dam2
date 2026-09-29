@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <head>
+  </head>
+  <body>
+    <canvas id="lienzo" width=2048 height=2048></canvas>
+    <script>
+      const lienzo = document.querySelector("#lienzo")
+      const contexto = lienzo.getContext("2d")
+      
+      let imagen = new Image();
+      imagen.src = "josevicenterecortado.jpg"
+      
+      let trabajador = new Worker("006-trabajador.js")
+      
+      imagen.onload = function(){
+      	contexto.drawImage(imagen,0,0,2048,2048)
+        let cacho = contexto.getImageData(0,0,256,256);
+        console.log(cacho)
+        let datos = cacho.data;
+        // Le envio los datos al trabajador
+        trabajador.postMessage(cacho.data)
+        // Que ocurre cuando el trabajador me responde
+        trabajador.onmessage = function(datos){
+        	console.log(datos.data)
+        }
+        contexto.putImageData(cacho,0,0)
+      }
+    </script>
+  </body>
+</html>

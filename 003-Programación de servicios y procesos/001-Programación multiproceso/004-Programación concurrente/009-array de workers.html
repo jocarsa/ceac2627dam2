@@ -1,0 +1,153 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    html,body{
+      margin:0;
+      padding:0;
+      overflow:hidden;
+    }
+
+    canvas{
+      display:block;
+    }
+  </style>
+</head>
+<body>
+
+<canvas></canvas>
+
+<script>
+
+const lienzo = document.querySelector("canvas");
+const contexto = lienzo.getContext("2d");
+
+const anchura = window.innerWidth;
+const altura = window.innerHeight;
+
+lienzo.width = anchura;
+lienzo.height = altura;
+
+const numerobichitos = 5000000;
+const numeroworkers = 12;
+
+let trabajadores = [];
+
+
+// Crear los bichitos
+
+let bichitos = [];
+
+for(let i = 0; i < numerobichitos; i++){
+
+  bichitos.push({
+    x: Math.random() * anchura,
+    y: Math.random() * altura,
+
+    r: Math.floor(Math.random() * 256),
+    g: Math.floor(Math.random() * 256),
+    b: Math.floor(Math.random() * 256),
+
+    anchura: Math.random() * 3 + 1
+  });
+
+}
+
+
+// División REALMENTE equilibrada
+
+let base = Math.floor(numerobichitos / numeroworkers);
+let resto = numerobichitos % numeroworkers;
+
+let posicion = 0;
+
+
+for(let i = 0; i < numeroworkers; i++){
+
+  let cantidad = base;
+
+  if(i < resto){
+    cantidad++;
+  }
+
+  let lote = bichitos.slice(
+    posicion,
+    posicion + cantidad
+  );
+
+  posicion += cantidad;
+
+
+  let trabajador = new Worker("workerbichitos.js");
+
+
+  trabajador.onmessage = function(evento){
+
+    let lote = evento.data;
+
+
+    // Pintamos
+
+    for(let i = 0; i < lote.length; i++){
+
+      let b = lote[i];
+
+      contexto.fillStyle =
+        "rgb(" +
+        b.r + "," +
+        b.g + "," +
+        b.b +
+        ")";
+
+      contexto.fillRect(
+        b.x,
+        b.y,
+        b.anchura,
+        b.anchura
+      );
+
+    }
+
+
+    /*
+      IMPORTANTE
+
+      Solo cuando hemos terminado
+      de procesar este lote,
+      permitimos al worker continuar.
+    */
+
+    trabajador.postMessage({
+      tipo: "continuar"
+    });
+
+  };
+
+
+  trabajador.postMessage({
+
+    tipo: "iniciar",
+
+    bichitos: lote,
+
+    anchura: anchura,
+    altura: altura
+
+  });
+
+
+  trabajadores.push(trabajador);
+
+}
+
+
+// Liberamos el array original.
+// Los workers ya tienen sus copias.
+
+bichitos = null;
+
+</script>
+
+</body>
+</html>

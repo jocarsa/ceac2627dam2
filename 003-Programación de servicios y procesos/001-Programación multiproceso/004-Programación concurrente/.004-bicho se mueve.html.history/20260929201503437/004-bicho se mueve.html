@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+  <head>
+  </head>
+  <body>
+    <canvas></canvas>
+    <script>
+      const lienzo = document.querySelector("canvas");
+      const contexto = lienzo.getContext("2d");
+      
+      let anchura = window.innerWidth;
+      let altura = window.innerHeight;
+      
+      // Ahora le doy al lienzo la misma anchura y altura que la ventana
+      lienzo.width = anchura
+      lienzo.height = altura
+      
+      let bichox = 400;
+      let bichoy = 400;
+      contexto.fillRect(bichox,bichoy,4,4)
+      
+      let temporizador = setTimeout("bucle()",1000)
+      
+      function bucle(){
+        // Muevete un poquito
+        bichox += (Math.random()-0.5)*10
+        bichoy += (Math.random()-0.5)*10
+        contexto.fillRect(bichox,bichoy,4,4)
+        
+      	clearTimeout(temporizador)
+        temporizador = setTimeout("bucle()",100)
+      }
+    </script>
+ 	</body>
+</html>

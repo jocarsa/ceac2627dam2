@@ -1,0 +1,232 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+      body{
+        font-family:Arial;
+        background:#222;
+        color:white;
+      }
+
+      canvas{
+        width:700px;
+        height:700px;
+        object-fit:contain;
+        border:1px solid #555;
+      }
+
+      #controles{
+        padding:10px;
+        margin-bottom:10px;
+        background:#333;
+      }
+
+      select,button,input{
+        padding:8px;
+        margin-right:5px;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div id="controles">
+
+      <select id="filtro">
+        <option value="gaussian">Gaussian Blur</option>
+        <option value="negativo">Negativo</option>
+        <option value="grises">Escala de grises</option>
+        <option value="sepia">Sepia</option>
+        <option value="brillo">Brillo</option>
+        <option value="contraste">Contraste</option>
+        <option value="posterizar">Posterizar</option>
+        <option value="pixelar">Pixelar</option>
+        <option value="bordes">Detección de bordes</option>
+      </select>
+
+      <button id="procesar">Procesar</button>
+      <button id="restaurar">Restaurar</button>
+
+    </div>
+
+    <canvas id="lienzo" width="2048" height="2048"></canvas>
+
+    <script>
+
+      const lienzo = document.querySelector("#lienzo")
+      const contexto = lienzo.getContext("2d")
+
+      const NUM_WORKERS = 12
+      const anchocacho = 256
+
+      let imagen = new Image()
+      imagen.src = "josevicenterecortado.jpg"
+
+      let trabajadores = []
+      let buckets = []
+
+      // -----------------------------
+      // CREACIÓN DE WORKERS
+      // -----------------------------
+
+      for(let i = 0;i < NUM_WORKERS;i++){
+
+        let trabajador = new Worker("008-trabajador.js")
+
+        trabajador.onmessage = function(datos){
+
+          let x = datos.data.x
+          let y = datos.data.y
+          let pixeles = datos.data.pixeles
+
+          let cacho = contexto.createImageData(
+            datos.data.ancho,
+            datos.data.alto
+          )
+
+          cacho.data.set(pixeles)
+
+          contexto.putImageData(
+            cacho,
+            x,
+            y
+          )
+
+          procesaSiguiente(trabajador)
+        }
+
+        trabajadores.push(trabajador)
+      }
+
+
+      // -----------------------------
+      // CARGAR IMAGEN
+      // -----------------------------
+
+      imagen.onload = function(){
+
+        contexto.drawImage(
+          imagen,
+          0,
+          0,
+          lienzo.width,
+          lienzo.height
+        )
+      }
+
+
+      // -----------------------------
+      // BOTÓN PROCESAR
+      // -----------------------------
+
+      document.querySelector("#procesar").onclick = function(){
+
+        buckets = []
+
+        // Genero todos los buckets
+        for(let y = 0;y < lienzo.height;y += anchocacho){
+
+          for(let x = 0;x < lienzo.width;x += anchocacho){
+
+            buckets.push({
+              x:x,
+              y:y
+            })
+
+          }
+
+        }
+
+        console.log("Buckets:",buckets.length)
+        console.log("Workers:",trabajadores.length)
+
+        // Arranco los workers
+        for(let i = 0;i < trabajadores.length;i++){
+
+          procesaSiguiente(
+            trabajadores[i]
+          )
+
+        }
+
+      }
+
+
+      // -----------------------------
+      // RESTAURAR
+      // -----------------------------
+
+      document.querySelector("#restaurar").onclick = function(){
+
+        contexto.clearRect(
+          0,
+          0,
+          lienzo.width,
+          lienzo.height
+        )
+
+        contexto.drawImage(
+          imagen,
+          0,
+          0,
+          lienzo.width,
+          lienzo.height
+        )
+
+      }
+
+
+      // -----------------------------
+      // PROCESAR SIGUIENTE BUCKET
+      // -----------------------------
+
+      function procesaSiguiente(trabajador){
+
+        if(buckets.length == 0){
+          return
+        }
+
+        let bucket = buckets.shift()
+
+        let x = bucket.x
+        let y = bucket.y
+
+        let ancho = Math.min(
+          anchocacho,
+          lienzo.width-x
+        )
+
+        let alto = Math.min(
+          anchocacho,
+          lienzo.height-y
+        )
+
+        let cacho = contexto.getImageData(
+          x,
+          y,
+          ancho,
+          alto
+        )
+
+        let filtro = document.querySelector("#filtro").value
+
+        trabajador.postMessage({
+
+          x:x,
+          y:y,
+
+          ancho:ancho,
+          alto:alto,
+
+          filtro:filtro,
+
+          pixeles:cacho.data
+
+        })
+
+      }
+
+    </script>
+
+  </body>
+</html>

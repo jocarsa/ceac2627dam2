@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+  <head>
+  </head>
+  <body>
+    <canvas></canvas>
+    <script>
+     	
+      const lienzo = document.querySelector("canvas");
+      const contexto = lienzo.getContext("2d");
+      
+      let anchura = window.innerWidth;
+      let altura = window.innerHeight;
+      
+      class Bichito{
+      	constructor(x,y){
+        	this.x = x
+          this.y = y
+        }
+      }
+      
+      let numerobichitos = 500
+      let bichitos = []
+      
+      for(let i = 0;i<numerobichitos;i++){
+      	bichitos.push(new Bichito(Math.random()*anchura,Math.random()*altura))
+      }
+      
+      
+      
+      // Ahora le doy al lienzo la misma anchura y altura que la ventana
+      lienzo.width = anchura
+      lienzo.height = altura
+      
+      let bichox = 400;
+      let bichoy = 400;
+      contexto.fillRect(bichox,bichoy,4,4)
+      
+      let temporizador = setTimeout("bucle()",1000)
+      
+      function bucle(){
+        // Muevete un poquito
+       	for(let i = 0;i<numerobichitos;i++){
+          bichitos[i].x += (Math.random()-0.5)*10
+          bichitos[i].y += (Math.random()-0.5)*10
+        	contexto.fillRect(bichitos[i].x,bichitos[i].y,4,4)
+        }
+        
+      	clearTimeout(temporizador)
+        temporizador = setTimeout("bucle()",0)
+      }
+    </script>
+ 	</body>
+</html>

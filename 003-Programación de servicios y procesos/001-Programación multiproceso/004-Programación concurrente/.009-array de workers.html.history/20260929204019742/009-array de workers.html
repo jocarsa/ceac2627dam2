@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    canvas {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+
+<canvas></canvas>
+
+<script>
+
+const lienzo = document.querySelector("canvas");
+const contexto = lienzo.getContext("2d");
+
+let anchura = window.innerWidth;
+let altura = window.innerHeight;
+
+lienzo.width = anchura;
+lienzo.height = altura;
+
+
+class Bichito {
+
+  constructor(x,y,r,g,b,anchura){
+
+    this.x = x;
+    this.y = y;
+
+    this.r = r;
+    this.g = g;
+    this.b = b;
+
+    this.anchura = anchura;
+
+  }
+
+}
+
+
+let numerobichitos = 500;
+let numeroworkers = 12;
+
+let bichitos = [];
+
+
+// Crear bichitos
+
+for(let i = 0; i < numerobichitos; i++){
+
+  bichitos.push(
+
+    new Bichito(
+
+      Math.random() * anchura,
+      Math.random() * altura,
+
+      Math.round(Math.random() * 255),
+      Math.round(Math.random() * 255),
+      Math.round(Math.random() * 255),
+
+      Math.random() * 3 + 1
+
+    )
+
+  );
+
+}
+
+
+// Array de workers
+
+let trabajadores = [];
+
+
+// Cantidad aproximada por worker
+
+let bichitosPorWorker =
+  Math.ceil(numerobichitos / numeroworkers);
+
+
+for(let i = 0; i < numeroworkers; i++){
+
+  let trabajador =
+    new Worker("workerbichitos.js");
+
+
+  // Calculo qué parte del array le corresponde
+
+  let inicio =
+    i * bichitosPorWorker;
+
+  let fin =
+    Math.min(
+      inicio + bichitosPorWorker,
+      numerobichitos
+    );
+
+
+  let lote =
+    bichitos.slice(inicio, fin);
+
+
+  // Enviar sus bichitos al worker
+
+  trabajador.postMessage({
+
+    tipo: "iniciar",
+
+    bichitos: lote,
+
+    anchura: anchura,
+    altura: altura
+
+  });
+
+
+  // Cuando el worker devuelve posiciones
+
+  trabajador.onmessage = function(evento){
+
+    let bichitosWorker =
+      evento.data;
+
+
+    for(let bichito of bichitosWorker){
+
+      contexto.fillStyle =
+        "rgb(" +
+        bichito.r + "," +
+        bichito.g + "," +
+        bichito.b + ")";
+
+
+      contexto.fillRect(
+
+        bichito.x,
+        bichito.y,
+
+        bichito.anchura,
+        bichito.anchura
+
+      );
+
+    }
+
+  };
+
+
+  trabajadores.push(trabajador);
+
+}
+
+</script>
+
+</body>
+</html>

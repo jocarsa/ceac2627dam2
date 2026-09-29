@@ -1,0 +1,483 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<style>
+html,body{
+    margin:0;
+    padding:0;
+    overflow:hidden;
+    background:#111;
+}
+
+canvas{
+    display:block;
+}
+</style>
+
+</head>
+
+<body>
+
+<canvas></canvas>
+
+<script>
+
+const lienzo = document.querySelector("canvas");
+const contexto = lienzo.getContext("2d");
+
+const anchura = window.innerWidth;
+const altura = window.innerHeight;
+
+lienzo.width = anchura;
+lienzo.height = altura;
+
+
+const NUMERO_BICHITOS = 500;
+const NUMERO_WORKERS = 12;
+
+
+// ========================================
+// CREAR BICHITOS
+// ========================================
+
+let bichitos = [];
+
+for(let i = 0; i < NUMERO_BICHITOS; i++){
+
+    let radio = 3 + Math.random()*4;
+
+    bichitos.push({
+
+        x:
+            radio +
+            Math.random()*(anchura-radio*2),
+
+        y:
+            radio +
+            Math.random()*(altura-radio*2),
+
+        r: Math.floor(Math.random()*256),
+        g: Math.floor(Math.random()*256),
+        b: Math.floor(Math.random()*256),
+
+        radio: radio,
+
+        angulo:
+            Math.random()*Math.PI*2,
+
+        velocidad:
+            1 + Math.random()*2
+
+    });
+
+}
+
+
+// ========================================
+// CREAR WORKERS
+// ========================================
+
+let workers = [];
+
+let terminados = 0;
+
+let resultados = [];
+
+
+for(let i = 0; i < NUMERO_WORKERS; i++){
+
+    let worker =
+        new Worker("workerbichitos.js");
+
+    worker.onmessage = function(evento){
+
+        resultados.push(
+            evento.data
+        );
+
+        terminados++;
+
+        if(
+            terminados === NUMERO_WORKERS
+        ){
+
+            reconstruir();
+
+            resolverColisiones();
+
+            pintar();
+
+            requestAnimationFrame(
+                siguienteFrame
+            );
+
+        }
+
+    };
+
+    workers.push(worker);
+
+}
+
+
+
+// ========================================
+// SIGUIENTE FRAME
+// ========================================
+
+function siguienteFrame(){
+
+    terminados = 0;
+    resultados = [];
+
+
+    let cantidad =
+        Math.ceil(
+            NUMERO_BICHITOS /
+            NUMERO_WORKERS
+        );
+
+
+    for(
+        let i = 0;
+        i < NUMERO_WORKERS;
+        i++
+    ){
+
+        let inicio =
+            i*cantidad;
+
+        let fin =
+            Math.min(
+                inicio+cantidad,
+                NUMERO_BICHITOS
+            );
+
+
+        workers[i].postMessage({
+
+            bichitos:bichitos,
+
+            inicio:inicio,
+            fin:fin,
+
+            anchura:anchura,
+            altura:altura
+
+        });
+
+    }
+
+}
+
+
+
+// ========================================
+// RECONSTRUIR ESTADO
+// ========================================
+
+function reconstruir(){
+
+    for(
+        let r = 0;
+        r < resultados.length;
+        r++
+    ){
+
+        let resultado =
+            resultados[r];
+
+        let inicio =
+            resultado.inicio;
+
+        let datos =
+            resultado.bichitos;
+
+
+        for(
+            let i = 0;
+            i < datos.length;
+            i++
+        ){
+
+            bichitos[inicio+i] =
+                datos[i];
+
+        }
+
+    }
+
+}
+
+
+
+// ========================================
+// COLISIONES ENTRE TODOS
+// ========================================
+
+function resolverColisiones(){
+
+    for(
+        let i = 0;
+        i < bichitos.length;
+        i++
+    ){
+
+        for(
+            let j = i+1;
+            j < bichitos.length;
+            j++
+        ){
+
+            comprobarColision(
+                bichitos[i],
+                bichitos[j]
+            );
+
+        }
+
+    }
+
+}
+
+
+
+// ========================================
+// COLISIÓN ENTRE DOS BICHITOS
+// ========================================
+
+function comprobarColision(a,b){
+
+    let dx =
+        b.x-a.x;
+
+    let dy =
+        b.y-a.y;
+
+
+    let distancia2 =
+        dx*dx +
+        dy*dy;
+
+
+    let distanciaMinima =
+        a.radio+b.radio;
+
+
+    if(
+        distancia2 >=
+        distanciaMinima*
+        distanciaMinima
+    ){
+        return;
+    }
+
+
+    let distancia =
+        Math.sqrt(distancia2);
+
+
+    if(distancia === 0){
+
+        distancia = 0.001;
+
+        dx = 0.001;
+        dy = 0;
+
+    }
+
+
+    // Vector normal
+
+    let nx =
+        dx/distancia;
+
+    let ny =
+        dy/distancia;
+
+
+
+    // ==================================
+    // SEPARARLOS
+    // ==================================
+
+    let solapamiento =
+        distanciaMinima -
+        distancia;
+
+
+    a.x -=
+        nx*solapamiento/2;
+
+    a.y -=
+        ny*solapamiento/2;
+
+
+    b.x +=
+        nx*solapamiento/2;
+
+    b.y +=
+        ny*solapamiento/2;
+
+
+
+    // ==================================
+    // VELOCIDADES
+    // ==================================
+
+    let avx =
+        Math.cos(a.angulo) *
+        a.velocidad;
+
+    let avy =
+        Math.sin(a.angulo) *
+        a.velocidad;
+
+
+    let bvx =
+        Math.cos(b.angulo) *
+        b.velocidad;
+
+    let bvy =
+        Math.sin(b.angulo) *
+        b.velocidad;
+
+
+
+    // ==================================
+    // VELOCIDAD RELATIVA
+    // ==================================
+
+    let rvx =
+        avx-bvx;
+
+    let rvy =
+        avy-bvy;
+
+
+    let velocidadNormal =
+        rvx*nx +
+        rvy*ny;
+
+
+    // Ya se están separando
+
+    if(
+        velocidadNormal <= 0
+    ){
+        return;
+    }
+
+
+
+    // ==================================
+    // COLISIÓN ELÁSTICA
+    // ==================================
+
+    avx -=
+        velocidadNormal*nx;
+
+    avy -=
+        velocidadNormal*ny;
+
+
+    bvx +=
+        velocidadNormal*nx;
+
+    bvy +=
+        velocidadNormal*ny;
+
+
+
+    // ==================================
+    // VOLVER A ANGULO
+    // ==================================
+
+    a.angulo =
+        Math.atan2(
+            avy,
+            avx
+        );
+
+    b.angulo =
+        Math.atan2(
+            bvy,
+            bvx
+        );
+
+
+    a.velocidad =
+        Math.sqrt(
+            avx*avx +
+            avy*avy
+        );
+
+    b.velocidad =
+        Math.sqrt(
+            bvx*bvx +
+            bvy*bvy
+        );
+
+}
+
+
+
+// ========================================
+// PINTAR
+// ========================================
+
+function pintar(){
+
+    contexto.clearRect(
+        0,
+        0,
+        anchura,
+        altura
+    );
+
+
+    for(
+        let i = 0;
+        i < bichitos.length;
+        i++
+    ){
+
+        let b =
+            bichitos[i];
+
+
+        contexto.fillStyle =
+            "rgb("+
+            b.r+","+
+            b.g+","+
+            b.b+
+            ")";
+
+
+        contexto.beginPath();
+
+        contexto.arc(
+            b.x,
+            b.y,
+            b.radio,
+            0,
+            Math.PI*2
+        );
+
+        contexto.fill();
+
+    }
+
+}
+
+
+// Arrancar
+
+siguienteFrame();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1 @@
+Empezamos analizando otros sistemas ERP/CRM para coger ideas

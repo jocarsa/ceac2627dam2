@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+  <head>
+  </head>
+  <body>
+    <canvas id="lienzo" width="2048" height="2048"></canvas>
+
+    <script>
+      const lienzo = document.querySelector("#lienzo")
+      const contexto = lienzo.getContext("2d")
+
+      // Parámetros
+      const NUM_WORKERS = 12
+      const anchocacho = 256
+
+      let imagen = new Image()
+      imagen.src = "josevicenterecortado.jpg"
+
+      // Array de workers
+      let trabajadores = []
+
+      // Cola de cachos pendientes
+      let buckets = []
+
+      // Creo los workers
+      for(let i = 0;i<NUM_WORKERS;i++){
+        let trabajador = new Worker("007-trabajador.js")
+
+        trabajador.onmessage = function(datos){
+
+          // Recupero posición y píxeles
+          let x = datos.data.x
+          let y = datos.data.y
+          let pixeles = datos.data.pixeles
+
+          // Creo el ImageData
+          let cacho = contexto.createImageData(
+            datos.data.ancho,
+            datos.data.alto
+          )
+
+          cacho.data.set(pixeles)
+
+          // Lo pongo en el canvas
+          contexto.putImageData(cacho,x,y)
+
+          // Este worker ha terminado
+          // Le doy otro bucket
+          procesaSiguiente(trabajador)
+        }
+
+        trabajadores.push(trabajador)
+      }
+
+      imagen.onload = function(){
+
+        contexto.drawImage(imagen,0,0,2048,2048)
+
+        // Creo todos los buckets
+        for(let y = 0;y < lienzo.height;y += anchocacho){
+          for(let x = 0;x < lienzo.width;x += anchocacho){
+
+            buckets.push({
+              x:x,
+              y:y
+            })
+
+          }
+        }
+
+        console.log("Número de buckets:",buckets.length)
+        console.log("Número de workers:",NUM_WORKERS)
+
+        // Arranco los 12 workers
+        for(let i = 0;i<trabajadores.length;i++){
+          procesaSiguiente(trabajadores[i])
+        }
+      }
+
+
+      function procesaSiguiente(trabajador){
+
+        // Si no quedan buckets termino
+        if(buckets.length == 0){
+          return
+        }
+
+        // Saco el siguiente bucket
+        let bucket = buckets.shift()
+
+        let x = bucket.x
+        let y = bucket.y
+
+        // Tamaño real del cacho
+        let ancho = Math.min(anchocacho,lienzo.width-x)
+        let alto = Math.min(anchocacho,lienzo.height-y)
+
+        // Obtengo los píxeles
+        let cacho = contexto.getImageData(
+          x,
+          y,
+          ancho,
+          alto
+        )
+
+        // Se lo envío al worker
+        trabajador.postMessage({
+          x:x,
+          y:y,
+          ancho:ancho,
+          alto:alto,
+          pixeles:cacho.data
+        })
+      }
+
+    </script>
+  </body>
+</html>
