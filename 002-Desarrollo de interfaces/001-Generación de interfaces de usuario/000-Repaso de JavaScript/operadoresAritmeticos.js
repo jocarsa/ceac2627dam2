@@ -18,3 +18,9 @@ if (numero % 2 === 0) {
     console.log("El número es impar");
 
 }
+
+if (null === undefined){
+    console.log("Verdadero")
+} else {
+    console.log("Falso")
+}

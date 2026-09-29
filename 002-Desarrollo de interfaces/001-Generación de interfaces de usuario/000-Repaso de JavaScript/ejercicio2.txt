@@ -1,0 +1,55 @@
+Crea un programa de gestión de un catálogo de productos
+
+Cada producto tiene los siguientes datos:
+	- nombre
+	- precio
+	- stock
+	- disponible
+
+const productos = [
+    {
+        nombre: "Teclado mecánico",
+        precio: 79.99,
+        stock: 5,
+        disponible: true
+    },
+    {
+        nombre: "Ratón inalámbrico",
+        precio: 39.99,
+        stock: 0,
+        disponible: false
+    },
+    {
+        nombre: "Monitor 24 pulgadas",
+        precio: 159.99,
+        stock: 8,
+        disponible: true
+    }
+];
+
+Crea un array que contenga varios productos
+
+Crea una función mostrarProducto() que reciba un producto y muestre toda su información
+
+Recorre el array de productos utilizando forEach() y utiliza la función mostrarProducto() para mostrar todos los productos
+
+Crea un nuevo producto y añádelo al catálogo utilizando push()
+
+Crea una función contarProductosDisponibles() que recorra el catálogo y devuelva cuántos productos están disponibles. Muestra el número total de productos que hay actualmente en el catálogo.
+
+Crea una función calcularValorStock() que calcule el valor total de todos los productos almacenados. Para cada producto se deberá tener en cuenta:
+	precio * stock
+
+Simula la venta de una unidad de uno de los productos:
+	- Comprueba que tenga stock disponible
+	- Resta una unidad a su stock
+	- Si el stock llega a 0, modifica disponible a false
+
+Muestra al final toda la información actualizada del catálogo y un resumen que indique:
+	- Número total de productos
+	- Número de productos disponibles
+	- Valor total del stock
+
+Ampliación 1: añade un campo "oferta" a cada producto. Si el producto está en oferta, muestra su precio con un 20% de descuento
+
+Ampliación 2: Integra este código en una interfaz HTML para que el catálogo de productos se muestre directamente en la página en lugar de utilizar console.log()

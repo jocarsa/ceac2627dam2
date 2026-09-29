@@ -30,3 +30,5 @@ usuario.activo = false;
 
 
 console.log(usuario);
+
+console.log(usuario.fechaNacimiento);
