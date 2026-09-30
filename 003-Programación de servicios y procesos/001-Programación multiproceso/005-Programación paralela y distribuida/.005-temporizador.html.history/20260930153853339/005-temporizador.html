@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+  <head></head>
+  <body>
+    <p>Dime quien eres</p>
+    <button id="maestro">Maestro</button>
+    <button id="esclavo">Esclavo</button>
+    <div id="texto"></div>
+    <script>
+      let quiensoy;
+      let temporizador;
+      
+      function bucle(){
+      	fetch("datos.csv")
+        .then(function(resultado){return resultado.text()})
+        .then(function(datos){
+        	document.querySelector("#texto").textContent = datos
+        })
+        clearTimeout(temporizador)
+        temporizador = setTimeout("bucle()",1000)
+      }
+      
+      document.querySelector("#maestro").onclick = function(){
+      	quiensoy = "maestro";
+        document.querySelector("#texto").textContent = "Soy maestro"
+        temporizador = setTimeout("bucle()",1000)
+      }
+      
+      document.querySelector("#esclavo").onclick = function(){
+      	quiensoy = "esclavo";
+        document.querySelector("#texto").textContent = "Soy esclavo"
+        let numero = (Math.random()/100000000)+1;
+        let multiplicador = (Math.random()/100000000)+1;
+        for(let i = 0;i<10000000000;i++){
+        	numero *= multiplicador;
+        }
+        document.querySelector("#texto").textContent = numero;
+        fetch("recepcion.php", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify(numero)
+    })
+    .then(function(respuesta){
+        console.log("HTTP:", respuesta.status);
+        return respuesta.text();
+    })
+    .then(function(datos){
+        console.log("PHP responde:", datos);
+    })
+    .catch(function(error){
+        console.error("Error fetch:", error);
+    });
+        
+      }
+    </script>	
+  </body>
+</html>

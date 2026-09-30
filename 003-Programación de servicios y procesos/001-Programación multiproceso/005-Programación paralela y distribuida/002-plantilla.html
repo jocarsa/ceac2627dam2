@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+  <head></head>
+  <body>
+    <p>Dime quien eres</p>
+    <button id="maestro">Maestro</button>
+    <button id="esclavo">Esclavo</button>
+    <div id="texto"></div>
+    <script>
+      let quiensoy;
+      
+      document.querySelector("#maestro").onclick = function(){
+      	quiensoy = "maestro";
+        document.querySelector("#texto").textContent = "Soy maestro"
+      }
+      
+      document.querySelector("#esclavo").onclick = function(){
+      	quiensoy = "esclavo";
+        document.querySelector("#texto").textContent = "Soy esclavo"
+      }
+    </script>	
+  </body>
+</html>

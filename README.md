@@ -219,263 +219,36 @@
         - Sensores
         - Posicionamiento. Localización. Mapas
 - Proyecto Intermodular II
-    -Diseño de interfaces web
-        - Planificación de interfaces gráficas:
-            - Elementos del diseño: percepción visual.
-            - Color, tipografía, iconos.
-            - Interacción persona-ordenador.
-            - Interpretación de guías de estilo. Elementos.
-            - Generación de documentos y sitios web.
-            - Componentes de una interfaz web.
-            - Tecnologías para el diseño de documentos web.
-            - Mapa de navegación. Prototipos.
-            - Maquetación web. Elementos de ordenación.
-            - Plantilla de diseño.
-        - Uso de estilos:
-            - Estilos en línea basados en etiquetas y en clases.
-            - Crear y vincular hojas de estilo.
-            - Crear y vincular hojas de estilo en cascada externa.
-            - Herramientas y test de verificación.
-            - Tecnologías y frameworks.
-            - Preprocesadores de estilos. Variables, mixins y funciones.
-        - Implantación de contenido multimedia:
-            - Tipos de Imágenes en la web.
-            - Derechos de la propiedad intelectual. Licencias. Ley de la propiedad intelectual. Derechos de autor.
-            - Imágenes. Software para crear y procesar imágenes. Formatos. Conversiones (exportar e importar).
-            - Optimización de imágenes para la web.
-            - Audio: formatos. Conversiones de formatos (exportar e importar).
-            - Vídeo: codificación de vídeo, conversiones de formatos (exportar e importar).
-            - Animaciones.
-            - Integración de audio y vídeo en una animación.
-        - Integración de contenido interactivo:
-            - Elementos interactivos.
-            - Comportamientos interactivos. Comportamiento de los elementos.
-            - Ejecución de secuencias de comandos.
-            - Verificación del funcionamiento en distintos navegadores y dispositivos.
-        - Diseño de webs accesibles:
-            - El Consorcio World Wide Web (W3C).
-            - Principios y Pautas de Accesibilidad al Contenido en la Web (WCAG).
-            - Criterios de conformidad. Niveles de conformidad.
-            - Técnicas para satisfacer los requisitos definidos en las WCAG.
-            - Prioridades. Puntos de verificación.
-            - Métodos para realizar revisiones preliminares y evaluaciones de adecuación o conformidad de documentos web.
-            - Herramientas de análisis de accesibilidad web.
-            - Chequeo de la accesibilidad web desde diferentes navegadores y dispositivos.
-            - Posicionamiento en buscadores. Mejora de la visibilidad de un sitio web en diferentes buscadores.
-        - Implementación de la usabilidad en la web. Diseño amigable:
-            - Análisis de la usabilidad. Técnicas.
-            - Identificación del objetivo de la web.
-            - Tipos de usuario.
-            - Barreras identificadas por los usuarios.
-            - Información fácilmente accesible.
-            - Velocidad de conexión.
-            - Importancia del uso de estándares externos.
-            - Navegación fácilmente recordada frente a navegación redescubierta.
-            - Facilidad de navegación en la web.
-            - Verificación de la usabilidad en diferentes navegadores y tecnologías.
-            - Herramientas y test de verificación.
-    - Desarrollo web en entorno cliente
-        - Selección de arquitecturas y tecnologías de programación:
-            - Mecanismos de ejecución de código en un navegador web.
-            - Capacidades y limitaciones de ejecución.
-            - Lenguajes de programación en entorno cliente.
-            - Tecnologías y lenguajes asociados.
-            - Integración del código con las etiquetas HTML.
-            - Herramientas de programación y prueba sobre clientes web. Librerías y frameworks.
-        - Manejo de la sintaxis del lenguaje:
-            - Variables.
-            - Tipos de datos. Conversiones.
-            - Asignaciones.
-            - Operadores.
-            - Comentarios al código.
-            - Sentencias.
-            - Decisiones.
-            - Bucles.
-            - Prueba y documentación del código.
-        - Utilización de los objetos predefinidos del lenguaje:
-            - Utilización de objetos. Objetos nativos del lenguaje.
-            - Interacción con el navegador. Objetos predefinidos asociados.
-            - Generación de texto y elementos HTML desde código.
-            - Gestión de la apariencia de la ventana.
-            - Creación de nuevas ventanas. Comunicación entre ventanas.
-            - Interacción con el usuario.
-            - Mecanismos del navegador para el almacenamiento y recuperación de información.
-            - Depuración y documentación del código.
-        - Programación con colecciones, funciones y objetos definidos por el usuario:
-            - Funciones predefinidas del lenguaje.
-            - Llamadas a funciones. Definición de funciones.
-            - Matrices (arrays).
-            - Operaciones agregadas: filtrado, reducción y recolección.
-            - Creación de objetos.
-            - Definición de métodos y propiedades.
-            - Patrones de diseño.
-            - Depuración y documentación del código.
-        - Interacción con el usuario: eventos y formularios:
-            - Gestión de eventos. Tipos.
-            - Utilización de formularios desde código.
-            - Modificación de apariencia y comportamiento.
-            - Validación y envío.
-            - Expresiones regulares.
-            - Prueba y documentación del código.
-        - Utilización del modelo de objetos del documento (DOM):
-            - – El modelo de objetos del documento (DOM).
-            - Objetos del modelo. Propiedades y métodos.
-            - Acceso al documento desde código.
-            - Programación de eventos.
-            - Diferencias en las implementaciones del modelo.
-            - Independencia de las capas de implementación de aplicaciones web.
-        - Utilización de mecanismos de comunicación asíncrona:
-            - Mecanismos de comunicación asíncrona.
-            - Modificación dinámica del documento utilizando comunicación asíncrona.
-            - Formatos para el envío y recepción de información.
-            - Librerías y frameworks de actualización dinámica.
-            - Integración en diferentes navegadores.
-            - Prueba y documentación del código.
-    - Desarrollo web en entorno servidor
-        - Selección de arquitecturas y herramientas de programación:
-            - Modelos de ejecución de código en entornos cliente/servidor.
-            - Generación dinámica de páginas web.
-            - Lenguajes de programación y tecnologías asociadas en entorno servidor.
-            - Integración con los lenguajes de marcas.
-            - Integración con los servidores web.
-            - Herramientas y frameworks de programación. en entorno servidor.
-        - Inserción de código en páginas web:
-            - Tecnologías asociadas.
-            - Obtención del lenguaje de marcas para mostrar en el cliente.
-            - Etiquetas para inserción de código.
-            - Tipos de datos. Conversiones entre tipos de datos.
-            - Variables. Operadores. Ámbitos de utilización.
-        - Programación basada en lenguajes de marcas con código embebido:
-            - Tomas de decisión.
-            - Bucles.
-            - Matrices (arrays).
-            - Tipos de datos compuestos.
-            - Funciones.
-            - Recuperación y utilización de información proveniente del cliente web.
-            - Procesamiento de la información introducida en un formulario.
-            - Comentarios.
-        - Desarrollo de aplicaciones web utilizando código embebido:
-            - Mantenimiento del estado.
-            - Almacenamiento y recuperación de información en el cliente web.
-            - Seguridad: usuarios, perfiles, roles.
-            - Autentificación de usuarios.
-            - Pruebas y depuración.
-        - Generación dinámica de páginas web:
-            - Mecanismos de separación de la lógica de negocio. Frameworks web servidor.
-            - Controles de servidor.
-            - Mecanismos de generación dinámica de la interface web.
-            - Programación orientada a objetos. Patrones de diseño.
-            - Prueba y documentación del código.
-        - Utilización de técnicas de acceso a datos:
-            - Establecimiento de conexiones.
-            - Recuperación y edición de información.
-            - Utilización de conjuntos de resultados.
-            - Actualización y eliminación de información proveniente de una base de datos.
-            - Utilización de otros orígenes de datos.
-            - Prueba y documentación.
-        - Programación de servicios web:
-            - Tecnologías y protocolos implicados.
-            - Estándares y arquitecturas actuales. Formatos de intercambio de datos.
-            - Generación de un servicio web.
-            - Interface de un servicio web.
-            - Consumo de un servicio web. Herramientas de prueba.
-            - Frameworks de documentación.
-        - Generación dinámica de páginas web interactivas:
-            - Tecnologías y frameworks.
-            - Generación dinámica de páginas interactivas.
-            - Obtención remota de información.
-            - Modificación de la estructura y contenido de la página web.
-        - Desarrollo de aplicaciones web híbridas:
-            - Tecnologías y frameworks.
-            - Reutilización de código e información.
-            - Utilización de información proveniente de repositorios.
-            - Incorporación de funcionalidades específicas.
-            - Utilización de librerías de código relacionadas con Big Data e inteligencia de negocios. Extracción, proceso y análisis de datos provenientes de repositorios.
-            - Prueba, depuración y documentación.
-    - Despliegue en servidores
-        - Implantación de arquitecturas web:
-            - Arquitecturas web. Modelos.
-            - Servidores web y de aplicaciones. Instalación y configuración básica.
-            - Tecnologías de virtualización de servidores en la nube y en contenedores. Instalación y configuración básica.
-            - Estructura y recursos que componen una aplicación web.
-            - Documentación de los procesos realizados.
-        - Administración de servidores web:
-            - Configuración avanzada del servidor web.
-            - Módulos: instalación, configuración y uso.
-            - Hosts virtuales. Creación, configuración y utilización.
-            - Autenticación y control de acceso.
-            - El protocolo HTTPS.
-            - Certificados. Servidores de certificados.
-            - Documentación.
-            - Despliegue de aplicaciones sobre servidores web.
-            - Despliegue de servidores web mediante tecnologías de virtualización en la nube y en contenedores.
-            - Conjuntos de herramientas de gestión de logs. Instalación, configuración y utilización, para la ayuda a la toma de decisiones: Big Data.
-        - Administración de servidores de aplicaciones:
-            - Arquitectura y configuración básica del servidor de aplicaciones.
-            - Administrar aplicaciones web.
-            - Autenticación de usuarios. Dominios de seguridad para la autenticación.
-            - Administración de sesiones.
-            - Configurar el servidor de aplicaciones para cooperar con servidores web.
-            - Despliegue de aplicaciones en el servidor de aplicaciones.
-            - Seguridad en el servidor de aplicaciones.
-            - Documentación.
-            - Despliegue de servidores de aplicaciones mediante tecnologías de virtualización en la nube y en contenedores.
-        - Instalación y administración de servidores de transferencia de archivos:
-            - Configuración del servicio de transferencia de archivos. Permisos y cuotas.
-            - Tipos de usuarios y accesos al servicio.
-            - Modos de conexión del cliente.
-            - Protocolo seguro de transferencia de archivos.
-            - Utilización de comandos y de herramientas gráficas.
-            - Utilización del servicio de transferencia de archivos en el proceso de despliegue de la aplicación web.
-            - Documentación.
-            - Despliegue de servidores de transferencia de archivos mediante tecnologías de virtualización en la nube y en contenedores.
-        - Servicios de red implicados en el despliegue de una aplicación web:
-            - Resolutores de nombres. Proceso de resolución de un nombre de dominio.
-            - Parámetros de configuración y registros del servidor de nombres afectados en el despliegue.
-            - Servicio de directorios: características y funcionalidad.
-            - Archivos básicos de configuración.
-            - Autenticación de usuarios en el servicio de directorios.
-            - Adaptación de la configuración del servidor de directorios para el despliegue de la aplicación.
-            - Documentación.
-            - Despliegue de servidores de directorios mediante tecnologías de virtualización en la nube y en contenedores.
-        - Documentación, sistemas de control de versiones y de integración continua:
-            - Herramientas colaborativas para la generación de documentación. Instalación, configuración y USO.
-            - Creación y utilización de plantillas.
-            - Instalación, configuración y uso de sistemas de control de versiones.
-            - Operaciones avanzadas.
-            - Seguridad de los sistemas de control de versiones.
-            - Instalación, configuración y uso de sistemas de integración continua del código. Monitorización continua de las métricas de calidad de la aplicación.
-    - Proyecto
-        - Introduccion
-        - Análisis
-            - Recopilación de información
-            - Identificación y priorización de necesidades.
-            - Identificación de los aspectos que facilitan o dificultan el desarrollo de la posible intervención
-        - Diseño
-            - Definición o adaptación de la intervención
-            - Priorización y secuenciación de las acciones.
-            - La planificación de la intervención
-            - Determinación de recursos.
-            - Planificación de la evaluación
-            - Diseño de documentación
-            - Plan de atención al cliente
-        - Organizacion
-            - Detección de demandas y necesidades
-            - Programación
-            - Gestión
-            - Coordinación y supervisión de la intervención
-            - Elaboración de informes
-            - Seguimiento y control
-        - Actividades profesionales
-            - Áreas de sistemas y departamentos de informática en cualquier sector de actividad
-            - Sector de servicios tecnológicos y comunicaciones
-            - Área comercial con gestión de transacciones por Internet
-        - Lineas de actuación
-            - La ejecución de trabajos en equipo
-            - La autoevaluación del trabajo realizado
-            - La autonomía y la iniciativa
-            - El uso de las TIC
-        - Bibliografía
+    - Introduccion
+    - Análisis
+        - Recopilación de información
+        - Identificación y priorización de necesidades.
+        - Identificación de los aspectos que facilitan o dificultan el desarrollo de la posible intervención
+    - Diseño
+        - Definición o adaptación de la intervención
+        - Priorización y secuenciación de las acciones.
+        - La planificación de la intervención
+        - Determinación de recursos.
+        - Planificación de la evaluación
+        - Diseño de documentación
+        - Plan de atención al cliente
+    - Organizacion
+        - Detección de demandas y necesidades
+        - Programación
+        - Gestión
+        - Coordinación y supervisión de la intervención
+        - Elaboración de informes
+        - Seguimiento y control
+    - Actividades profesionales
+        - Áreas de sistemas y departamentos de informática en cualquier sector de actividad
+        - Sector de servicios tecnológicos y comunicaciones
+        - Área comercial con gestión de transacciones por Internet
+    - Lineas de actuación
+        - La ejecución de trabajos en equipo
+        - La autoevaluación del trabajo realizado
+        - La autonomía y la iniciativa
+        - El uso de las TIC
+    - Bibliografía
 - Sistemas de gestión empresarial
     - Identificación de sistemas ERP-CRM
         - Concepto de ERP
