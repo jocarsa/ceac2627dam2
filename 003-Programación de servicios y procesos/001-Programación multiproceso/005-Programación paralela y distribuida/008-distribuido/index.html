@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>Maestro / esclavo</title></head>
+<body>
+<p>Dime quién eres</p>
+<button id="maestro">Maestro</button>
+<button id="esclavo">Esclavo</button>
+<pre id="texto"></pre>
+<script>
+let temporizador;
+const texto = document.querySelector('#texto');
+
+function bucleMaestro(){
+    fetch('estado.php').then(r=>r.json()).then(datos=>{
+        texto.textContent = JSON.stringify(datos, null, 2);
+        clearTimeout(temporizador);
+        temporizador = setTimeout(bucleMaestro, 1000);
+    });
+}
+
+document.querySelector('#maestro').onclick = function(){
+    fetch('preparar.php?tamano=100').then(r=>r.json()).then(datos=>{
+        texto.textContent = 'Cola preparada\n' + JSON.stringify(datos, null, 2);
+        bucleMaestro();
+    });
+};
+
+document.querySelector('#esclavo').onclick = function(){
+    texto.textContent = 'Soy esclavo. Esperando trabajo...';
+    pedirTrabajo();
+};
+
+function pedirTrabajo(){
+    fetch('trabajo.php').then(r=>r.json()).then(trabajo=>{
+        if(trabajo.estado === 'sin_trabajo' || trabajo.estado === 'sin_cola'){
+            texto.textContent = 'Sin trabajo. Vuelvo a preguntar...';
+            clearTimeout(temporizador);
+            temporizador = setTimeout(pedirTrabajo, 1000);
+            return;
+        }
+
+        texto.textContent = 'Calculando paquete ' + trabajo.id + ' (' + trabajo.datos.length + ' sorteos)';
+        const frecuencias = {};
+        trabajo.datos.forEach(fila=>{
+            ['n1','n2','n3','n4','n5'].forEach(campo=>{
+                const n = parseInt(fila[campo]);
+                frecuencias[n] = (frecuencias[n] || 0) + 1;
+            });
+        });
+
+        fetch('recepcion.php', {
+            method:'POST',
+            headers:{'Content-Type':'application/json'},
+            body:JSON.stringify({id:trabajo.id, frecuencias:frecuencias})
+        })
+        .then(r=>r.json())
+        .then(res=>{
+            texto.textContent = 'Paquete ' + trabajo.id + ' enviado: ' + JSON.stringify(res);
+            setTimeout(pedirTrabajo, 100);
+        });
+    }).catch(()=>setTimeout(pedirTrabajo,1000));
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Maestro / Esclavos</title>
+<style>
+*{box-sizing:border-box}
+body{font-family:Arial,sans-serif;background:#eee;margin:0;padding:30px;color:#222}
+main{max-width:1000px;margin:auto;background:white;padding:30px;border-radius:10px}
+h1{margin-top:0}
+.botones{display:flex;gap:10px;margin-bottom:25px}
+button{border:0;background:indigo;color:white;padding:12px 20px;border-radius:5px;cursor:pointer}
+button.secundario{background:#555}
+button:disabled{opacity:.5;cursor:not-allowed}
+.panel{border:1px solid #ddd;padding:20px;border-radius:8px;margin-top:15px}
+.oculto{display:none}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
+.tarjeta{background:#f5f5f5;padding:15px;border-radius:6px}
+.numero{font-size:28px;font-weight:bold}
+label{display:block;margin:10px 0 5px}
+input{width:100%;padding:10px;border:1px solid #bbb;border-radius:4px}
+progress{width:100%;height:25px}
+pre{background:#111;color:#eee;padding:15px;border-radius:6px;overflow:auto;max-height:350px}
+#resultadoGlobal{font-size:22px;font-weight:bold;margin-top:15px}
+</style>
+</head>
+<body>
+<main>
+<h1>Computación distribuida</h1>
+<p>Selecciona el papel de este navegador.</p>
+
+<div class="botones">
+    <button id="maestro">Maestro</button>
+    <button id="esclavo">Esclavo</button>
+</div>
+
+<section id="panelMaestro" class="panel oculto">
+    <h2>Maestro</h2>
+
+    <label>Tamaño de cada paquete (filas del CSV)</label>
+    <input id="tamano" type="number" value="10" min="1">
+
+    <label>Iteraciones pesadas por paquete</label>
+    <input id="iteraciones" type="number" value="50000000" min="1000">
+
+    <div class="botones" style="margin-top:15px">
+        <button id="preparar">Preparar trabajo</button>
+        <button id="reiniciar" class="secundario">Reiniciar</button>
+    </div>
+
+    <div class="grid">
+        <div class="tarjeta">Paquetes<br><span class="numero" id="mTotal">0</span></div>
+        <div class="tarjeta">Pendientes<br><span class="numero" id="mPendientes">0</span></div>
+        <div class="tarjeta">Asignados<br><span class="numero" id="mAsignados">0</span></div>
+        <div class="tarjeta">Terminados<br><span class="numero" id="mTerminados">0</span></div>
+        <div class="tarjeta">Esclavos<br><span class="numero" id="mEsclavos">0</span></div>
+    </div>
+
+    <div id="resultadoGlobal"></div>
+    <pre id="estadoMaestro">Esperando...</pre>
+</section>
+
+<section id="panelEsclavo" class="panel oculto">
+    <h2>Esclavo</h2>
+    <p id="identidad"></p>
+
+    <div class="grid">
+        <div class="tarjeta">Paquete actual<br><span class="numero" id="ePaquete">-</span></div>
+        <div class="tarjeta">Terminados<br><span class="numero" id="eTerminados">0</span></div>
+        <div class="tarjeta">Tiempo último<br><span class="numero" id="eTiempo">-</span></div>
+    </div>
+
+    <p id="mensajeEsclavo">Esperando trabajo...</p>
+    <progress id="progreso" max="100" value="0"></progress>
+    <pre id="estadoEsclavo"></pre>
+</section>
+</main>
+
+<script>
+let temporizadorMaestro = null;
+let worker = null;
+let terminadosLocal = 0;
+
+const esclavoId =
+    "esclavo-" +
+    Date.now().toString(36) + "-" +
+    Math.random().toString(36).slice(2,10);
+
+document.querySelector("#maestro").onclick = function(){
+    document.querySelector("#panelMaestro").classList.remove("oculto");
+    document.querySelector("#panelEsclavo").classList.add("oculto");
+    if(worker){ worker.terminate(); worker = null; }
+    actualizarMaestro();
+};
+
+document.querySelector("#esclavo").onclick = function(){
+    document.querySelector("#panelMaestro").classList.add("oculto");
+    document.querySelector("#panelEsclavo").classList.remove("oculto");
+    clearTimeout(temporizadorMaestro);
+    document.querySelector("#identidad").textContent = "ID: " + esclavoId;
+    pedirTrabajo();
+};
+
+document.querySelector("#preparar").onclick = function(){
+    const tamano = parseInt(document.querySelector("#tamano").value);
+    const iteraciones = parseInt(document.querySelector("#iteraciones").value);
+
+    fetch("preparar.php",{
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({
+            tamano:tamano,
+            iteraciones:iteraciones
+        })
+    })
+    .then(r => r.json())
+    .then(datos => {
+        document.querySelector("#estadoMaestro").textContent =
+            JSON.stringify(datos,null,2);
+        actualizarMaestro();
+    });
+};
+
+document.querySelector("#reiniciar").onclick = function(){
+    fetch("reiniciar.php",{method:"POST"})
+    .then(r => r.json())
+    .then(datos => {
+        document.querySelector("#estadoMaestro").textContent =
+            JSON.stringify(datos,null,2);
+        actualizarMaestro();
+    });
+};
+
+function actualizarMaestro(){
+    fetch("estado.php")
+    .then(r => r.json())
+    .then(datos => {
+        document.querySelector("#mTotal").textContent = datos.total || 0;
+        document.querySelector("#mPendientes").textContent = datos.pendientes || 0;
+        document.querySelector("#mAsignados").textContent = datos.asignados || 0;
+        document.querySelector("#mTerminados").textContent = datos.terminados || 0;
+        document.querySelector("#mEsclavos").textContent = datos.esclavos || 0;
+
+        if(datos.numero_mas_frecuente !== null){
+            document.querySelector("#resultadoGlobal").textContent =
+                "Número más frecuente: " +
+                datos.numero_mas_frecuente +
+                " (" + datos.frecuencia_maxima + " apariciones)";
+        }else{
+            document.querySelector("#resultadoGlobal").textContent = "";
+        }
+
+        document.querySelector("#estadoMaestro").textContent =
+            JSON.stringify(datos.paquetes || [],null,2);
+    })
+    .catch(()=>{})
+    .finally(()=>{
+        clearTimeout(temporizadorMaestro);
+        temporizadorMaestro = setTimeout(actualizarMaestro,1000);
+    });
+}
+
+function pedirTrabajo(){
+    if(worker) return;
+
+    document.querySelector("#mensajeEsclavo").textContent =
+        "Solicitando paquete...";
+
+    fetch("trabajo.php",{
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({esclavo:esclavoId})
+    })
+    .then(r => r.json())
+    .then(trabajo => {
+        if(!trabajo.trabajo){
+            document.querySelector("#ePaquete").textContent = "-";
+            document.querySelector("#mensajeEsclavo").textContent =
+                trabajo.mensaje || "No hay trabajo pendiente.";
+            setTimeout(pedirTrabajo,2000);
+            return;
+        }
+
+        ejecutarTrabajo(trabajo);
+    })
+    .catch(error => {
+        document.querySelector("#mensajeEsclavo").textContent =
+            "Error de comunicación: " + error;
+        setTimeout(pedirTrabajo,3000);
+    });
+}
+
+function ejecutarTrabajo(trabajo){
+    document.querySelector("#ePaquete").textContent = trabajo.id;
+    document.querySelector("#progreso").value = 0;
+    document.querySelector("#mensajeEsclavo").textContent =
+        "Calculando paquete " + trabajo.id + "...";
+
+    const inicio = performance.now();
+
+    worker = new Worker("worker.js");
+
+    worker.onmessage = function(event){
+        const mensaje = event.data;
+
+        if(mensaje.tipo === "progreso"){
+            document.querySelector("#progreso").value = mensaje.valor;
+            return;
+        }
+
+        if(mensaje.tipo === "resultado"){
+            const segundos = (performance.now()-inicio)/1000;
+
+            document.querySelector("#eTiempo").textContent =
+                segundos.toFixed(2) + " s";
+
+            document.querySelector("#estadoEsclavo").textContent =
+                JSON.stringify(mensaje.resultado,null,2);
+
+            worker.terminate();
+            worker = null;
+
+            enviarResultado(
+                trabajo.id,
+                mensaje.resultado,
+                segundos
+            );
+        }
+    };
+
+    worker.onerror = function(error){
+        document.querySelector("#mensajeEsclavo").textContent =
+            "Error en Worker: " + error.message;
+        worker.terminate();
+        worker = null;
+        setTimeout(pedirTrabajo,3000);
+    };
+
+    worker.postMessage({
+        datos:trabajo.datos,
+        iteraciones:trabajo.iteraciones
+    });
+}
+
+function enviarResultado(id,resultado,segundos){
+    document.querySelector("#mensajeEsclavo").textContent =
+        "Enviando resultado...";
+
+    fetch("recepcion.php",{
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({
+            id:id,
+            esclavo:esclavoId,
+            resultado:resultado,
+            segundos:segundos
+        })
+    })
+    .then(r => r.json())
+    .then(respuesta => {
+        if(!respuesta.ok){
+            throw new Error(respuesta.error || "Resultado rechazado");
+        }
+
+        terminadosLocal++;
+        document.querySelector("#eTerminados").textContent =
+            terminadosLocal;
+
+        document.querySelector("#mensajeEsclavo").textContent =
+            "Paquete terminado. Buscando el siguiente...";
+
+        document.querySelector("#progreso").value = 100;
+
+        setTimeout(pedirTrabajo,300);
+    })
+    .catch(error => {
+        document.querySelector("#mensajeEsclavo").textContent =
+            "No se pudo entregar: " + error;
+        setTimeout(pedirTrabajo,3000);
+    });
+}
+</script>
+</body>
+</html>

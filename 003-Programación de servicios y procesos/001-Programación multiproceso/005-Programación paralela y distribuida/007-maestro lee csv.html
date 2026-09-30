@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+
+<script>
+
+fetch("euromillones.csv")
+.then(function(respuesta){
+    return respuesta.text();
+})
+.then(function(texto){
+
+    let lineas = texto.trim().split("\n");
+
+    // Primera línea = nombres de columnas
+    let cabeceras = lineas[0].split(",");
+
+    let datos = [];
+
+    for(let i = 1; i < lineas.length; i++){
+
+        let valores = lineas[i].split(",");
+
+        let objeto = {};
+
+        for(let j = 0; j < cabeceras.length; j++){
+            objeto[cabeceras[j].trim()] = valores[j]?.trim();
+        }
+
+        datos.push(objeto);
+    }
+
+    console.log(datos);
+
+});
+
+</script>
+
+</body>
+</html>
