@@ -1,0 +1,102 @@
+<style>
+  table{width:100%;}
+  table thead{background:indigo;color:white;}
+  table tbody tr:nth-child(odd){background:aliceblue;}
+  table td,table th{padding:10px;}
+</style>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellidos</th>
+      <th>Email</th>
+      <th>Teléfono</th>
+      <th>Ciudad</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Laura</td>
+      <td>Martínez García</td>
+      <td>laura.martinez@example.com</td>
+      <td>612 345 678</td>
+      <td>Valencia</td>
+    </tr>
+    <tr>
+      <td>Carlos</td>
+      <td>Sánchez López</td>
+      <td>carlos.sanchez@example.com</td>
+      <td>623 456 789</td>
+      <td>Madrid</td>
+    </tr>
+    <tr>
+      <td>Ana</td>
+      <td>Gómez Ruiz</td>
+      <td>ana.gomez@example.com</td>
+      <td>634 567 890</td>
+      <td>Alicante</td>
+    </tr>
+    <tr>
+      <td>David</td>
+      <td>Navarro Torres</td>
+      <td>david.navarro@example.com</td>
+      <td>645 678 901</td>
+      <td>Castellón</td>
+    </tr>
+    <tr>
+      <td>Marta</td>
+      <td>Romero Pérez</td>
+      <td>marta.romero@example.com</td>
+      <td>656 789 012</td>
+      <td>Sevilla</td>
+    </tr>
+    <tr>
+      <td>Javier</td>
+      <td>Ortega Molina</td>
+      <td>javier.ortega@example.com</td>
+      <td>667 890 123</td>
+      <td>Zaragoza</td>
+    </tr>
+    <tr>
+      <td>Lucía</td>
+      <td>Vidal Ferrer</td>
+      <td>lucia.vidal@example.com</td>
+      <td>678 901 234</td>
+      <td>Valencia</td>
+    </tr>
+    <tr>
+      <td>Sergio</td>
+      <td>Moreno Gil</td>
+      <td>sergio.moreno@example.com</td>
+      <td>689 012 345</td>
+      <td>Barcelona</td>
+    </tr>
+    <tr>
+      <td>Elena</td>
+      <td>Campos Soler</td>
+      <td>elena.campos@example.com</td>
+      <td>610 123 456</td>
+      <td>Murcia</td>
+    </tr>
+    <tr>
+      <td>Daniel</td>
+      <td>Ibáñez Costa</td>
+      <td>daniel.ibanez@example.com</td>
+      <td>621 234 567</td>
+      <td>Valencia</td>
+    </tr>
+  </tbody>
+</table>
+<script>
+  let cabeceras = document.querySelectorAll("th")
+  cabeceras.forEach(function(cabecera){
+  	cabecera.onclick = function(){
+    	console.log("Has hecho click en una cabecera")
+    }
+  })
+</script>
+
+
+
+

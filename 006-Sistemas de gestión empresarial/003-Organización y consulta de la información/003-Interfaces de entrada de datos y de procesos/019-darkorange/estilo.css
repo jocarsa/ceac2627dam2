@@ -1,0 +1,19 @@
+:root{--color_corporativo:#222;--margen_interior:20px;--borde:#e5e5e5;--fondo:#f6f6f6}
+*{box-sizing:border-box} html,body{padding:0;margin:0;font-family:Ubuntu,Arial,sans-serif;width:100%;height:100%;color:#222} body{display:flex;flex-direction:column;background:var(--fondo)}
+header{color:white;background:var(--color_corporativo);padding:18px 24px;box-shadow:0 2px 8px #0002} header h1{padding:0;margin:0;font-size:20px;font-weight:500}
+main{flex:1;display:flex;min-height:0} nav{width:180px;background:var(--color_corporativo);display:flex;flex-direction:column;padding:0 10px 20px;gap:6px;overflow:auto} #modulos{width:150px;padding-right:0;opacity:.92}
+nav a{background:#fff;color:var(--color_corporativo);text-decoration:none;padding:12px 14px;border-radius:4px;font-size:14px;transition:.15s} nav a:hover,nav a.activo{transform:translateX(3px);box-shadow:0 2px 8px #0002;font-weight:bold}
+section{flex:1;padding:28px;overflow:auto;background:white;margin:16px;border-radius:8px;box-shadow:0 2px 12px #0000000d}.barra{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}.barra h2{margin:2px 0 0;font-size:24px}.barra small{color:#888;font-weight:bold;letter-spacing:1px}
+button{border:0;background:var(--color_corporativo);color:white;padding:10px 14px;border-radius:4px;cursor:pointer;font-weight:bold}button:hover{filter:brightness(.9)}button.secundario{background:#eee;color:#333}.editar{background:#555;padding:6px 9px}.eliminar{background:#a33;padding:6px 9px}
+.tabla-contenedor{overflow:auto;border:1px solid var(--borde);border-radius:6px}table{border-collapse:collapse;width:100%;font-size:14px}th{background:var(--color_corporativo);color:white;text-align:left;padding:11px}td{padding:10px 11px;border-bottom:1px solid var(--borde)}tbody tr:nth-child(even){background:#fafafa}tbody tr:hover{background:#f2f2f2}.acciones{white-space:nowrap;width:1%}
+form{max-width:650px;display:grid;gap:14px}label{font-size:13px;font-weight:bold;color:#555;display:grid;gap:6px}input{padding:11px;border:1px solid #ccc;border-radius:4px;font:inherit}input:focus{outline:2px solid color-mix(in srgb,var(--color_corporativo) 35%,transparent);border-color:var(--color_corporativo)}form button{justify-self:start;margin-top:6px}.vacio{color:#888;padding:30px;text-align:center}
+@media(max-width:800px){#modulos{display:none}nav{width:135px}section{margin:8px;padding:16px}.barra{align-items:flex-start;gap:10px}.tabla-contenedor{max-width:calc(100vw - 175px)}}
+/* Componentes C/R */
+#zona-formulario{margin:18px 0 28px;padding:18px;border:1px solid #ddd;border-radius:10px;background:#fff}
+#zona-formulario h3,#zona-tabla h3{margin-top:0}
+.componente-formulario{display:grid;gap:10px;max-width:720px}
+.componente-formulario .control{display:grid;grid-template-columns:180px 1fr;gap:12px;align-items:center}
+.componente-formulario label{text-align:right;font-weight:600}
+.componente-formulario input{padding:9px 10px;border:1px solid #ccc;border-radius:6px}
+.componente-formulario button{justify-self:end;padding:9px 18px;cursor:pointer}
+#zona-tabla{margin-top:20px}

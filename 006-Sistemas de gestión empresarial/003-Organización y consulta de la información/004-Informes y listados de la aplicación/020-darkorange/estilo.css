@@ -1,0 +1,36 @@
+:root{--color_corporativo:#222;--margen_interior:20px;--borde:#e5e5e5;--fondo:#f6f6f6}
+*{box-sizing:border-box} html,body{padding:0;margin:0;font-family:Ubuntu,Arial,sans-serif;width:100%;height:100%;color:#222} body{display:flex;flex-direction:column;background:var(--fondo)}
+header{color:white;background:var(--color_corporativo);padding:18px 24px;box-shadow:0 2px 8px #0002} header h1{padding:0;margin:0;font-size:20px;font-weight:500}
+main{flex:1;display:flex;min-height:0} nav{width:180px;background:var(--color_corporativo);display:flex;flex-direction:column;padding:0 10px 20px;gap:6px;overflow:auto} #modulos{width:150px;padding-right:0;opacity:.92}
+nav a{background:#fff;color:var(--color_corporativo);text-decoration:none;padding:12px 14px;border-radius:4px;font-size:14px;transition:.15s} nav a:hover,nav a.activo{transform:translateX(3px);box-shadow:0 2px 8px #0002;font-weight:bold}
+section{flex:1;padding:28px;overflow:auto;background:white;margin:16px;border-radius:8px;box-shadow:0 2px 12px #0000000d}.barra{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}.barra h2{margin:2px 0 0;font-size:24px}.barra small{color:#888;font-weight:bold;letter-spacing:1px}
+button{border:0;background:var(--color_corporativo);color:white;padding:10px 14px;border-radius:4px;cursor:pointer;font-weight:bold}button:hover{filter:brightness(.9)}button.secundario{background:#eee;color:#333}.editar{background:#555;padding:6px 9px}.eliminar{background:#a33;padding:6px 9px}
+.tabla-contenedor{overflow:auto;border:1px solid var(--borde);border-radius:6px}table{border-collapse:collapse;width:100%;font-size:14px}th{background:var(--color_corporativo);color:white;text-align:left;padding:11px}td{padding:10px 11px;border-bottom:1px solid var(--borde)}tbody tr:nth-child(even){background:#fafafa}tbody tr:hover{background:#f2f2f2}.acciones{white-space:nowrap;width:1%}
+form{max-width:650px;display:grid;gap:14px}label{font-size:13px;font-weight:bold;color:#555;display:grid;gap:6px}input{padding:11px;border:1px solid #ccc;border-radius:4px;font:inherit}input:focus{outline:2px solid color-mix(in srgb,var(--color_corporativo) 35%,transparent);border-color:var(--color_corporativo)}form button{justify-self:start;margin-top:6px}.vacio{color:#888;padding:30px;text-align:center}
+@media(max-width:800px){#modulos{display:none}nav{width:135px}section{margin:8px;padding:16px}.barra{align-items:flex-start;gap:10px}.tabla-contenedor{max-width:calc(100vw - 175px)}}
+/* Componentes C/R */
+#zona-formulario{margin:18px 0 28px;padding:18px;border:1px solid #ddd;border-radius:10px;background:#fff}
+#zona-formulario h3,#zona-tabla h3{margin-top:0}
+.componente-formulario{display:grid;gap:10px;max-width:720px}
+.componente-formulario .control{display:grid;grid-template-columns:180px 1fr;gap:12px;align-items:center}
+.componente-formulario label{text-align:right;font-weight:600}
+.componente-formulario input{padding:9px 10px;border:1px solid #ccc;border-radius:6px}
+.componente-formulario button{justify-self:end;padding:9px 18px;cursor:pointer}
+#zona-tabla{margin-top:20px}
+
+/* Módulo de sistema: Reporting */
+body>header{display:flex;align-items:center;justify-content:space-between;gap:20px}
+body>header #boton-reporting{background:white;color:var(--color_corporativo);border:1px solid #ffffff80}
+.reporting-toolbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.reporting-toolbar small{color:#777}
+.reporting-documento{background:#777;padding:24px;overflow:auto;border-radius:8px}
+.reporting-a4{width:210mm;min-height:297mm;margin:auto;background:#fff;padding:16mm;box-sizing:border-box;box-shadow:0 5px 30px #0004;color:#222}
+.reporting-cabecera{display:flex;justify-content:space-between;align-items:flex-start;background:none;color:#222;padding:0 0 8mm;box-shadow:none;border-bottom:3px solid var(--color_corporativo)}
+.reporting-cabecera h1{font-size:30px;margin:3px 0}.reporting-cabecera small{color:var(--color_corporativo);font-weight:bold;letter-spacing:1.5px}.reporting-fecha{font-size:11px;color:#777;text-align:right;max-width:55mm}
+.reporting-resumen{display:flex;gap:10px;margin:8mm 0}.reporting-resumen>div{border:1px solid #ddd;padding:10px 16px;min-width:35mm}.reporting-resumen strong{font-size:22px;color:var(--color_corporativo);display:block}.reporting-resumen span{font-size:10px;text-transform:uppercase;color:#777}
+.reporting-bloque{padding:0;margin:0 0 10mm;background:none;box-shadow:none;border-radius:0;overflow:visible;break-inside:auto}.reporting-titulo-tabla{display:flex;justify-content:space-between;align-items:end;margin-bottom:8px}.reporting-titulo-tabla h2{margin:0;font-size:20px}.reporting-titulo-tabla small{font-size:9px;color:#888;letter-spacing:1px}.reporting-contador{background:var(--color_corporativo);color:white;border-radius:20px;padding:5px 10px;font-size:10px}
+.reporting-tabla-scroll{overflow-x:auto}.reporting-bloque table{font-size:9px;border:1px solid #ddd}.reporting-bloque th,.reporting-bloque td{padding:5px 6px}.reporting-bloque thead tr:last-child th{cursor:pointer;user-select:none}.reporting-bloque thead tr:last-child th:hover{filter:brightness(.9)}
+.reporting-filtros th{padding:4px;background:color-mix(in srgb,var(--color_corporativo) 75%,white)}.reporting-filtros input{width:100%;padding:5px;border:0;border-radius:2px;font-size:9px;outline:none}.reporting-bloque tfoot td{font-weight:bold;border-top:2px solid #bbb;background:#f3f3f3}.reporting-bloque tfoot .numero{text-align:right}.reporting-resumen-label{color:var(--color_corporativo)}
+@page{size:A4;margin:10mm}
+@media print{
+  body{display:block;background:white}.reporting-toolbar,body>header,body>main>nav{display:none!important}body>main{display:block}.reporting-documento{padding:0;background:white;overflow:visible}.reporting-a4{width:auto;min-height:auto;margin:0;padding:0;box-shadow:none}.reporting-a4>.reporting-cabecera{display:flex!important}.reporting-filtros{display:none}.reporting-bloque{break-inside:auto}.reporting-bloque table{break-inside:auto}.reporting-bloque tr{break-inside:avoid}.reporting-bloque thead{display:table-header-group}body>main>section{margin:0;padding:0;box-shadow:none;overflow:visible}
+}

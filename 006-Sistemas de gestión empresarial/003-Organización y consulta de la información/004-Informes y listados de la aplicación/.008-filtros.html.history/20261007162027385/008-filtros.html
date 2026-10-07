@@ -1,0 +1,144 @@
+<style>
+  table{width:100%;}
+  table thead{background:indigo;color:white;}
+  table tbody tr:nth-child(odd){background:aliceblue;}
+  table td,table th{padding:10px;}
+  table th{cursor:pointer;}
+</style>
+
+<table>
+  <thead>
+    <tr>
+      <th><input type="search" id="Nombre"></th>
+      <th><input type="search" id="Apellidos"></th>
+      <th><input type="search" id="Email"></th>
+      <th><input type="search" id="Teléfono"></th>
+      <th><input type="search" id="Ciudad"></th>
+    </tr>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellidos</th>
+      <th>Email</th>
+      <th>Teléfono</th>
+      <th>Ciudad</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Laura</td>
+      <td>Martínez García</td>
+      <td>laura.martinez@example.com</td>
+      <td>612 345 678</td>
+      <td>Valencia</td>
+    </tr>
+    <tr>
+      <td>Carlos</td>
+      <td>Sánchez López</td>
+      <td>carlos.sanchez@example.com</td>
+      <td>623 456 789</td>
+      <td>Madrid</td>
+    </tr>
+    <tr>
+      <td>Ana</td>
+      <td>Gómez Ruiz</td>
+      <td>ana.gomez@example.com</td>
+      <td>634 567 890</td>
+      <td>Alicante</td>
+    </tr>
+    <tr>
+      <td>David</td>
+      <td>Navarro Torres</td>
+      <td>david.navarro@example.com</td>
+      <td>645 678 901</td>
+      <td>Castellón</td>
+    </tr>
+    <tr>
+      <td>Marta</td>
+      <td>Romero Pérez</td>
+      <td>marta.romero@example.com</td>
+      <td>656 789 012</td>
+      <td>Sevilla</td>
+    </tr>
+    <tr>
+      <td>Javier</td>
+      <td>Ortega Molina</td>
+      <td>javier.ortega@example.com</td>
+      <td>667 890 123</td>
+      <td>Zaragoza</td>
+    </tr>
+    <tr>
+      <td>Lucía</td>
+      <td>Vidal Ferrer</td>
+      <td>lucia.vidal@example.com</td>
+      <td>678 901 234</td>
+      <td>Valencia</td>
+    </tr>
+    <tr>
+      <td>Sergio</td>
+      <td>Moreno Gil</td>
+      <td>sergio.moreno@example.com</td>
+      <td>689 012 345</td>
+      <td>Barcelona</td>
+    </tr>
+    <tr>
+      <td>Elena</td>
+      <td>Campos Soler</td>
+      <td>elena.campos@example.com</td>
+      <td>610 123 456</td>
+      <td>Murcia</td>
+    </tr>
+    <tr>
+      <td>Daniel</td>
+      <td>Ibáñez Costa</td>
+      <td>daniel.ibanez@example.com</td>
+      <td>621 234 567</td>
+      <td>Valencia</td>
+    </tr>
+  </tbody>
+</table>
+
+<script>
+  let cabeceras = document.querySelectorAll("th")
+  let cuerpo = document.querySelector("tbody")
+
+  cabeceras.forEach(function(cabecera, indice){
+    
+    let ascendente = true
+    
+    cabecera.onclick = function(){
+      
+      // Convierto las filas en un array
+      let filas = Array.from(cuerpo.querySelectorAll("tr"))
+      
+      // Ordeno las filas
+      filas.sort(function(a,b){
+        
+        let valorA = a.children[indice].textContent
+        let valorB = b.children[indice].textContent
+        
+        if(ascendente){
+          return valorA.localeCompare(valorB)
+        }else{
+          return valorB.localeCompare(valorA)
+        }
+        
+      })
+      
+      // Vuelvo a introducir las filas ordenadas
+      filas.forEach(function(fila){
+        cuerpo.appendChild(fila)
+      })
+      
+      // La próxima vez ordenará al contrario
+      ascendente = !ascendente
+      
+    }
+  })
+  
+  let entradas = document.querySelectorAll("input")
+  entradas.forEach(function(entrada){
+  	entrada.onkeyup = function(event){
+    	console.log("has escrito",this.value)
+    }
+  })
+</script>

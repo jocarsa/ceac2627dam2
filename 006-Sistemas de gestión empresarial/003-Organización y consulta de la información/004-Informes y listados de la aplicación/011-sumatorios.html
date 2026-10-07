@@ -1,0 +1,547 @@
+<!--
+ok ahora crea una columna o dos con valores numéricos, y crea abajo de la tabla un resumen de sumario, y promedio de cada uno de los campos de tipo numérico
+
+-->
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Listado de clientes</title>
+
+  <style>
+    *{
+      box-sizing:border-box;
+    }
+
+    body{
+      margin:0;
+      padding:40px;
+      background:#f4f4f8;
+      font-family:Arial,sans-serif;
+      color:#333;
+    }
+
+    .contenedor{
+      max-width:1200px;
+      margin:auto;
+      background:white;
+      padding:30px;
+      border-radius:12px;
+      box-shadow:0 5px 25px rgba(0,0,0,0.08);
+    }
+
+    h1{
+      margin-top:0;
+      color:indigo;
+    }
+
+    .informacion{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:15px;
+      color:#666;
+      font-size:14px;
+    }
+
+    #contador{
+      background:indigo;
+      color:white;
+      padding:7px 14px;
+      border-radius:20px;
+      font-weight:bold;
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+    }
+
+    thead{
+      background:indigo;
+      color:white;
+    }
+
+    th{
+      padding:12px;
+      text-align:left;
+    }
+
+    thead tr:nth-child(2) th{
+      cursor:pointer;
+      user-select:none;
+    }
+
+    thead tr:nth-child(2) th:hover{
+      background:#5c168a;
+    }
+
+    input{
+      width:100%;
+      border:0;
+      outline:none;
+      padding:9px 11px;
+      border-radius:5px;
+    }
+
+    td{
+      padding:12px;
+      border-bottom:1px solid #e8e8ee;
+    }
+
+    tbody tr:nth-child(odd){
+      background:aliceblue;
+    }
+
+    tbody tr:hover{
+      background:#eee6f7;
+    }
+
+    /* Columnas numéricas */
+    .numero{
+      text-align:right;
+      font-variant-numeric:tabular-nums;
+    }
+
+    /* RESUMEN */
+
+    .resumen{
+      margin-top:25px;
+      padding:20px;
+      background:#f5f2fa;
+      border-left:5px solid indigo;
+      border-radius:8px;
+    }
+
+    .resumen h2{
+      margin:0 0 15px 0;
+      color:indigo;
+      font-size:18px;
+    }
+
+    .tarjetas{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:15px;
+    }
+
+    .tarjeta{
+      background:white;
+      padding:15px 20px;
+      border-radius:8px;
+      box-shadow:0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .tarjeta h3{
+      margin:0 0 10px 0;
+      font-size:14px;
+      color:#777;
+    }
+
+    .estadisticas{
+      display:flex;
+      gap:30px;
+    }
+
+    .estadistica strong{
+      display:block;
+      font-size:22px;
+      color:indigo;
+    }
+
+    .estadistica span{
+      font-size:11px;
+      color:#888;
+      text-transform:uppercase;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="contenedor">
+
+  <h1>Clientes</h1>
+
+  <div class="informacion">
+    <span>Listado de clientes registrados</span>
+    <span id="contador"></span>
+  </div>
+
+  <table>
+
+    <thead>
+
+      <!-- FILTROS -->
+
+      <tr>
+        <th><input type="search" placeholder="Nombre"></th>
+        <th><input type="search" placeholder="Apellidos"></th>
+        <th><input type="search" placeholder="Email"></th>
+        <th><input type="search" placeholder="Teléfono"></th>
+        <th><input type="search" placeholder="Ciudad"></th>
+        <th><input type="search" placeholder="Edad"></th>
+        <th><input type="search" placeholder="Compras"></th>
+      </tr>
+
+      <!-- CABECERAS -->
+
+      <tr>
+        <th>Nombre ↕</th>
+        <th>Apellidos ↕</th>
+        <th>Email ↕</th>
+        <th>Teléfono ↕</th>
+        <th>Ciudad ↕</th>
+        <th>Edad ↕</th>
+        <th>Compras (€) ↕</th>
+      </tr>
+
+    </thead>
+
+    <tbody>
+
+      <tr>
+        <td>Laura</td>
+        <td>Martínez García</td>
+        <td>laura.martinez@example.com</td>
+        <td>612 345 678</td>
+        <td>Valencia</td>
+        <td class="numero">34</td>
+        <td class="numero">1250.50</td>
+      </tr>
+
+      <tr>
+        <td>Carlos</td>
+        <td>Sánchez López</td>
+        <td>carlos.sanchez@example.com</td>
+        <td>623 456 789</td>
+        <td>Madrid</td>
+        <td class="numero">42</td>
+        <td class="numero">2340.80</td>
+      </tr>
+
+      <tr>
+        <td>Ana</td>
+        <td>Gómez Ruiz</td>
+        <td>ana.gomez@example.com</td>
+        <td>634 567 890</td>
+        <td>Alicante</td>
+        <td class="numero">29</td>
+        <td class="numero">890.25</td>
+      </tr>
+
+      <tr>
+        <td>David</td>
+        <td>Navarro Torres</td>
+        <td>david.navarro@example.com</td>
+        <td>645 678 901</td>
+        <td>Castellón</td>
+        <td class="numero">51</td>
+        <td class="numero">3100.00</td>
+      </tr>
+
+      <tr>
+        <td>Marta</td>
+        <td>Romero Pérez</td>
+        <td>marta.romero@example.com</td>
+        <td>656 789 012</td>
+        <td>Sevilla</td>
+        <td class="numero">38</td>
+        <td class="numero">1750.90</td>
+      </tr>
+
+      <tr>
+        <td>Javier</td>
+        <td>Ortega Molina</td>
+        <td>javier.ortega@example.com</td>
+        <td>667 890 123</td>
+        <td>Zaragoza</td>
+        <td class="numero">45</td>
+        <td class="numero">4200.75</td>
+      </tr>
+
+      <tr>
+        <td>Lucía</td>
+        <td>Vidal Ferrer</td>
+        <td>lucia.vidal@example.com</td>
+        <td>678 901 234</td>
+        <td>Valencia</td>
+        <td class="numero">26</td>
+        <td class="numero">640.30</td>
+      </tr>
+
+      <tr>
+        <td>Sergio</td>
+        <td>Moreno Gil</td>
+        <td>sergio.moreno@example.com</td>
+        <td>689 012 345</td>
+        <td>Barcelona</td>
+        <td class="numero">48</td>
+        <td class="numero">3890.40</td>
+      </tr>
+
+      <tr>
+        <td>Elena</td>
+        <td>Campos Soler</td>
+        <td>elena.campos@example.com</td>
+        <td>610 123 456</td>
+        <td>Murcia</td>
+        <td class="numero">31</td>
+        <td class="numero">980.60</td>
+      </tr>
+
+      <tr>
+        <td>Daniel</td>
+        <td>Ibáñez Costa</td>
+        <td>daniel.ibanez@example.com</td>
+        <td>621 234 567</td>
+        <td>Valencia</td>
+        <td class="numero">40</td>
+        <td class="numero">2150.00</td>
+      </tr>
+
+    </tbody>
+
+  </table>
+
+
+  <!-- RESUMEN -->
+
+  <div class="resumen">
+
+    <h2>Resumen de datos visibles</h2>
+
+    <div class="tarjetas">
+
+      <div class="tarjeta">
+
+        <h3>Edad</h3>
+
+        <div class="estadisticas">
+
+          <div class="estadistica">
+            <strong id="sumaEdad">0</strong>
+            <span>Suma</span>
+          </div>
+
+          <div class="estadistica">
+            <strong id="mediaEdad">0</strong>
+            <span>Promedio</span>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="tarjeta">
+
+        <h3>Compras</h3>
+
+        <div class="estadisticas">
+
+          <div class="estadistica">
+            <strong id="sumaCompras">0</strong>
+            <span>Suma</span>
+          </div>
+
+          <div class="estadistica">
+            <strong id="mediaCompras">0</strong>
+            <span>Promedio</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<script>
+
+  let cuerpo = document.querySelector("tbody")
+  let cabeceras = document.querySelectorAll("thead tr:nth-child(2) th")
+  let entradas = document.querySelectorAll("thead input")
+  let contador = document.querySelector("#contador")
+
+
+  // ==========================================
+  // ORDENAR
+  // ==========================================
+
+  cabeceras.forEach(function(cabecera, indice){
+
+    let ascendente = true
+
+    cabecera.onclick = function(){
+
+      let filas = Array.from(cuerpo.querySelectorAll("tr"))
+
+      filas.sort(function(a,b){
+
+        let valorA = a.children[indice].textContent.trim()
+        let valorB = b.children[indice].textContent.trim()
+
+
+        // Si ambos son números
+        if(!isNaN(valorA) && !isNaN(valorB)){
+
+          valorA = parseFloat(valorA)
+          valorB = parseFloat(valorB)
+
+          if(ascendente){
+            return valorA - valorB
+          }else{
+            return valorB - valorA
+          }
+
+        }
+
+
+        // Si son textos
+        if(ascendente){
+          return valorA.localeCompare(valorB)
+        }else{
+          return valorB.localeCompare(valorA)
+        }
+
+      })
+
+
+      filas.forEach(function(fila){
+        cuerpo.appendChild(fila)
+      })
+
+      ascendente = !ascendente
+
+    }
+
+  })
+
+
+  // ==========================================
+  // FILTRAR
+  // ==========================================
+
+  entradas.forEach(function(entrada){
+
+    entrada.oninput = function(){
+
+      let filas = cuerpo.querySelectorAll("tr")
+
+      filas.forEach(function(fila){
+
+        let cumple = true
+
+        entradas.forEach(function(entrada, indice){
+
+          let busqueda = entrada.value.toLowerCase().trim()
+
+          let contenido = fila.children[indice]
+                              .textContent
+                              .toLowerCase()
+
+          if(busqueda != "" && !contenido.includes(busqueda)){
+            cumple = false
+          }
+
+        })
+
+
+        if(cumple){
+          fila.style.display = ""
+        }else{
+          fila.style.display = "none"
+        }
+
+      })
+
+
+      actualizarResumen()
+
+    }
+
+  })
+
+
+  // ==========================================
+  // RESUMEN
+  // ==========================================
+
+  function actualizarResumen(){
+
+    let filas = cuerpo.querySelectorAll("tr")
+
+    let visibles = 0
+
+    let sumaEdad = 0
+    let sumaCompras = 0
+
+
+    filas.forEach(function(fila){
+
+      // Solo trabajamos con filas visibles
+      if(fila.style.display != "none"){
+
+        visibles++
+
+        let edad = parseFloat(fila.children[5].textContent)
+        let compras = parseFloat(fila.children[6].textContent)
+
+        sumaEdad += edad
+        sumaCompras += compras
+
+      }
+
+    })
+
+
+    // CONTADOR
+
+    contador.textContent = visibles + " filas"
+
+
+    // SUMAS
+
+    document.querySelector("#sumaEdad").textContent =
+      sumaEdad.toFixed(0)
+
+    document.querySelector("#sumaCompras").textContent =
+      sumaCompras.toFixed(2) + " €"
+
+
+    // PROMEDIOS
+
+    if(visibles > 0){
+
+      document.querySelector("#mediaEdad").textContent =
+        (sumaEdad / visibles).toFixed(1)
+
+      document.querySelector("#mediaCompras").textContent =
+        (sumaCompras / visibles).toFixed(2) + " €"
+
+    }else{
+
+      document.querySelector("#mediaEdad").textContent = "0"
+
+      document.querySelector("#mediaCompras").textContent = "0.00 €"
+
+    }
+
+  }
+
+
+  // ==========================================
+  // INICIALIZAR
+  // ==========================================
+
+  actualizarResumen()
+
+</script>
+
+</body>
+</html>

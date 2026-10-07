@@ -1,0 +1,237 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style>
+      body{
+        font-family:Arial,sans-serif;
+        max-width:900px;
+        margin:40px auto;
+      }
+
+      form{
+        margin-bottom:40px;
+      }
+
+      .control{
+        display:flex;
+        gap:20px;
+        margin-bottom:10px;
+      }
+
+      label{
+        flex:1;
+        text-align:right;
+      }
+
+      input{
+        flex:1;
+        padding:5px;
+      }
+
+      table{
+        width:100%;
+        border-collapse:collapse;
+      }
+
+      th,td{
+        border:1px solid #ccc;
+        padding:8px;
+        text-align:left;
+      }
+
+      th{
+        background:#eee;
+      }
+
+      tr:nth-child(even){
+        background:#f7f7f7;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <h1>Clientes</h1>
+
+    <form>
+      <input type="submit" value="Guardar">
+    </form>
+
+    <template id="controlformulario">
+      <div class="control">
+        <label>XXXX</label>
+        <input type="text" placeholder="" name="">
+      </div>
+    </template>
+
+    <h2>Listado de clientes</h2>
+
+    <table>
+      <thead></thead>
+      <tbody></tbody>
+    </table>
+
+    <script>
+
+      let formulario = document.querySelector("form")
+      let plantilla = document.querySelector("#controlformulario")
+
+      // ============================================
+      // CREAR FORMULARIO DINÁMICAMENTE
+      // ============================================
+
+      fetch("006-esquema.php")
+      .then(function(resultado){
+        return resultado.json()
+      })
+      .then(function(datos){
+
+        console.log(datos)
+
+        datos.forEach(function(control){
+
+          // No quiero crear un input para el id
+          if(control.name != "id"){
+
+            let instancia = plantilla.content.cloneNode(true)
+
+            instancia.querySelector("label").textContent = control.name
+
+            instancia
+              .querySelector("input")
+              .setAttribute("name",control.name)
+
+            formulario.appendChild(instancia)
+
+          }
+
+        })
+
+      })
+
+
+      // ============================================
+      // GUARDAR
+      // ============================================
+
+      formulario.onsubmit = function(evento){
+
+        evento.preventDefault()
+
+        console.log("Ahora yo controlo el formulario")
+
+        let SuperFormulario = new FormData(formulario)
+
+        let mijson = {}
+
+        for(let [clave,valor] of SuperFormulario){
+          mijson[clave] = valor
+        }
+
+        console.log(mijson)
+
+        fetch("010-guardar.php",{
+          method:"POST",
+          headers:{
+            "Content-Type":"application/json"
+          },
+          body:JSON.stringify(mijson)
+        })
+        .then(function(respuesta){
+          return respuesta.json()
+        })
+        .then(function(datos){
+
+          console.log("Respuesta del servidor:",datos)
+
+          // Vacío el formulario
+          formulario.reset()
+
+          // Vuelvo a cargar la tabla
+          cargarTabla()
+
+        })
+
+      }
+
+
+      // ============================================
+      // MOSTRAR TABLA
+      // ============================================
+
+      function cargarTabla(){
+
+        fetch("011-listar.php")
+        .then(function(respuesta){
+          return respuesta.json()
+        })
+        .then(function(datos){
+
+          console.log("Clientes:",datos)
+
+          let thead = document.querySelector("thead")
+          let tbody = document.querySelector("tbody")
+
+          // Limpio la tabla
+          thead.innerHTML = ""
+          tbody.innerHTML = ""
+
+          // Si no hay registros termino
+          if(datos.length == 0){
+            return
+          }
+
+          // ------------------------------------
+          // CABECERA
+          // ------------------------------------
+
+          let filaCabecera = document.createElement("tr")
+
+          Object.keys(datos[0]).forEach(function(campo){
+
+            let th = document.createElement("th")
+
+            th.textContent = campo
+
+            filaCabecera.appendChild(th)
+
+          })
+
+          thead.appendChild(filaCabecera)
+
+
+          // ------------------------------------
+          // FILAS
+          // ------------------------------------
+
+          datos.forEach(function(registro){
+
+            let fila = document.createElement("tr")
+
+            Object.values(registro).forEach(function(valor){
+
+              let celda = document.createElement("td")
+
+              celda.textContent = valor
+
+              fila.appendChild(celda)
+
+            })
+
+            tbody.appendChild(fila)
+
+          })
+
+        })
+
+      }
+
+
+      // Cargo la tabla al entrar
+      cargarTabla()
+
+    </script>
+
+  </body>
+</html>

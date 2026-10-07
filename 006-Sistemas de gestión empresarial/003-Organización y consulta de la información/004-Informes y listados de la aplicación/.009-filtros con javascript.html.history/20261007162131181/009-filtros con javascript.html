@@ -1,0 +1,89 @@
+<script>
+  // =========================
+  // ORDENAR
+  // =========================
+
+  // Solo seleccionamos la segunda fila de cabeceras
+  let cabeceras = document.querySelectorAll("thead tr:nth-child(2) th")
+  let cuerpo = document.querySelector("tbody")
+
+  cabeceras.forEach(function(cabecera, indice){
+
+    let ascendente = true
+
+    cabecera.onclick = function(){
+
+      // Convierto las filas en un array
+      let filas = Array.from(cuerpo.querySelectorAll("tr"))
+
+      // Ordeno las filas
+      filas.sort(function(a,b){
+
+        let valorA = a.children[indice].textContent
+        let valorB = b.children[indice].textContent
+
+        if(ascendente){
+          return valorA.localeCompare(valorB)
+        }else{
+          return valorB.localeCompare(valorA)
+        }
+
+      })
+
+      // Vuelvo a introducir las filas ordenadas
+      filas.forEach(function(fila){
+        cuerpo.appendChild(fila)
+      })
+
+      // La próxima vez ordenará al contrario
+      ascendente = !ascendente
+    }
+  })
+
+
+  // =========================
+  // FILTRAR
+  // =========================
+
+  let entradas = document.querySelectorAll("thead input")
+
+  entradas.forEach(function(entrada){
+
+    entrada.onkeyup = function(){
+
+      let filas = cuerpo.querySelectorAll("tr")
+
+      filas.forEach(function(fila){
+
+        // En principio la fila cumple los filtros
+        let cumple = true
+
+        // Comprobamos TODOS los filtros
+        entradas.forEach(function(entrada, indice){
+
+          let busqueda = entrada.value.toLowerCase()
+
+          let contenido = fila.children[indice]
+                              .textContent
+                              .toLowerCase()
+
+          // Si hay texto escrito y no coincide
+          if(busqueda != "" && !contenido.includes(busqueda)){
+            cumple = false
+          }
+
+        })
+
+        // Mostrar u ocultar
+        if(cumple){
+          fila.style.display = ""
+        }else{
+          fila.style.display = "none"
+        }
+
+      })
+
+    }
+
+  })
+</script>
