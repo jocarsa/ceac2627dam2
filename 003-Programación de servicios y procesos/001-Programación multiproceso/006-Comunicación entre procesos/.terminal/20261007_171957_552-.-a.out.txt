@@ -1,0 +1,38 @@
+Datetime: 2026-10-07T15:19:57.552Z
+Working directory: /var/www/html/ceac2627dam2/003-Programación de servicios y procesos/001-Programación multiproceso/006-Comunicación entre procesos
+Command: ./a.out
+
+Result:
+Hoy es el dia1del mes
+Hoy es el dia2del mes
+Hoy es el dia3del mes
+Hoy es el dia4del mes
+Hoy es el dia5del mes
+Hoy es el dia6del mes
+Hoy es el dia7del mes
+Hoy es el dia8del mes
+Hoy es el dia9del mes
+Hoy es el dia10del mes
+Hoy es el dia11del mes
+Hoy es el dia12del mes
+Hoy es el dia13del mes
+Hoy es el dia14del mes
+Hoy es el dia15del mes
+Hoy es el dia16del mes
+Hoy es el dia17del mes
+Hoy es el dia18del mes
+Hoy es el dia19del mes
+Hoy es el dia20del mes
+Hoy es el dia21del mes
+Hoy es el dia22del mes
+Hoy es el dia23del mes
+Hoy es el dia24del mes
+Hoy es el dia25del mes
+Hoy es el dia26del mes
+Hoy es el dia27del mes
+Hoy es el dia28del mes
+Hoy es el dia29del mes
+Hoy es el dia30del mes
+Hoy es el dia31del mes
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/003-Programación de ser
+vicios y procesos/001-Programación multiproceso/006-Comunicación entre procesos$ 

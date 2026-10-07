@@ -1,0 +1,7 @@
+Datetime: 2026-10-07T15:13:15.141Z
+Working directory: /var/www/html/ceac2627dam2/003-Programación de servicios y procesos/001-Programación multiproceso/006-Comunicación entre procesos
+Command: g++ 010-else\ if.cpp
+
+Result:
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/003-Programaci
+ón de servicios y procesos/001-Programación multiproceso/006-Comunicación entre procesos$ 

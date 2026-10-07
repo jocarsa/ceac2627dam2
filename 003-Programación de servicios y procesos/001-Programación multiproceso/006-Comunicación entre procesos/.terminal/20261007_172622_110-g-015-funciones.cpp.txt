@@ -1,0 +1,7 @@
+Datetime: 2026-10-07T15:26:22.110Z
+Working directory: /var/www/html/ceac2627dam2/003-Programación de servicios y procesos/001-Programación multiproceso/006-Comunicación entre procesos
+Command: g++ 015-funciones.cpp
+
+Result:
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/003-Programación de servi
+cios y procesos/001-Programación multiproceso/006-Comunicación entre procesos$ 

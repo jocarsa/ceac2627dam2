@@ -1,0 +1,8 @@
+Datetime: 2026-10-07T15:32:25.989Z
+Working directory: /var/www/html/ceac2627dam2/003-Programación de servicios y procesos/001-Programación multiproceso/006-Comunicación entre procesos
+Command: ./a.out
+
+Result:
+7
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/003-Programación de servi
+cios y procesos/001-Programación multiproceso/006-Comunicación entre procesos$ 

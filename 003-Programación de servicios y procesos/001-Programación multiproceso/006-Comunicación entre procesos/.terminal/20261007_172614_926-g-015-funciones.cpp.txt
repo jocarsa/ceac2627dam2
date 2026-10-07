@@ -1,0 +1,11 @@
+Datetime: 2026-10-07T15:26:14.926Z
+Working directory: /var/www/html/ceac2627dam2/003-Programación de servicios y procesos/001-Programación multiproceso/006-Comunicación entre procesos
+Command: g++ 015-funciones.cpp
+
+Result:
+015-funciones.cpp: In function ‘int suma()’:
+015-funciones.cpp:7:1: warning: no return statement in function returning non-void [-Wreturn-type]
+    7 | }
+      | ^
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/003-Programación de servi
+cios y procesos/001-Programación multiproceso/006-Comunicación entre procesos$ 

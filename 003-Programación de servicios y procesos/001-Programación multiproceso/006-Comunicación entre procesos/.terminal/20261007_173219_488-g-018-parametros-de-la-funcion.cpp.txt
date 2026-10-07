@@ -1,0 +1,12 @@
+Datetime: 2026-10-07T15:32:19.488Z
+Working directory: /var/www/html/ceac2627dam2/003-Programación de servicios y procesos/001-Programación multiproceso/006-Comunicación entre procesos
+Command: g++ 018-parametros\ de\ la\ funcion.cpp
+
+Result:
+018-parametros de la funcion.cpp: In function ‘int suma(int, int)’:
+018-parametros de la funcion.cpp:6:25: error: ‘operando1’ was not declared in this scope; did you mean ‘operando’?
+    6 |         int resultado = operando1 + operando2;
+      |                         ^~~~~~~~~
+      |                         operando
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/003-Programación de servi
+cios y procesos/001-Programación multiproceso/006-Comunicación entre procesos$ 
