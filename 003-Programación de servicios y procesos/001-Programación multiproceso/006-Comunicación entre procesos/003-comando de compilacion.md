@@ -1,0 +1,1 @@
+g++ [entrada] -o [salida]

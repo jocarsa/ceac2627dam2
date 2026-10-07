@@ -1,0 +1,10 @@
+Datetime: 2026-10-06T18:31:34.852Z
+Working directory: /var/www/html/ceac2627dam2/003-Programación de servicios y procesos/001-Programación multiproceso/006-Comunicación entre procesos
+Command: g++ 007-caracter.gpp
+
+Result:
+/usr/bin/ld:007-caracter.gpp: file format not recognized; treating as linker script
+/usr/bin/ld:007-caracter.gpp:3: syntax error
+collect2: error: ld returned 1 exit status
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/003-Programación de ser
+vicios y procesos/001-Programación multiproceso/006-Comunicación entre procesos$ 

@@ -1,0 +1,8 @@
+Datetime: 2026-10-06T18:23:02.601Z
+Working directory: /var/www/html/ceac2627dam2/003-Programación de servicios y procesos/001-Programación multiproceso/006-Comunicación entre procesos
+Command: ./salida.out
+
+Result:
+Hola mundo!
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/003-Programación de ser
+vicios y procesos/001-Programación multiproceso/006-Comunicación entre procesos$ 

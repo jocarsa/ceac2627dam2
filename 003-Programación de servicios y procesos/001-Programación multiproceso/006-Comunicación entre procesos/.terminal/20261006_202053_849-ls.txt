@@ -1,0 +1,8 @@
+Datetime: 2026-10-06T18:20:53.849Z
+Working directory: /var/www/html/ceac2627dam2/003-Programación de servicios y procesos/001-Programación multiproceso/006-Comunicación entre procesos
+Command: ls
+
+Result:
+ 000-Introducción.md   001-prerrequisitos.md  '002-plantilla minima.cpp'
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/003-Programación de ser
+vicios y procesos/001-Programación multiproceso/006-Comunicación entre procesos$ 

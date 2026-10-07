@@ -1,0 +1,98 @@
+- Sistemas de gestión empresarial
+    - Identificación de sistemas ERP-CRM
+        - Concepto de ERP
+        - Revisión de los ERP actuales
+        - Concepto de CRM
+        - Revisión de los CRM actuales
+        - Tipos de licencias de los ERP-CRM
+        - Sistemas gestores de bases de datos compatibles con el software
+        - Instalación y configuración del sistema informático
+        - Verificación de la instalación y configuración
+        - Documentación de las operaciones realizadas
+    - Instalación y configuración de sistemas ERP-CRM
+        - Tipos de instalación.
+        - Módulos de un sistema ERP-CRM
+        - Procesos de instalación del sistema ERP-CRM
+        - Parámetros de configuración del sistema ERP-CRM
+        - Actualización del sistema ERP-CRM y aplicación de actualizaciones
+        - Servicios de acceso al sistema ERP-CRM
+        - Entornos de desarrollo, pruebas y explotación
+    - Organización y consulta de la información
+        - Definición de campos
+        - Consultas de acceso a datos
+        - Interfaces de entrada de datos y de procesos.
+        - Informes y listados de la aplicación
+        - Gestión de pedidos
+        - Gráficos
+        - Herramientas de monitorización y de evaluación del rendimiento
+        - Incidencias identificación y resolución
+        - Procesos de extracción de datos en sistemas de ERP-CRM y almacenes de datos
+        - Inteligencia de negocio (Business Intelligence)
+    - Implantación de sistemas ERP-CRM en una empresa
+        - Tipos de empresa. Necesidades de la empresa
+        - Selección de los módulos del sistema ERP-CRM
+        - Tablas y vistas que es preciso adaptar
+        - Consultas necesarias para obtener información
+        - Creación de formularios personalizados
+        - Creación de informes personalizados
+        - Paneles de control (Dashboards)
+        - Integración con otros sistemas de gestión
+    - Desarrollo de componentes
+        - Arquitectura del ERP-CRM
+        - Lenguaje proporcionado
+        - Entornos de desarrollo y herramientas del sistema ERP y CRM
+        - Inserción, modificación y eliminación de datos en los objetos
+        - Operaciones de consulta. Herramientas
+        - Formularios e informes
+        - Procesamiento de datos y obtención de la información
+        - Llamadas a funciones, librerías de funciones (APIs)
+        - Depuración y tratamiento de errores
+- Programación de servicios y procesos
+    - Programación multiproceso
+        - Ejecutables. Procesos. Servicios
+        - Estados de un proceso. Planificación de procesos
+        - Hilos
+        - Programación concurrente
+        - Programación paralela y distribuida
+        - Comunicación entre procesos
+        - Gestión de procesos. Herramientas de monitorización
+        - Sincronización entre procesos
+        - Programación de aplicaciones multiproceso
+    - Programación multihilo
+        - Contexto de ejecución de los hilos
+        - Estados de un hilo. Cambios de estado
+        - Librerías y clases
+        - Gestión de hilos. Prioridades
+        - Sincronización de hilos
+        - Compartición de información entre hilos
+        - Programación de aplicaciones multihilo
+    - Programación de comunicaciones en red
+        - Comunicación entre aplicaciones
+        - Roles cliente y servidor
+        - Librerías y clases
+        - Sockets. Tipos. Características
+        - Creación de sockets
+        - Enlazado y establecimiento de conexiones
+        - Utilización de sockets para la transmisión y recepción de información
+        - Programación de aplicaciones cliente y servidor
+        - Utilización de hilos para la implementación de comunicaciones simultáneas con el servidor
+    - Generación de servicios en red
+        - Protocolos estándar de comunicación en red a nivel de aplicación
+        - Servicios web
+        - Librerías de clases y componentes
+        - Programación de servidores
+        - Establecimiento y finalización de conexiones
+        - Transmisión de información
+        - Implementación de comunicaciones simultáneas
+        - Utilización de aplicaciones clientes
+        - Monitorización del servicio. Herramientas
+    - Utilización de técnicas de programación segura
+        - Prácticas de programación segura
+        - Criptografía de clave pública y clave privada
+        - Principales aplicaciones de la criptografía
+        - Protocolos criptográficos
+        - Política de seguridad. Roles
+        - Programación de mecanismos de control de acceso
+        - Encriptación de información
+        - Protocolos seguros de comunicaciones
+        - Programación de aplicaciones con comunicaciones seguras

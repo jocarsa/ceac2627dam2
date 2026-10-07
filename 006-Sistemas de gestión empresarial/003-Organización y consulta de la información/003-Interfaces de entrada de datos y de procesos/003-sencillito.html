@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+  <head>
+  </head>
+  <body>
+    <form>
+      
+    </form>
+    <script>
+      let controles = [
+      	'nombre',
+        'apellidos',
+        'email',
+        'direccion',
+        'ciudad',
+        'cp'
+      ];
+      let formulario = document.querySelector("form")
+      controles.forEach(function(control){
+      	formulario.innerHTML += `
+        	<div class="control">
+            <label for="`+control+`">`+control+`</label>
+            <input 
+            	type='text' 
+              name='`+control+`' 
+              placeholder='`+control+`' 
+              id="`+control+`">
+          </div>
+          `
+      })
+    </script>
+  </body>
+</html>

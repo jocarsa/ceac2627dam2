@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+  <head>
+  </head>
+  <body>
+    <form>
+      <input type="text">
+      <input type="date">
+      <input type="time">
+      <input type="datetime-local">
+      <input type="week">
+      <input type="password">
+      <input type="number">
+      <input type="email">
+      <input type="telephone">
+      <input type="url">
+      <input type="color">
+      <input type="range" disabled>
+      
+      <input type="checkbox">Futbol<br>
+      <input type="checkbox">Baloncesto<br>
+      <input type="checkbox">Ski<br>
+      
+      <input type="radio" name="idioma">Español<br>
+      <input type="radio" name="idioma">Inglés<br>
+      <input type="radio" name="idioma">Otro<br>
+      
+      <select>
+        <option>Uno</option>
+        <option>Dos</option>
+        <option>Tres</option>
+      </select>
+      
+      <textarea>
+      </textarea>
+      
+      <input type="submit">
+      <button>Pulsame</button>
+    </form>
+  </body>
+</html>

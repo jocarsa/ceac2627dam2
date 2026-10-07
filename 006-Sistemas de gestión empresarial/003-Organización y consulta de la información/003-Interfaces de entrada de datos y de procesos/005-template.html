@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+  <head>
+  </head>
+  <body>
+    <form>
+      
+    </form>
+    <template id="controlformulario">
+      <div class="control">
+        <label for="">XXXX</label>
+        <input type="" placeholder="" name=""> 
+      </div>
+    </template>
+    <script>
+      let controles = [
+      	'nombre',
+        'apellidos',
+        'email',
+        'direccion',
+        'ciudad',
+        'cp'
+      ];
+      let formulario = document.querySelector("form")
+      let plantilla = document.querySelector("#controlformulario")
+      controles.forEach(function(control){
+      	let instancia = plantilla.content.cloneNode(true)
+        instancia.querySelector("label").textContent = control
+        formulario.appendChild(instancia)
+      })
+    </script>
+  </body>
+</html>
