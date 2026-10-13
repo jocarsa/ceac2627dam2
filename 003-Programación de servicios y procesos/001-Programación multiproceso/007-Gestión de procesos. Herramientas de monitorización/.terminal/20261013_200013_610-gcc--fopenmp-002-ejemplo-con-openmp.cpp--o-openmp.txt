@@ -1,0 +1,11 @@
+Datetime: 2026-10-13T18:00:13.610Z
+Working directory: /var/www/html/ceac2627dam2/003-Programación de servicios y procesos/001-Programación multiproceso/007-Gestión de procesos. Herramientas de monitorización
+Command: gcc -fopenmp "002-ejemplo con openmp.cpp" -o openmp
+
+Result:
+gcc -fopenmp "002-ejemplo con openmp.cpp" -o openmp
+/usr/bin/ld: /tmp/ccKD1ui0.o:(.data.rel.local.DW.ref.__gxx_personality_v0[DW.ref.__gxx_personality_v0]+0x0): undefined reference to `__gxx_personality_v0'
+collect2: error: ld returned 1 exit status
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/003-Programación de servicios y pr
+ocesos/001-Programación multiproceso/007-Gestión de procesos. Herramientas de monitorización$
+ 

@@ -1,0 +1,7 @@
+Datetime: 2026-10-13T18:32:54.083Z
+Working directory: /var/www/html/ceac2627dam2/003-Programación de servicios y procesos/001-Programación multiproceso/007-Gestión de procesos. Herramientas de monitorización
+Command: g++ 007-saturno.cpp -o saturno -O3 $(pkg-config --cflags --libs opencv4)
+
+Result:
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/003-Programación de servic
+ios y procesos/001-Programación multiproceso/007-Gestión de procesos. Herramientas de monitorización$ 

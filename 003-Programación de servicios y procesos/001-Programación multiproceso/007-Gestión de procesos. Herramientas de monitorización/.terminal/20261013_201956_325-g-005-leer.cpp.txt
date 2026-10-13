@@ -1,0 +1,7 @@
+Datetime: 2026-10-13T18:19:56.325Z
+Working directory: /var/www/html/ceac2627dam2/003-Programación de servicios y procesos/001-Programación multiproceso/007-Gestión de procesos. Herramientas de monitorización
+Command: g++ 005-leer.cpp
+
+Result:
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/003-Programación de servic
+ios y procesos/001-Programación multiproceso/007-Gestión de procesos. Herramientas de monitorización$ 

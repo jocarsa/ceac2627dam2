@@ -1,0 +1,11 @@
+Datetime: 2026-10-13T18:29:12.112Z
+Working directory: /var/www/html/ceac2627dam2/003-Programación de servicios y procesos/001-Programación multiproceso/007-Gestión de procesos. Herramientas de monitorización
+Command: g++ 006-opencv.cpp
+
+Result:
+006-opencv.cpp:1:10: fatal error: opencv2/opencv.hpp: No existe el archivo o el directorio
+    1 | #include <opencv2/opencv.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/003-Programación de servic
+ios y procesos/001-Programación multiproceso/007-Gestión de procesos. Herramientas de monitorización$ 

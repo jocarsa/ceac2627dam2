@@ -1,0 +1,11 @@
+Datetime: 2026-10-13T18:00:03.216Z
+Working directory: /var/www/html/ceac2627dam2/003-Programación de servicios y procesos/001-Programación multiproceso/007-Gestión de procesos. Herramientas de monitorización
+Command: gcc -fopenmp "002-ejempo con openmp.cpp" -o openmp
+
+Result:
+gcc -fopenmp "002-ejempo con openmp.cpp" -o openmp
+cc1plus: fatal error: 002-ejempo con openmp.cpp: No existe el archivo o el directorio
+compilation terminated.
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/003-Programación de servicios y pr
+ocesos/001-Programación multiproceso/007-Gestión de procesos. Herramientas de monitorización$
+ 

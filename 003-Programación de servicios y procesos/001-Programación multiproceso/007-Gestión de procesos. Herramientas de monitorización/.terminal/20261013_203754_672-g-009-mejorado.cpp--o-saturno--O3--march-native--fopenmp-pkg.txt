@@ -1,0 +1,7 @@
+Datetime: 2026-10-13T18:37:54.672Z
+Working directory: /var/www/html/ceac2627dam2/003-Programación de servicios y procesos/001-Programación multiproceso/007-Gestión de procesos. Herramientas de monitorización
+Command: g++ 009-mejorado.cpp -o saturno     -O3 -march=native -fopenmp     $(pkg-config --cflags --libs opencv4)
+
+Result:
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/003-Programación de servic
+ios y procesos/001-Programación multiproceso/007-Gestión de procesos. Herramientas de monitorización$ 

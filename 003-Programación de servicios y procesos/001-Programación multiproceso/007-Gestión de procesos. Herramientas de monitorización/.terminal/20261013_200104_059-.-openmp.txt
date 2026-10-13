@@ -1,0 +1,23 @@
+Datetime: 2026-10-13T18:01:04.059Z
+Working directory: /var/www/html/ceac2627dam2/003-Programación de servicios y procesos/001-Programación multiproceso/007-Gestión de procesos. Herramientas de monitorización
+Command: ./openmp
+
+Result:
+Hola desde el hilo 3 de 16
+Hola desde el hilo 7 de 16
+Hola desde el hilo 1 de 16
+Hola desde el hilo 4 de 16
+Hola desde el hilo 2 de 16
+Hola desde el hilo 8 de 16
+Hola desde el hilo 9 de 16
+Hola desde el hilo 15 de 16
+Hola desde el hilo 14 de 16
+Hola desde el hilo 0 de 16
+Hola desde el hilo 13 de 16
+Hola desde el hilo 11 de 16
+Hola desde el hilo 12 de 16
+Hola desde el hilo 6 de 16
+Hola desde el hilo 5 de 16
+Hola desde el hilo 10 de 16
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/001-Pr
+ogramación multiproceso/007-Gestión de procesos. Herramientas de monitorización$ 

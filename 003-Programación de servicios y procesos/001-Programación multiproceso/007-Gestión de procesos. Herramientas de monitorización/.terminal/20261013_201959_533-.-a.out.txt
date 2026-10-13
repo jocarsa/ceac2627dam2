@@ -1,0 +1,10 @@
+Datetime: 2026-10-13T18:19:59.533Z
+Working directory: /var/www/html/ceac2627dam2/003-Programación de servicios y procesos/001-Programación multiproceso/007-Gestión de procesos. Herramientas de monitorización
+Command: ./a.out
+
+Result:
+Hola mundo
+Este texto se guarda en un archivo
+12345
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/003-Programación de servic
+ios y procesos/001-Programación multiproceso/007-Gestión de procesos. Herramientas de monitorización$ 

@@ -1,0 +1,42 @@
+Datetime: 2026-10-13T18:36:15.189Z
+Working directory: /var/www/html/ceac2627dam2/003-Programación de servicios y procesos/001-Programación multiproceso/007-Gestión de procesos. Herramientas de monitorización
+Command: g++ 009-mejorado.cpp -o saturno     -O3 -march=native -fopenmp     $(pkg-config --cflags --libs opencv4)
+
+Result:
+
+
+009-mejorado.cpp:5:13: error: ‘omp_get_max_threads’ was not declared in this scope
+    5 | int hilos = omp_get_max_threads();
+      |             ^~~~~~~~~~~~~~~~~~~
+009-mejorado.cpp:7:1: error: ‘vector’ does not name a type
+    7 | vector<Mat> buffers(hilos);
+      | ^~~~~~
+009-mejorado.cpp:9:1: error: expected unqualified-id before ‘for’
+    9 | for (int i = 0; i < hilos; i++) {
+      | ^~~
+009-mejorado.cpp:9:17: error: ‘i’ does not name a type
+    9 | for (int i = 0; i < hilos; i++) {
+      |                 ^
+009-mejorado.cpp:9:28: error: ‘i’ does not name a type
+    9 | for (int i = 0; i < hilos; i++) {
+      |                            ^
+009-mejorado.cpp:14:21: error: expected declaration specifiers before end of line
+   14 | #pragma omp parallel
+      |                     ^
+009-mejorado.cpp:15:1: error: expected unqualified-id before ‘{’ token
+   15 | {
+      | ^
+009-mejorado.cpp:42:1: error: ‘Mat’ does not name a type
+   42 | Mat resultado = Mat::zeros(ALTO, ANCHO, CV_8UC3);
+      | ^~~
+009-mejorado.cpp:44:1: error: expected unqualified-id before ‘for’
+   44 | for (int i = 0; i < hilos; i++) {
+      | ^~~
+009-mejorado.cpp:44:17: error: ‘i’ does not name a type
+   44 | for (int i = 0; i < hilos; i++) {
+      |                 ^
+009-mejorado.cpp:44:28: error: ‘i’ does not name a type
+   44 | for (int i = 0; i < hilos; i++) {
+      |                            ^
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/003-Programación de servic
+ios y procesos/001-Programación multiproceso/007-Gestión de procesos. Herramientas de monitorización$ 

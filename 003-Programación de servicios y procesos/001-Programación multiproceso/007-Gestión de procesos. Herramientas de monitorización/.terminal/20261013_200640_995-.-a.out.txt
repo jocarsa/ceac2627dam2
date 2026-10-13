@@ -1,0 +1,25 @@
+Datetime: 2026-10-13T18:06:40.995Z
+Working directory: /var/www/html/ceac2627dam2/003-Programación de servicios y procesos/001-Programación multiproceso/007-Gestión de procesos. Herramientas de monitorización
+Command: ./a.out
+
+Result:
+Hilo 0 de 16 | Resultado: 8.1893055350e+231
+Hilo 10 de 16 | Resultado: 8.1893055350e+231
+Hilo 5 de 16 | Resultado: 8.1893055350e+231
+Hilo 4 de 16 | Resultado: 8.1893055350e+231
+Hilo 12 de 16 | Resultado: 8.1893055350e+231
+Hilo 15 de 16 | Resultado: 8.1893055350e+231
+Hilo 7 de 16 | Resultado: 8.1893055350e+231
+Hilo 9 de 16 | Resultado: 8.1893055350e+231
+Hilo 14 de 16 | Resultado: 8.1893055350e+231
+Hilo 8 de 16 | Resultado: 8.1893055350e+231
+Hilo 6 de 16 | Resultado: 8.1893055350e+231
+Hilo 2 de 16 | Resultado: 8.1893055350e+231
+Hilo 11 de 16 | Resultado: 8.1893055350e+231
+Hilo 1 de 16 | Resultado: 8.1893055350e+231
+Hilo 13 de 16 | Resultado: 8.1893055350e+231
+Hilo 3 de 16 | Resultado: 8.1893055350e+231
+
+Tiempo total: 30.5398 segundos
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/001-Pr
+ogramación multiproceso/007-Gestión de procesos. Herramientas de monitorización$ 

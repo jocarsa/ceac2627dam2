@@ -1,0 +1,7 @@
+Datetime: 2026-10-13T18:05:56.080Z
+Working directory: /var/www/html/ceac2627dam2/003-Programación de servicios y procesos/001-Programación multiproceso/007-Gestión de procesos. Herramientas de monitorización
+Command: g++ -fopenmp 003-formuygrande.cpp
+
+Result:
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/001-Pr
+ogramación multiproceso/007-Gestión de procesos. Herramientas de monitorización$ 
