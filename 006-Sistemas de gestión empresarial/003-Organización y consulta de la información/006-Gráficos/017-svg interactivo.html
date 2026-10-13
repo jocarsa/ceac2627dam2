@@ -1,0 +1,286 @@
+
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Gráficas SVG con Tooltip</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+    }
+
+    .contenedor {
+      display: inline-block;
+      margin: 40px;
+      vertical-align: top;
+    }
+
+    svg {
+      overflow: visible;
+    }
+
+    svg text {
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      pointer-events: none;
+    }
+
+    rect, path {
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    rect:hover, path:hover {
+      opacity: 0.7;
+    }
+
+    .tooltip {
+      position: fixed;
+      display: none;
+      background: #222;
+      color: white;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      pointer-events: none;
+      z-index: 1000;
+      box-shadow: 0 4px 12px #0004;
+      line-height: 1.7;
+    }
+
+    .tooltip strong {
+      color: #8ab4ff;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="contenedor barras"
+       data="[40,50,60,70,80]"></div>
+
+  <div class="contenedor barras"
+       data="[70,40,60,30,20]"></div>
+
+  <div class="contenedor tarta"
+       data="[40,70,30,60,60]"></div>
+
+  <script>
+    const NS = "http://www.w3.org/2000/svg";
+
+    // Crear elemento SVG
+    function crearSVG(etiqueta) {
+      return document.createElementNS(NS, etiqueta);
+    }
+
+    // Crear tooltip global
+    let tooltip = document.createElement("div");
+    tooltip.className = "tooltip";
+    document.body.appendChild(tooltip);
+
+    // Añadir eventos de hover
+    function activarTooltip(figura, dato, indice, total) {
+
+      figura.addEventListener("mousemove", function(evento) {
+        let porcentaje = total > 0
+          ? (dato / total * 100).toFixed(1)
+          : "0.0";
+
+        tooltip.innerHTML = `
+          <strong>Elemento ${indice + 1}</strong>
+          <div>Valor: ${dato}</div>
+          <div>Porcentaje: ${porcentaje}%</div>
+        `;
+
+        tooltip.style.display = "block";
+
+        let x = evento.clientX + 15;
+        let y = evento.clientY + 15;
+
+        // Evitar que salga fuera de pantalla
+        if (x + tooltip.offsetWidth > window.innerWidth) {
+          x = evento.clientX - tooltip.offsetWidth - 15;
+        }
+
+        if (y + tooltip.offsetHeight > window.innerHeight) {
+          y = evento.clientY - tooltip.offsetHeight - 15;
+        }
+
+        tooltip.style.left = x + "px";
+        tooltip.style.top = y + "px";
+      });
+
+      figura.addEventListener("mouseleave", function() {
+        tooltip.style.display = "none";
+      });
+    }
+
+    // GRÁFICA DE BARRAS
+    function graficaBarras(elemento) {
+
+      let datos = JSON.parse(elemento.getAttribute("data"));
+
+      if (!datos.length) return;
+
+      let anchoBarra = 40;
+      let separacion = 10;
+      let ancho = datos.length * (anchoBarra + separacion);
+      let alto = Math.max(0, ...datos) + 50;
+
+      let total = datos.reduce(function(a, b) {
+        return a + b;
+      }, 0);
+
+      let svg = crearSVG("svg");
+      svg.setAttribute("width", ancho);
+      svg.setAttribute("height", alto);
+      svg.setAttribute("viewBox", `0 0 ${ancho} ${alto}`);
+
+      datos.forEach(function(dato, indice) {
+
+        let barra = crearSVG("rect");
+
+        barra.setAttribute("x", indice * 50 + 5);
+        barra.setAttribute("y", alto - dato - 20);
+        barra.setAttribute("width", anchoBarra);
+        barra.setAttribute("height", dato);
+        barra.setAttribute("fill", "royalblue");
+        barra.setAttribute("rx", 5);
+
+        activarTooltip(barra, dato, indice, total);
+
+        svg.appendChild(barra);
+
+        // Texto encima de cada barra
+        let texto = crearSVG("text");
+
+        texto.setAttribute("x", indice * 50 + 25);
+        texto.setAttribute("y", alto - dato - 27);
+        texto.setAttribute("text-anchor", "middle");
+        texto.setAttribute("fill", "#333");
+        texto.textContent = dato;
+
+        svg.appendChild(texto);
+      });
+
+      elemento.appendChild(svg);
+    }
+
+    // GRÁFICA DE TARTA
+    function graficaTarta(elemento) {
+
+      let datos = JSON.parse(elemento.getAttribute("data"));
+
+      let total = datos.reduce(function(a, b) {
+        return a + b;
+      }, 0);
+
+      if (total <= 0) return;
+
+      let svg = crearSVG("svg");
+
+      svg.setAttribute("width", 300);
+      svg.setAttribute("height", 300);
+      svg.setAttribute("viewBox", "0 0 300 300");
+
+      let cx = 150;
+      let cy = 150;
+      let radio = 120;
+
+      let angulo = -Math.PI / 2;
+
+      let colores = [
+        "royalblue",
+        "tomato",
+        "orange",
+        "mediumseagreen",
+        "mediumpurple",
+        "deeppink",
+        "turquoise"
+      ];
+
+      datos.forEach(function(dato, indice) {
+
+        if (dato <= 0) return;
+
+        let porcion = dato / total * Math.PI * 2;
+        let final = angulo + porcion;
+
+        let x1 = cx + radio * Math.cos(angulo);
+        let y1 = cy + radio * Math.sin(angulo);
+
+        let x2 = cx + radio * Math.cos(final);
+        let y2 = cy + radio * Math.sin(final);
+
+        let grande = porcion > Math.PI ? 1 : 0;
+
+        let path = crearSVG("path");
+
+        let d;
+
+        if (dato === total) {
+          d = `
+            M ${cx - radio} ${cy}
+            a ${radio} ${radio} 0 1 0 ${radio * 2} 0
+            a ${radio} ${radio} 0 1 0 ${-radio * 2} 0
+          `;
+        } else {
+          d = `
+            M ${cx} ${cy}
+            L ${x1} ${y1}
+            A ${radio} ${radio} 0 ${grande} 1 ${x2} ${y2}
+            Z
+          `;
+        }
+
+        path.setAttribute("d", d);
+        path.setAttribute("fill", colores[indice % colores.length]);
+        path.setAttribute("stroke", "white");
+        path.setAttribute("stroke-width", 2);
+
+        activarTooltip(path, dato, indice, total);
+
+        svg.appendChild(path);
+
+        // Valor dentro de cada porción
+        let medio = angulo + porcion / 2;
+
+        let tx = cx + radio * 0.65 * Math.cos(medio);
+        let ty = cy + radio * 0.65 * Math.sin(medio);
+
+        let texto = crearSVG("text");
+
+        texto.setAttribute("x", tx);
+        texto.setAttribute("y", ty);
+        texto.setAttribute("text-anchor", "middle");
+        texto.setAttribute("dominant-baseline", "middle");
+        texto.setAttribute("fill", "white");
+        texto.setAttribute("font-weight", "bold");
+        texto.textContent = dato;
+
+        svg.appendChild(texto);
+
+        angulo = final;
+      });
+
+      elemento.appendChild(svg);
+    }
+
+    // DETECTAR Y DIBUJAR LAS GRÁFICAS
+    let elementos = document.querySelectorAll(".contenedor");
+
+    elementos.forEach(function(elemento) {
+
+      if (elemento.classList.contains("barras")) {
+        graficaBarras(elemento);
+      }
+
+      if (elemento.classList.contains("tarta")) {
+        graficaTarta(elemento);
+      }
+
+    });
+  </script>
+
+</body>
+</html>

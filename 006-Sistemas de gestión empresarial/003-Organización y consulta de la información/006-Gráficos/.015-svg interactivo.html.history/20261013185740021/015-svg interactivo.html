@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+      .contenedor{display:flex;align-items:flex-end;margin:50px;}
+      .barra{background:blue;width:20px;border-radius:5px;margin:1px;
+      color:white;padding:10px;}
+    </style>
+  </head>
+  <body>
+    <canvas width=512 height=512></canvas>
+    <script>
+      let lienzo = document.querySelector("canvas")
+      let contexto = lienzo.getContext("2d")
+      
+      contexto.fillStyle = "red"
+      contexto.beginPath();
+      contexto.arc(50,50,20,0,Math.PI*2)
+      contexto.fill()
+    </script>
+  </body>
+</html>

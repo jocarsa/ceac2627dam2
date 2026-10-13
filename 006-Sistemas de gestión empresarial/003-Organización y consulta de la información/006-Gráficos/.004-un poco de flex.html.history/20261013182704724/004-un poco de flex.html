@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+      #contenedor{display:flex;align-items:flex-end;}
+      .barra{background:blue;width:20px;border-radius:5px;margin:5px;
+      color:white;padding:10px;}
+    </style>
+  </head>
+  <body>
+    <div id="contenedor"></div>
+    <script>
+      let datos = [10,20,30,40,50,60];
+      let contenedor = document.querySelector("#contenedor")
+      datos.forEach(function(dato){
+      	contenedor.innerHTML += `
+        	<div class="barra" style="height:`+dato+`px;">
+      			`+dato+`
+      		</div>`;
+      })
+    </script>
+  </body>
+</html>

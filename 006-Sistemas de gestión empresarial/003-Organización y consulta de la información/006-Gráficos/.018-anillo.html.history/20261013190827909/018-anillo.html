@@ -1,0 +1,362 @@
+
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Gráficas SVG</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+    }
+
+    .contenedor {
+      display: inline-block;
+      margin: 30px;
+      vertical-align: top;
+    }
+
+    svg {
+      overflow: visible;
+    }
+
+    svg text {
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      pointer-events: none;
+    }
+
+    rect, path {
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    rect:hover, path:hover {
+      opacity: 0.7;
+    }
+
+    .tooltip {
+      position: fixed;
+      display: none;
+      background: #222;
+      color: white;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      pointer-events: none;
+      z-index: 1000;
+      box-shadow: 0 4px 12px #0004;
+      line-height: 1.7;
+    }
+
+    .tooltip strong {
+      color: #8ab4ff;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="contenedor barras"
+       data="[40,50,60,70,80]"></div>
+
+  <div class="contenedor barras"
+       data="[70,40,60,30,20]"></div>
+
+  <div class="contenedor tarta"
+       data="[40,70,30,60,60]"></div>
+
+  <div class="contenedor anillo"
+       data="[40,70,30,60,60]"></div>
+
+  <script>
+    class GraficaSVG {
+
+      constructor(elemento) {
+        this.elemento = elemento;
+        this.datos = JSON.parse(elemento.getAttribute("data"));
+        this.total = this.datos.reduce((a, b) => a + b, 0);
+
+        this.NS = "http://www.w3.org/2000/svg";
+
+        this.colores = [
+          "royalblue",
+          "tomato",
+          "orange",
+          "mediumseagreen",
+          "mediumpurple",
+          "deeppink",
+          "turquoise"
+        ];
+
+        this.tooltip = document.querySelector(".tooltip");
+
+        if (!this.tooltip) {
+          this.tooltip = document.createElement("div");
+          this.tooltip.className = "tooltip";
+          document.body.appendChild(this.tooltip);
+        }
+      }
+
+      // CREAR ELEMENTO SVG
+      crear(etiqueta, atributos = {}) {
+        let elemento = document.createElementNS(this.NS, etiqueta);
+
+        for (let atributo in atributos) {
+          elemento.setAttribute(atributo, atributos[atributo]);
+        }
+
+        return elemento;
+      }
+
+      // CREAR CONTENEDOR SVG
+      crearLienzo(ancho, alto) {
+        let svg = this.crear("svg", {
+          width: ancho,
+          height: alto,
+          viewBox: `0 0 ${ancho} ${alto}`
+        });
+
+        this.elemento.appendChild(svg);
+        return svg;
+      }
+
+      // OBTENER COLOR
+      color(indice) {
+        return this.colores[indice % this.colores.length];
+      }
+
+      // CREAR TEXTO SVG
+      texto(svg, contenido, x, y, color = "#333") {
+        let texto = this.crear("text", {
+          x: x,
+          y: y,
+          "text-anchor": "middle",
+          "dominant-baseline": "middle",
+          fill: color
+        });
+
+        texto.textContent = contenido;
+        svg.appendChild(texto);
+        return texto;
+      }
+
+      // TOOLTIP
+      activarTooltip(figura, dato, indice) {
+        figura.addEventListener("mousemove", (evento) => {
+
+          let porcentaje = this.total > 0
+            ? (dato / this.total * 100).toFixed(1)
+            : "0.0";
+
+          this.tooltip.innerHTML = `
+            <strong>Elemento ${indice + 1}</strong>
+            <div>Valor: ${dato}</div>
+            <div>Porcentaje: ${porcentaje}%</div>
+          `;
+
+          this.tooltip.style.display = "block";
+
+          let x = evento.clientX + 15;
+          let y = evento.clientY + 15;
+
+          if (x + this.tooltip.offsetWidth > window.innerWidth) {
+            x = evento.clientX - this.tooltip.offsetWidth - 15;
+          }
+
+          if (y + this.tooltip.offsetHeight > window.innerHeight) {
+            y = evento.clientY - this.tooltip.offsetHeight - 15;
+          }
+
+          this.tooltip.style.left = x + "px";
+          this.tooltip.style.top = y + "px";
+        });
+
+        figura.addEventListener("mouseleave", () => {
+          this.tooltip.style.display = "none";
+        });
+      }
+
+      // GRÁFICA DE BARRAS
+      barras() {
+        if (!this.datos.length) return;
+
+        let anchoBarra = 40;
+        let separacion = 10;
+        let ancho = this.datos.length * (anchoBarra + separacion);
+        let alto = Math.max(0, ...this.datos) + 50;
+
+        let svg = this.crearLienzo(ancho, alto);
+
+        this.datos.forEach((dato, indice) => {
+
+          let barra = this.crear("rect", {
+            x: indice * 50 + 5,
+            y: alto - dato - 20,
+            width: anchoBarra,
+            height: dato,
+            fill: this.color(indice),
+            rx: 5
+          });
+
+          this.activarTooltip(barra, dato, indice);
+          svg.appendChild(barra);
+
+          this.texto(
+            svg,
+            dato,
+            indice * 50 + 25,
+            alto - dato - 27
+          );
+        });
+      }
+
+      // CALCULAR PUNTO DE CIRCUNFERENCIA
+      punto(cx, cy, radio, angulo) {
+        return {
+          x: cx + radio * Math.cos(angulo),
+          y: cy + radio * Math.sin(angulo)
+        };
+      }
+
+      // CREAR SECTOR CIRCULAR O ANULAR
+      sector(cx, cy, radioExterior, radioInterior, inicio, fin) {
+
+        let p1 = this.punto(cx, cy, radioExterior, inicio);
+        let p2 = this.punto(cx, cy, radioExterior, fin);
+
+        let grande = fin - inicio > Math.PI ? 1 : 0;
+
+        // Circunferencia completa
+        if (fin - inicio >= Math.PI * 2 - 0.000001) {
+          let exterior = `
+            M ${cx - radioExterior} ${cy}
+            a ${radioExterior} ${radioExterior} 0 1 0 ${radioExterior * 2} 0
+            a ${radioExterior} ${radioExterior} 0 1 0 ${-radioExterior * 2} 0
+          `;
+
+          if (radioInterior === 0) return exterior + " Z";
+
+          let interior = `
+            M ${cx - radioInterior} ${cy}
+            a ${radioInterior} ${radioInterior} 0 1 1 ${radioInterior * 2} 0
+            a ${radioInterior} ${radioInterior} 0 1 1 ${-radioInterior * 2} 0
+          `;
+
+          return exterior + interior + " Z";
+        }
+
+        // Tarta
+        if (radioInterior === 0) {
+          return `
+            M ${cx} ${cy}
+            L ${p1.x} ${p1.y}
+            A ${radioExterior} ${radioExterior} 0 ${grande} 1 ${p2.x} ${p2.y}
+            Z
+          `;
+        }
+
+        // Anillo
+        let p3 = this.punto(cx, cy, radioInterior, fin);
+        let p4 = this.punto(cx, cy, radioInterior, inicio);
+
+        return `
+          M ${p1.x} ${p1.y}
+          A ${radioExterior} ${radioExterior} 0 ${grande} 1 ${p2.x} ${p2.y}
+          L ${p3.x} ${p3.y}
+          A ${radioInterior} ${radioInterior} 0 ${grande} 0 ${p4.x} ${p4.y}
+          Z
+        `;
+      }
+
+      // MÉTODO COMÚN PARA TARTA Y ANILLO
+      circular(radioInterior = 0) {
+        if (this.total <= 0) return;
+
+        let svg = this.crearLienzo(300, 300);
+
+        let cx = 150;
+        let cy = 150;
+        let radio = 120;
+        let angulo = -Math.PI / 2;
+
+        this.datos.forEach((dato, indice) => {
+          if (dato <= 0) return;
+
+          let porcion = dato / this.total * Math.PI * 2;
+          let final = angulo + porcion;
+
+          let path = this.crear("path", {
+            d: this.sector(
+              cx, cy, radio, radioInterior, angulo, final
+            ),
+            fill: this.color(indice),
+            stroke: "white",
+            "stroke-width": 2,
+            "fill-rule": "evenodd"
+          });
+
+          this.activarTooltip(path, dato, indice);
+          svg.appendChild(path);
+
+          let medio = angulo + porcion / 2;
+          let radioTexto = (radio + radioInterior) / 2;
+
+          if (radioInterior === 0) {
+            radioTexto = radio * 0.65;
+          }
+
+          let posicion = this.punto(
+            cx, cy, radioTexto, medio
+          );
+
+          this.texto(
+            svg, dato, posicion.x, posicion.y, "white"
+          );
+
+          angulo = final;
+        });
+
+        // Texto central para el anillo
+        if (radioInterior > 0) {
+          let centro = this.texto(
+            svg, this.total, cx, cy - 8, "#333"
+          );
+
+          centro.setAttribute("font-size", 28);
+          centro.setAttribute("font-weight", "bold");
+
+          this.texto(svg, "TOTAL", cx, cy + 17, "#777");
+        }
+      }
+
+      // GRÁFICA DE TARTA
+      tarta() {
+        this.circular(0);
+      }
+
+      // GRÁFICA DE ANILLO
+      anillo() {
+        this.circular(65);
+      }
+
+      // DETECTAR TIPO DE GRÁFICA
+      dibujar() {
+        if (this.elemento.classList.contains("barras")) {
+          this.barras();
+        } else if (this.elemento.classList.contains("tarta")) {
+          this.tarta();
+        } else if (this.elemento.classList.contains("anillo")) {
+          this.anillo();
+        }
+      }
+    }
+
+    // INICIALIZAR TODAS LAS GRÁFICAS
+    document.querySelectorAll(".contenedor").forEach(elemento => {
+      let grafica = new GraficaSVG(elemento);
+      grafica.dibujar();
+    });
+  </script>
+
+</body>
+</html>

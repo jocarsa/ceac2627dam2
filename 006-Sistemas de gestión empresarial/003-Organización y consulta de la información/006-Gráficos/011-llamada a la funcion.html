@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+      .contenedor{display:flex;align-items:flex-end;margin:50px;}
+      .barra{background:blue;width:20px;border-radius:5px;margin:1px;
+      color:white;padding:10px;}
+    </style>
+  </head>
+  <body>
+    <div class="contenedor" data="[40,50,60,70,80]"></div>
+    <div class="contenedor" data="[70,40,60,30,20]"></div>
+    <div class="contenedor" data="[40,70,30,60,60]"></div>
+    <script src="grafica.js"></script>
+    <script>
+      let elementos = document.querySelectorAll(".contenedor")
+      elementos.forEach(function(elemento){
+      	grafica(elemento)
+      })
+    </script>
+  </body>
+</html>

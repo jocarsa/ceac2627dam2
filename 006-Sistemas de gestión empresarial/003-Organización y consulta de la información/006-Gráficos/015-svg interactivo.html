@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+      .contenedor{display:flex;align-items:flex-end;margin:50px;}
+      .barra{background:blue;width:20px;border-radius:5px;margin:1px;
+      color:white;padding:10px;}
+    </style>
+  </head>
+  <body>
+    
+    <svg
+       width="210mm"
+       height="297mm"
+       viewBox="0 0 210 297"
+       version="1.1"
+       id="svg1"
+       xmlns="http://www.w3.org/2000/svg"
+       xmlns:svg="http://www.w3.org/2000/svg">
+      <defs
+         id="defs1" />
+      <g
+         id="layer1">
+        <circle
+           style="fill:#ffcc00;fill-opacity:0.424114;stroke:#000000;stroke-width:1.22158;stroke-linecap:round;stroke-linejoin:round"
+           id="path1"
+           cx="33.221294"
+           cy="30.224867"
+           r="16.545509" />
+      </g>
+    </svg>
+    <script>
+      let svg = document.querySelector("svg")
+      svg.querySelector("circle").onclick = function(){
+      	this.setAttribute("r",20)
+      }
+    </script>
+  </body>
+</html>
