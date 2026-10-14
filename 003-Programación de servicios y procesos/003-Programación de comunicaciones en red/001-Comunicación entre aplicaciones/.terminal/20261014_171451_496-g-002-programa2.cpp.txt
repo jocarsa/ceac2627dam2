@@ -1,0 +1,7 @@
+Datetime: 2026-10-14T15:14:51.496Z
+Working directory: /var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/001-Comunicación entre aplicaciones
+Command: g++ 002-programa2.cpp
+
+Result:
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-P
+rogramación de comunicaciones en red/001-Comunicación entre aplicaciones$ 
