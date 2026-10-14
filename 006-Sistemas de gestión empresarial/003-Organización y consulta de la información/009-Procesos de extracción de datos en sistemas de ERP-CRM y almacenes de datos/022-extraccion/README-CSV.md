@@ -1,0 +1,1 @@
+Exportación CSV añadida a las tablas de entidades y a cada tabla de Reporting. En Reporting se exportan únicamente las filas visibles y en su orden actual. Separador punto y coma, UTF-8 con BOM. La base SQLite original no se incluye porque el archivo aportado era un reporte documental sin registros. Copiar los archivos sobre el proyecto existente, conservando data/darkorange.db.
