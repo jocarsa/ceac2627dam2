@@ -1,0 +1,9 @@
+Datetime: 2026-10-14T13:52:01.092Z
+Working directory: /var/www/html/ceac2627dam2/006-Sistemas de gestión empresarial/003-Organización y consulta de la información/007-Herramientas de monitorización y de evaluación del rendimiento
+Command: python3 006-procesador.py
+
+Result:
+CPU: 4.6 %
+RAM: 40.2 %
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/006-Sistemas de gestión em
+presarial/003-Organización y consulta de la información/007-Herramientas de monitorización y de evaluación del rendimiento$ 

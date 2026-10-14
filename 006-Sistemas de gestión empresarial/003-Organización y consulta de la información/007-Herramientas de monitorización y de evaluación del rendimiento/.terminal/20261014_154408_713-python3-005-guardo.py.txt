@@ -1,0 +1,8 @@
+Datetime: 2026-10-14T13:44:08.713Z
+Working directory: /var/www/html/ceac2627dam2/006-Sistemas de gestión empresarial/003-Organización y consulta de la información/007-Herramientas de monitorización y de evaluación del rendimiento
+Command: python3 005-guardo.py
+
+Result:
+Archivo guardado en: /home/josevicente/Escritorio/guarda.md
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/006-Sistemas de gestión empresa
+rial/003-Organización y consulta de la información/007-Herramientas de monitorización y de evaluación del rendimiento$ 

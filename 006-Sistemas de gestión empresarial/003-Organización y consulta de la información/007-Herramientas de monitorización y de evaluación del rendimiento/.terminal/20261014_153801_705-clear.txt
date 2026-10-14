@@ -1,0 +1,7 @@
+Datetime: 2026-10-14T13:38:01.705Z
+Working directory: /var/www/html/ceac2627dam2/006-Sistemas de gestión empresarial/003-Organización y consulta de la información/007-Herramientas de monitorización y de evaluación del rendimiento
+Command: clear
+
+Result:
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/006-Sistemas de gestión
+ empresarial/003-Organización y consulta de la información/007-Herramientas de monitorización y de evaluación del rendimiento$ 

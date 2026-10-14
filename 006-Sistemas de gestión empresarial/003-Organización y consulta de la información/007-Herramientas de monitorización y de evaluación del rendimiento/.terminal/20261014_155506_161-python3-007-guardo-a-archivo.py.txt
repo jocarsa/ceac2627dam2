@@ -1,0 +1,28 @@
+Datetime: 2026-10-14T13:55:06.161Z
+Working directory: /var/www/html/ceac2627dam2/006-Sistemas de gestión empresarial/003-Organización y consulta de la información/007-Herramientas de monitorización y de evaluación del rendimiento
+Command: python3 007-guardo\ a\ archivo.py
+
+Result:
+Traceback (most recent call last):
+  File "/var/www/html/ceac2627dam2/006-Sistemas de gestión empresarial/003-Organización y consulta de la información/007-Herramientas de monitorización y de evaluación del rendimiento/007-guardo a archivo.py", line 9, in <module>
+    archivo.write(hoy+","+cpu+","+ram+"\n")
+                  ~~~~~~~^~~~
+TypeError: can only concatenate str (not "float") to str
+Error in sys.excepthook:
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/apport_python_hook.py", line 228, in partial_apport_excepthook
+    return apport_excepthook(binary, exc_type, exc_obj, exc_tb)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/apport_python_hook.py", line 144, in apport_excepthook
+    os.open(pr_filename, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o640), "wb"
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: '/var/crash/_var_www_html_ceac2627dam2_006-Sistemas de gestión empresarial_003-Organización y consulta de la información_007-Herramientas de monitorización y de evaluación del rendimiento_007-guardo a archivo.py.1000.crash'
+
+Original exception was:
+Traceback (most recent call last):
+  File "/var/www/html/ceac2627dam2/006-Sistemas de gestión empresarial/003-Organización y consulta de la información/007-Herramientas de monitorización y de evaluación del rendimiento/007-guardo a archivo.py", line 9, in <module>
+    archivo.write(hoy+","+cpu+","+ram+"\n")
+                  ~~~~~~~^~~~
+TypeError: can only concatenate str (not "float") to str
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/006-Sistemas de gestión em
+presarial/003-Organización y consulta de la información/007-Herramientas de monitorización y de evaluación del rendimiento$ 

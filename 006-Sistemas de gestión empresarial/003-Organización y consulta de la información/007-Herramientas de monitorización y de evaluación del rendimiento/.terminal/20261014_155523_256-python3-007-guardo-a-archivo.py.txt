@@ -1,0 +1,7 @@
+Datetime: 2026-10-14T13:55:23.256Z
+Working directory: /var/www/html/ceac2627dam2/006-Sistemas de gestión empresarial/003-Organización y consulta de la información/007-Herramientas de monitorización y de evaluación del rendimiento
+Command: python3 007-guardo\ a\ archivo.py
+
+Result:
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/006-Sistemas de gestión em
+presarial/003-Organización y consulta de la información/007-Herramientas de monitorización y de evaluación del rendimiento$ 
