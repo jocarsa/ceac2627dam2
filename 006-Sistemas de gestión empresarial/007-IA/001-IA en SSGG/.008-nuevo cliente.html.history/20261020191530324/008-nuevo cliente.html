@@ -1,0 +1,131 @@
+
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: lightgray;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      font-family: sans-serif;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 800px;
+      max-width: 95%;
+    }
+
+    section {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      min-height: 400px;
+      max-height: 70vh;
+      overflow-y: auto;
+    }
+
+    input {
+      border: none;
+      padding: 15px;
+      border-radius: 10px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    .pregunta {
+      font-weight: bold;
+      margin: 15px 0;
+    }
+
+    .respuesta {
+      background: #f0f0f0;
+      padding: 15px;
+      border-radius: 8px;
+      font-family: monospace;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+    <section>
+      Hola, pregúntame sobre tus clientes.
+    </section>
+
+    <input placeholder="Escribe una pregunta y pulsa Enter">
+  </main>
+
+  <script>
+    let entrada = document.querySelector("input");
+    let seccion = document.querySelector("section");
+
+    entrada.onkeyup = function(e) {
+
+      if (e.code == "Enter" && entrada.value.trim() !== "") {
+
+        let valor = entrada.value;
+        entrada.value = "";
+        entrada.disabled = true;
+
+        let pregunta = document.createElement("div");
+        pregunta.className = "pregunta";
+        pregunta.textContent = valor;
+        seccion.appendChild(pregunta);
+
+        let respuesta = document.createElement("div");
+        respuesta.className = "respuesta";
+        respuesta.textContent = "Generando SQL...";
+        seccion.appendChild(respuesta);
+
+        fetch("servidor.php", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          body: new URLSearchParams({
+            pregunta: valor
+          })
+        })
+        .then(function(resultado) {
+          return resultado.json();
+        })
+        .then(function(datos) {
+          console.log(datos);
+
+          if (datos.error) {
+            respuesta.textContent = datos.error;
+          } else {
+            respuesta.textContent = datos.sql;
+          }
+
+          seccion.scrollTop = seccion.scrollHeight;
+        })
+        .catch(function(error) {
+          respuesta.textContent = "Error: " + error.message;
+        })
+        .finally(function() {
+          entrada.disabled = false;
+          entrada.focus();
+        });
+
+      }
+    };
+  </script>
+
+</body>
+</html>

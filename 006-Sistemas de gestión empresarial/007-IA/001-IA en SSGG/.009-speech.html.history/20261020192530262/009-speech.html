@@ -1,0 +1,798 @@
+
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>jocarsa | consultas IA</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: lightgray;
+      font-family: Arial, sans-serif;
+      color: #333;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 900px;
+      max-width: 95%;
+      height: 85vh;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+    }
+
+    header h1 {
+      font-size: 22px;
+      font-weight: normal;
+      margin: 0;
+    }
+
+    header span {
+      font-size: 12px;
+      color: #666;
+    }
+
+    section {
+      background: white;
+      border-radius: 10px;
+      padding: 25px;
+      flex: 1;
+      min-height: 0;
+      overflow-y: auto;
+      scroll-behavior: smooth;
+    }
+
+    .bienvenida {
+      text-align: center;
+      padding: 60px 20px;
+      color: #777;
+    }
+
+    .bienvenida h2 {
+      color: #333;
+      font-weight: normal;
+      margin-bottom: 12px;
+    }
+
+    .bienvenida p {
+      line-height: 1.7;
+    }
+
+    .mensaje {
+      margin-bottom: 30px;
+      animation: aparecer 0.25s ease;
+    }
+
+    @keyframes aparecer {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .pregunta {
+      background: #e9eef5;
+      padding: 15px 20px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      font-weight: 500;
+      line-height: 1.5;
+    }
+
+    .respuesta {
+      padding: 5px 0;
+    }
+
+    .etiqueta {
+      font-size: 11px;
+      font-weight: bold;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin: 18px 0 10px;
+    }
+
+    .sql {
+      background: #20242b;
+      color: #d5e5f5;
+      padding: 20px;
+      border-radius: 8px;
+      font-family: monospace;
+      font-size: 13px;
+      line-height: 1.7;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      overflow-x: auto;
+      margin: 0;
+    }
+
+    .tabla-contenedor {
+      width: 100%;
+      overflow-x: auto;
+      border: 1px solid #e5e5e5;
+      border-radius: 8px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      text-align: left;
+    }
+
+    th {
+      background: #f4f5f7;
+      padding: 13px;
+      font-weight: 600;
+      color: #555;
+      border-bottom: 1px solid #ddd;
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 12px 13px;
+      border-bottom: 1px solid #eee;
+      vertical-align: top;
+      overflow-wrap: anywhere;
+      max-width: 300px;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tbody tr:hover {
+      background: #f9fafc;
+    }
+
+    .total {
+      font-size: 12px;
+      color: #888;
+      margin-top: 10px;
+    }
+
+    .sin-resultados {
+      background: #f7f7f7;
+      border-radius: 8px;
+      padding: 20px;
+      color: #777;
+      text-align: center;
+    }
+
+    .error {
+      background: #fff0f0;
+      border: 1px solid #f2cccc;
+      color: #a33;
+      border-radius: 8px;
+      padding: 15px;
+      line-height: 1.5;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+
+    .cargando {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #777;
+      padding: 15px 0;
+      font-size: 13px;
+    }
+
+    .spinner {
+      width: 18px;
+      height: 18px;
+      border: 2px solid #ddd;
+      border-top-color: steelblue;
+      border-radius: 50%;
+      animation: girar 0.7s linear infinite;
+    }
+
+    @keyframes girar {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    form {
+      display: flex;
+      gap: 10px;
+      background: white;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    input {
+      flex: 1;
+      min-width: 0;
+      border: none;
+      padding: 15px;
+      font-size: 15px;
+      outline: none;
+      background: transparent;
+    }
+
+    button {
+      border: none;
+      background: steelblue;
+      color: white;
+      padding: 0 25px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.2s;
+    }
+
+    button:hover {
+      background: #356789;
+    }
+
+    button:disabled {
+      background: #aaa;
+      cursor: wait;
+    }
+
+    .limpiar {
+      background: transparent;
+      color: #777;
+      padding: 8px 12px;
+      font-size: 12px;
+    }
+
+    .limpiar:hover {
+      background: #ddd;
+    }
+
+    .acciones-voz { display:flex; align-items:center; gap:8px; }
+    .boton-voz { min-height:46px; padding:0 15px; font-size:20px; }
+    .boton-voz.escuchando { background:#b33; animation:pulso 1s infinite alternate; }
+    @keyframes pulso { from {box-shadow:0 0 0 0 #b336;} to {box-shadow:0 0 0 9px #b332;} }
+    .estado-voz { font-size:12px; color:#666; min-height:16px; }
+    .opciones-voz { display:flex; align-items:center; gap:12px; font-size:12px; color:#555; }
+    .opciones-voz label { display:flex; align-items:center; gap:5px; }
+    .opciones-voz input { flex:initial; }
+    .parar-voz { background:#666; padding:8px 12px; }
+    @media (max-width: 600px) {
+      main {
+        width: 100%;
+        max-width: 100%;
+        height: 100dvh;
+        padding: 12px;
+        gap: 12px;
+      }
+
+      section {
+        padding: 15px;
+      }
+
+      header h1 {
+        font-size: 18px;
+      }
+
+      form {
+        padding: 5px;
+      }
+
+      input {
+        padding: 12px;
+        font-size: 14px;
+      }
+
+      button {
+        padding: 0 15px;
+      }
+
+      .sql {
+        font-size: 12px;
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main>
+
+    <header>
+      <div>
+        <h1>jocarsa | consultas IA</h1>
+        <span>SQLite + Ollama · granite4.1:8b</span>
+      </div>
+
+      <button class="limpiar" id="limpiar" type="button">
+        Limpiar
+      </button>
+    </header>
+
+    <section id="conversacion">
+
+      <div class="bienvenida" id="bienvenida">
+        <h2>Consulta tu base de datos</h2>
+
+        <p>
+          Pregunta en lenguaje natural y la inteligencia
+          artificial generará y ejecutará una consulta SQL.
+        </p>
+
+        <p>
+          Por ejemplo:
+          <br>
+          ¿Cuántos clientes son de Valencia?
+          <br>
+          ¿Qué clientes están activos?
+          <br>
+          ¿Cuántos clientes hay por ciudad?
+        </p>
+      </div>
+
+    </section>
+
+    <div class="opciones-voz">
+      <label><input type="checkbox" id="leerVoz" checked> Leer respuestas en voz alta</label>
+      <button type="button" class="parar-voz" id="pararVoz">Detener voz</button>
+      <span class="estado-voz" id="estadoVoz" role="status" aria-live="polite"></span>
+    </div>
+    <form id="formulario">
+      <input
+        id="entrada"
+        type="text"
+        placeholder="Pregunta algo sobre tus clientes..."
+        autocomplete="off"
+        required
+      >
+
+      <button id="microfono" type="button" class="boton-voz" aria-label="Dictar pregunta" title="Dictar pregunta">🎙</button>
+      <button id="enviar" type="submit">
+        Enviar
+      </button>
+    </form>
+
+  </main>
+
+  <script>
+
+    const entrada = document.querySelector("#entrada");
+    const conversacion = document.querySelector("#conversacion");
+    const formulario = document.querySelector("#formulario");
+    const enviar = document.querySelector("#enviar");
+    const limpiar = document.querySelector("#limpiar");
+    const bienvenida = document.querySelector("#bienvenida");
+
+    let procesando = false;
+    const microfono = document.querySelector("#microfono");
+    const leerVoz = document.querySelector("#leerVoz");
+    const pararVoz = document.querySelector("#pararVoz");
+    const estadoVoz = document.querySelector("#estadoVoz");
+    const Reconocimiento = window.SpeechRecognition || window.webkitSpeechRecognition;
+    let reconocimiento = null;
+    let escuchando = false;
+
+    function hablar(texto) {
+      if (!leerVoz.checked || !('speechSynthesis' in window)) return;
+      speechSynthesis.cancel();
+      const mensaje = new SpeechSynthesisUtterance(texto);
+      mensaje.lang = 'es-ES';
+      mensaje.rate = 1;
+      mensaje.pitch = 1;
+      const voces = speechSynthesis.getVoices();
+      const voz = voces.find(v => v.lang.toLowerCase() === 'es-es') ||
+                  voces.find(v => v.lang.toLowerCase().startsWith('es'));
+      if (voz) mensaje.voice = voz;
+      speechSynthesis.speak(mensaje);
+    }
+
+    function resumenVoz(datos) {
+      const filas = Array.isArray(datos.resultados) ? datos.resultados : [];
+      if (!filas.length) return 'La consulta no ha devuelto resultados.';
+      if (filas.length === 1) {
+        const claves = Object.keys(filas[0]);
+        if (claves.length === 1) {
+          return 'El resultado es ' + String(filas[0][claves[0]]) + '.';
+        }
+      }
+      const inicio = `He encontrado ${filas.length} ${filas.length === 1 ? 'fila' : 'filas'}. `;
+      const ejemplos = filas.slice(0, 5).map((fila, i) =>
+        `Resultado ${i + 1}: ` + Object.entries(fila)
+          .filter(([clave]) => !['id', 'email', 'telefono', 'direccion'].includes(clave.toLowerCase()))
+          .slice(0, 4)
+          .map(([clave, valor]) => `${clave}: ${valor === null ? 'sin dato' : valor}`)
+          .join(', ')
+      ).join('. ');
+      return inicio + ejemplos + (filas.length > 5 ? '. Hay más resultados en pantalla.' : '.');
+    }
+
+    if (Reconocimiento) {
+      reconocimiento = new Reconocimiento();
+      reconocimiento.lang = 'es-ES';
+      reconocimiento.continuous = false;
+      reconocimiento.interimResults = true;
+      reconocimiento.onstart = () => {
+        escuchando = true;
+        microfono.classList.add('escuchando');
+        estadoVoz.textContent = 'Escuchando...';
+      };
+      reconocimiento.onresult = evento => {
+        let textoFinal = '';
+        let textoParcial = '';
+        for (let i = 0; i < evento.results.length; i++) {
+          if (evento.results[i].isFinal) textoFinal += evento.results[i][0].transcript + ' ';
+          else textoParcial += evento.results[i][0].transcript + ' ';
+        }
+        entrada.value = (textoFinal + textoParcial).trim();
+        if (textoFinal.trim()) reconocimiento._preguntaFinal = textoFinal.trim();
+      };
+      reconocimiento.onerror = evento => {
+        estadoVoz.textContent = 'Reconocimiento: ' + evento.error;
+        reconocimiento._preguntaFinal = '';
+      };
+      reconocimiento.onend = () => {
+        escuchando = false;
+        microfono.classList.remove('escuchando');
+        const texto = reconocimiento._preguntaFinal || '';
+        reconocimiento._preguntaFinal = '';
+        if (texto && !procesando) {
+          entrada.value = '';
+          estadoVoz.textContent = 'Enviando pregunta...';
+          preguntar(texto);
+        } else if (!estadoVoz.textContent.startsWith('Reconocimiento:')) {
+          estadoVoz.textContent = '';
+        }
+      };
+      microfono.onclick = () => {
+        if (escuchando) { reconocimiento.stop(); return; }
+        if (procesando) return;
+        speechSynthesis?.cancel();
+        reconocimiento._preguntaFinal = '';
+        entrada.value = '';
+        estadoVoz.textContent = 'Activando micrófono...';
+        try { reconocimiento.start(); } catch(e) { estadoVoz.textContent = e.message; }
+      };
+    } else {
+      microfono.disabled = true;
+      estadoVoz.textContent = 'Reconocimiento de voz no disponible en este navegador.';
+    }
+    pararVoz.onclick = () => { if ('speechSynthesis' in window) speechSynthesis.cancel(); };
+    leerVoz.onchange = () => { if (!leerVoz.checked && 'speechSynthesis' in window) speechSynthesis.cancel(); };
+
+
+    // ----------------------------------------
+    // Desplazar conversación
+    // ----------------------------------------
+
+    function desplazar() {
+      conversacion.scrollTop = conversacion.scrollHeight;
+    }
+
+    // ----------------------------------------
+    // Crear elementos
+    // ----------------------------------------
+
+    function crearElemento(etiqueta, clase, texto = "") {
+
+      const elemento = document.createElement(etiqueta);
+
+      if (clase) {
+        elemento.className = clase;
+      }
+
+      elemento.textContent = texto;
+
+      return elemento;
+    }
+
+    // ----------------------------------------
+    // Mostrar resultados como tabla
+    // ----------------------------------------
+
+    function crearTabla(registros) {
+
+      if (!Array.isArray(registros) || registros.length === 0) {
+        return crearElemento(
+          "div",
+          "sin-resultados",
+          "La consulta no ha devuelto registros."
+        );
+      }
+
+      const contenedor = crearElemento(
+        "div",
+        "tabla-contenedor"
+      );
+
+      const tabla = document.createElement("table");
+      const thead = document.createElement("thead");
+      const tbody = document.createElement("tbody");
+
+      // Recuperar columnas de todos los registros
+      const columnas = [
+        ...new Set(
+          registros.flatMap(registro => Object.keys(registro))
+        )
+      ];
+
+      // Cabecera
+      const filaCabecera = document.createElement("tr");
+
+      columnas.forEach(function(columna) {
+
+        const th = document.createElement("th");
+        th.textContent = columna;
+
+        filaCabecera.appendChild(th);
+
+      });
+
+      thead.appendChild(filaCabecera);
+
+      // Filas
+      registros.forEach(function(registro) {
+
+        const tr = document.createElement("tr");
+
+        columnas.forEach(function(columna) {
+
+          const td = document.createElement("td");
+
+          const valor = registro[columna];
+
+          td.textContent =
+            valor === null || valor === undefined
+              ? "NULL"
+              : String(valor);
+
+          tr.appendChild(td);
+
+        });
+
+        tbody.appendChild(tr);
+
+      });
+
+      tabla.appendChild(thead);
+      tabla.appendChild(tbody);
+      contenedor.appendChild(tabla);
+
+      return contenedor;
+    }
+
+    // ----------------------------------------
+    // Mostrar respuesta
+    // ----------------------------------------
+
+    function mostrarRespuesta(contenedor, datos) {
+
+      contenedor.replaceChildren();
+
+      if (datos.error) {
+
+        const error = crearElemento(
+          "div",
+          "error",
+          datos.error +
+          (datos.detalle ? "\n" + datos.detalle : "")
+        );
+
+        contenedor.appendChild(error);
+
+        if (datos.sql) {
+          contenedor.appendChild(
+            crearElemento("div", "etiqueta", "SQL generado")
+          );
+
+          contenedor.appendChild(
+            crearElemento("pre", "sql", datos.sql)
+          );
+        }
+
+        return;
+      }
+
+      // SQL generado
+      contenedor.appendChild(
+        crearElemento("div", "etiqueta", "SQL generado por Ollama")
+      );
+
+      contenedor.appendChild(
+        crearElemento("pre", "sql", datos.sql || "")
+      );
+
+      // Resultados
+      contenedor.appendChild(
+        crearElemento("div", "etiqueta", "Resultados de SQLite")
+      );
+
+      const registros = Array.isArray(datos.resultados)
+        ? datos.resultados
+        : [];
+
+      contenedor.appendChild(crearTabla(registros));
+
+      // Total de filas devueltas
+      contenedor.appendChild(
+        crearElemento(
+          "div",
+          "total",
+          registros.length + " fila(s) devuelta(s)"
+        )
+      );
+
+    }
+
+    // ----------------------------------------
+    // Enviar pregunta
+    // ----------------------------------------
+
+    async function preguntar(pregunta) {
+
+      if (procesando || !pregunta.trim()) {
+        return;
+      }
+
+      procesando = true;
+      enviar.disabled = true;
+      entrada.disabled = true;
+
+      bienvenida.style.display = "none";
+
+      // Mensaje
+      const mensaje = crearElemento("div", "mensaje");
+
+      const preguntaElemento = crearElemento(
+        "div",
+        "pregunta",
+        pregunta
+      );
+
+      const respuestaElemento = crearElemento(
+        "div",
+        "respuesta"
+      );
+
+      // Indicador de carga
+      const cargando = crearElemento("div", "cargando");
+
+      const spinner = crearElemento("div", "spinner");
+
+      const textoCarga = crearElemento(
+        "span",
+        "",
+        "Consultando Ollama y SQLite..."
+      );
+
+      cargando.appendChild(spinner);
+      cargando.appendChild(textoCarga);
+
+      respuestaElemento.appendChild(cargando);
+
+      mensaje.appendChild(preguntaElemento);
+      mensaje.appendChild(respuestaElemento);
+
+      conversacion.appendChild(mensaje);
+
+      desplazar();
+
+      try {
+
+        const respuesta = await fetch("007-servidor.php", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          body: new URLSearchParams({
+            pregunta: pregunta
+          })
+        });
+
+        const datos = await respuesta.json();
+
+        console.log("Respuesta servidor:", datos);
+
+        mostrarRespuesta(respuestaElemento, datos);
+        if (!datos.error) hablar(resumenVoz(datos));
+        else hablar('Ha ocurrido un error al consultar la base de datos.');
+
+      } catch (error) {
+
+        respuestaElemento.replaceChildren();
+
+        respuestaElemento.appendChild(
+          crearElemento(
+            "div",
+            "error",
+            "No se ha podido completar la consulta: " +
+            error.message
+          )
+        );
+
+      } finally {
+
+        procesando = false;
+        enviar.disabled = false;
+        entrada.disabled = false;
+
+        entrada.focus();
+        desplazar();
+
+      }
+
+    }
+
+    // ----------------------------------------
+    // Formulario
+    // ----------------------------------------
+
+    formulario.addEventListener("submit", function(evento) {
+
+      evento.preventDefault();
+
+      const pregunta = entrada.value.trim();
+
+      if (!pregunta) {
+        return;
+      }
+
+      entrada.value = "";
+
+      preguntar(pregunta);
+
+    });
+
+    // ----------------------------------------
+    // Limpiar conversación
+    // ----------------------------------------
+
+    limpiar.addEventListener("click", function() {
+
+      if (procesando) {
+        return;
+      }
+
+      if ('speechSynthesis' in window) speechSynthesis.cancel();
+      conversacion.replaceChildren();
+      conversacion.appendChild(bienvenida);
+
+      bienvenida.style.display = "block";
+
+      entrada.value = "";
+      entrada.focus();
+
+    });
+
+    // ----------------------------------------
+    // Inicio
+    // ----------------------------------------
+
+    entrada.focus();
+
+  </script>
+
+</body>
+</html>

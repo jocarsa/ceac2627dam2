@@ -1,0 +1,50 @@
+Datetime: 2026-10-20T17:56:13.844Z
+Working directory: /var/www/html/ceac2627dam2/003-Programación de servicios y procesos/001-Programación multiproceso/008-Sincronización entre procesos
+Command: python3 002-repaso\ palabras.py
+
+Result:
+la palabra es:  Los
+la palabra anterior es programación
+la palabra posterior es alumnos
+------------------------------
+la palabra es:  alumnos
+la palabra anterior es Los
+la palabra posterior es de
+------------------------------
+la palabra es:  de
+la palabra anterior es alumnos
+la palabra posterior es DAM
+------------------------------
+la palabra es:  DAM
+la palabra anterior es de
+la palabra posterior es aprenden
+------------------------------
+la palabra es:  aprenden
+la palabra anterior es DAM
+la palabra posterior es programación
+------------------------------
+la palabra es:  programación
+la palabra anterior es aprenden
+Traceback (most recent call last):
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/001-Programación multiproceso/008-Sincronización entre procesos/002-repaso palabras.py", line 7, in <module>
+    print("la palabra posterior es",palabras[i+1])
+                                    ~~~~~~~~^^^^^
+IndexError: list index out of range
+Error in sys.excepthook:
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/apport_python_hook.py", line 228, in partial_apport_excepthook
+    return apport_excepthook(binary, exc_type, exc_obj, exc_tb)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/apport_python_hook.py", line 144, in apport_excepthook
+    os.open(pr_filename, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o640), "wb"
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: '/var/crash/_var_www_html_ceac2627dam2_003-Programación de servicios y procesos_001-Programación multiproceso_008-Sincronización entre procesos_002-repaso palabras.py.1000.crash'
+
+Original exception was:
+Traceback (most recent call last):
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/001-Programación multiproceso/008-Sincronización entre procesos/002-repaso palabras.py", line 7, in <module>
+    print("la palabra posterior es",palabras[i+1])
+                                    ~~~~~~~~^^^^^
+IndexError: list index out of range
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/003-Programación
+ de servicios y procesos/001-Programación multiproceso/008-Sincronización entre procesos$ 

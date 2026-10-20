@@ -1,0 +1,8 @@
+Datetime: 2026-10-20T17:06:16.241Z
+Working directory: /var/www/html/ceac2627dam2/006-Sistemas de gestión empresarial/007-IA/001-IA en SSGG
+Command: ollama list
+
+Result:
+ollama list
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/006-Sistemas de gestió
+n empresarial/007-IA/001-IA en SSGG$ 

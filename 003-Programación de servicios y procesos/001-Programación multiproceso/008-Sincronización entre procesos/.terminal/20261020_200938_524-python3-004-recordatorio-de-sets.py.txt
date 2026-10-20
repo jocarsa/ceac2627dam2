@@ -1,0 +1,8 @@
+Datetime: 2026-10-20T18:09:38.524Z
+Working directory: /var/www/html/ceac2627dam2/003-Programación de servicios y procesos/001-Programación multiproceso/008-Sincronización entre procesos
+Command: python3 004-recordatorio\ de\ sets.py
+
+Result:
+['manzanas', 'peras', 'platanos', 'platanos', 'manzanas']
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/003-Programación
+ de servicios y procesos/001-Programación multiproceso/008-Sincronización entre procesos$ 

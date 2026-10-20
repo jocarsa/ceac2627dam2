@@ -1,0 +1,8 @@
+Datetime: 2026-10-20T17:08:23.437Z
+Working directory: /var/www/html/ceac2627dam2/006-Sistemas de gestión empresarial/007-IA/001-IA en SSGG
+Command: ollama run granite4.1:8b "Dame la consulta SQL para seleccionar los clientes que sean de Valencia"
+
+Result:
+ollama run granite4.1:8b "Dame la consulta SQL para seleccionar los clientes que sean de Valencia"
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/006-Sistemas de gestió
+n empresarial/007-IA/001-IA en SSGG$ 

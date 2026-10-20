@@ -1,0 +1,8 @@
+Datetime: 2026-10-20T17:50:33.430Z
+Working directory: /var/www/html/ceac2627dam2/003-Programación de servicios y procesos/001-Programación multiproceso/008-Sincronización entre procesos
+Command: python3 001-partir\ por\ palabras.py
+
+Result:
+Los alumnos de DAM aprenden programación
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/003-Programación
+ de servicios y procesos/001-Programación multiproceso/008-Sincronización entre procesos$ 

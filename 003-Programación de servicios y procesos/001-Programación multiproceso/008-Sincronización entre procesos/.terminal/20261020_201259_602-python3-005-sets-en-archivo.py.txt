@@ -1,0 +1,28 @@
+Datetime: 2026-10-20T18:12:59.602Z
+Working directory: /var/www/html/ceac2627dam2/003-Programación de servicios y procesos/001-Programación multiproceso/008-Sincronización entre procesos
+Command: python3 005-sets\ en\ archivo.py
+
+Result:
+Cuantas palabras tengo?
+tengo:  13 diferentes
+tengo:  11 unicas
+Cuantas palabras tengo?
+tengo:  4 diferentes
+tengo:  3 unicas
+Cuantas palabras tengo?
+tengo:  5 diferentes
+tengo:  3 unicas
+Cuantas palabras tengo?
+tengo:  4 diferentes
+tengo:  4 unicas
+Cuantas palabras tengo?
+tengo:  1 diferentes
+tengo:  1 unicas
+Cuantas palabras tengo?
+tengo:  1 diferentes
+tengo:  1 unicas
+Cuantas palabras tengo?
+tengo:  11286 diferentes
+tengo:  1606 unicas
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/003-Programación
+ de servicios y procesos/001-Programación multiproceso/008-Sincronización entre procesos$ 
