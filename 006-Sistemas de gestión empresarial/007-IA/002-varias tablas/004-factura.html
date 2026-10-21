@@ -1,0 +1,252 @@
+
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Factura</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 40px;
+      background: #e8edf2;
+      font-family: Arial, sans-serif;
+      color: #333;
+    }
+
+    .factura {
+      max-width: 800px;
+      margin: auto;
+      padding: 45px;
+      background: white;
+      box-shadow: 0 5px 25px #0002;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 3px solid steelblue;
+      padding-bottom: 25px;
+    }
+
+    h1 {
+      margin: 0;
+      color: steelblue;
+      font-size: 36px;
+    }
+
+    h2 {
+      font-size: 17px;
+      color: steelblue;
+    }
+
+    p {
+      line-height: 1.7;
+      margin: 4px 0;
+    }
+
+    .datos {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      margin: 35px 0;
+    }
+
+    .datos > div {
+      flex: 1;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 25px;
+    }
+
+    th {
+      background: steelblue;
+      color: white;
+      padding: 14px;
+      text-align: left;
+    }
+
+    td {
+      padding: 14px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .numero {
+      text-align: right;
+    }
+
+    .totales {
+      width: 300px;
+      margin: 30px 0 30px auto;
+    }
+
+    .totales p {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+    }
+
+    .total {
+      font-size: 22px;
+      font-weight: bold;
+      color: steelblue;
+      border-top: 2px solid steelblue;
+    }
+
+    footer {
+      margin-top: 60px;
+      border-top: 1px solid #ddd;
+      padding-top: 20px;
+      text-align: center;
+      color: #777;
+      font-size: 13px;
+    }
+
+    button {
+      display: block;
+      margin: 25px auto;
+      padding: 14px 30px;
+      background: steelblue;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background: #315d80;
+    }
+
+    @page {
+      size: A4;
+      margin: 15mm;
+    }
+
+    @media print {
+      body {
+        padding: 0;
+        background: white;
+      }
+
+      .factura {
+        max-width: none;
+        padding: 0;
+        box-shadow: none;
+      }
+
+      button {
+        display: none;
+      }
+
+      th {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="factura">
+
+    <header>
+      <div>
+        <h1>FACTURA</h1>
+        <p>Nº: FAC-2026-001</p>
+        <p>Fecha: 21/10/2026</p>
+      </div>
+
+      <div>
+        <h2>JOCARSA</h2>
+        <p>Calle Ejemplo, 123</p>
+        <p>46001 Valencia</p>
+        <p>NIF: B12345678</p>
+        <p>info@ejemplo.com</p>
+      </div>
+    </header>
+
+    <section class="datos">
+      <div>
+        <h2>Emisor</h2>
+        <p><strong>JOCARSA</strong></p>
+        <p>Valencia, España</p>
+        <p>NIF: B12345678</p>
+      </div>
+
+      <div>
+        <h2>Cliente</h2>
+        <p><strong>Empresa Cliente S.L.</strong></p>
+        <p>Calle Cliente, 45</p>
+        <p>Madrid, España</p>
+        <p>NIF: B87654321</p>
+      </div>
+    </section>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Concepto</th>
+          <th class="numero">Cantidad</th>
+          <th class="numero">Precio</th>
+          <th class="numero">Importe</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Desarrollo web</td>
+          <td class="numero">1</td>
+          <td class="numero">500,00 €</td>
+          <td class="numero">500,00 €</td>
+        </tr>
+        <tr>
+          <td>Mantenimiento</td>
+          <td class="numero">2</td>
+          <td class="numero">75,00 €</td>
+          <td class="numero">150,00 €</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="totales">
+      <p>
+        <span>Base imponible</span>
+        <span>650,00 €</span>
+      </p>
+      <p>
+        <span>IVA (21%)</span>
+        <span>136,50 €</span>
+      </p>
+      <p class="total">
+        <span>TOTAL</span>
+        <span>786,50 €</span>
+      </p>
+    </div>
+
+    <section>
+      <h2>Forma de pago</h2>
+      <p>Transferencia bancaria</p>
+      <p>IBAN: ES00 0000 0000 0000 0000 0000</p>
+    </section>
+
+    <footer>
+      <p>Gracias por confiar en nosotros.</p>
+      <p>Factura generada electrónicamente.</p>
+    </footer>
+
+  </div>
+
+  <button onclick="window.print()">
+    Imprimir / Guardar PDF
+  </button>
+
+</body>
+</html>

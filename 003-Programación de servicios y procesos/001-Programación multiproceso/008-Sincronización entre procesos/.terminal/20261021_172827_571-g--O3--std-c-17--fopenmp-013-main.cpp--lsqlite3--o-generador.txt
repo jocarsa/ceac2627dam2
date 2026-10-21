@@ -1,0 +1,8 @@
+Datetime: 2026-10-21T15:28:27.571Z
+Working directory: /var/www/html/ceac2627dam2/003-Programación de servicios y procesos/001-Programación multiproceso/008-Sincronización entre procesos
+Command: g++ -O3 -std=c++17 -fopenmp 013-main.cpp -lsqlite3 -o generador
+
+Result:
+
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/003-Progr
+amación de servicios y procesos/001-Programación multiproceso/008-Sincronización entre procesos$ 

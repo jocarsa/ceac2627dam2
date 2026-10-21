@@ -1,0 +1,265 @@
+
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Factura {{pedidos.id}}</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 40px;
+      background: #e8edf2;
+      font-family: Arial, sans-serif;
+      color: #333;
+    }
+
+    .factura {
+      max-width: 800px;
+      margin: auto;
+      padding: 45px;
+      background: white;
+      box-shadow: 0 5px 25px #0002;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 3px solid steelblue;
+      padding-bottom: 25px;
+    }
+
+    h1 {
+      margin: 0;
+      color: steelblue;
+      font-size: 36px;
+    }
+
+    h2 {
+      font-size: 17px;
+      color: steelblue;
+    }
+
+    p {
+      line-height: 1.7;
+      margin: 4px 0;
+    }
+
+    .datos {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      margin: 35px 0;
+    }
+
+    .datos > div {
+      flex: 1;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 25px;
+    }
+
+    th {
+      background: steelblue;
+      color: white;
+      padding: 14px;
+      text-align: left;
+    }
+
+    td {
+      padding: 14px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .numero {
+      text-align: right;
+    }
+
+    .totales {
+      width: 300px;
+      margin: 30px 0 30px auto;
+    }
+
+    .totales p {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+    }
+
+    .total {
+      font-size: 22px;
+      font-weight: bold;
+      color: steelblue;
+      border-top: 2px solid steelblue;
+    }
+
+    footer {
+      margin-top: 60px;
+      border-top: 1px solid #ddd;
+      padding-top: 20px;
+      text-align: center;
+      color: #777;
+      font-size: 13px;
+    }
+
+    button {
+      display: block;
+      margin: 25px auto;
+      padding: 14px 30px;
+      background: steelblue;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    @page {
+      size: A4;
+      margin: 15mm;
+    }
+
+    @media print {
+      body {
+        padding: 0;
+        background: white;
+      }
+
+      .factura {
+        max-width: none;
+        padding: 0;
+        box-shadow: none;
+      }
+
+      button {
+        display: none;
+      }
+
+      th {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="factura">
+
+    <header>
+      <div>
+        <h1>FACTURA</h1>
+        <p>Nº de pedido: {{pedidos.id}}</p>
+        <p>Fecha: {{pedidos.fecha}}</p>
+        <p>Estado: {{pedidos.estado}}</p>
+      </div>
+
+      <div>
+        <h2>JOCARSA</h2>
+        <p>Calle Ejemplo, 123</p>
+        <p>46001 Valencia</p>
+        <p>NIF: B12345678</p>
+        <p>info@ejemplo.com</p>
+      </div>
+    </header>
+
+    <section class="datos">
+
+      <div>
+        <h2>Emisor</h2>
+        <p><strong>JOCARSA</strong></p>
+        <p>Valencia, España</p>
+        <p>NIF: B12345678</p>
+      </div>
+
+      <div>
+        <h2>Receptor</h2>
+        <p>
+          <strong>
+            {{clientes.nombre}} {{clientes.apellidos}}
+          </strong>
+        </p>
+        <p>Ciudad: {{clientes.ciudad}}</p>
+        <p>Email: {{clientes.email}}</p>
+        <p>Teléfono: {{clientes.telefono}}</p>
+        <p>Cliente nº {{clientes.id}}</p>
+      </div>
+
+    </section>
+
+    <h2>Detalle del pedido</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Producto</th>
+          <th>Modelo</th>
+          <th class="numero">Cantidad</th>
+          <th class="numero">Precio</th>
+          <th class="numero">Importe</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>{{productos.nombre}}</td>
+          <td>{{productos.modelo}}</td>
+          <td class="numero">1</td>
+          <td class="numero">
+            {{pedidos.precio_venta}} €
+          </td>
+          <td class="numero">
+            {{pedidos.precio_venta}} €
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <section>
+      <h2>Características del vehículo</h2>
+      <p>Categoría: {{productos.categoria}}</p>
+      <p>Potencia: {{productos.potencia}} CV</p>
+      <p>Autonomía: {{productos.autonomia}} km</p>
+    </section>
+
+    <div class="totales">
+      <p>
+        <span>Base imponible</span>
+        <span>{{pedidos.precio_venta}} €</span>
+      </p>
+
+      <p>
+        <span>IVA (21%)</span>
+        <span>{{totales.iva}} €</span>
+      </p>
+
+      <p class="total">
+        <span>TOTAL</span>
+        <span>{{totales.total}} €</span>
+      </p>
+    </div>
+
+    <section>
+      <h2>Forma de pago</h2>
+      <p>Transferencia bancaria</p>
+      <p>IBAN: ES00 0000 0000 0000 0000 0000</p>
+    </section>
+
+    <footer>
+      <p>Gracias por confiar en JOCARSA.</p>
+      <p>Factura generada electrónicamente.</p>
+    </footer>
+
+  </div>
+
+  <button onclick="window.print()">
+    Imprimir / Guardar PDF
+  </button>
+
+</body>
+</html>

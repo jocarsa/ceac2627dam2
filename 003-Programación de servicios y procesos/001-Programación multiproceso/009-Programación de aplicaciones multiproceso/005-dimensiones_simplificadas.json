@@ -1,0 +1,642 @@
+[
+  {
+    "id": 1,
+    "nombre": "Existencia",
+    "descripcion": "Entidades que existen o pueden existir"
+  },
+  {
+    "id": 2,
+    "nombre": "Concreción",
+    "descripcion": "Concreto frente a abstracto"
+  },
+  {
+    "id": 3,
+    "nombre": "Materialidad",
+    "descripcion": "Composición física"
+  },
+  {
+    "id": 4,
+    "nombre": "Ser vivo",
+    "descripcion": "Presencia de vida"
+  },
+  {
+    "id": 5,
+    "nombre": "Animal",
+    "descripcion": "Pertenencia al mundo animal"
+  },
+  {
+    "id": 6,
+    "nombre": "Vegetal",
+    "descripcion": "Pertenencia al mundo vegetal"
+  },
+  {
+    "id": 7,
+    "nombre": "Humano",
+    "descripcion": "Relación con las personas"
+  },
+  {
+    "id": 8,
+    "nombre": "Artificial",
+    "descripcion": "Creado por seres inteligentes"
+  },
+  {
+    "id": 9,
+    "nombre": "Natural",
+    "descripcion": "Procedente de la naturaleza"
+  },
+  {
+    "id": 10,
+    "nombre": "Objeto",
+    "descripcion": "Entidad individual manipulable"
+  },
+  {
+    "id": 11,
+    "nombre": "Sustancia",
+    "descripcion": "Materia o material"
+  },
+  {
+    "id": 12,
+    "nombre": "Energía",
+    "descripcion": "Energía y sus manifestaciones"
+  },
+  {
+    "id": 13,
+    "nombre": "Fenómeno",
+    "descripcion": "Sucesos físicos o naturales"
+  },
+  {
+    "id": 14,
+    "nombre": "Organismo",
+    "descripcion": "Sistemas biológicos"
+  },
+  {
+    "id": 15,
+    "nombre": "Entorno",
+    "descripcion": "Medio ambiente o contexto"
+  },
+  {
+    "id": 16,
+    "nombre": "Universo",
+    "descripcion": "Conceptos cósmicos y astronómicos"
+  },
+  {
+    "id": 17,
+    "nombre": "Espacialidad",
+    "descripcion": "Relación con el espacio"
+  },
+  {
+    "id": 18,
+    "nombre": "Posición",
+    "descripcion": "Localización"
+  },
+  {
+    "id": 19,
+    "nombre": "Distancia",
+    "descripcion": "Separación espacial"
+  },
+  {
+    "id": 20,
+    "nombre": "Dirección",
+    "descripcion": "Orientación"
+  },
+  {
+    "id": 21,
+    "nombre": "Movimiento",
+    "descripcion": "Desplazamiento"
+  },
+  {
+    "id": 22,
+    "nombre": "Velocidad",
+    "descripcion": "Rapidez"
+  },
+  {
+    "id": 23,
+    "nombre": "Tamaño",
+    "descripcion": "Magnitud espacial"
+  },
+  {
+    "id": 24,
+    "nombre": "Volumen",
+    "descripcion": "Ocupación tridimensional"
+  },
+  {
+    "id": 25,
+    "nombre": "Superficie",
+    "descripcion": "Extensión superficial"
+  },
+  {
+    "id": 26,
+    "nombre": "Forma",
+    "descripcion": "Geometría"
+  },
+  {
+    "id": 27,
+    "nombre": "Estructura",
+    "descripcion": "Organización de partes"
+  },
+  {
+    "id": 28,
+    "nombre": "Interioridad",
+    "descripcion": "Dentro frente a fuera"
+  },
+  {
+    "id": 29,
+    "nombre": "Proximidad",
+    "descripcion": "Cercanía"
+  },
+  {
+    "id": 30,
+    "nombre": "Verticalidad",
+    "descripcion": "Arriba frente a abajo"
+  },
+  {
+    "id": 31,
+    "nombre": "Horizontalidad",
+    "descripcion": "Orientación horizontal"
+  },
+  {
+    "id": 32,
+    "nombre": "Contención",
+    "descripcion": "Capacidad de contener"
+  },
+  {
+    "id": 33,
+    "nombre": "Temporalidad",
+    "descripcion": "Relación con el tiempo"
+  },
+  {
+    "id": 34,
+    "nombre": "Pasado",
+    "descripcion": "Tiempo anterior"
+  },
+  {
+    "id": 35,
+    "nombre": "Presente",
+    "descripcion": "Tiempo actual"
+  },
+  {
+    "id": 36,
+    "nombre": "Futuro",
+    "descripcion": "Tiempo posterior"
+  },
+  {
+    "id": 37,
+    "nombre": "Duración",
+    "descripcion": "Extensión temporal"
+  },
+  {
+    "id": 38,
+    "nombre": "Frecuencia",
+    "descripcion": "Repetición"
+  },
+  {
+    "id": 39,
+    "nombre": "Secuencia",
+    "descripcion": "Orden de acontecimientos"
+  },
+  {
+    "id": 40,
+    "nombre": "Inicio",
+    "descripcion": "Comienzo"
+  },
+  {
+    "id": 41,
+    "nombre": "Finalización",
+    "descripcion": "Terminación"
+  },
+  {
+    "id": 42,
+    "nombre": "Cambio",
+    "descripcion": "Transformación"
+  },
+  {
+    "id": 43,
+    "nombre": "Crecimiento",
+    "descripcion": "Incremento"
+  },
+  {
+    "id": 44,
+    "nombre": "Disminución",
+    "descripcion": "Reducción"
+  },
+  {
+    "id": 45,
+    "nombre": "Permanencia",
+    "descripcion": "Continuidad"
+  },
+  {
+    "id": 46,
+    "nombre": "Repetición",
+    "descripcion": "Recurrencia"
+  },
+  {
+    "id": 47,
+    "nombre": "Antigüedad",
+    "descripcion": "Edad temporal"
+  },
+  {
+    "id": 48,
+    "nombre": "Novedad",
+    "descripcion": "Carácter reciente"
+  },
+  {
+    "id": 49,
+    "nombre": "Acción",
+    "descripcion": "Realización de actividades"
+  },
+  {
+    "id": 50,
+    "nombre": "Agente",
+    "descripcion": "Capacidad de actuar"
+  },
+  {
+    "id": 51,
+    "nombre": "Intencionalidad",
+    "descripcion": "Propósito"
+  },
+  {
+    "id": 52,
+    "nombre": "Causalidad",
+    "descripcion": "Relación causa-efecto"
+  },
+  {
+    "id": 53,
+    "nombre": "Efecto",
+    "descripcion": "Consecuencia"
+  },
+  {
+    "id": 54,
+    "nombre": "Creación",
+    "descripcion": "Producción de algo"
+  },
+  {
+    "id": 55,
+    "nombre": "Destrucción",
+    "descripcion": "Eliminación"
+  },
+  {
+    "id": 56,
+    "nombre": "Construcción",
+    "descripcion": "Ensamblaje"
+  },
+  {
+    "id": 57,
+    "nombre": "Transformación",
+    "descripcion": "Modificación"
+  },
+  {
+    "id": 58,
+    "nombre": "Transferencia",
+    "descripcion": "Paso entre entidades"
+  },
+  {
+    "id": 59,
+    "nombre": "Interacción",
+    "descripcion": "Acción mutua"
+  },
+  {
+    "id": 60,
+    "nombre": "Control",
+    "descripcion": "Dominio o regulación"
+  },
+  {
+    "id": 61,
+    "nombre": "Dependencia",
+    "descripcion": "Necesidad de otra entidad"
+  },
+  {
+    "id": 62,
+    "nombre": "Capacidad",
+    "descripcion": "Posibilidad de realizar algo"
+  },
+  {
+    "id": 63,
+    "nombre": "Dificultad",
+    "descripcion": "Esfuerzo necesario"
+  },
+  {
+    "id": 64,
+    "nombre": "Resultado",
+    "descripcion": "Producto de una acción"
+  },
+  {
+    "id": 65,
+    "nombre": "Conocimiento",
+    "descripcion": "Información conocida"
+  },
+  {
+    "id": 66,
+    "nombre": "Aprendizaje",
+    "descripcion": "Adquisición de conocimiento"
+  },
+  {
+    "id": 67,
+    "nombre": "Memoria",
+    "descripcion": "Almacenamiento de información"
+  },
+  {
+    "id": 68,
+    "nombre": "Razonamiento",
+    "descripcion": "Procesamiento lógico"
+  },
+  {
+    "id": 69,
+    "nombre": "Inteligencia",
+    "descripcion": "Capacidad cognitiva"
+  },
+  {
+    "id": 70,
+    "nombre": "Comprensión",
+    "descripcion": "Entendimiento"
+  },
+  {
+    "id": 71,
+    "nombre": "Percepción",
+    "descripcion": "Captación de estímulos"
+  },
+  {
+    "id": 72,
+    "nombre": "Atención",
+    "descripcion": "Concentración"
+  },
+  {
+    "id": 73,
+    "nombre": "Imaginación",
+    "descripcion": "Representación mental"
+  },
+  {
+    "id": 74,
+    "nombre": "Creatividad",
+    "descripcion": "Producción de ideas"
+  },
+  {
+    "id": 75,
+    "nombre": "Comunicación",
+    "descripcion": "Transmisión de información"
+  },
+  {
+    "id": 76,
+    "nombre": "Lenguaje",
+    "descripcion": "Expresión lingüística"
+  },
+  {
+    "id": 77,
+    "nombre": "Simbolismo",
+    "descripcion": "Representación mediante signos"
+  },
+  {
+    "id": 78,
+    "nombre": "Veracidad",
+    "descripcion": "Relación con la verdad"
+  },
+  {
+    "id": 79,
+    "nombre": "Incertidumbre",
+    "descripcion": "Falta de certeza"
+  },
+  {
+    "id": 80,
+    "nombre": "Complejidad",
+    "descripcion": "Dificultad estructural o conceptual"
+  },
+  {
+    "id": 81,
+    "nombre": "Emoción",
+    "descripcion": "Relación con sentimientos"
+  },
+  {
+    "id": 82,
+    "nombre": "Alegría",
+    "descripcion": "Emociones positivas"
+  },
+  {
+    "id": 83,
+    "nombre": "Tristeza",
+    "descripcion": "Emociones negativas de pérdida"
+  },
+  {
+    "id": 84,
+    "nombre": "Miedo",
+    "descripcion": "Percepción de amenaza"
+  },
+  {
+    "id": 85,
+    "nombre": "Ira",
+    "descripcion": "Enfado"
+  },
+  {
+    "id": 86,
+    "nombre": "Amor",
+    "descripcion": "Afecto"
+  },
+  {
+    "id": 87,
+    "nombre": "Deseo",
+    "descripcion": "Aspiración"
+  },
+  {
+    "id": 88,
+    "nombre": "Placer",
+    "descripcion": "Satisfacción"
+  },
+  {
+    "id": 89,
+    "nombre": "Dolor",
+    "descripcion": "Sufrimiento"
+  },
+  {
+    "id": 90,
+    "nombre": "Motivación",
+    "descripcion": "Impulso para actuar"
+  },
+  {
+    "id": 91,
+    "nombre": "Confianza",
+    "descripcion": "Seguridad psicológica"
+  },
+  {
+    "id": 92,
+    "nombre": "Ansiedad",
+    "descripcion": "Inquietud"
+  },
+  {
+    "id": 93,
+    "nombre": "Curiosidad",
+    "descripcion": "Deseo de conocer"
+  },
+  {
+    "id": 94,
+    "nombre": "Empatía",
+    "descripcion": "Comprensión emocional ajena"
+  },
+  {
+    "id": 95,
+    "nombre": "Identidad",
+    "descripcion": "Sentido del yo"
+  },
+  {
+    "id": 96,
+    "nombre": "Conciencia",
+    "descripcion": "Experiencia o percepción consciente"
+  },
+  {
+    "id": 97,
+    "nombre": "Sociedad",
+    "descripcion": "Organización colectiva"
+  },
+  {
+    "id": 98,
+    "nombre": "Familia",
+    "descripcion": "Relaciones familiares"
+  },
+  {
+    "id": 99,
+    "nombre": "Amistad",
+    "descripcion": "Relaciones amistosas"
+  },
+  {
+    "id": 100,
+    "nombre": "Cooperación",
+    "descripcion": "Trabajo conjunto"
+  },
+  {
+    "id": 101,
+    "nombre": "Competencia",
+    "descripcion": "Rivalidad"
+  },
+  {
+    "id": 102,
+    "nombre": "Autoridad",
+    "descripcion": "Poder jerárquico"
+  },
+  {
+    "id": 103,
+    "nombre": "Poder",
+    "descripcion": "Capacidad de influencia"
+  },
+  {
+    "id": 104,
+    "nombre": "Economía",
+    "descripcion": "Actividad económica"
+  },
+  {
+    "id": 105,
+    "nombre": "Comercio",
+    "descripcion": "Intercambio de bienes"
+  },
+  {
+    "id": 106,
+    "nombre": "Trabajo",
+    "descripcion": "Actividad productiva"
+  },
+  {
+    "id": 107,
+    "nombre": "Educación",
+    "descripcion": "Enseñanza"
+  },
+  {
+    "id": 108,
+    "nombre": "Cultura",
+    "descripcion": "Manifestaciones culturales"
+  },
+  {
+    "id": 109,
+    "nombre": "Política",
+    "descripcion": "Organización del poder público"
+  },
+  {
+    "id": 110,
+    "nombre": "Derecho",
+    "descripcion": "Normas jurídicas"
+  },
+  {
+    "id": 111,
+    "nombre": "Moralidad",
+    "descripcion": "Valoración ética"
+  },
+  {
+    "id": 112,
+    "nombre": "Religión",
+    "descripcion": "Creencias religiosas"
+  },
+  {
+    "id": 113,
+    "nombre": "Cantidad",
+    "descripcion": "Magnitud numérica"
+  },
+  {
+    "id": 114,
+    "nombre": "Intensidad",
+    "descripcion": "Grado o fuerza"
+  },
+  {
+    "id": 115,
+    "nombre": "Calidad",
+    "descripcion": "Nivel de excelencia"
+  },
+  {
+    "id": 116,
+    "nombre": "Utilidad",
+    "descripcion": "Valor práctico"
+  },
+  {
+    "id": 117,
+    "nombre": "Belleza",
+    "descripcion": "Valor estético"
+  },
+  {
+    "id": 118,
+    "nombre": "Seguridad",
+    "descripcion": "Ausencia de peligro"
+  },
+  {
+    "id": 119,
+    "nombre": "Riesgo",
+    "descripcion": "Posibilidad de daño"
+  },
+  {
+    "id": 120,
+    "nombre": "Salud",
+    "descripcion": "Bienestar físico o mental"
+  },
+  {
+    "id": 121,
+    "nombre": "Enfermedad",
+    "descripcion": "Alteración de la salud"
+  },
+  {
+    "id": 122,
+    "nombre": "Tecnología",
+    "descripcion": "Sistemas tecnológicos"
+  },
+  {
+    "id": 123,
+    "nombre": "Computación",
+    "descripcion": "Procesamiento informático"
+  },
+  {
+    "id": 124,
+    "nombre": "Matemáticas",
+    "descripcion": "Conceptos matemáticos"
+  },
+  {
+    "id": 125,
+    "nombre": "Ciencia",
+    "descripcion": "Investigación científica"
+  },
+  {
+    "id": 126,
+    "nombre": "Arte",
+    "descripcion": "Expresión artística"
+  },
+  {
+    "id": 127,
+    "nombre": "Abundancia",
+    "descripcion": "Disponibilidad elevada"
+  },
+  {
+    "id": 128,
+    "nombre": "Escasez",
+    "descripcion": "Disponibilidad limitada"
+  }
+]

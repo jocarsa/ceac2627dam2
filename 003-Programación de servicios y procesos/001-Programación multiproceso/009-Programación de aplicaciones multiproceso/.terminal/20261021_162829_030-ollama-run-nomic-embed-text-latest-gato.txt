@@ -1,0 +1,8 @@
+Datetime: 2026-10-21T14:28:29.030Z
+Working directory: /var/www/html/ceac2627dam2/003-Programación de servicios y procesos/001-Programación multiproceso/009-Programación de aplicaciones multiproceso
+Command: ollama run nomic-embed-text:latest "gato"
+
+Result:
+ollama run nomic-embed-text:latest "gato"
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/003-Programa
+ción de servicios y procesos/001-Programación multiproceso/009-Programación de aplicaciones multiproceso$ 

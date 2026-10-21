@@ -1,0 +1,23 @@
+Datetime: 2026-10-21T14:49:18.352Z
+Working directory: /var/www/html/ceac2627dam2/003-Programación de servicios y procesos/001-Programación multiproceso/009-Programación de aplicaciones multiproceso
+Command: ollama run granite4.2:latest 'dame un array de valores entre 0 y 1 de la palabra "perro" en base a estas dimensiones: Existencia, Concreción, Materialidad, Ser vivo, Animal, Vegetal, Humano, Artificial,
+Natural, Objeto, Sustancia, Energía, Fenómeno, Organismo, Entorno, Universo,
+Espacialidad, Posición, Distancia, Dirección, Movimiento, Velocidad, Tamaño, Volumen,
+Superficie, Forma, Estructura, Interioridad, Proximidad, Verticalidad, Horizontalidad, Contención,
+Temporalidad, Pasado, Presente, Futuro, Duración, Frecuencia, Secuencia, Inicio,
+Finalización, Cambio, Crecimiento, Disminución, Permanencia, Repetición, Antigüedad, Novedad,
+Acción, Agente, Intencionalidad, Causalidad, Efecto, Creación, Destrucción, Construcción,
+Transformación, Transferencia, Interacción, Control, Dependencia, Capacidad, Dificultad, Resultado,
+Conocimiento, Aprendizaje, Memoria, Razonamiento, Inteligencia, Comprensión, Percepción, Atención,
+Imaginación, Creatividad, Comunicación, Lenguaje, Simbolismo, Veracidad, Incertidumbre, Complejidad,
+Emoción, Alegría, Tristeza, Miedo, Ira, Amor, Deseo, Placer,
+Dolor, Motivación, Confianza, Ansiedad, Curiosidad, Empatía, Identidad, Conciencia,
+Sociedad, Familia, Amistad, Cooperación, Competencia, Autoridad, Poder, Economía,
+Comercio, Trabajo, Educación, Cultura, Política, Derecho, Moralidad, Religión,
+Cantidad, Intensidad, Calidad, Utilidad, Belleza, Seguridad, Riesgo, Salud,
+Enfermedad, Tecnología, Computación, Matemáticas, Ciencia, Arte, Abundancia, Escasez'
+
+Result:
+Emoción, Alegría, Tristeza, Miedo, Ira, Amor, Deseo, Placer,Dolor, Motivación, Confianza, Ansiedad, Curiosidad, Empatía, Identidad, Conciencia,Sociedad, Familia, Amistad, Cooperación, Competencia, Autoridad, Poder, Economía,Comercio, Trabajo, Educación, Cultura, Política, Derecho, Moralidad, Religión,Cantidad, Intensidad, Calidad, Utilidad, Belleza, Seguridad, Riesgo, Salud,Enfermedad, Tecnología, Computación, Matemáticas, Ciencia, Arte, Abundancia, Escasez'
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/003-Programa
+ción de servicios y procesos/001-Programación multiproceso/009-Programación de aplicaciones multiproceso$ 

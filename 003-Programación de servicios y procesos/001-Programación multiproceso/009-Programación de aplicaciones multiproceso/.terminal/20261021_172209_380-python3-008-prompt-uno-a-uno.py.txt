@@ -1,0 +1,140 @@
+Datetime: 2026-10-21T15:22:09.380Z
+Working directory: /var/www/html/ceac2627dam2/003-Programación de servicios y procesos/001-Programación multiproceso/009-Programación de aplicaciones multiproceso
+Command: python3 008-prompt\ uno\ a\ uno.py
+
+Result:
+Dimensiones: 128
+
+Palabras encontradas: 80383
+Ya procesadas: 0
+Pendientes: 80383
+-----------------------------------
+
+[1/80383] Procesando: a
+    OK - 128 dimensiones
+    Tiempo palabra: 16.30s
+    Progreso: 0.00%
+    Correctas: 1 | Errores: 0
+    Tiempo restante estimado: 15d 3h 55m 53s
+    Finalización estimada: 2026-11-05 21:14:13
+
+[2/80383] Procesando: aaronita
+    OK - 128 dimensiones
+    Tiempo palabra: 16.05s
+    Progreso: 0.00%
+    Correctas: 2 | Errores: 0
+    Tiempo restante estimado: 15d 1h 6m 21s
+    Finalización estimada: 2026-11-05 18:24:57
+
+[3/80383] Procesando: aarónico
+    OK - 128 dimensiones
+    Tiempo palabra: 16.05s
+    Progreso: 0.00%
+    Correctas: 3 | Errores: 0
+    Tiempo restante estimado: 15d 0h 12m 16s
+    Finalización estimada: 2026-11-05 17:31:08
+
+[4/80383] Procesando: aba
+    OK - 128 dimensiones
+    Tiempo palabra: 16.29s
+    Progreso: 0.00%
+    Correctas: 4 | Errores: 0
+    Tiempo restante estimado: 15d 1h 3m 59s
+    Finalización estimada: 2026-11-05 18:23:07
+
+[5/80383] Procesando: ababa
+    OK - 128 dimensiones
+    Tiempo palabra: 16.70s
+    Progreso: 0.01%
+    Correctas: 5 | Errores: 0
+    Tiempo restante estimado: 15d 3h 25m 43s
+    Finalización estimada: 2026-11-05 20:45:08
+
+[6/80383] Procesando: ababillarse
+    OK - 128 dimensiones
+    Tiempo palabra: 17.33s
+    Progreso: 0.01%
+    Correctas: 6 | Errores: 0
+    Tiempo restante estimado: 15d 7h 21m 31s
+    Finalización estimada: 2026-11-06 00:41:14
+
+[7/80383] Procesando: ababol
+    OK - 128 dimensiones
+    Tiempo palabra: 17.07s
+    Progreso: 0.01%
+    Correctas: 7 | Errores: 0
+    Tiempo restante estimado: 15d 9h 20m 2s
+    Finalización estimada: 2026-11-06 02:40:02
+
+[8/80383] Procesando: abacal
+    OK - 128 dimensiones
+    Tiempo palabra: 17.69s
+    Progreso: 0.01%
+    Correctas: 8 | Errores: 0
+    Tiempo restante estimado: 15d 12h 31m 44s
+    Finalización estimada: 2026-11-06 05:52:01
+
+[9/80383] Procesando: abacalero
+    OK - 128 dimensiones
+    Tiempo palabra: 17.18s
+    Progreso: 0.01%
+    Correctas: 9 | Errores: 0
+    Tiempo restante estimado: 15d 13h 44m 47s
+    Finalización estimada: 2026-11-06 07:05:21
+
+[10/80383] Procesando: abacero
+    OK - 128 dimensiones
+    Tiempo palabra: 16.29s
+    Progreso: 0.01%
+    Correctas: 10 | Errores: 0
+    Tiempo restante estimado: 15d 12h 44m 1s
+    Finalización estimada: 2026-11-06 06:04:52
+
+[11/80383] Procesando: abacería
+    OK - 128 dimensiones
+    Tiempo palabra: 16.19s
+    Progreso: 0.01%
+    Correctas: 11 | Errores: 0
+    Tiempo restante estimado: 15d 11h 41m 40s
+    Finalización estimada: 2026-11-06 05:02:47
+
+[12/80383] Procesando: abacial
+    OK - 128 dimensiones
+    Tiempo palabra: 16.08s
+    Progreso: 0.01%
+    Correctas: 12 | Errores: 0
+    Tiempo restante estimado: 15d 10h 37m 59s
+    Finalización estimada: 2026-11-06 03:59:22
+
+[13/80383] Procesando: abacora
+    OK - 128 dimensiones
+    Tiempo palabra: 16.12s
+    Progreso: 0.02%
+    Correctas: 13 | Errores: 0
+    Tiempo restante estimado: 15d 9h 48m 26s
+    Finalización estimada: 2026-11-06 03:10:05
+
+[14/80383] Procesando: abacorar
+    OK - 128 dimensiones
+    Tiempo palabra: 16.08s
+    Progreso: 0.02%
+    Correctas: 14 | Errores: 0
+    Tiempo restante estimado: 15d 9h 2m 0s
+    Finalización estimada: 2026-11-06 02:23:55
+
+[15/80383] Procesando: abacá
+^C
+Proceso interrumpido por el usuario.
+El progreso está guardado en SQLite.
+
+===================================
+RESUMEN
+===================================
+Palabras del lemario: 80383
+Vectores almacenados: 14
+Errores pendientes: 0
+Dimensiones: 128
+Tiempo de ejecución: 0d 0h 4m 5s
+Base de datos: lemario_vectores.db
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/003-Prog
+ramación de servicios y procesos/001-Programación multiproceso/009-Programación de aplicaciones multiproceso$ 
