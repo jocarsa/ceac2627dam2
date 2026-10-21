@@ -1,0 +1,112 @@
+Datetime: 2026-10-20T18:17:36.697Z
+Working directory: /var/www/html/ceac2627dam2/003-Programación de servicios y procesos/001-Programación multiproceso/008-Sincronización entre procesos
+Command: python3 007-100\ mas\ frecuentes.py
+
+Result:
+Total de palabras: 11306
+Palabras diferentes: 1525
+
+LAS 100 PALABRAS MÁS FRECUENTES
+--------------------------------
+que : 649
+de : 441
+es : 361
+a : 359
+y : 290
+en : 250
+el : 195
+no : 194
+lo : 190
+la : 178
+un : 167
+te : 153
+una : 123
+java : 117
+por : 111
+pero : 101
+yo : 100
+voy : 98
+esto : 96
+me : 91
+decir : 85
+con : 83
+vale : 83
+entonces : 82
+para : 80
+aquí : 76
+si : 72
+más : 68
+se : 65
+porque : 65
+ahora : 65
+eh : 63
+o : 61
+este : 58
+los : 58
+qué : 57
+vamos : 55
+hay : 51
+ya : 46
+hacer : 45
+igual : 44
+tengo : 43
+eso : 42
+continuación : 41
+como : 40
+programa : 40
+cuando : 39
+tiene : 39
+ver : 39
+pues : 38
+quiere : 37
+digo : 36
+las : 35
+puedo : 35
+sea : 34
+proyecto : 32
+sí : 31
+son : 31
+está : 31
+programación : 30
+caso : 30
+esta : 29
+tú : 29
+he : 29
+tenemos : 29
+dice : 29
+lenguaje : 27
+cosa : 26
+hecho : 26
+empezar : 26
+va : 26
+operador : 26
+luego : 25
+crear : 25
+momento : 25
+nada : 25
+clase : 25
+también : 24
+le : 24
+todo : 23
+hace : 23
+tipo : 23
+poner : 23
+c : 22
+evidentemente : 21
+verás : 21
+ram : 21
+veces : 21
+error : 21
+al : 20
+así : 20
+vas : 20
+cierto : 20
+variable : 20
+edad : 20
+tienes : 19
+puedes : 19
+2 : 19
+bueno : 19
+aplicaciones : 18
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/003-Programación
+ de servicios y procesos/001-Programación multiproceso/008-Sincronización entre procesos$ 

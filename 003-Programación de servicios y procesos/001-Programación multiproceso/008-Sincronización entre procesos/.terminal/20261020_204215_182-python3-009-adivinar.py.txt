@@ -1,0 +1,18 @@
+Datetime: 2026-10-20T18:42:15.182Z
+Working directory: /var/www/html/ceac2627dam2/003-Programación de servicios y procesos/001-Programación multiproceso/008-Sincronización entre procesos
+Command: python3 009-adivinar.py
+
+Result:
+
+Predicción: es
+
+el lenguaje de programación java es un lenguaje estrictamente orientado a objetos yo creo que eso lo tenemos por aquí o lo he cerrado vaya hola tenía una bombilla voy a guardar ahora tengo una bombilla entonces la bombilla es que no tengo un error pero el programa tiene un consejo que darme entonces yo me voy a la bomb pongo el cursor por encima veo a ver qu me dice y me dice porque es el típico consejo de java me dice es
+
+ENTER = siguiente palabra | salir: ^CTraceback (most recent call last):
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/001-Programación multiproceso/008-Sincronización entre procesos/009-adivinar.py", line 172, in <module>
+    entrada = input(
+              ^^^^^^
+KeyboardInterrupt
+
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/003-Programación
+ de servicios y procesos/001-Programación multiproceso/008-Sincronización entre procesos$ 

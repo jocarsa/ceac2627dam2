@@ -1,0 +1,36 @@
+Datetime: 2026-10-20T18:26:12.692Z
+Working directory: /var/www/html/ceac2627dam2/003-Programación de servicios y procesos/001-Programación multiproceso/008-Sincronización entre procesos
+Command: python3 008-estadistica.py
+
+Result:
+
+Palabras relacionadas con: java
+que : 140
+de : 119
+es : 82
+en : 76
+a : 68
+java : 50
+y : 49
+un : 42
+el : 42
+no : 35
+lo : 33
+una : 30
+te : 29
+para : 28
+por : 27
+la : 27
+esto : 25
+pero : 24
+yo : 22
+voy : 22
+
+Consultar palabra (salir): ^CTraceback (most recent call last):
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/001-Programación multiproceso/008-Sincronización entre procesos/008-estadistica.py", line 221, in <module>
+    palabra = input("\nConsultar palabra (salir): ").lower().strip()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/003-Programación
+ de servicios y procesos/001-Programación multiproceso/008-Sincronización entre procesos$ 

@@ -1,0 +1,15 @@
+Datetime: 2026-10-20T18:29:44.844Z
+Working directory: /var/www/html/ceac2627dam2/003-Programación de servicios y procesos/001-Programación multiproceso/008-Sincronización entre procesos
+Command: python3 009-adivinar.py
+
+Result:
+
+el lenguaje java es un que es que es que es que es que es que es que es que es que es que es que es que
+
+ENTER = siguiente palabra | salir: ^CTraceback (most recent call last):
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/001-Programación multiproceso/008-Sincronización entre procesos/009-adivinar.py", line 134, in <module>
+    
+KeyboardInterrupt
+
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/003-Programación
+ de servicios y procesos/001-Programación multiproceso/008-Sincronización entre procesos$ 
