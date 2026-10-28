@@ -1,0 +1,7 @@
+Datetime: 2026-10-28T15:58:18.724Z
+Working directory: /var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/003-Librerías y clases
+Command: gcc 004-servidor\ web.c
+
+Result:
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/003-Programación de servici
+os y procesos/003-Programación de comunicaciones en red/003-Librerías y clases$ 

@@ -1,0 +1,8 @@
+Datetime: 2026-10-28T16:09:30.413Z
+Working directory: /var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/003-Librerías y clases
+Command: ./a.out
+
+Result:
+No existe la carpeta web: No such file or directory
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/003-Programación de servici
+os y procesos/003-Programación de comunicaciones en red/003-Librerías y clases$ 

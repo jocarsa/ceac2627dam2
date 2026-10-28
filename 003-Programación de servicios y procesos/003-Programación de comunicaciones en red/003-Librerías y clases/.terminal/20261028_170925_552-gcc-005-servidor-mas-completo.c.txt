@@ -1,0 +1,20 @@
+Datetime: 2026-10-28T16:09:25.552Z
+Working directory: /var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/003-Librerías y clases
+Command: gcc 005-servidor\ mas\ completo.c
+
+Result:
+005-servidor mas completo.c: In function ‘main’:
+005-servidor mas completo.c:207:51: warning: ‘%s’ directive output may be truncated writing up to 2047 bytes into a region of size between 1 and 4096 [-Wformat-truncation=]
+  207 |         snprintf(candidata, sizeof(candidata), "%s%s", raiz, url);
+      |                                                   ^~         ~~~
+005-servidor mas completo.c:207:9: note: ‘snprintf’ output between 1 and 6143 bytes into a destination of size 4096
+  207 |         snprintf(candidata, sizeof(candidata), "%s%s", raiz, url);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+005-servidor mas completo.c:237:49: warning: ‘/index.html’ directive output may be truncated writing 11 bytes into a region of size between 1 and 4096 [-Wformat-truncation=]
+  237 |             snprintf(indice, sizeof(indice), "%s/index.html", ruta);
+      |                                                 ^~~~~~~~~~~
+005-servidor mas completo.c:237:13: note: ‘snprintf’ output between 12 and 4107 bytes into a destination of size 4096
+  237 |             snprintf(indice, sizeof(indice), "%s/index.html", ruta);
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/003-Programación de servici
+os y procesos/003-Programación de comunicaciones en red/003-Librerías y clases$ 

@@ -1,0 +1,15 @@
+Datetime: 2026-10-28T16:24:00.668Z
+Working directory: /var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/003-Librerías y clases
+Command: ./a.out
+
+Result:
+Servidor en http://localhost:8001
+Sirviendo archivos desde: /var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/003-Librerías y clases/web
+GET /
+GET /favicon.ico
+GET /
+GET /index.html
+GET /index2.html
+^C
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/003-Programación de servici
+os y procesos/003-Programación de comunicaciones en red/003-Librerías y clases$ 

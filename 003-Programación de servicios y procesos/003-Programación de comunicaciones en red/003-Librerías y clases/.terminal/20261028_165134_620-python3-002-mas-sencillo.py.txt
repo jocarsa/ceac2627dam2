@@ -1,0 +1,20 @@
+Datetime: 2026-10-28T15:51:34.620Z
+Working directory: /var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/003-Librerías y clases
+Command: python3 002-mas\ sencillo.py
+
+Result:
+Servidor iniciado en http://localhost:8000
+^R
+^CTraceback (most recent call last):
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/003-Librerías y clases/002-mas sencillo.py", line 7, in <module>
+    servidor.serve_forever()
+  File "/usr/lib/python3.12/socketserver.py", line 235, in serve_forever
+    ready = selector.select(poll_interval)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/selectors.py", line 415, in select
+    fd_event_list = self._selector.poll(timeout)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/003-Programación de serv
+icios y procesos/003-Programación de comunicaciones en red/003-Librerías y clases$ 
