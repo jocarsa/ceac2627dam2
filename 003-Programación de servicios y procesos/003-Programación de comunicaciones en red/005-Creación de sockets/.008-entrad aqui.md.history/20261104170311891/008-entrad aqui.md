@@ -1,0 +1,1 @@
+https://jocarsa.com/sockets/receptor.html

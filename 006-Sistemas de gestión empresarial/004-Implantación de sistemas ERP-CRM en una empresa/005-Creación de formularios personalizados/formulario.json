@@ -1,0 +1,104 @@
+
+{
+  "accion": "procesar.php",
+  "metodo": "POST",
+  "boton": "Guardar formulario",
+  "campos": [
+    {
+      "tipo": "text",
+      "nombre": "nombre",
+      "titulo": "Introduce tu nombre",
+      "placeholder": "Tu nombre",
+      "required": true
+    },
+    {
+      "tipo": "number",
+      "nombre": "edad",
+      "titulo": "Introduce tu edad",
+      "min": 0,
+      "max": 120
+    },
+    {
+      "tipo": "date",
+      "nombre": "nacimiento",
+      "titulo": "Fecha de nacimiento"
+    },
+    {
+      "tipo": "time",
+      "nombre": "hora",
+      "titulo": "Selecciona una hora"
+    },
+    {
+      "tipo": "color",
+      "nombre": "color",
+      "titulo": "Color favorito",
+      "valor": "#87cefa"
+    },
+    {
+      "tipo": "range",
+      "nombre": "satisfaccion",
+      "titulo": "Nivel de satisfacción",
+      "min": 0,
+      "max": 100,
+      "valor": 50
+    },
+    {
+      "tipo": "textarea",
+      "nombre": "comentarios",
+      "titulo": "Escribe tus comentarios"
+    },
+    {
+      "tipo": "checkbox",
+      "nombre": "deportes",
+      "titulo": "Selecciona tus deportes",
+      "opciones": [
+        "Fútbol",
+        "Baloncesto",
+        "Tenis",
+        "Ski"
+      ]
+    },
+    {
+      "tipo": "radio",
+      "nombre": "horario",
+      "titulo": "Selecciona tu horario",
+      "opciones": [
+        "Mañana",
+        "Tarde"
+      ]
+    },
+    {
+      "tipo": "progress",
+      "nombre": "progreso",
+      "titulo": "Progreso",
+      "valor": 0.5,
+      "max": 1
+    },
+    {
+      "tipo": "select",
+      "nombre": "nivel",
+      "titulo": "Selecciona tu nivel",
+      "opciones": ["1", "2", "3"]
+    },
+    {
+      "tipo": "datalist",
+      "nombre": "ciudad",
+      "titulo": "Selecciona tu ciudad",
+      "opciones": [
+        "Madrid",
+        "Barcelona",
+        "Valencia",
+        "Sevilla",
+        "Zaragoza",
+        "Málaga",
+        "Murcia",
+        "Bilbao",
+        "Alicante",
+        "Granada",
+        "Toledo",
+        "Salamanca",
+        "Santander"
+      ]
+    }
+  ]
+}

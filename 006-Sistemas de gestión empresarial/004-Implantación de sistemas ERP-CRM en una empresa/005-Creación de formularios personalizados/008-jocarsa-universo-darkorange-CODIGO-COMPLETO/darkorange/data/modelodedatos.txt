@@ -1,0 +1,15 @@
+clientes
+-nombre
+-apellidos
+-email
+
+productos
+-nombre
+-precio
+-categoria
+
+empleados
+-nombre
+-apellidos
+-email
+-telefono

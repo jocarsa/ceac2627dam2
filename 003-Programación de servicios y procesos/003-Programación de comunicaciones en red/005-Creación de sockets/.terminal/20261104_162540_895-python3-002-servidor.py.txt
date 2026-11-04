@@ -1,0 +1,39 @@
+Datetime: 2026-11-04T15:25:40.895Z
+Working directory: /var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/005-Creación de sockets
+Command: python3 002-servidor.py
+
+Result:
+Servidor escuchando en ws://10.4.193.182:5000
+Cliente: hola
+Cliente: hola 
+Cliente: hola
+Cliente: hola
+Cliente: adios
+Cliente: que tal
+Cliente: し
+Cliente: (＾▽＾)
+^CTraceback (most recent call last):
+  File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/005-Creación de sockets/002-servidor.py", line 14, in main
+    await asyncio.Future()
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/005-Creación de sockets/002-servidor.py", line 16, in <module>
+    asyncio.run(main())
+  File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 123, in run
+    raise KeyboardInterrupt()
+KeyboardInterrupt
+
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/003-Programación de servicios y proceso
+s/003-Programación de comunicaciones en red/005-Creación de sockets$ 

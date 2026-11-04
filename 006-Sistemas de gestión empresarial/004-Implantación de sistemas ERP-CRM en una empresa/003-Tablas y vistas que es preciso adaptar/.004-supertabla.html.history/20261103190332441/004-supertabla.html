@@ -1,0 +1,491 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Catálogo de productos JOCARSA</title>
+<style>
+:root {
+  --primary: #6366f1;
+  --background: #f4f6fb;
+  --surface: #ffffff;
+  --text: #202438;
+  --muted: #798196;
+  --border: #e7eaf1;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 40px 20px;
+  background: var(--background);
+  color: var(--text);
+  font: 14px/1.5 system-ui, sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+h1 {
+  font-size: 28px;
+  letter-spacing: -1px;
+  margin: 0;
+}
+
+.subtitle {
+  color: var(--muted);
+  margin: 5px 0 0;
+}
+
+.counter {
+  background: #eef0ff;
+  color: #4f46e5;
+  padding: 9px 16px;
+  border-radius: 30px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 35px #2024380a;
+}
+
+.toolbar {
+  display: flex;
+  gap: 12px;
+  padding: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+input, select {
+  font: inherit;
+  padding: 11px 14px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: white;
+  color: var(--text);
+  outline: none;
+  min-width: 0;
+}
+
+input:focus, select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px #6366f11a;
+}
+
+#buscar { flex: 1; }
+
+.table-scroll { overflow-x: auto; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+thead {
+  background: #fafbfe;
+}
+
+th {
+  padding: 16px 20px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .7px;
+  color: #657087;
+  font-weight: 700;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+
+th:hover { color: var(--primary); }
+
+th .sort {
+  display: inline-block;
+  margin-left: 7px;
+  color: #a6adbd;
+}
+
+th[aria-sort="ascending"] .sort,
+th[aria-sort="descending"] .sort {
+  color: var(--primary);
+}
+
+td {
+  padding: 15px 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+tbody tr {
+  transition: background .15s;
+}
+
+tbody tr:hover {
+  background: #f7f8ff;
+}
+
+tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.product {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.product-icon {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background: #eef0ff;
+  color: #6366f1;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.description {
+  color: #697388;
+}
+
+.color-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  border: 1px solid var(--border);
+  background: #fafbfc;
+  border-radius: 30px;
+  padding: 5px 11px 5px 6px;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.color-dot {
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  border: 1px solid #00000018;
+  box-shadow: inset 0 0 0 2px #ffffff50;
+}
+
+.no-color {
+  color: var(--muted);
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 20px;
+  color: var(--muted);
+  font-size: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.empty {
+  text-align: center;
+  padding: 45px;
+  color: var(--muted);
+}
+
+@media(max-width: 650px) {
+  body { padding: 18px 10px; }
+  .header { align-items: flex-start; }
+  h1 { font-size: 23px; }
+  .toolbar { flex-direction: column; }
+  th, td { padding: 13px 12px; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header class="header">
+    <div>
+      <h1>Catálogo de productos</h1>
+      <p class="subtitle">Ecosistema de aplicaciones JOCARSA</p>
+    </div>
+    <span class="counter" id="contador">0 productos</span>
+  </header>
+
+  <div class="panel">
+    <div class="toolbar">
+      <input
+        type="search"
+        id="buscar"
+        placeholder="Buscar productos, descripciones o colores..."
+        aria-label="Buscar productos"
+      >
+      <select id="filtroColor" aria-label="Filtrar por color">
+        <option value="">Todos los colores</option>
+      </select>
+      <select id="filtroEstado" aria-label="Filtrar colores válidos">
+        <option value="">Todos</option>
+        <option value="valido">Con color válido</option>
+        <option value="invalido">Sin color válido</option>
+      </select>
+    </div>
+
+    <div class="table-scroll">
+      <table id="productos">
+        <thead>
+          <tr>
+            <th data-col="0" tabindex="0" aria-sort="none">
+              Producto jocarsa <span class="sort">↕</span>
+            </th>
+            <th data-col="1" tabindex="0" aria-sort="none">
+              Descripción <span class="sort">↕</span>
+            </th>
+            <th data-col="2" tabindex="0" aria-sort="none">
+              Color <span class="sort">↕</span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>jocarsa | dual</td><td>Aplicación para dualizar</td><td>indigo</td></tr>
+          <tr><td>jocarsa | practicas</td><td>Gestión de prácticas de alumnos</td><td>lawngreen</td></tr>
+          <tr><td>jocarsa | calificaciones</td><td>Gestión de notas y evaluaciones</td><td>greenyellow</td></tr>
+          <tr><td>jocarsa | cuaderno</td><td>Cuaderno del profesor</td><td>dimgray</td></tr>
+          <tr><td>jocarsa | ventas</td><td>CRM de gestión comercial</td><td>sandybrown</td></tr>
+          <tr><td>jocarsa | empresa</td><td>ERP de gestión empresarial</td><td>saddlebrown</td></tr>
+          <tr><td>jocarsa | ia</td><td>Asistente de inteligencia artificial</td><td>lightskyblue</td></tr>
+          <tr><td>jocarsa | video</td><td>Editor de vídeo web</td><td>turquoise</td></tr>
+          <tr><td>jocarsa | videoconferencias</td><td>Videoconferencias y grabaciones</td><td>mediumseagreen</td></tr>
+          <tr><td>jocarsa | cuestionarios</td><td>Cuestionarios interactivos</td><td>mediumspringgreen</td></tr>
+          <tr><td>jocarsa | formacion</td><td>Plataforma de formación online</td><td>royalblue</td></tr>
+          <tr><td>jocarsa | examenes</td><td>Gestión de exámenes</td><td>tomato</td></tr>
+          <tr><td>jocarsa | asistencia</td><td>Control de asistencia</td><td>teal</td></tr>
+          <tr><td>jocarsa | horarios</td><td>Organización de horarios</td><td>steelblue</td></tr>
+          <tr><td>jocarsa | actas</td><td>Gestión de actas académicas</td><td>slateblue</td></tr>
+          <tr><td>jocarsa | facturacion</td><td>Gestión de facturas</td><td>goldenrod</td></tr>
+          <tr><td>jocarsa | ayuda</td><td>Soporte y documentación</td><td>mediumturquoise</td></tr>
+          <tr><td>jocarsa | calendario</td><td>Eventos y citas</td><td>darkorange</td></tr>
+          <tr><td>jocarsa | documentos</td><td>Gestión documental</td><td>dodgerblue</td></tr>
+          <tr><td>jocarsa | formularios</td><td>Diseño de formularios</td><td>mediumorchid</td></tr>
+          <tr><td>jocarsa | diagrama</td><td>Diagramas visuales</td><td>darkcyan</td></tr>
+          <tr><td>jocarsa | centinela</td><td>Monitorización de servidores</td><td>crimson</td></tr>
+          <tr><td>jocarsa | iu</td><td>Sistema de interfaces</td><td>orangered</td></tr>
+          <tr><td>jocarsa | editor</td><td>Editor de código y contenidos</td><td>seagreen</td></tr>
+          <tr><td>jocarsa | pruebas</td><td>Producto sin color asignado</td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="footer">
+      <span id="resultados">Mostrando 0 productos</span>
+      <span>JOCARSA · Catálogo</span>
+    </div>
+  </div>
+</div>
+
+<script>
+const tabla = document.querySelector("#productos");
+const tbody = tabla.querySelector("tbody");
+const cabeceras = [...tabla.querySelectorAll("th")];
+
+const buscar = document.querySelector("#buscar");
+const filtroColor = document.querySelector("#filtroColor");
+const filtroEstado = document.querySelector("#filtroEstado");
+
+let ordenColumna = 0;
+let ordenDireccion = 1;
+
+// Reconoce colores CSS sin mantener una lista manual.
+// Acepta nombres, #hex, rgb(), hsl(), etc.
+function esColor(valor) {
+  const color = valor.trim();
+  if (!color) return false;
+
+  // Evitar valores especiales que no son colores concretos.
+  if (["inherit", "initial", "unset", "revert",
+       "currentcolor", "transparent"].includes(color.toLowerCase())) {
+    return false;
+  }
+
+  return CSS.supports("color", color);
+}
+
+// Extraer datos originales de las filas.
+const datos = [...tbody.querySelectorAll("tr")].map(fila => {
+  const celdas = [...fila.cells].map(td => td.textContent.trim());
+  return {
+    nombre: celdas[0],
+    descripcion: celdas[1],
+    color: celdas[2],
+    valido: esColor(celdas[2])
+  };
+});
+
+// Crear elementos de manera segura, sin HTML dinámico.
+function elemento(tag, clase, texto) {
+  const el = document.createElement(tag);
+  if (clase) el.className = clase;
+  if (texto !== undefined) el.textContent = texto;
+  return el;
+}
+
+// Filtros de color dinámicos.
+const colores = [...new Set(
+  datos.filter(p => p.valido).map(p => p.color)
+)].sort((a, b) => a.localeCompare(b, "es"));
+
+colores.forEach(color => {
+  const opcion = document.createElement("option");
+  opcion.value = color;
+  opcion.textContent = color;
+  filtroColor.appendChild(opcion);
+});
+
+function crearFila(p) {
+  const tr = document.createElement("tr");
+
+  const tdNombre = document.createElement("td");
+  const producto = elemento("div", "product");
+  const icono = elemento("span", "product-icon", "J");
+  const nombre = elemento("span", "", p.nombre);
+  producto.append(icono, nombre);
+  tdNombre.appendChild(producto);
+
+  const tdDescripcion = document.createElement("td");
+  tdDescripcion.appendChild(
+    elemento("span", "description", p.descripcion)
+  );
+
+  const tdColor = document.createElement("td");
+
+  if (p.valido) {
+    const chip = elemento("span", "color-chip");
+    const punto = elemento("span", "color-dot");
+    punto.style.backgroundColor = p.color;
+
+    chip.append(
+      punto,
+      elemento("span", "", p.color)
+    );
+    tdColor.appendChild(chip);
+  } else {
+    tdColor.appendChild(
+      elemento("span", "no-color", p.color || "Sin asignar")
+    );
+  }
+
+  tr.append(tdNombre, tdDescripcion, tdColor);
+  return tr;
+}
+
+function actualizar() {
+  const texto = buscar.value.toLocaleLowerCase("es").trim();
+  const color = filtroColor.value;
+  const estado = filtroEstado.value;
+
+  const filtrados = datos.filter(p => {
+    const coincideTexto = [
+      p.nombre, p.descripcion, p.color
+    ].some(v => v.toLocaleLowerCase("es").includes(texto));
+
+    const coincideColor = !color || p.color === color;
+    const coincideEstado =
+      !estado ||
+      (estado === "valido" && p.valido) ||
+      (estado === "invalido" && !p.valido);
+
+    return coincideTexto && coincideColor && coincideEstado;
+  });
+
+  const claves = ["nombre", "descripcion", "color"];
+  const clave = claves[ordenColumna];
+
+  filtrados.sort((a, b) =>
+    a[clave].localeCompare(b[clave], "es", {
+      numeric: true,
+      sensitivity: "base"
+    }) * ordenDireccion
+  );
+
+  const fragmento = document.createDocumentFragment();
+
+  if (filtrados.length === 0) {
+    const fila = document.createElement("tr");
+    const celda = elemento(
+      "td", "empty", "No se encontraron productos"
+    );
+    celda.colSpan = 3;
+    fila.appendChild(celda);
+    fragmento.appendChild(fila);
+  } else {
+    filtrados.forEach(p => fragmento.appendChild(crearFila(p)));
+  }
+
+  tbody.replaceChildren(fragmento);
+
+  document.querySelector("#contador").textContent =
+    `${datos.length} productos`;
+
+  document.querySelector("#resultados").textContent =
+    `Mostrando ${filtrados.length} de ${datos.length} productos`;
+
+  cabeceras.forEach((th, i) => {
+    const activo = i === ordenColumna;
+    th.setAttribute("aria-sort",
+      activo
+        ? (ordenDireccion === 1 ? "ascending" : "descending")
+        : "none"
+    );
+    th.querySelector(".sort").textContent =
+      activo ? (ordenDireccion === 1 ? "↑" : "↓") : "↕";
+  });
+}
+
+function ordenar(columna) {
+  if (ordenColumna === columna) {
+    ordenDireccion *= -1;
+  } else {
+    ordenColumna = columna;
+    ordenDireccion = 1;
+  }
+  actualizar();
+}
+
+cabeceras.forEach(th => {
+  const columna = Number(th.dataset.col);
+
+  th.addEventListener("click", () => ordenar(columna));
+
+  th.addEventListener("keydown", e => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      ordenar(columna);
+    }
+  });
+});
+
+buscar.addEventListener("input", actualizar);
+filtroColor.addEventListener("change", actualizar);
+filtroEstado.addEventListener("change", actualizar);
+
+actualizar();
+</script>
+</body>
+</html>

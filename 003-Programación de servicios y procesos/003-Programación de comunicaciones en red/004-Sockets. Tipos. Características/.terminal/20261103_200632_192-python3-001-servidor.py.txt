@@ -1,0 +1,7 @@
+Datetime: 2026-11-03T19:06:32.192Z
+Working directory: /var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/004-Sockets. Tipos. Características
+Command: python3 001-servidor.py
+
+Result:
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/003-Programación d
+e servicios y procesos/003-Programación de comunicaciones en red/004-Sockets. Tipos. Características$ 

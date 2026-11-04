@@ -1,0 +1,31 @@
+Datetime: 2026-11-03T19:25:52.226Z
+Working directory: /var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/004-Sockets. Tipos. Características
+Command: python3 005-servidorseguro.py
+
+Result:
+Servidor escuchando en 10.4.193.182:5000
+Cliente conectado: ('10.4.193.182', 58804)
+('10.4.193.182', 58804): hola
+Cliente conectado: ('10.4.193.218', 52376)
+('10.4.193.218', 52376): hola
+('10.4.193.218', 52376): jaja
+('10.4.193.218', 52376): quien srea
+Cliente conectado: ('10.4.193.77', 54124)
+Cliente conectado: ('10.4.193.148', 47604)
+('10.4.193.148', 47604): a
+Cliente desconectado: ('10.4.193.218', 52376)
+Cliente desconectado: ('10.4.193.77', 54124)
+('10.4.193.148', 47604): que alguien diga algo
+Cliente desconectado: ('10.4.193.148', 47604)
+Cliente desconectado: ('10.4.193.182', 58804)
+^CTraceback (most recent call last):
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/004-Sockets. Tipos. Características/005-servidorseguro.py", line 116, in <module>
+    conexion, direccion = servidor.accept()
+                          ^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/socket.py", line 295, in accept
+    fd, addr = self._accept()
+               ^^^^^^^^^^^^^^
+KeyboardInterrupt
+
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/003-Programación d
+e servicios y procesos/003-Programación de comunicaciones en red/004-Sockets. Tipos. Características$ 

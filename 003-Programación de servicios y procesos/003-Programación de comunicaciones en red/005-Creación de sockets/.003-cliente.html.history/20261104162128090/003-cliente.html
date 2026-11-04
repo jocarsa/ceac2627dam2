@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cliente WebSocket</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        main {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px #0002;
+            width: 400px;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        #estado {
+            color: gray;
+            margin-bottom: 20px;
+        }
+
+        #mensajes {
+            background: #f5f5f5;
+            padding: 15px;
+            height: 200px;
+            overflow-y: auto;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        input {
+            padding: 10px;
+            width: 65%;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<main>
+    <h2>Cliente WebSocket</h2>
+
+    <div id="estado">Conectando...</div>
+
+    <div id="mensajes"></div>
+
+    <input type="text" id="mensaje" placeholder="Escribe un mensaje">
+    <button onclick="enviar()">Enviar</button>
+</main>
+
+<script>
+    const socket = new WebSocket("ws://localhost:5000");
+
+    const estado = document.getElementById("estado");
+    const mensajes = document.getElementById("mensajes");
+
+    socket.onopen = function() {
+        estado.textContent = "● Conectado";
+        estado.style.color = "green";
+    };
+
+    socket.onmessage = function(event) {
+        const p = document.createElement("p");
+        p.textContent = event.data;
+        mensajes.appendChild(p);
+    };
+
+    socket.onclose = function() {
+        estado.textContent = "● Desconectado";
+        estado.style.color = "red";
+    };
+
+    function enviar() {
+        const input = document.getElementById("mensaje");
+
+        if (socket.readyState === WebSocket.OPEN) {
+            socket.send(input.value);
+            input.value = "";
+        }
+    }
+</script>
+
+</body>
+</html>

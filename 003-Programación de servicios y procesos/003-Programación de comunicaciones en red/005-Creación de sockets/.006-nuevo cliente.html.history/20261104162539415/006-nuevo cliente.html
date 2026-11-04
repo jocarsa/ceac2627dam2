@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Chat grupal</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f0f2f5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    main {
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px #0002;
+        width: 400px;
+    }
+
+    #mensajes {
+        background: #f5f5f5;
+        padding: 15px;
+        height: 300px;
+        overflow-y: auto;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+
+    #mensajes p {
+        padding: 8px;
+        background: white;
+        border-radius: 6px;
+        margin: 5px 0;
+        overflow-wrap: anywhere;
+    }
+
+    input {
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    #nombre {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    #mensaje {
+        width: 75%;
+    }
+
+    button {
+        padding: 10px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+
+<main>
+    <h2>Chat grupal</h2>
+
+    <input id="nombre"
+           placeholder="Tu nombre"
+           value="Anónimo">
+
+    <div id="estado">Conectando...</div>
+
+    <div id="mensajes"></div>
+
+    <input id="mensaje"
+           placeholder="Escribe un mensaje">
+
+    <button onclick="enviar()">Enviar</button>
+</main>
+
+<script>
+    const socket = new WebSocket(
+        "ws://10.4.193.182:5000"
+    );
+
+    const estado = document.getElementById("estado");
+    const mensajes = document.getElementById("mensajes");
+    const input = document.getElementById("mensaje");
+
+    socket.onopen = function() {
+        estado.textContent = "● Conectado";
+        estado.style.color = "green";
+    };
+
+    socket.onmessage = function(event) {
+        const p = document.createElement("p");
+        p.textContent = event.data;
+        mensajes.appendChild(p);
+        mensajes.scrollTop = mensajes.scrollHeight;
+    };
+
+    socket.onclose = function() {
+        estado.textContent = "● Desconectado";
+        estado.style.color = "red";
+    };
+
+    function enviar() {
+        const nombre = document.getElementById("nombre").value.trim() || "Anónimo";
+        const mensaje = input.value.trim();
+
+        if (
+            socket.readyState === WebSocket.OPEN &&
+            mensaje !== ""
+        ) {
+            socket.send(nombre + ": " + mensaje);
+            input.value = "";
+        }
+    }
+
+    input.addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            enviar();
+        }
+    });
+</script>
+
+</body>
+</html>

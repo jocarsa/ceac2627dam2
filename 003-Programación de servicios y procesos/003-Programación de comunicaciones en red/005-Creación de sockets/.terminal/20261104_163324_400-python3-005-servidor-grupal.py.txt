@@ -1,0 +1,59 @@
+Datetime: 2026-11-04T15:33:24.400Z
+Working directory: /var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/005-Creación de sockets
+Command: python3 005-servidor\ grupal.py
+
+Result:
+Servidor escuchando en ws://10.4.193.182:5000
+Límite: 30 mensajes por minuto
+Bloqueo: 600 segundos
+Cliente conectado: 10.4.194.45
+Cliente conectado: 10.4.193.218
+Cliente conectado: 10.4.193.208
+Cliente desconectado: 10.4.193.208
+Cliente conectado: 10.4.194.31
+Cliente conectado: 10.4.194.31
+Cliente conectado: 10.4.194.31
+Cliente conectado: 10.4.194.31
+Cliente conectado: 10.4.194.31
+Cliente conectado: 10.4.194.31
+Cliente conectado: 10.4.194.31
+Cliente conectado: 10.4.194.31
+Cliente conectado: 10.4.194.31
+Cliente conectado: 10.4.194.31
+Cliente desconectado: 10.4.194.31
+Cliente desconectado: 10.4.194.31
+Cliente desconectado: 10.4.194.31
+Cliente desconectado: 10.4.194.31
+Cliente desconectado: 10.4.194.31
+Cliente desconectado: 10.4.194.31
+Cliente desconectado: 10.4.194.31
+Cliente desconectado: 10.4.194.31
+Cliente desconectado: 10.4.194.31
+Cliente desconectado: 10.4.194.31
+^CCliente desconectado: 10.4.193.218
+^CCliente desconectado: 10.4.194.45
+Traceback (most recent call last):
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/005-Creación de sockets/005-servidor grupal.py", line 178, in <module>
+    asyncio.run(main())
+  File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 674, in run_until_complete
+    self.run_forever()
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 641, in run_forever
+    self._run_once()
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 1949, in _run_once
+    event_list = self._selector.select(timeout)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/selectors.py", line 468, in select
+    fd_event_list = self._selector.poll(timeout, max_ev)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 157, in _on_sigint
+    raise KeyboardInterrupt()
+KeyboardInterrupt
+
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/003-Programación de servicios y procesos
+/003-Programación de comunicaciones en red/005-Creación de sockets$ 

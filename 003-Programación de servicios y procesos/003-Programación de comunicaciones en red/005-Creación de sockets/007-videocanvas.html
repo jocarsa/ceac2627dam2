@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Webcam en Canvas</title>
+    <style>
+        body {
+            background: #222;
+            color: white;
+            font-family: Arial;
+            text-align: center;
+        }
+
+        canvas {
+            border: 2px solid orange;
+            border-radius: 10px;
+            max-width: 100%;
+        }
+
+        video {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Webcam en Canvas</h1>
+
+    <video id="video" autoplay playsinline muted></video>
+    <canvas id="canvas" width="640" height="480"></canvas>
+
+    <script>
+        const video = document.getElementById("video");
+        const canvas = document.getElementById("canvas");
+        const contexto = canvas.getContext("2d");
+
+        async function iniciarWebcam() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({
+                    video: true,
+                    audio: false
+                });
+
+                video.srcObject = stream;
+                await video.play();
+
+                dibujar();
+            } catch (error) {
+                console.error("Error al acceder a la webcam:", error);
+            }
+        }
+
+        function dibujar() {
+            contexto.drawImage(
+                video,
+                0, 0,
+                canvas.width,
+                canvas.height
+            );
+
+            requestAnimationFrame(dibujar);
+        }
+
+        iniciarWebcam();
+    </script>
+
+</body>
+</html>

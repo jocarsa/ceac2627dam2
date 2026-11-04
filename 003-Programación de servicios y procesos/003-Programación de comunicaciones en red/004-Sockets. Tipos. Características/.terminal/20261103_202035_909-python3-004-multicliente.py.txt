@@ -1,0 +1,1134 @@
+Datetime: 2026-11-03T19:20:35.909Z
+Working directory: /var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/004-Sockets. Tipos. Características
+Command: python3 004-multicliente.py
+
+Result:
+
+rodrigo: hola
+
+rodrigo: adios
+
+rodrigo: ara bailar la bamba
+
+bryan: j
+
+Alfredo: Yepa
+
+rodrigo: se necesita
+
+Bohdan: hHola
+
+rodrigo: una poca de gracia
+
+bryan: chat local
+
+Ruth: hola
+
+bryan: 005-gui
+
+Alfredo: Oscar puente perro
+
+Valentin: MYSQL es mejor que SQLITE
+
+Valentin: MUERTE AL HECTORSISMOOOOOOO
+
+Valentin: AGUANTE EL JOCARSISMOOOOOOO
+
+Ruth: todo bien por casa Valentin?
+
+Valentin: MYSQL es mejor que SQLITE
+
+Valentin: MUERTE AL HECTORSISMOOOOOOOValentin: AGUANTE EL JOCARSISMOOOOOOOValentin: 
+
+Valentin: 
+
+bryan: los pinguinos me la van a mascar
+
+Valentin: SJOCARSISMO
+
+Valentin: JOCARSISMO
+
+bryan: jocarsa
+
+Valentin: MYSQL ES VIDA SQLITE ES MUERTE
+
+Valentin: SQLITE NO FLUYE
+
+rodrigo: clear
+
+rodrigo: a
+
+rodrigo: a
+
+rodrigo: a
+
+rodrigo: a
+
+rodrigo: 
+
+rodrigo: a
+
+rodrigo: a
+
+rodrigo: a
+
+rodrigo: a
+
+rodrigo: a
+
+rodrigo: a
+
+rodrigo: 
+
+rodrigo: a
+
+rodrigo: a
+
+rodrigo: a
+
+rodrigo: aa
+
+Valentin: MYSQL NO FLUYE
+
+Valentin: MYSQL NO FLUYEEEE
+
+Valentin: MYSQL NO FLUYEEEE
+
+Valentin: MYSQL NO FLUYEEEE
+
+Valentin: MYSQL NO FLUYEEEE
+
+Valentin: MYSQL NO FLUYEEEE
+
+Valentin: MYSQL NO FLUYEEEE
+
+bryan: woah tirandowoah tirando sqlite
+
+Valentin: MYSQL NO FLUYEEEE+
+
+Valentin: MYSQL NO FLUYEEEE
+
+Valentin: MYSQL NO FLUYEEEE
+
+Valentin: MYSQL NO FLUYEEEE
+
+Valentin: MYSQL NO FLUYEEEE
+
+Valentin: MYSQL NO FLUYEEEE
+
+bryan: MOD
+
+bryan: MODS!
+
+Valentin: MYSQL NO FLUYEEEE
+
+Valentin: MYSQL NO FLUYEEEE
+
+Valentin: MYSQL NO FLUYEEEE
+
+Valentin: MYSQL NO FLUYEEEE
+
+Valentin: MYSQL NO FLUYEEEE
+
+?: Valentín ?
+
+Valentin: MYSQL NO FLUYEEEE
+
+Valentin: MYSQL NO FLUYEEEE
+
+bryan: banear a vaquien es ?
+
+Valentin: /ban bryan
+
+?: valentiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiin
+
+Valentin: /kill sqlite
+
+?: bryan que pasa
+
+Valentin: /kill sqlite
+
+?: sudo delete system32
+
+Valentin: /fluir M/FLUIR MYSQL
+
+Valentin: /kill sqlite
+
+?: sqlite mejor que mysql
+
+bryan: sudo apt autoremove sqlite
+
+rodrigo: o.o
+
+Valentin: a
+
+Valentin: a
+
+Valentin: a
+
+Valentin: a
+
+Valentin: 
+
+Valentin: aValentin: a
+
+Valentin: a
+
+Valentin: a
+
+Valentin: a
+
+Valentin: a
+
+Valentin: a
+
+Valentin: a
+
+Valentin: a
+
+Valentin: a
+
+Valentin: 
+
+bryan: a
+
+Valentin: a
+
+Valentin: a
+
+bryan: a
+
+Valentin: a
+
+bryan: a
+
+Valentin: a
+
+Valentin: 
+
+bryan: a
+
+Valentin: a
+
+bryan: a
+
+Valentin: a
+
+bryan: 
+
+Valentin: a
+
+Valentin: a
+
+bryan: a
+
+rodrigo: sg
+
+Valentin: a
+
+bryan: a
+
+Valentin: a
+
+rodrigo: s
+
+bryan: a
+
+Valentin: a
+
+rodrigo: g
+
+rodrigo: 
+
+bryan: a
+
+Valentin: a
+
+Valentin: a
+
+bryan: a
+
+Valentin: 
+
+rodrigo: gs
+
+bryan: a
+
+Valentin: aa
+
+Valentin: 
+
+bryan: a
+
+rodrigo: wg
+
+Valentin: a
+
+rodrigo: w
+
+bryan: 
+
+rodrigo: 
+
+Valentin: a
+
+rodrigo: w
+
+bryan: a
+
+Valentin: a
+
+rodrigo: ge
+
+Valentin: a
+
+bryan: a
+
+Valentin: a
+
+rodrigo: be
+
+rodrigo: 
+
+bryan: a
+
+rodrigo: e
+
+Valentin: 
+
+Valentin: a
+
+bryan: a
+
+rodrigo: eg
+
+Valentin: a
+
+rodrigo: e
+
+bryan: a
+
+Valentin: 
+
+rodrigo: g
+
+Valentin: a
+
+bryan: a
+
+rodrigo: eg
+
+Valentin: 
+
+rodrigo: e
+
+Valentin: a
+
+bryan: a
+
+rodrigo: g
+
+Valentin: a
+
+rodrigo: dsgn
+
+bryan: a
+
+Valentin: 
+
+rodrigo: 
+
+rodrigo: xh
+
+Valentin: a
+
+bryan: a
+
+Valentin: 
+
+Valentin: a
+
+bryan: a
+
+Valentin: 
+
+bryan: a
+
+Valentin: a
+
+rodrigo: f dvth
+
+rodrigo: 
+
+Valentin: a
+
+bryan: a
+
+rodrigo: h
+
+Valentin: a
+
+rodrigo: v
+
+Valentin: 
+
+bryan: a
+
+rodrigo: hdv
+
+rodrigo: 
+
+Ruth: a
+
+Valentin: aa
+
+bryan: a
+
+rodrigo: vsd
+
+Valentin: a
+
+Ruth: 
+
+rodrigo: 
+
+Valentin: 
+
+bryan: a
+
+rodrigo: gvs
+
+Ruth: a
+
+Valentin: a
+
+bryan: aa
+
+rodrigo: gvd
+
+Ruth: a
+
+Valentin: a
+
+rodrigo: h
+
+bryan: a
+
+Ruth: a
+
+Valentin: a
+
+rodrigo: v
+
+bryan: 
+
+Ruth: a
+
+rodrigo: vh
+
+bryan: a
+
+Valentin: a
+
+rodrigo: s
+
+Ruth: a
+
+rodrigo: g
+
+bryan: a
+
+rodrigo: v
+
+bryan: a
+
+Valentin: aa
+
+rodrigo: ds
+
+bryan: 
+
+Valentin: 
+
+Ruth: aRuth: 
+
+bryan: a
+
+rodrigo: h
+
+bryan: a
+
+Valentin: aa
+
+bryan: a
+
+Ruth: a
+
+Valentin: a
+
+bryan: a
+
+rodrigo: hsvd
+
+Valentin: 
+
+rodrigo: 
+
+Ruth: a
+
+bryan: a
+
+Valentin: a
+
+rodrigo: c
+
+bryan: a
+
+rodrigo: h
+
+Valentin: a
+
+Ruth: sd
+
+rodrigo: 
+
+bryan: a
+
+Valentin: 
+
+rodrigo: ty
+
+Ruth: cr
+
+bryan: a
+
+Valentin: a
+
+rodrigo: 
+
+bryan: a
+
+rodrigo: r
+
+Ruth: sfç
+
+Valentin: a
+
+bryan: a
+
+bryan: s
+
+rodrigo: cstfsv
+
+Ruth: f
+
+rodrigo: hrt
+
+bryan: ass
+
+Valentin: aaa
+
+Ruth: rf
+
+rodrigo: hr
+
+bryan: aa
+
+Valentin: 
+
+Valentin: a
+
+bryan: 
+
+Ruth: r
+
+rodrigo: cer
+
+bryan: a
+
+Valentin: a
+
+Ruth: f
+
+rodrigo: gw
+
+Valentin: 
+
+bryan: a
+
+Valentin: a
+
+Ruth: rf
+
+bryan: a
+
+Valentin: 
+
+rodrigo: ehvwef
+
+bryan: a
+
+Valentin: a
+
+rodrigo: c
+
+Valentin: a
+
+bryan: a
+
+Valentin: 
+
+Ruth: rRuth: e
+
+bryan: a
+
+Valentin: a
+
+rodrigo: rh
+
+Ruth: g
+
+bryan: a
+
+Valentin: a
+
+bryan: a
+
+Ruth: tg
+
+rodrigo: wrth
+
+Valentin: 
+
+bryan: a
+
+Valentin: a
+
+bryan: a
+
+Ruth: tg
+
+Valentin: a
+
+Valentin: 
+
+bryan: a
+
+Ruth: yh
+
+rodrigo: ewfhc
+
+Valentin: a
+
+bryan: aa
+
+Valentin: 
+
+Ruth: h
+
+rodrigo: h
+
+bryan: 
+
+Valentin: a
+
+Ruth: 
+
+bryan: a
+
+Valentin: a
+
+rodrigo: ewt
+
+bryan: a
+
+Valentin: 
+
+rodrigo: h
+
+Ruth: h
+
+Valentin: a
+
+rodrigo: 
+
+bryan: a
+
+Valentin: 
+
+Ruth: h
+
+rodrigo: e
+
+rodrigo: 
+
+Valentin: a
+
+bryan: a
+
+Valentin: a
+
+Ruth: jt
+
+Valentin: 
+
+rodrigo: rdf
+
+Ruth: j
+
+Valentin: 
+
+bryan: aa
+
+rodrigo: h
+
+Valentin: a
+
+bryan: 
+
+Valentin: a
+
+rodrigo: dsfh
+
+bryan: a
+
+Valentin: 
+
+rodrigo: s
+
+Ruth: tRuth: bg
+
+Valentin: a
+
+bryan: aa
+
+Valentin: a
+
+rodrigo: h
+
+Ruth: 
+
+bryan: 
+
+Valentin: a
+
+rodrigo: fds
+
+Valentin: a
+
+bryan: a
+
+Ruth: gf
+
+rodrigo: hs
+
+Valentin: 
+
+bryan: a
+
+Ruth: gf
+
+Valentin: a
+
+rodrigo: d
+
+bryan: a
+
+Valentin: a
+
+Ruth: fg
+
+rodrigo: hds
+
+bryan: a
+
+Valentin: 
+
+Valentin: a
+
+Ruth: b
+
+bryan: a
+
+Valentin: 
+
+rodrigo: h
+
+Ruth: b
+
+bryan: a
+
+Valentin: aa
+
+bryan: a
+
+Ruth: fb
+
+Valentin: 
+
+bryan: a
+
+rodrigo: fdgfa
+
+Ruth: y
+
+Valentin: a
+
+bryan: a
+
+Valentin: a
+
+rodrigo: g
+
+Ruth: h
+
+Valentin: bryan: 
+
+Valentin: a
+
+bryan: a
+
+rodrigo: ds
+
+Ruth: yth
+
+Valentin: a
+
+rodrigo: gd
+
+bryan: a
+
+rodrigo: g
+
+Valentin: aa
+
+rodrigo: dsgRuth: hRuth: 
+
+Valentin: Valentin: a
+
+bryan: aa
+
+Valentin: 
+
+Ruth: f
+
+rodrigo: sd
+
+bryan: a
+
+Ruth: 
+
+bryan: a
+
+Valentin: aValentin: 
+
+Ruth: d
+
+bryan: a
+
+Ruth: d
+
+bryan: abryan: a
+
+Valentin: a
+
+Ruth: 
+
+bryan: a
+
+Ruth: f
+
+bryan: aa
+
+Ruth: 
+
+bryan: 
+
+Ruth: f
+
+bryan: a
+
+Ruth: 
+
+Ruth: f
+
+bryan: aa
+
+bryan: a
+
+Ruth: ff
+
+bryan: a
+
+Ruth: f
+
+bryan: 
+
+Ruth: f
+
+bryan: aa
+
+bryan: a
+
+bryan: 
+
+bryan: aaa
+
+bryan: a
+
+bryan: aa
+
+Bohdan: df
+
+Bohdan: df
+
+Bohdan: df
+
+Ruth: a
+
+Bohdan: df
+
+bryan: a
+
+Ruth: a
+
+bryan: a
+
+Ruth: a
+
+Ruth: a
+
+bryan: a
+
+bryan: 
+
+Ruth: 
+
+Bohdan: f
+
+bryan: a
+
+bryan: a
+
+Bohdan: f
+
+bryan: aa
+
+Ruth: aaRuth: 
+
+Bohdan: f
+
+Bohdan: f
+
+bryan: a
+
+bryan: a
+
+Bohdan: f
+
+bryan: a
+
+Bohdan: ff
+
+bryan: a
+
+bryan: a
+
+bryan: a
+
+Bohdan: f
+
+bryan: a
+
+Bohdan: f
+
+bryan: a
+
+Bohdan: f
+
+bryan: a
+
+Bohdan: f
+
+bryan: a
+
+bryan: a
+
+bryan: a
+
+bryan: a
+
+bryan: 
+
+bryan: a
+
+bryan: a
+
+bryan: a
+
+bryan: a
+
+bryan: a
+
+bryan: a
+
+bryan: a
+
+bryan: aa
+
+bryan: a
+
+bryan: 
+
+bryan: aa
+
+bryan: a
+
+bryan: a
+
+bryan: a
+
+bryan: a
+
+bryan: a
+
+bryan: a
+
+bryan: a
+
+bryan: a
+
+bryan: a
+
+bryan: a
+
+bryan: a
+
+bryan: a
+
+bryan: a
+
+bryan: a
+
+bryan: a
+
+bryan: a
+
+bryan: aa
+
+bryan: a
+
+bryan: a
+
+bryan: a
+
+bryan: a
+
+bryan: a
+
+bryan: a
+
+bryan: a
+
+rodrigo: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+
+Ruth: abbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bryan: c
+
+?: valentín ten cuidado en el metro
+
+bryan: c++
+
+bryan: c#
+
+bryan: a
+
+bryan: a
+
+bryan: a
+
+bryan: a
+
+bryan: a
+
+bryan: a
+
+bryan: a
+
+bryan: a
+
+bryan: 
+
+bryan: a
+
+bryan: a
+
+bryan: a
+
+bryan: a
+
+bryan: a
+
+bryan: a
+
+bryan: a
+
+bryan: a
+
+bryan: 
+
+bryan: a
+
+bryan: a
+
+bryan: a
+
+bryan: a
+
+bryan: a
+
+bryan: a
+
+bryan: a
+
+bryan: a
+
+bryan: a
+
+bryan: a
+
+bryan: 
+
+bryan: a
+
+bryan: a
+
+bryan: a
+
+bryan: a
+
+bryan: a
+
+bryan: a
+
+bryan: a
+
+bryan: a
+
+bryan: a
+
+bryan: a
+
+bryan: 
+
+rodrigo: sudo apt installsudo apt install malware
+Desconectado del servidor.
+^CTraceback (most recent call last):
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/004-Sockets. Tipos. Características/004-multicliente.py", line 28, in <module>
+    mensaje = input()
+              ^^^^^^^
+KeyboardInterrupt
+
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/003-Programación d
+e servicios y procesos/003-Programación de comunicaciones en red/004-Sockets. Tipos. Características$ 

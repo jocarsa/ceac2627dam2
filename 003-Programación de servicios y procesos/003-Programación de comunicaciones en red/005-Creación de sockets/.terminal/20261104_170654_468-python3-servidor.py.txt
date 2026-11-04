@@ -1,0 +1,27 @@
+Datetime: 2026-11-04T16:06:54.468Z
+Working directory: /var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/005-Creación de sockets
+Command: python3 servidor.py
+
+Result:
+Servidor escuchando en 0.0.0.0:5000
+Conectado: ('10.4.193.182', 33404)
+Emisor conectado
+Conectado: ('10.4.194.31', 52504)
+Emisor desconectado
+Conectado: ('10.4.193.182', 40914)
+Emisor conectado
+Conectado: ('10.4.194.31', 47142)
+Conectado: ('10.4.193.148', 39692)
+Conectado: ('10.4.193.148', 36510)
+Receptores: 1
+^CTraceback (most recent call last):
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/005-Creación de sockets/servidor.py", line 122, in <module>
+    conexion, direccion = servidor.accept()
+                          ^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/socket.py", line 295, in accept
+    fd, addr = self._accept()
+               ^^^^^^^^^^^^^^
+KeyboardInterrupt
+
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/003-Programación de servicios y proceso
+s/003-Programación de comunicaciones en red/005-Creación de sockets$ 

@@ -1,0 +1,61 @@
+:root{font-family:Inter,system-ui,sans-serif;color:#eaf0ff;background:#090e1d}*{box-sizing:border-box}body{margin:0;overflow:hidden}header{height:64px;background:#111a30;border-bottom:1px solid #293653;display:flex;align-items:center;justify-content:space-between;padding:0 24px;gap:16px}header strong{font-size:19px;white-space:nowrap}.actions{display:flex;gap:8px;flex-wrap:wrap}button,.import{border:1px solid #394766;background:#202c48;color:#eaf0ff;padding:9px 13px;border-radius:9px;cursor:pointer;font:inherit;font-size:13px}button:hover,.import:hover{background:#334568}#add,.primary{background:#5867ef;border-color:#5867ef}#viewport{position:relative;height:calc(100vh - 64px);overflow:hidden;cursor:grab;background-color:#090e1d;background-image:radial-gradient(#26344f 1px,transparent 1px);background-size:28px 28px}#viewport.panning{cursor:grabbing}#world{position:absolute;left:0;top:0;transform-origin:0 0;width:1px;height:1px}#wires{position:absolute;left:-50000px;top:-50000px;width:100000px;height:100000px;overflow:visible;pointer-events:none}#nodes{position:absolute;left:0;top:0}.node{position:absolute;width:260px;min-height:110px;border-radius:24px;background:linear-gradient(145deg,#253759,#182640);border:1px solid #5570a2;box-shadow:0 16px 42px #0008,0 0 35px #5766ee18;user-select:none;cursor:move;overflow:visible}.node.selected{border-color:#a1a9ff;box-shadow:0 0 0 2px #6572ff55,0 16px 40px #0008}.node-head{padding:17px 20px 12px;font-weight:750;font-size:16px;border-bottom:1px solid #405071;overflow-wrap:anywhere}.node-props{padding:10px 19px 16px;display:grid;gap:7px}.prop{font-size:12px;color:#b5c3df;display:flex;justify-content:space-between;gap:12px}.prop b{font-weight:500;color:#eef2ff}.slot{position:absolute;top:50%;width:15px;height:15px;border-radius:50%;background:#80a8ff;border:3px solid #17243d;box-shadow:0 0 0 1px #8ba7ff;cursor:crosshair;z-index:3}.slot.in{left:-8px}.slot.out{right:-8px;background:#6ee7b7;box-shadow:0 0 0 1px #6ee7b7}.slot:hover{transform:scale(1.4)}.hint{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);background:#111b30df;border:1px solid #2d3b5a;padding:10px 18px;border-radius:10px;color:#a9b9d7;font-size:12px;text-align:center;pointer-events:none;max-width:95%}dialog{border:1px solid #445579;border-radius:18px;background:#16223a;color:#eaf0ff;width:min(480px,94vw);box-shadow:0 20px 90px #000a}dialog::backdrop{background:#020613b9}form{display:grid;gap:18px}h2{margin:0}form label{display:grid;gap:8px;font-size:14px}small{color:#9badce}input,textarea{width:100%;background:#0c1528;color:#fff;border:1px solid #465878;border-radius:9px;padding:11px;font:inherit}textarea{resize:vertical}.buttons{display:flex;gap:8px;align-items:center}.buttons span{flex:1}.danger{color:#ff9da7;border-color:#78434f}@media(max-width:680px){header{height:auto;min-height:64px;padding:12px;align-items:flex-start;flex-direction:column}#viewport{height:calc(100vh - 112px)}.actions{gap:5px}.actions button,.import{padding:7px}}
+/* Property-level connection ports */
+.node-props{padding:10px 12px 16px;gap:3px}.prop{position:relative;display:flex;align-items:center;min-height:33px;gap:8px;padding:4px 12px;font-size:12px}.prop-name{color:#eef2ff;font-weight:600;overflow-wrap:anywhere;min-width:0}.prop-type{color:#aabbd9;margin-left:auto;white-space:nowrap}.prop .slot{position:absolute;top:50%;transform:translateY(-50%);width:15px;height:15px;touch-action:none}.prop .slot.in{left:-20px}.prop .slot.out{right:-20px}.prop .slot:hover{transform:translateY(-50%) scale(1.35)}.no-props{font-size:12px;color:#aabbd9;padding:10px 4px}.node-head{cursor:move}.node-props{cursor:default}#viewport{touch-action:none}
+
+/* Wires share the same world coordinates as entities. */
+#wires{left:0;top:0;width:1px;height:1px;overflow:visible;pointer-events:none}
+.slot{pointer-events:auto}
+
+/* Category contours live behind the entity nodes and links. */
+#categoriesLayer{position:absolute;left:0;top:0;width:1px;height:1px;overflow:visible;pointer-events:none}
+#categoriesLayer text{font-family:Inter,system-ui,sans-serif;paint-order:stroke;stroke:#090e1d;stroke-width:3px;stroke-linejoin:round}
+
+/* Tema claro minimalista */
+:root{font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:#263447;background:#f8fafc}
+header{background:#fff;border-bottom:1px solid #e4eaf1;box-shadow:0 1px 4px #24354b08}
+header strong{color:#24354b;letter-spacing:-.4px}
+button,.import{background:#fff;color:#34445a;border:1px solid #dce4ee;border-radius:8px;box-shadow:0 1px 2px #1d2c4008}
+button:hover,.import:hover{background:#f0f4fa}
+#add,.primary{background:#4f5d95;border-color:#4f5d95;color:white}
+#add:hover,.primary:hover{background:#414e82}
+#viewport{background-color:#f8fafc;background-image:radial-gradient(#d8e1ec 1px,transparent 1px)}
+.node{background:#fff;border:1px solid #dce5ef;border-radius:18px;box-shadow:0 8px 28px #263a5615; color:#263447}
+.node.selected{border-color:#6979b1;box-shadow:0 0 0 2px #6979b12c,0 8px 28px #263a5615}
+.node-head{border-bottom:1px solid #eef1f5;color:#263447}
+.prop{color:#5e7088}.prop-name{color:#33445b}.prop-type{color:#8290a2}
+.slot{background:#8296c9;border:3px solid #fff;box-shadow:0 0 0 1px #7185b5}
+.slot.out{background:#e88b2f;box-shadow:0 0 0 1px #d77e28}
+.no-props{color:#8190a2}
+.hint{background:#ffffffed;border:1px solid #e1e7ef;color:#6b7b91;box-shadow:0 3px 14px #263a5610}
+dialog{background:#fff;color:#263447;border:1px solid #e0e7f0;box-shadow:0 20px 80px #24354b33}
+dialog::backdrop{background:#24354b65}
+small{color:#718096}
+input,textarea{background:#fff;color:#263447;border:1px solid #d6e0eb}
+input:focus,textarea:focus{outline:2px solid #4f5d9540;border-color:#6979b1}
+.danger{color:#b64754;border-color:#efcdd1}
+#categoriesLayer text{stroke:#f8fafc;stroke-width:4px}
+
+/* Gestión de proyectos */
+.projects{display:flex;align-items:center;gap:6px;border-right:1px solid #e4eaf1;padding-right:12px;margin-right:5px}.projects label{font-size:12px;color:#718096}.projects select{max-width:210px;min-width:130px;border:1px solid #dbe3ef;background:#fff;color:#263447;border-radius:8px;padding:8px;font:inherit;font-size:13px}.projects button{white-space:nowrap}.projects button:disabled{opacity:.4;cursor:not-allowed}header{height:auto;min-height:64px;flex-wrap:wrap;padding-top:8px;padding-bottom:8px}#viewport{height:calc(100vh - 64px)}@media(max-width:1050px){.actions{flex-wrap:wrap}.projects{flex-wrap:wrap}header{align-items:flex-start}#viewport{height:calc(100vh - 112px)}}
+
+/* Datos de cada entidad */
+.node-head{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.records-btn{padding:5px 8px;font-size:12px;white-space:nowrap;background:#f0f3fb;color:#4f5d95;border-color:#dce4f2;cursor:pointer;user-select:none;touch-action:manipulation}
+.records-btn:hover{background:#e5ebfa}
+.data-dialog{width:min(1100px,95vw);max-width:95vw;max-height:88vh;padding:22px;overflow:hidden}
+.data-dialog[open]{display:flex;flex-direction:column;gap:16px}
+.data-top,.data-bottom{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.data-top h2{margin:0 0 5px;font-size:21px}
+.data-scroll{overflow:auto;min-height:130px;max-height:62vh;border:1px solid #e1e7f0;border-radius:10px}
+#dataTable{border-collapse:collapse;width:100%;font-size:13px}
+#dataTable th{background:#f4f6fa;color:#34445b;text-align:left;position:sticky;top:0;z-index:1}
+#dataTable th,#dataTable td{padding:10px;border-bottom:1px solid #e9edf4;min-width:155px}
+#dataTable td:last-child,#dataTable th:last-child{min-width:100px;width:110px}
+#dataTable input{padding:8px 9px;min-width:125px;width:100%;font-size:13px}
+#dataTable .delete-row{color:#b64754;border-color:#efcdd1}
+.empty-data{text-align:center;color:#8090a4;padding:30px!important}
+@media(max-width:700px){.data-top,.data-bottom{align-items:flex-start;flex-direction:column}.data-dialog{padding:14px}}
+
+/* Campos de claves foráneas */
+#dataTable select.foreign-select{width:100%;min-width:160px;padding:8px;border:1px solid #cbd7eb;border-radius:8px;background:#f1f5ff;color:#25365a;font:inherit;cursor:pointer}
+#dataTable select.foreign-select:focus{outline:2px solid #7185c7;outline-offset:1px}
