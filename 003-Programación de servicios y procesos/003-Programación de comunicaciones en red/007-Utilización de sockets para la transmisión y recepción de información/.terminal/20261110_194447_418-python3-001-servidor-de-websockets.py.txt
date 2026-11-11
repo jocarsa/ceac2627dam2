@@ -1,0 +1,48 @@
+Datetime: 2026-11-10T18:44:47.418Z
+Working directory: /var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información
+Command: python3 001-servidor\ de\ websockets.py
+
+Result:
+Servidor WebSocket iniciado en puerto 8765
+Cliente conectado: ('127.0.0.1', 54480)
+Mensaje recibido: {"type":"name","name":"Aventurero"}
+Cliente desconectado
+Cliente conectado: ('127.0.0.1', 52768)
+Mensaje recibido: {"type":"name","name":"Aventurero"}
+Mensaje recibido: {"type":"move","direction":"right"}
+Mensaje recibido: {"type":"move","direction":"right"}
+Mensaje recibido: {"type":"move","direction":"left"}
+Mensaje recibido: {"type":"move","direction":"left"}
+Mensaje recibido: {"type":"move","direction":"left"}
+Mensaje recibido: {"type":"move","direction":"down"}
+Mensaje recibido: {"type":"move","direction":"down"}
+Mensaje recibido: {"type":"move","direction":"left"}
+Mensaje recibido: {"type":"move","direction":"left"}
+Mensaje recibido: {"type":"move","direction":"down"}
+^CCliente desconectado
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/001-servidor de websockets.py", line 37, in main
+    await asyncio.Future()                         # Mantiene servidor activo
+    ^^^^^^^^^^^^^^^^^^^^^^
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/001-servidor de websockets.py", line 40, in <module>
+    asyncio.run(main())
+  File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 123, in run
+    raise KeyboardInterrupt()
+KeyboardInterrupt
+
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/003-Programación de servicios y pr
+ocesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información$ 

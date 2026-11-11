@@ -1,0 +1,40 @@
+Datetime: 2026-11-10T18:45:32.715Z
+Working directory: /var/www/html/ceac2627dam2/006-Sistemas de gestión empresarial/007-IA/003-entrenar una IA/qwen_qlora_completo
+Command: python3 entrenar_qwen_qlora.py   --datos jose_vicente_carratala_entrenamiento.jsonl   --modelo Qwen/Qwen2.5-3B-Instruct   --salida ./qwen-jocarsa-lora   --epocas 5   --max-length 512
+
+Result:
+python3 entrenar_qwen_qlora.py \
+  --datos jose_vicente_carratala_entrenamiento.jsonl \
+  --modelo Qwen/Qwen2.5-3B-Instruct \
+  --salida ./qwen-jocarsa-lora \
+  --epocas 5 \
+  --max-length 512
+=================================================================
+JOCARSA | ENTRENAMIENTO QWEN QLORA
+=================================================================
+GPU: NVIDIA GeForce RTX 4060 Laptop GPU
+VRAM: 7.62 GB
+CUDA: 12.8
+=================================================================
+Registros cargados: 87
+Entrenamiento: 79
+Validación: 8
+
+Cargando tokenizador...
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+config.json:   0%|                               | 0.00/661 [00:00<?, ?B/s]config.json: 100%|████████████████████████| 661/661 [00:00<00:00, 5.33MB/s]
+tokenizer_config.json: 0.00B [00:00, ?B/s]tokenizer_config.json: 7.30kB [00:00, 2.02MB/s]
+vocab.json: 0.00B [00:00, ?B/s]vocab.json: 2.78MB [00:00, 6.76MB/s]vocab.json: 2.78MB [00:00, 6.75MB/s]
+merges.txt: 0.00B [00:00, ?B/s]merges.txt: 1.67MB [00:00, 10.4MB/s]merges.txt: 1.67MB [00:00, 10.3MB/s]
+tokenizer.json: 0.00B [00:00, ?B/s]tokenizer.json: 7.03MB [00:00, 13.1MB/s]tokenizer.json: 7.03MB [00:00, 13.1MB/s]
+
+Cargando modelo base...
+Modelo: Qwen/Qwen2.5-3B-Instruct
+model.safetensors.index.json: 0.00B [00:00, ?B/s]model.safetensors.index.json: 35.6kB [00:00, 1.71MB/s]
+Downloading (incomplete total...): 0.00B [00:00, ?B/s]
+Fetching 2 files:   0%|                              | 0/2 [00:00<?, ?it/s]Downloading (incomplete total...):   0%|       | 0.00/3.97G [00:00<?, ?B/s]Downloading (incomplete total...):   0%|       | 0.00/6.17G [00:00<?, ?B/s]Downloading (incomplete total...):   0%|       | 0.00/6.17G [00:00<?, ?B/s]Downloading (incomplete total...):   0%|       | 0.00/6.17G [00:00<?, ?B/s]Downloading (incomplete total...):   0%|       | 0.00/6.17G [00:00<?, ?B/s]Downloading (incomplete total...):   0%|       | 0.00/6.17G [00:01<?, ?B/s]Downloading (incomplete total...):   0%|       | 0.00/6.17G [00:01<?, ?B/s]Downloading (incomplete total...):   0%|       | 0.00/6.17G [00:01<?, ?B/s]Downloading (incomplete total...):   0%|       | 0.00/6.17G [00:01<?, ?B/s]Downloading (incomplete total...):   0%|       | 0.00/6.17G [00:01<?, ?B/s]Downloading (incomplete total...):   0%|       | 0.00/6.17G [00:02<?, ?B/s]Downloading (incomplete total...):   0%|       | 0.00/6.17G [00:02<?, ?B/s]Downloading (incomplete total...):   0%|       | 0.00/6.17G [00:02<?, ?B/s]Downloading (incomplete total...):   0%|       | 0.00/6.17G [00:02<?, ?B/s]Downloading (incomplete total...):   0%|       | 0.00/6.17G [00:02<?, ?B/s]Downloading (incomplete total...):   0%|       | 0.00/6.17G [00:03<?, ?B/s]Downloading (incomplete total...):   0%|       | 0.00/6.17G [00:03<?, ?B/s]Downloading (incomplete total...):   0%|       | 0.00/6.17G [00:03<?, ?B/s]Downloading (incomplete total...):   0%| | 20.3k/6.17G [00:03<16:53:47, 101Downloading (incomplete total...):   0%| | 25.1M/6.17G [00:04<05:34, 18.4MBDownloading (incomplete total...):   1%| | 92.1M/6.17G [00:07<04:13, 23.9MBDownloading (incomplete total...):   2%| | 112M/6.17G [00:07<03:24, 29.6MB/Downloading (incomplete total...):   2%| | 112M/6.17G [00:23<03:24, 29.6MB/Downloading (incomplete total...):   5%| | 323M/6.17G [05:02<1:48:41, 897kBDownloading (incomplete total...):   5%| | 323M/6.17G [05:13<1:48:41, 897kBDownloading (incomplete total...):   6%| | 359M/6.17G [05:31<1:43:18, 938kBDownloading (incomplete total...):   6%| | 359M/6.17G [05:43<1:43:18, 938kBDownloading (incomplete total...):   7%| | 426M/6.17G [05:50<1:19:27, 1.21MDownloading (incomplete total...):   7%| | 426M/6.17G [06:03<1:19:27, 1.21MDownloading (incomplete total...):   8%| | 493M/6.17G [06:07<1:02:12, 1.52MDownloading (incomplete total...):  10%| | 627M/6.17G [06:21<36:51, 2.51MB/Downloading (incomplete total...):  10%| | 627M/6.17G [06:33<36:51, 2.51MB/Downloading (incomplete total...):  17%|▏| 1.07G/6.17G [06:34<12:33, 6.77MBDownloading (incomplete total...):  22%|▏| 1.38G/6.17G [06:34<06:55, 11.5MBDownloading (incomplete total...):  29%|▎| 1.77G/6.17G [06:35<03:43, 19.7MBDownloading (incomplete total...):  42%|▍| 2.58G/6.17G [06:36<01:24, 42.4MBDownloading (incomplete total...):  46%|▍| 2.85G/6.17G [06:39<01:09, 47.5MBDownloading (incomplete total...):  51%|▌| 3.13G/6.17G [06:41<00:52, 58.0MBDownloading (incomplete total...):  52%|▌| 3.21G/6.17G [06:49<01:14, 39.7MBDownloading (incomplete total...):  54%|▌| 3.32G/6.17G [06:55<01:20, 35.2MBDownloading (incomplete total...):  55%|▌| 3.41G/6.17G [07:02<01:39, 27.8MBDownloading (incomplete total...):  56%|▌| 3.45G/6.17G [07:03<01:40, 27.1MBDownloading (incomplete total...):  57%|▌| 3.51G/6.17G [07:20<03:12, 13.8MBDownloading (incomplete total...):  58%|▌| 3.58G/6.17G [07:32<04:02, 10.7MBDownloading (incomplete total...):  58%|▌| 3.58G/6.17G [07:32<04:06, 10.5MBDownloading (incomplete total...):  58%|▌| 3.60G/6.17G [07:34<04:15, 10.1MBDownloading (incomplete total...):  59%|▌| 3.65G/6.17G [07:40<04:22, 9.62MBDownloading (incomplete total...):  60%|▌| 3.71G/6.17G [07:46<04:00, 10.2MBDownloading (incomplete total...):  60%|▌| 3.73G/6.17G [07:47<03:51, 10.6MBDownloading (incomplete total...):  61%|▌| 3.75G/6.17G [07:49<03:39, 11.0MBDownloading (incomplete total...):  61%|▌| 3.78G/6.17G [07:51<03:34, 11.1MBDownloading (incomplete total...):  61%|▌| 3.78G/6.17G [08:03<03:34, 11.1MBDownloading (incomplete total...):  62%|▌| 3.85G/6.17G [08:04<05:10, 7.49MBDownloading (incomplete total...):  63%|▋| 3.89G/6.17G [08:10<05:25, 7.03MBDownloading (incomplete total...):  63%|▋| 3.90G/6.17G [08:12<05:33, 6.83MBDownloading (incomplete total...):  63%|▋| 3.90G/6.17G [08:14<05:57, 6.34MBDownloading (incomplete total...):  63%|▋| 3.92G/6.17G [08:16<05:59, 6.28MBDownloading (incomplete total...):  65%|▋| 3.98G/6.17G [08:28<06:13, 5.87MBDownloading (incomplete total...):  66%|▋| 4.05G/6.17G [08:43<06:44, 5.25MBDownloading (incomplete total...):  66%|▋| 4.06G/6.17G [08:43<06:25, 5.49MBDownloading (incomplete total...):  66%|▋| 4.06G/6.17G [08:44<06:30, 5.41MBDownloading (incomplete total...):  66%|▋| 4.06G/6.17G [09:03<06:30, 5.41MBDownloading (incomplete total...):  67%|▋| 4.12G/6.17G [09:27<16:17, 2.10MBDownloading (incomplete total...):  67%|▋| 4.12G/6.17G [09:43<16:17, 2.10MBDownloading (incomplete total...):  72%|▋| 4.45G/6.17G [10:34<07:14, 3.96MBDownloading (incomplete total...):  73%|▋| 4.52G/6.17G [10:39<05:57, 4.62MBDownloading (incomplete total...):  74%|▋| 4.59G/6.17G [10:42<04:50, 5.45MBDownloading (incomplete total...):  76%|▊| 4.72G/6.17G [10:43<02:48, 8.63MBDownloading (incomplete total...):  78%|▊| 4.82G/6.17G [10:46<02:03, 10.9MBDownloading (incomplete total...):  78%|▊| 4.83G/6.17G [10:46<01:59, 11.3MBDownloading (incomplete total...):  78%|▊| 4.83G/6.17G [11:03<01:59, 11.3MBDownloading (incomplete total...):  79%|▊| 4.85G/6.17G [11:33<06:44, 3.26MBDownloading (incomplete total...):  79%|▊| 4.85G/6.17G [11:43<06:44, 3.26MBDownloading (incomplete total...):  81%|▊| 4.99G/6.17G [12:22<06:37, 2.97MBDownloading (incomplete total...):  81%|▊| 4.99G/6.17G [12:33<06:37, 2.97MB^CCancellation requested; stopping current tasks.
+Fetching 2 files:   0%|                              | 0/2 [14:06<?, ?it/s]
+
+Entrenamiento interrumpido.
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/006-Sistemas de gestión empresari
+al/007-IA/003-entrenar una IA/qwen_qlora_completo$ 

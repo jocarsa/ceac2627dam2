@@ -1,0 +1,2 @@
+let ws;
+onmessage=e=>{const m=e.data;if(m.type==='connect'){if(ws)ws.close();ws=new WebSocket(m.url);ws.onopen=()=>postMessage({type:'connected'});ws.onclose=()=>postMessage({type:'disconnected'});ws.onerror=()=>postMessage({type:'error',message:'No se pudo conectar'});ws.onmessage=ev=>{try{postMessage(JSON.parse(ev.data))}catch{}}}else if(m.type==='send'&&ws?.readyState===1)ws.send(JSON.stringify(m.data))};

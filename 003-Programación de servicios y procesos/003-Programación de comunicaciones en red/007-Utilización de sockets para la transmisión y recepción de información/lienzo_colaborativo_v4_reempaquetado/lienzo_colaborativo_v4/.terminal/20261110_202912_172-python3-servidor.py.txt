@@ -1,0 +1,457 @@
+Datetime: 2026-11-10T19:29:12.172Z
+Working directory: /var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4
+Command: python3 servidor.py
+
+Result:
+Juego de la Vida: ws://0.0.0.0:8765 | 192x108 celdas | intervalo 0.25s
+connection handler failed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4/servidor.py", line 60, in handler
+    try:ip=str(ipaddress.ip_address(ip).ipv4_mapped or ipaddress.ip_address(ip))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IPv4Address' object has no attribute 'ipv4_mapped'
+connection handler failed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4/servidor.py", line 60, in handler
+    try:ip=str(ipaddress.ip_address(ip).ipv4_mapped or ipaddress.ip_address(ip))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IPv4Address' object has no attribute 'ipv4_mapped'
+connection handler failed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4/servidor.py", line 60, in handler
+    try:ip=str(ipaddress.ip_address(ip).ipv4_mapped or ipaddress.ip_address(ip))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IPv4Address' object has no attribute 'ipv4_mapped'
+connection handler failed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4/servidor.py", line 60, in handler
+    try:ip=str(ipaddress.ip_address(ip).ipv4_mapped or ipaddress.ip_address(ip))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IPv4Address' object has no attribute 'ipv4_mapped'
+connection handler failed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4/servidor.py", line 60, in handler
+    try:ip=str(ipaddress.ip_address(ip).ipv4_mapped or ipaddress.ip_address(ip))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IPv4Address' object has no attribute 'ipv4_mapped'
+connection handler failed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4/servidor.py", line 60, in handler
+    try:ip=str(ipaddress.ip_address(ip).ipv4_mapped or ipaddress.ip_address(ip))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IPv4Address' object has no attribute 'ipv4_mapped'
+connection handler failed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4/servidor.py", line 60, in handler
+    try:ip=str(ipaddress.ip_address(ip).ipv4_mapped or ipaddress.ip_address(ip))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IPv4Address' object has no attribute 'ipv4_mapped'
+connection handler failed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4/servidor.py", line 60, in handler
+    try:ip=str(ipaddress.ip_address(ip).ipv4_mapped or ipaddress.ip_address(ip))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IPv4Address' object has no attribute 'ipv4_mapped'
+connection handler failed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4/servidor.py", line 60, in handler
+    try:ip=str(ipaddress.ip_address(ip).ipv4_mapped or ipaddress.ip_address(ip))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IPv4Address' object has no attribute 'ipv4_mapped'
+connection handler failed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4/servidor.py", line 60, in handler
+    try:ip=str(ipaddress.ip_address(ip).ipv4_mapped or ipaddress.ip_address(ip))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IPv4Address' object has no attribute 'ipv4_mapped'
+connection handler failed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4/servidor.py", line 60, in handler
+    try:ip=str(ipaddress.ip_address(ip).ipv4_mapped or ipaddress.ip_address(ip))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IPv4Address' object has no attribute 'ipv4_mapped'
+connection handler failed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4/servidor.py", line 60, in handler
+    try:ip=str(ipaddress.ip_address(ip).ipv4_mapped or ipaddress.ip_address(ip))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IPv4Address' object has no attribute 'ipv4_mapped'
+connection handler failed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4/servidor.py", line 60, in handler
+    try:ip=str(ipaddress.ip_address(ip).ipv4_mapped or ipaddress.ip_address(ip))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IPv4Address' object has no attribute 'ipv4_mapped'
+connection handler failed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4/servidor.py", line 60, in handler
+    try:ip=str(ipaddress.ip_address(ip).ipv4_mapped or ipaddress.ip_address(ip))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IPv4Address' object has no attribute 'ipv4_mapped'
+connection handler failed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4/servidor.py", line 60, in handler
+    try:ip=str(ipaddress.ip_address(ip).ipv4_mapped or ipaddress.ip_address(ip))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IPv4Address' object has no attribute 'ipv4_mapped'
+connection handler failed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4/servidor.py", line 60, in handler
+    try:ip=str(ipaddress.ip_address(ip).ipv4_mapped or ipaddress.ip_address(ip))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IPv4Address' object has no attribute 'ipv4_mapped'
+connection handler failed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4/servidor.py", line 60, in handler
+    try:ip=str(ipaddress.ip_address(ip).ipv4_mapped or ipaddress.ip_address(ip))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IPv4Address' object has no attribute 'ipv4_mapped'
+connection handler failed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4/servidor.py", line 60, in handler
+    try:ip=str(ipaddress.ip_address(ip).ipv4_mapped or ipaddress.ip_address(ip))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IPv4Address' object has no attribute 'ipv4_mapped'
+connection handler failed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4/servidor.py", line 60, in handler
+    try:ip=str(ipaddress.ip_address(ip).ipv4_mapped or ipaddress.ip_address(ip))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IPv4Address' object has no attribute 'ipv4_mapped'
+connection handler failed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4/servidor.py", line 60, in handler
+    try:ip=str(ipaddress.ip_address(ip).ipv4_mapped or ipaddress.ip_address(ip))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IPv4Address' object has no attribute 'ipv4_mapped'
+connection handler failed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4/servidor.py", line 60, in handler
+    try:ip=str(ipaddress.ip_address(ip).ipv4_mapped or ipaddress.ip_address(ip))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IPv4Address' object has no attribute 'ipv4_mapped'
+connection handler failed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4/servidor.py", line 60, in handler
+    try:ip=str(ipaddress.ip_address(ip).ipv4_mapped or ipaddress.ip_address(ip))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IPv4Address' object has no attribute 'ipv4_mapped'
+connection handler failed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4/servidor.py", line 60, in handler
+    try:ip=str(ipaddress.ip_address(ip).ipv4_mapped or ipaddress.ip_address(ip))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IPv4Address' object has no attribute 'ipv4_mapped'
+connection handler failed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4/servidor.py", line 60, in handler
+    try:ip=str(ipaddress.ip_address(ip).ipv4_mapped or ipaddress.ip_address(ip))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IPv4Address' object has no attribute 'ipv4_mapped'
+connection handler failed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4/servidor.py", line 60, in handler
+    try:ip=str(ipaddress.ip_address(ip).ipv4_mapped or ipaddress.ip_address(ip))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IPv4Address' object has no attribute 'ipv4_mapped'
+connection handler failed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4/servidor.py", line 60, in handler
+    try:ip=str(ipaddress.ip_address(ip).ipv4_mapped or ipaddress.ip_address(ip))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IPv4Address' object has no attribute 'ipv4_mapped'
+connection handler failed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4/servidor.py", line 60, in handler
+    try:ip=str(ipaddress.ip_address(ip).ipv4_mapped or ipaddress.ip_address(ip))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IPv4Address' object has no attribute 'ipv4_mapped'
+connection handler failed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4/servidor.py", line 60, in handler
+    try:ip=str(ipaddress.ip_address(ip).ipv4_mapped or ipaddress.ip_address(ip))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IPv4Address' object has no attribute 'ipv4_mapped'
+connection handler failed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4/servidor.py", line 60, in handler
+    try:ip=str(ipaddress.ip_address(ip).ipv4_mapped or ipaddress.ip_address(ip))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IPv4Address' object has no attribute 'ipv4_mapped'
+connection handler failed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4/servidor.py", line 60, in handler
+    try:ip=str(ipaddress.ip_address(ip).ipv4_mapped or ipaddress.ip_address(ip))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IPv4Address' object has no attribute 'ipv4_mapped'
+connection handler failed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4/servidor.py", line 60, in handler
+    try:ip=str(ipaddress.ip_address(ip).ipv4_mapped or ipaddress.ip_address(ip))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IPv4Address' object has no attribute 'ipv4_mapped'
+connection handler failed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4/servidor.py", line 60, in handler
+    try:ip=str(ipaddress.ip_address(ip).ipv4_mapped or ipaddress.ip_address(ip))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IPv4Address' object has no attribute 'ipv4_mapped'
+connection handler failed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4/servidor.py", line 60, in handler
+    try:ip=str(ipaddress.ip_address(ip).ipv4_mapped or ipaddress.ip_address(ip))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IPv4Address' object has no attribute 'ipv4_mapped'
+connection handler failed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4/servidor.py", line 60, in handler
+    try:ip=str(ipaddress.ip_address(ip).ipv4_mapped or ipaddress.ip_address(ip))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IPv4Address' object has no attribute 'ipv4_mapped'
+connection handler failed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4/servidor.py", line 60, in handler
+    try:ip=str(ipaddress.ip_address(ip).ipv4_mapped or ipaddress.ip_address(ip))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IPv4Address' object has no attribute 'ipv4_mapped'
+connection handler failed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4/servidor.py", line 60, in handler
+    try:ip=str(ipaddress.ip_address(ip).ipv4_mapped or ipaddress.ip_address(ip))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IPv4Address' object has no attribute 'ipv4_mapped'
+connection handler failed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4/servidor.py", line 60, in handler
+    try:ip=str(ipaddress.ip_address(ip).ipv4_mapped or ipaddress.ip_address(ip))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IPv4Address' object has no attribute 'ipv4_mapped'
+connection handler failed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4/servidor.py", line 60, in handler
+    try:ip=str(ipaddress.ip_address(ip).ipv4_mapped or ipaddress.ip_address(ip))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IPv4Address' object has no attribute 'ipv4_mapped'
+connection handler failed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4/servidor.py", line 60, in handler
+    try:ip=str(ipaddress.ip_address(ip).ipv4_mapped or ipaddress.ip_address(ip))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IPv4Address' object has no attribute 'ipv4_mapped'
+connection handler failed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4/servidor.py", line 60, in handler
+    try:ip=str(ipaddress.ip_address(ip).ipv4_mapped or ipaddress.ip_address(ip))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IPv4Address' object has no attribute 'ipv4_mapped'
+connection handler failed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4/servidor.py", line 60, in handler
+    try:ip=str(ipaddress.ip_address(ip).ipv4_mapped or ipaddress.ip_address(ip))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IPv4Address' object has no attribute 'ipv4_mapped'
+connection handler failed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4/servidor.py", line 60, in handler
+    try:ip=str(ipaddress.ip_address(ip).ipv4_mapped or ipaddress.ip_address(ip))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IPv4Address' object has no attribute 'ipv4_mapped'
+connection handler failed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4/servidor.py", line 60, in handler
+    try:ip=str(ipaddress.ip_address(ip).ipv4_mapped or ipaddress.ip_address(ip))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IPv4Address' object has no attribute 'ipv4_mapped'
+connection handler failed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4/servidor.py", line 60, in handler
+    try:ip=str(ipaddress.ip_address(ip).ipv4_mapped or ipaddress.ip_address(ip))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IPv4Address' object has no attribute 'ipv4_mapped'
+connection handler failed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4/servidor.py", line 60, in handler
+    try:ip=str(ipaddress.ip_address(ip).ipv4_mapped or ipaddress.ip_address(ip))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IPv4Address' object has no attribute 'ipv4_mapped'
+connection handler failed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4/servidor.py", line 60, in handler
+    try:ip=str(ipaddress.ip_address(ip).ipv4_mapped or ipaddress.ip_address(ip))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IPv4Address' object has no attribute 'ipv4_mapped'
+connection handler failed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4/servidor.py", line 60, in handler
+    try:ip=str(ipaddress.ip_address(ip).ipv4_mapped or ipaddress.ip_address(ip))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IPv4Address' object has no attribute 'ipv4_mapped'
+connection handler failed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4/servidor.py", line 60, in handler
+    try:ip=str(ipaddress.ip_address(ip).ipv4_mapped or ipaddress.ip_address(ip))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IPv4Address' object has no attribute 'ipv4_mapped'
+connection handler failed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4/servidor.py", line 60, in handler
+    try:ip=str(ipaddress.ip_address(ip).ipv4_mapped or ipaddress.ip_address(ip))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IPv4Address' object has no attribute 'ipv4_mapped'
+connection handler failed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4/servidor.py", line 60, in handler
+    try:ip=str(ipaddress.ip_address(ip).ipv4_mapped or ipaddress.ip_address(ip))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IPv4Address' object has no attribute 'ipv4_mapped'
+connection handler failed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4/servidor.py", line 60, in handler
+    try:ip=str(ipaddress.ip_address(ip).ipv4_mapped or ipaddress.ip_address(ip))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IPv4Address' object has no attribute 'ipv4_mapped'
+connection handler failed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4/servidor.py", line 60, in handler
+    try:ip=str(ipaddress.ip_address(ip).ipv4_mapped or ipaddress.ip_address(ip))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IPv4Address' object has no attribute 'ipv4_mapped'
+connection handler failed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4/servidor.py", line 60, in handler
+    try:ip=str(ipaddress.ip_address(ip).ipv4_mapped or ipaddress.ip_address(ip))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IPv4Address' object has no attribute 'ipv4_mapped'
+^CTraceback (most recent call last):
+  File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4/servidor.py", line 157, in main
+    try:await asyncio.Future()
+        ^^^^^^^^^^^^^^^^^^^^^^
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4/servidor.py", line 160, in <module>
+    if __name__=='__main__':asyncio.run(main())
+                            ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 123, in run
+    raise KeyboardInterrupt()
+KeyboardInterrupt
+
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/003-Programación de servicios y proces
+os/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v4_reempaquetado/lienzo_colaborativo_v4$ 

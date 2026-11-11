@@ -1,0 +1,172 @@
+Datetime: 2026-11-10T19:07:47.986Z
+Working directory: /var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_1920x1080/lienzo_colaborativo
+Command: python3 servidor.py
+
+Result:
+Lienzo colaborativo WebSocket: ws://0.0.0.0:8765
+connection handler failed
+TimeoutError: timed out while closing connection
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_1920x1080/lienzo_colaborativo/servidor.py", line 65, in handler
+    async for raw in ws:
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/connection.py", line 224, in __aiter__
+    yield await self.recv()
+          ^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/connection.py", line 279, in recv
+    raise self.protocol.close_exc from self.recv_exc
+websockets.exceptions.ConnectionClosedError: sent 1011 (internal error) keepalive ping timeout; no close frame received
+connection handler failed
+TimeoutError: timed out while closing connection
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_1920x1080/lienzo_colaborativo/servidor.py", line 65, in handler
+    async for raw in ws:
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/connection.py", line 224, in __aiter__
+    yield await self.recv()
+          ^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/connection.py", line 279, in recv
+    raise self.protocol.close_exc from self.recv_exc
+websockets.exceptions.ConnectionClosedError: sent 1011 (internal error) keepalive ping timeout; no close frame received
+connection handler failed
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 1075, in write
+    n = self._sock.send(data)
+        ^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_1920x1080/lienzo_colaborativo/servidor.py", line 65, in handler
+    async for raw in ws:
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/connection.py", line 224, in __aiter__
+    yield await self.recv()
+          ^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/connection.py", line 279, in recv
+    raise self.protocol.close_exc from self.recv_exc
+websockets.exceptions.ConnectionClosedError: no close frame received or sent
+connection handler failed
+TimeoutError: timed out while closing connection
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_1920x1080/lienzo_colaborativo/servidor.py", line 65, in handler
+    async for raw in ws:
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/connection.py", line 224, in __aiter__
+    yield await self.recv()
+          ^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/connection.py", line 279, in recv
+    raise self.protocol.close_exc from self.recv_exc
+websockets.exceptions.ConnectionClosedError: sent 1011 (internal error) keepalive ping timeout; no close frame received
+connection handler failed
+TimeoutError: timed out while closing connection
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_1920x1080/lienzo_colaborativo/servidor.py", line 65, in handler
+    async for raw in ws:
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/connection.py", line 224, in __aiter__
+    yield await self.recv()
+          ^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/connection.py", line 279, in recv
+    raise self.protocol.close_exc from self.recv_exc
+websockets.exceptions.ConnectionClosedError: sent 1011 (internal error) keepalive ping timeout; no close frame received
+connection handler failed
+TimeoutError: timed out while closing connection
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_1920x1080/lienzo_colaborativo/servidor.py", line 65, in handler
+    async for raw in ws:
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/connection.py", line 224, in __aiter__
+    yield await self.recv()
+          ^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/connection.py", line 279, in recv
+    raise self.protocol.close_exc from self.recv_exc
+websockets.exceptions.ConnectionClosedError: sent 1011 (internal error) keepalive ping timeout; no close frame received
+connection handler failed
+TimeoutError: timed out while closing connection
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 374, in conn_handler
+    await self.handler(connection)
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_1920x1080/lienzo_colaborativo/servidor.py", line 65, in handler
+    async for raw in ws:
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/connection.py", line 224, in __aiter__
+    yield await self.recv()
+          ^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/connection.py", line 279, in recv
+    raise self.protocol.close_exc from self.recv_exc
+websockets.exceptions.ConnectionClosedError: sent 1011 (internal error) keepalive ping timeout; no close frame received
+^C^C^CTraceback (most recent call last):
+  File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 674, in run_until_complete
+    self.run_forever()
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 641, in run_forever
+    self._run_once()
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 1949, in _run_once
+    event_list = self._selector.select(timeout)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/selectors.py", line 468, in select
+    fd_event_list = self._selector.poll(timeout, max_ev)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 157, in _on_sigint
+    raise KeyboardInterrupt()
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_1920x1080/lienzo_colaborativo/servidor.py", line 123, in <module>
+    asyncio.run(main())
+  File "/usr/lib/python3.12/asyncio/runners.py", line 193, in run
+    with Runner(debug=debug, loop_factory=loop_factory) as runner:
+  File "/usr/lib/python3.12/asyncio/runners.py", line 62, in __exit__
+    self.close()
+  File "/usr/lib/python3.12/asyncio/runners.py", line 70, in close
+    _cancel_all_tasks(loop)
+  File "/usr/lib/python3.12/asyncio/runners.py", line 205, in _cancel_all_tasks
+    loop.run_until_complete(tasks.gather(*to_cancel, return_exceptions=True))
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 674, in run_until_complete
+    self.run_forever()
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 641, in run_forever
+    self._run_once()
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 1949, in _run_once
+    event_list = self._selector.select(timeout)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/selectors.py", line 468, in select
+    fd_event_list = self._selector.poll(timeout, max_ev)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+Task was destroyed but it is pending!
+task: <Task cancelling name='Task-31' coro=<Server.conn_handler() running at /usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py:374> wait_for=<Future pending cb=[shield.<locals>._outer_done_callback() at /usr/lib/python3.12/asyncio/tasks.py:922, Task.task_wakeup()]> cb=[gather.<locals>._done_callback() at /usr/lib/python3.12/asyncio/tasks.py:767]>
+
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/003-Programación de servicios y proces
+os/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_1920x1080/lienzo_colaborativo$ 

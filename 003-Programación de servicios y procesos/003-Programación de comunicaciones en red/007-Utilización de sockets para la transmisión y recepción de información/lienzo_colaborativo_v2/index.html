@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Jocarsa | Lienzo colaborativo</title>
+<style>
+:root{font-family:Inter,system-ui,Arial,sans-serif;color:#f5f5f6;background:#17191f}*{box-sizing:border-box}body{margin:0;overflow:hidden}button,input{font:inherit}button{cursor:pointer}header{position:fixed;z-index:10;top:12px;left:12px;right:12px;display:flex;align-items:center;flex-wrap:wrap;gap:9px;padding:10px 13px;background:#20232bec;border:1px solid #ffffff22;border-radius:14px;box-shadow:0 8px 35px #0005;backdrop-filter:blur(14px)}.brand{font-weight:800;letter-spacing:-.5px;margin-right:8px;white-space:nowrap}.brand span{color:#f08aa8}.group{display:flex;align-items:center;gap:5px;padding-right:10px;border-right:1px solid #ffffff24}button{border:1px solid #ffffff22;background:#333742;color:#fff;border-radius:8px;min-height:35px;padding:6px 11px}button:hover{background:#454957}button.active{background:#b53f68;border-color:#e97d9f}button:focus-visible{outline:2px solid #fff}.group label{font-size:12px;color:#c9cbd0}input[type=color]{width:38px;height:34px;padding:2px;background:#333742;border:1px solid #ffffff33;border-radius:8px;cursor:pointer}input[type=range]{width:95px;accent-color:#e7779a}.palette{display:flex;gap:4px}.swatch{width:23px;height:23px;min-height:23px;padding:0;border:2px solid #ffffff77;border-radius:50%}.spacer{flex:1}.status{font-size:12px;color:#b9e7ce;white-space:nowrap}.status.off{color:#ffb5b5}.workspace{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:95px 14px 48px;background:radial-gradient(ellipse at center,#313640,#15171b)}#board{width:min(100%,calc((100vh - 155px)*16/9));max-height:calc(100vh - 155px);aspect-ratio:16/9;display:block;touch-action:none;background:#fff;box-shadow:0 16px 60px #0009;cursor:crosshair}.foot{position:fixed;bottom:9px;left:15px;right:15px;display:flex;justify-content:space-between;gap:12px;font-size:12px;color:#c4c7cc;pointer-events:none}.chip{background:#20232bdc;border-radius:8px;padding:6px 10px}.sizeval{font-size:12px;min-width:31px;color:#ddd}@media(max-width:1000px){header{top:6px;left:6px;right:6px;gap:6px;padding:7px}.brand{width:100%}.workspace{padding-top:170px}#board{width:min(100%,calc((100vh - 215px)*16/9));max-height:calc(100vh - 215px)}.palette{display:none}}@media(max-height:540px){.workspace{padding-top:100px}#board{max-height:calc(100vh - 135px);width:min(100%,calc((100vh - 135px)*16/9))}}
+#loginOverlay{position:fixed;inset:0;z-index:100;background:#111b;display:grid;place-items:center;backdrop-filter:blur(8px)}#loginOverlay.hidden{display:none}.loginBox{background:#242833;border:1px solid #ffffff33;border-radius:18px;padding:28px;max-width:390px;width:calc(100% - 30px);box-shadow:0 15px 70px #0009}.loginBox h2{margin:0 0 12px}.loginBox input{width:100%;padding:12px;margin:12px 0;background:#fff;color:#111;border-radius:8px;border:0}.loginBox button{width:100%;background:#b53f68}.cursorLabel{position:absolute;z-index:5;pointer-events:none;transform:translate(12px,10px);white-space:nowrap;background:#1b1b23dc;border:1px solid #fff5;color:white;border-radius:7px;padding:4px 7px;font:12px system-ui}.cursorLabel::before{content:'✎ ';color:#f59bb8}#cursorLayer{position:absolute;inset:0;pointer-events:none;z-index:4}.workspace{overflow:hidden}
+</style></head><body><div id="loginOverlay"><form class="loginBox" id="loginForm"><h2>jocarsa | lienzo</h2><p>Identifícate para pintar con otras personas.</p><input id="username" placeholder="Tu nombre" maxlength="24" required autocomplete="nickname"><button type="submit">Entrar al lienzo</button><p style="font-size:12px;color:#bcbfc9">Acceso por nombre, sin contraseña.</p></form></div>
+<header><div class="brand">jocarsa <span>| lienzo</span></div>
+<div class="group" id="tools"><button class="active" data-tool="brush" title="Pincel (B)">✎ Pincel</button><button data-tool="eraser" title="Goma (E)">◻ Goma</button><button data-tool="line" title="Línea (L)">╱ Línea</button><button data-tool="rect" title="Rectángulo (R)">▭ Rect.</button><button data-tool="ellipse" title="Elipse (O)">◯ Elipse</button></div>
+<div class="group"><label for="color">Color</label><input type="color" id="color" value="#e64d82"><div class="palette" id="palette"></div></div>
+<div class="group"><label for="size">Grosor</label><input type="range" id="size" min="1" max="100" value="9"><span class="sizeval" id="sizeval">9 px</span></div>
+<div class="group"><button id="undo" title="Deshacer tu último trazo (Ctrl+Z)">↶ Deshacer</button><button id="save">↓ PNG</button></div>
+<div class="spacer"></div><span id="me" class="status"></span><span id="status" class="status off">● Conectando…</span><span id="online" class="status">0 usuarios</span></header>
+<main class="workspace"><canvas id="board" width="1920" height="1080" aria-label="Lienzo colaborativo de 1920 por 1080 píxeles"></canvas><div id="cursorLayer"></div></main>
+<footer class="foot"><span class="chip" id="coords">1920 × 1080 px · mueve el cursor para ver coordenadas</span><span class="chip">Todos dibujan sobre el mismo lienzo · Guardado en servidor</span></footer>
+<script>
+'use strict';
+const canvas=document.getElementById('board'),ctx=canvas.getContext('2d');
+const statusEl=document.getElementById('status'),onlineEl=document.getElementById('online');
+const colorEl=document.getElementById('color'),sizeEl=document.getElementById('size');
+let tool='brush',clientId=null,seq=0,strokes=[],remote=new Map(),local=null,dragging=false,logged=false;
+const worker=new Worker('./worker.js'),users=new Map(),cursors=new Map(),layer=document.getElementById('cursorLayer');
+const palette=['#171717','#ffffff','#ef4444','#f97316','#facc15','#22c55e','#06b6d4','#3b82f6','#8b5cf6','#ec4899'];
+for(const c of palette){const b=document.createElement('button');b.className='swatch';b.style.background=c;b.title=c;b.onclick=()=>colorEl.value=c;document.getElementById('palette').appendChild(b)}
+sizeEl.oninput=()=>document.getElementById('sizeval').textContent=sizeEl.value+' px';
+document.querySelectorAll('[data-tool]').forEach(b=>b.onclick=()=>setTool(b.dataset.tool));
+function setTool(t){tool=t;document.querySelectorAll('[data-tool]').forEach(b=>b.classList.toggle('active',b.dataset.tool===t))}
+function send(o){worker.postMessage({kind:'send',message:o})}
+function cursorRender(){
+ const r=canvas.getBoundingClientRect(),parent=layer.getBoundingClientRect();
+ for(const [id,data] of cursors){
+   let el=data.el;
+   if(!el){el=document.createElement('div');el.className='cursorLabel';layer.appendChild(el);data.el=el}
+   el.textContent=users.get(id)?.name||'Usuario';
+   el.style.left=(r.left-parent.left+data.point[0]*r.width/1920)+'px';
+   el.style.top=(r.top-parent.top+data.point[1]*r.height/1080)+'px';
+ }
+}
+window.addEventListener('resize',cursorRender);
+worker.onmessage=e=>{
+ const {kind,message:m,connected}=e.data;
+ if(kind==='status'){statusEl.textContent=connected?'● Conectado':'● Desconectado · reconectando';statusEl.classList.toggle('off',!connected);return}
+ if(kind!=='message')return;
+ if(m.type==='error'){alert(m.message);return}
+ if(m.type==='init'){
+   clientId=m.id;logged=true;document.getElementById('loginOverlay').classList.add('hidden');
+   document.getElementById('me').textContent='✎ '+m.name;
+   users.clear();for(const u of m.users||[])users.set(u.id,u);
+   strokes=m.strokes||[];remote.clear();local=null;dragging=false;redraw();
+ }
+ if(m.type==='join')users.set(m.user.id,m.user);
+ if(m.type==='leave'){
+   users.delete(m.id);const c=cursors.get(m.id);if(c?.el)c.el.remove();cursors.delete(m.id);
+ }
+ onlineEl.textContent=users.size+' usuarios';
+ if(m.type==='cursor'&&m.id!==clientId){const c=cursors.get(m.id)||{};c.point=m.point;cursors.set(m.id,c);cursorRender()}
+ if(m.type==='begin'){remote.set(m.stroke.id,m.stroke);redraw()}
+ if(m.type==='point'){const s=remote.get(m.id);if(s){if(['line','rect','ellipse'].includes(s.tool))s.points=[s.points[0],m.point];else s.points.push(m.point);redraw()}}
+ if(m.type==='end'){const s=remote.get(m.id);if(s){remote.delete(m.id);strokes.push(s);redraw()}}
+ if(m.type==='remove'){strokes=strokes.filter(s=>s.id!==m.id);redraw()}
+};
+document.getElementById('loginForm').onsubmit=e=>{
+ e.preventDefault();const name=document.getElementById('username').value.trim();if(!name)return;
+ const protocol=location.protocol==='https:'?'wss':'ws';
+ worker.postMessage({kind:'connect',name,url:`${protocol}://${location.hostname||'localhost'}:8765`});
+ document.getElementById('loginForm').querySelector('button').textContent='Conectando…';
+};
+function drawStroke(s){
+ const p=s.points;if(!p?.length)return;
+ ctx.save();ctx.lineCap='round';ctx.lineJoin='round';ctx.lineWidth=s.size;ctx.strokeStyle=s.tool==='eraser'?'#ffffff':s.color;ctx.fillStyle=ctx.strokeStyle;
+ if(s.tool==='brush'||s.tool==='eraser'){
+  if(p.length===1){ctx.beginPath();ctx.arc(p[0][0],p[0][1],s.size/2,0,Math.PI*2);ctx.fill()}
+  else{ctx.beginPath();ctx.moveTo(...p[0]);for(let i=1;i<p.length;i++)ctx.lineTo(...p[i]);ctx.stroke()}
+ }else{
+  const a=p[0],b=p[p.length-1];ctx.beginPath();
+  if(s.tool==='line'){ctx.moveTo(...a);ctx.lineTo(...b)}
+  if(s.tool==='rect')ctx.rect(a[0],a[1],b[0]-a[0],b[1]-a[1]);
+  if(s.tool==='ellipse'){const cx=(a[0]+b[0])/2,cy=(a[1]+b[1])/2;ctx.ellipse(cx,cy,Math.max(.01,Math.abs(b[0]-a[0])/2),Math.max(.01,Math.abs(b[1]-a[1])/2),0,0,Math.PI*2)}
+  ctx.stroke();
+ }
+ ctx.restore();
+}
+function redraw(){ctx.fillStyle='#ffffff';ctx.fillRect(0,0,1920,1080);for(const s of strokes)drawStroke(s);for(const s of remote.values())drawStroke(s);if(local)drawStroke(local)}
+function coords(e){const r=canvas.getBoundingClientRect();return [Math.round(Math.max(0,Math.min(1920,(e.clientX-r.left)*1920/r.width))*100)/100,Math.round(Math.max(0,Math.min(1080,(e.clientY-r.top)*1080/r.height))*100)/100]}
+canvas.addEventListener('pointerdown',e=>{if(e.button!==0||!logged)return;e.preventDefault();canvas.setPointerCapture(e.pointerId);dragging=true;const id=String(++seq)+'-'+Date.now();const p=coords(e);local={id:clientId+'-'+id,user:clientId,tool,color:colorEl.value,size:Number(sizeEl.value),points:[p],wireId:id};send({type:'begin',id,tool,color:local.color,size:local.size,point:p});redraw()});
+canvas.addEventListener('pointermove',e=>{const p=coords(e);if(logged)sendCursor(p);document.getElementById('coords').textContent=`1920 × 1080 px · X: ${Math.round(p[0])} · Y: ${Math.round(p[1])}`;if(!dragging||!local)return;const pts=local.points;if(local.tool==='brush'||local.tool==='eraser'){if(pts.length>=4900)return;if(Math.hypot(p[0]-pts.at(-1)[0],p[1]-pts.at(-1)[1])<1.5)return;pts.push(p)}else{local.points=[pts[0],p]}send({type:'point',id:local.wireId,point:p});redraw()});
+let lastCursorSent=0;function sendCursor(p){const now=performance.now();if(now-lastCursorSent<45)return;lastCursorSent=now;send({type:'cursor',point:p})}
+function end(){if(!dragging||!local)return;dragging=false;send({type:'end',id:local.wireId});const s={...local};delete s.wireId;strokes.push(s);local=null;redraw()}
+canvas.addEventListener('pointerup',end);canvas.addEventListener('pointercancel',end);
+document.getElementById('undo').onclick=()=>send({type:'undo'});
+document.getElementById('save').onclick=()=>{const a=document.createElement('a');a.download='lienzo-colaborativo-1920x1080.png';a.href=canvas.toDataURL('image/png');a.click()};
+document.addEventListener('keydown',e=>{if(e.ctrlKey&&e.key.toLowerCase()==='z'){e.preventDefault();send({type:'undo'});return}if(e.ctrlKey||e.metaKey||e.altKey||['INPUT','TEXTAREA'].includes(document.activeElement.tagName))return;const keys={b:'brush',e:'eraser',l:'line',r:'rect',o:'ellipse'};if(keys[e.key.toLowerCase()])setTool(keys[e.key.toLowerCase()])});
+redraw();
+</script></body></html>

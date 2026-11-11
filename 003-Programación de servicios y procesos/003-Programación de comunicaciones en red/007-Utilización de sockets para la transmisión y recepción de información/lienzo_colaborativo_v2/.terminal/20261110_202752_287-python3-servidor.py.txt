@@ -1,0 +1,86 @@
+Datetime: 2026-11-10T19:27:52.287Z
+Working directory: /var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v2
+Command: python3 servidor.py
+
+Result:
+WebSocket ws://0.0.0.0:8765 (asyncio, SQLite WAL)
+opening handshake failed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/http11.py", line 133, in parse
+    request_line = yield from parse_line(read_line)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/websockets/http11.py", line 379, in parse_line
+    line = yield from read_line(MAX_LINE_LENGTH)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/websockets/streams.py", line 46, in read_line
+    raise EOFError(f"stream ends after {p} bytes, before end of line")
+EOFError: stream ends after 0 bytes, before end of line
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 358, in conn_handler
+    await connection.handshake(
+  File "/usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py", line 209, in handshake
+    raise self.protocol.handshake_exc
+  File "/usr/local/lib/python3.12/dist-packages/websockets/server.py", line 561, in parse
+    request = yield from Request.parse(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/websockets/http11.py", line 135, in parse
+    raise EOFError("connection closed while reading HTTP request line") from exc
+EOFError: connection closed while reading HTTP request line
+^C^C^CTraceback (most recent call last):
+  File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 674, in run_until_complete
+    self.run_forever()
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 641, in run_forever
+    self._run_once()
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 1949, in _run_once
+    event_list = self._selector.select(timeout)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/selectors.py", line 468, in select
+    fd_event_list = self._selector.poll(timeout, max_ev)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 157, in _on_sigint
+    raise KeyboardInterrupt()
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v2/servidor.py", line 97, in <module>
+    if __name__=='__main__':asyncio.run(main())
+                            ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 193, in run
+    with Runner(debug=debug, loop_factory=loop_factory) as runner:
+  File "/usr/lib/python3.12/asyncio/runners.py", line 62, in __exit__
+    self.close()
+  File "/usr/lib/python3.12/asyncio/runners.py", line 70, in close
+    _cancel_all_tasks(loop)
+  File "/usr/lib/python3.12/asyncio/runners.py", line 205, in _cancel_all_tasks
+    loop.run_until_complete(tasks.gather(*to_cancel, return_exceptions=True))
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 674, in run_until_complete
+    self.run_forever()
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 641, in run_forever
+    self._run_once()
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 1949, in _run_once
+    event_list = self._selector.select(timeout)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/selectors.py", line 468, in select
+    fd_event_list = self._selector.poll(timeout, max_ev)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+Task was destroyed but it is pending!
+task: <Task cancelling name='Task-204768' coro=<Server.conn_handler() running at /usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py:374> wait_for=<_GatheringFuture pending cb=[Task.task_wakeup()]> cb=[gather.<locals>._done_callback() at /usr/lib/python3.12/asyncio/tasks.py:767]>
+Task was destroyed but it is pending!
+task: <Task cancelling name='Task-304567' coro=<Server.conn_handler() running at /usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py:374> wait_for=<_GatheringFuture pending cb=[Task.task_wakeup()]> cb=[gather.<locals>._done_callback() at /usr/lib/python3.12/asyncio/tasks.py:767]>
+Task was destroyed but it is pending!
+task: <Task cancelling name='Task-131' coro=<Server.conn_handler() running at /usr/local/lib/python3.12/dist-packages/websockets/asyncio/server.py:374> wait_for=<_GatheringFuture pending cb=[Task.task_wakeup()]> cb=[gather.<locals>._done_callback() at /usr/lib/python3.12/asyncio/tasks.py:767]>
+
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/003-Programación de servicios y proces
+os/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/lienzo_colaborativo_v2$ 

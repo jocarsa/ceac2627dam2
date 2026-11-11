@@ -1,0 +1,31 @@
+Datetime: 2026-11-10T18:51:18.581Z
+Working directory: /var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/zelda_multijugador
+Command: python3 servidor.py
+
+Result:
+WebSocket escuchando en ws://0.0.0.0:8765
+^CTraceback (most recent call last):
+  File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/zelda_multijugador/servidor.py", line 88, in main
+    await asyncio.Future()
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/www/html/ceac2627dam2/003-Programación de servicios y procesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/zelda_multijugador/servidor.py", line 91, in <module>
+    asyncio.run(main())
+  File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 123, in run
+    raise KeyboardInterrupt()
+KeyboardInterrupt
+
+josevicente@josevicenteportatil:/var/www/html/ceac2627dam2/003-Programación de servicios y pr
+ocesos/003-Programación de comunicaciones en red/007-Utilización de sockets para la transmisión y recepción de información/zelda_multijugador$ 
