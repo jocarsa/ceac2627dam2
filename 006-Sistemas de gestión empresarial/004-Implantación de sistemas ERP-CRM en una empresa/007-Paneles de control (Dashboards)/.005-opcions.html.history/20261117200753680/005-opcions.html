@@ -1,0 +1,240 @@
+
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard 3D</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;width:100%}
+body{
+  padding:20px;
+  display:grid;
+  grid-template-columns:repeat(7,minmax(0,1fr));
+  grid-auto-rows:110px;
+  grid-auto-flow:row dense;
+  gap:20px;
+  background:#e5e5e7;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+article{perspective:1200px;min-width:0;min-height:0}
+.card{
+  position:relative;width:100%;height:100%;
+  transform-style:preserve-3d;
+  transition:transform .8s cubic-bezier(.2,.8,.2,1);
+}
+.card.flipped{transform:rotateY(180deg)}
+.face{
+  position:absolute;inset:0;
+  border-radius:12px;
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+  overflow:hidden;
+  box-shadow:0 3px 12px #00000012;
+}
+.front{background:white;padding:14px}
+.back{
+  background:#fafafa;
+  transform:rotateY(180deg);
+  padding:14px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.flip-button{
+  position:absolute;top:9px;right:9px;
+  width:18px;height:18px;
+  border:1px solid #d94a43;
+  border-radius:50%;
+  background:linear-gradient(#ff7067,#ff453a);
+  box-shadow:inset 0 1px 1px #ffffff80,0 1px 3px #0002;
+  color:#7d1712;
+  font-size:12px;font-weight:bold;
+  display:grid;place-items:center;
+  cursor:pointer;z-index:5;
+  transition:filter .2s,transform .2s;
+}
+.flip-button:hover{
+  filter:brightness(1.1);
+  transform:scale(1.15);
+}
+.flip-button:active{transform:scale(.9)}
+.card-title{
+  font-size:12px;font-weight:600;
+  color:#555;margin:0 25px 8px 0;
+}
+.content{
+  height:calc(100% - 22px);
+  overflow:auto;
+  scrollbar-width:thin;
+}
+.back h4{margin:0 24px 4px 0;font-size:13px}
+.back label{font-size:11px;color:#666}
+.back select{
+  width:100%;padding:7px;
+  border:1px solid #ddd;
+  border-radius:7px;
+  background:white;
+  font:inherit;font-size:12px;
+}
+.back p{font-size:11px;color:#888;margin:0}
+table{width:100%;border-collapse:collapse;font-size:11px}
+th,td{padding:5px;text-align:left;border-bottom:1px solid #eee}
+th{background:#f5f5f5;color:#666}
+.chart{width:100%;height:100%;min-height:35px}
+.chart svg{display:block;width:100%;height:100%}
+.empty{
+  height:100%;display:grid;place-items:center;
+  color:#aaa;font-size:12px;text-align:center;
+}
+article:nth-child(1){grid-column:span 2}
+article:nth-child(5){grid-column:span 3}
+article:nth-child(12){grid-column:span 2}
+article:nth-child(3){grid-row:span 3}
+article:nth-child(10){grid-row:span 2}
+article:nth-child(20){grid-row:span 3}
+article:nth-child(8){grid-column:span 3;grid-row:span 2}
+article:nth-child(15){grid-column:span 2;grid-row:span 2}
+article:nth-child(25){grid-column:span 2;grid-row:span 3}
+@media(max-width:900px){
+  body{grid-template-columns:repeat(4,minmax(0,1fr))}
+  article{grid-column:span 1!important;grid-row:span 1!important}
+}
+@media(max-width:500px){
+  body{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:10px}
+}
+</style>
+</head>
+<body>
+<script>
+const labels=["Ene","Feb","Mar","Abr","May"];
+const colors=["#5b8def","#ff9f43","#35bfa3","#a78bfa","#ff6b81"];
+
+function fakeData(id){
+  return labels.map((name,i)=>({
+    name,
+    value:Math.floor(
+      15+Math.abs(Math.sin(id*7.3+i*2.1))*85
+    )
+  }));
+}
+
+function flipCard(button){
+  const card=button.closest(".card");
+  const flipped=card.classList.toggle("flipped");
+  card.querySelectorAll(".flip-button").forEach(b=>{
+    b.setAttribute("aria-label",
+      flipped?"Volver al anverso":"Configurar tarjeta");
+  });
+}
+
+function renderCard(id,type){
+  const container=document.getElementById("content-"+id);
+  const data=fakeData(id);
+  container.replaceChildren();
+
+  if(type==="none"){
+    container.innerHTML='<div class="empty">Selecciona una visualización</div>';
+    return;
+  }
+
+  if(type==="table"){
+    const table=document.createElement("table");
+    table.innerHTML="<thead><tr><th>Mes</th><th>Valor</th></tr></thead>";
+    const tbody=document.createElement("tbody");
+    data.forEach(d=>{
+      const tr=document.createElement("tr");
+      const a=document.createElement("td");
+      const b=document.createElement("td");
+      a.textContent=d.name;
+      b.textContent=d.value;
+      tr.append(a,b);
+      tbody.appendChild(tr);
+    });
+    table.appendChild(tbody);
+    container.appendChild(table);
+  }
+
+  if(type==="bar"){
+    const max=Math.max(...data.map(d=>d.value));
+    const bars=data.map((d,i)=>{
+      const h=d.value/max*75;
+      const x=12+i*19;
+      return `
+        <rect x="${x}" y="${82-h}" width="12" height="${h}"
+          rx="2" fill="${colors[i]}"/>
+        <text x="${x+6}" y="94" text-anchor="middle"
+          font-size="7" fill="#777">${d.name}</text>
+      `;
+    }).join("");
+    container.innerHTML=`
+      <div class="chart">
+        <svg viewBox="0 0 110 100" preserveAspectRatio="none"
+          role="img" aria-label="Gráfica de barras">
+          <line x1="8" y1="82" x2="108" y2="82"
+            stroke="#ddd" stroke-width=".5"/>
+          ${bars}
+        </svg>
+      </div>`;
+  }
+
+  if(type==="pie"){
+    const total=data.reduce((s,d)=>s+d.value,0);
+    let angle=-Math.PI/2;
+    const paths=data.map((d,i)=>{
+      const sweep=d.value/total*Math.PI*2;
+      const end=angle+sweep;
+      const x1=50+38*Math.cos(angle);
+      const y1=50+38*Math.sin(angle);
+      const x2=50+38*Math.cos(end);
+      const y2=50+38*Math.sin(end);
+      const large=sweep>Math.PI?1:0;
+      angle=end;
+      return `<path d="M50 50 L${x1} ${y1}
+        A38 38 0 ${large} 1 ${x2} ${y2} Z"
+        fill="${colors[i]}" stroke="white" stroke-width="1"/>`;
+    }).join("");
+    container.innerHTML=`
+      <div class="chart">
+        <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet"
+          role="img" aria-label="Gráfica de tarta">
+          ${paths}
+        </svg>
+      </div>`;
+  }
+}
+
+function createCard(i){
+  const article=document.createElement("article");
+  article.innerHTML=`
+    <div class="card">
+      <div class="face front">
+        <button class="flip-button" type="button"
+          aria-label="Configurar tarjeta" onclick="flipCard(this)">↻</button>
+        <h3 class="card-title">Indicador ${i}</h3>
+        <div class="content" id="content-${i}"></div>
+      </div>
+      <div class="face back">
+        <button class="flip-button" type="button"
+          aria-label="Volver al anverso" onclick="flipCard(this)">↻</button>
+        <h4>Configurar tarjeta ${i}</h4>
+        <label for="type-${i}">Visualización</label>
+        <select id="type-${i}"
+          onchange="renderCard(${i},this.value)">
+          <option value="none">Sin seleccionar</option>
+          <option value="table">Tabla</option>
+          <option value="bar">Gráfica de barras</option>
+          <option value="pie">Gráfica de tarta</option>
+        </select>
+        <p>Datos ficticios de demostración.</p>
+      </div>
+    </div>`;
+  document.body.appendChild(article);
+  renderCard(i,"none");
+}
+
+for(let i=1;i<=30;i++)createCard(i);
+</script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "title": "Ventas mensuales",
+  "data": [
+    {"label": "Enero", "value": 120},
+    {"label": "Febrero", "value": 180},
+    {"label": "Marzo", "value": 95},
+    {"label": "Abril", "value": 240},
+    {"label": "Mayo", "value": 160}
+  ]
+}

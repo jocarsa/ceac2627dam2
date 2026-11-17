@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Grid - Cards 3D</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      min-height: 100%;
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      grid-auto-rows: 100px;
+      grid-auto-flow: row dense;
+      gap: 20px;
+      background: lightgray;
+    }
+
+    article {
+      perspective: 1000px;
+      min-width: 0;
+      min-height: 0;
+    }
+
+    .card {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.8s ease-in-out;
+    }
+
+    /* Solo gira cuando tiene la clase flipped */
+    .card.flipped {
+      transform: rotateY(180deg);
+    }
+
+    .front,
+    .back {
+      position: absolute;
+      inset: 0;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Arial, sans-serif;
+      font-size: 20px;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      overflow: hidden;
+    }
+
+    .front {
+      background: white;
+      color: #555;
+    }
+
+    .back {
+      background: #444;
+      color: white;
+      transform: rotateY(180deg);
+    }
+
+    /* Botón circular estilo Apple */
+    .flip-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 28px;
+      height: 28px;
+      border: none;
+      border-radius: 50%;
+      background: rgba(120, 120, 128, 0.16);
+      color: #555;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 17px;
+      line-height: 1;
+      transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+      z-index: 2;
+    }
+
+    .flip-button:hover {
+      background: rgba(120, 120, 128, 0.3);
+      transform: scale(1.1);
+    }
+
+    .flip-button:active {
+      transform: scale(0.9);
+    }
+
+    .back .flip-button {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+    }
+
+    .back .flip-button:hover {
+      background: rgba(255, 255, 255, 0.35);
+    }
+
+    /* COLSPAN HORIZONTAL */
+    article:nth-child(1) {
+      grid-column: span 2;
+    }
+
+    article:nth-child(5) {
+      grid-column: span 3;
+    }
+
+    article:nth-child(12) {
+      grid-column: span 2;
+    }
+
+    /* ROWSPAN VERTICAL */
+    article:nth-child(3) {
+      grid-row: span 3;
+    }
+
+    article:nth-child(10) {
+      grid-row: span 2;
+    }
+
+    article:nth-child(20) {
+      grid-row: span 3;
+    }
+
+    /* COLSPAN + ROWSPAN */
+    article:nth-child(8) {
+      grid-column: span 3;
+      grid-row: span 2;
+    }
+
+    article:nth-child(15) {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+
+    article:nth-child(25) {
+      grid-column: span 2;
+      grid-row: span 3;
+    }
+  </style>
+</head>
+<body>
+
+  <script>
+    for (let i = 1; i <= 30; i++) {
+      const article = document.createElement("article");
+
+      article.innerHTML = `
+        <div class="card">
+
+          <div class="front">
+            <button
+              class="flip-button"
+              type="button"
+              aria-label="Mostrar reverso"
+              onclick="flipCard(this)"
+            >↻</button>
+
+            <span>${i}</span>
+          </div>
+
+          <div class="back">
+            <button
+              class="flip-button"
+              type="button"
+              aria-label="Mostrar anverso"
+              onclick="flipCard(this)"
+            >↻</button>
+
+            <span>Reverso ${i}</span>
+          </div>
+
+        </div>
+      `;
+
+      document.body.appendChild(article);
+    }
+
+    function flipCard(button) {
+      const card = button.closest(".card");
+      card.classList.toggle("flipped");
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Grid - Colspan y Rowspan</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      min-height: 100%;
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      grid-auto-rows: 100px;
+      grid-auto-flow: row dense;
+      gap: 20px;
+      background: lightgray;
+    }
+
+    article {
+      background: white;
+      border-radius: 5px;
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Arial, sans-serif;
+      font-size: 20px;
+      color: #555;
+    }
+
+    /* COLSPAN HORIZONTAL */
+    article:nth-child(1) {
+      grid-column: span 2;
+    }
+
+    article:nth-child(5) {
+      grid-column: span 3;
+    }
+
+    article:nth-child(12) {
+      grid-column: span 2;
+    }
+
+    /* ROWSPAN VERTICAL */
+    article:nth-child(3) {
+      grid-row: span 3;
+    }
+
+    article:nth-child(10) {
+      grid-row: span 2;
+    }
+
+    article:nth-child(20) {
+      grid-row: span 3;
+    }
+
+    /* COLSPAN + ROWSPAN */
+    article:nth-child(8) {
+      grid-column: span 3;
+      grid-row: span 2;
+    }
+
+    article:nth-child(15) {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+
+    article:nth-child(25) {
+      grid-column: span 2;
+      grid-row: span 3;
+    }
+  </style>
+</head>
+<body>
+  <article>1</article>
+  <article>2</article>
+  <article>3</article>
+  <article>4</article>
+  <article>5</article>
+  <article>6</article>
+  <article>7</article>
+  <article>8</article>
+  <article>9</article>
+  <article>10</article>
+  <article>11</article>
+  <article>12</article>
+  <article>13</article>
+  <article>14</article>
+  <article>15</article>
+  <article>16</article>
+  <article>17</article>
+  <article>18</article>
+  <article>19</article>
+  <article>20</article>
+  <article>21</article>
+  <article>22</article>
+  <article>23</article>
+  <article>24</article>
+  <article>25</article>
+  <article>26</article>
+  <article>27</article>
+  <article>28</article>
+  <article>29</article>
+  <article>30</article>
+</body>
+</html>

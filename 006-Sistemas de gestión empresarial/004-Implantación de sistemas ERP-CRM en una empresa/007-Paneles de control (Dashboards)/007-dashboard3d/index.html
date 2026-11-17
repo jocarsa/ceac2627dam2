@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dashboard 3D persistente</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;width:100%}
+body{background:#e5e5e7;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+#dashboard{padding:20px;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));grid-auto-rows:110px;gap:20px}
+article{position:relative;perspective:1200px;min-width:0;min-height:0;will-change:transform}
+.card{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.card.flipped{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;border-radius:12px;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;box-shadow:0 3px 12px #00000012}
+.front{background:#fff;padding:14px}.back{background:#fafafa;transform:rotateY(180deg);padding:14px;display:flex;flex-direction:column;gap:8px;overflow:auto;scrollbar-width:thin}
+.flip-button{position:absolute;top:9px;right:9px;width:18px;height:18px;border:1px solid #d94a43;border-radius:50%;background:linear-gradient(#ff7067,#ff453a);box-shadow:inset 0 1px 1px #ffffff80,0 1px 3px #0002;color:#7d1712;font-size:12px;font-weight:bold;display:grid;place-items:center;cursor:pointer;z-index:5;transition:filter .2s,transform .2s}
+.flip-button:hover{filter:brightness(1.1);transform:scale(1.15)}.flip-button:active{transform:scale(.9)}
+.card-title{font-size:12px;font-weight:600;color:#555;margin:0 25px 8px 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.content{height:calc(100% - 22px);overflow:auto;scrollbar-width:thin}
+.back h4{margin:0 24px 4px 0;font-size:13px}.back label{font-size:11px;color:#666}
+.back select,.back input{width:100%;min-width:0;padding:7px;border:1px solid #ddd;border-radius:7px;background:#fff;font:inherit;font-size:12px}
+.size-controls{display:grid;grid-template-columns:1fr 1fr;gap:8px}.size-controls>div{display:flex;flex-direction:column;gap:4px;min-width:0}
+.endpoint-group{display:flex;flex-direction:column;gap:4px}.actions{display:flex;gap:7px;flex-wrap:wrap}
+.actions button{border:1px solid #ddd;background:#fff;border-radius:7px;padding:6px 9px;font-size:11px;cursor:pointer}.actions button:hover{background:#eee}
+.status{font-size:10px;color:#777;overflow-wrap:anywhere;min-height:12px}
+.status.error{color:#b42318}.status.ok{color:#16733d}
+table{width:100%;border-collapse:collapse;font-size:11px}th,td{padding:5px;text-align:left;border-bottom:1px solid #eee}th{background:#f5f5f5;color:#666}
+.chart{width:100%;height:100%;min-height:35px}.chart svg{display:block;width:100%;height:100%}
+.empty{height:100%;display:grid;place-items:center;color:#aaa;font-size:12px;text-align:center;padding:5px}
+@media(max-width:900px){#dashboard{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:500px){#dashboard{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:10px}}
+@media(prefers-reduced-motion:reduce){.card{transition:none}}
+</style>
+</head>
+<body>
+<main id="dashboard"></main>
+<script>
+"use strict";
+const TOTAL=30,STORAGE_KEY="jocarsa-dashboard3d-v1",ANIMATION_DURATION=1500;
+const dashboard=document.getElementById("dashboard");
+const colors=["#5b8def","#ff9f43","#35bfa3","#a78bfa","#ff6b81","#66b3cf","#e6bc54"];
+const initial={1:[2,1],3:[1,3],5:[3,1],8:[3,2],10:[1,2],12:[2,1],15:[2,2],20:[1,3],25:[2,3]};
+const clamp=(v,min,max)=>Math.min(max,Math.max(min,Number.isFinite(Number(v))?Math.trunc(Number(v)):min));
+const defaults=()=>Array.from({length:TOTAL},(_,i)=>({id:i+1,x:initial[i+1]?.[0]??1,y:initial[i+1]?.[1]??1,type:"none",endpoint:""}));
+function loadConfig(){
+ const base=defaults();
+ try{
+  const raw=JSON.parse(localStorage.getItem(STORAGE_KEY));
+  if(!Array.isArray(raw))return base;
+  const saved=new Map(raw.filter(x=>x&&Number.isInteger(x.id)).map(x=>[x.id,x]));
+  return base.map(c=>{const s=saved.get(c.id);return s?{...c,x:clamp(s.x,1,7),y:clamp(s.y,1,6),type:["none","table","bar","pie"].includes(s.type)?s.type:c.type,endpoint:typeof s.endpoint==="string"?s.endpoint:""}:c});
+ }catch(e){console.warn("No se pudo recuperar la configuración:",e);return base}
+}
+const cards=loadConfig();
+const runtime=new Map(cards.map(c=>[c.id,{data:null,error:"",loading:false,controller:null,request:0}]));
+function saveConfig(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(cards))}catch(e){console.warn("No se pudo guardar la configuración:",e)}}
+function columns(){return matchMedia("(max-width:500px)").matches?2:matchMedia("(max-width:900px)").matches?4:7}
+function demoData(id){return {title:`Indicador ${id}`,data:["Ene","Feb","Mar","Abr","May"].map((label,i)=>({label,value:Math.floor(15+Math.abs(Math.sin(id*7.3+i*2.1))*85)}))}}
+function flipCard(button){button.closest(".card").classList.toggle("flipped")}
+function changeType(id,value){const c=cards[id-1];c.type=value;saveConfig();renderCard(id)}
+function changeSize(id,axis,value){const c=cards[id-1];c[axis]=clamp(value,1,axis==="x"?7:6);saveConfig();arrangeCards()}
+function changeEndpoint(id,value){const c=cards[id-1];c.endpoint=value.trim();saveConfig();const r=runtime.get(id);r.controller?.abort();r.request++;r.loading=false;r.error="";r.data=null;renderCard(id);updateStatus(id);if(c.endpoint)fetchCard(id)}
+function updateStatus(id){const el=document.getElementById(`status-${id}`);if(!el)return;const c=cards[id-1],r=runtime.get(id);el.className="status"+(r.error?" error":r.data?" ok":"");el.textContent=r.loading?"Cargando datos…":r.error?`Error: ${r.error}`:!c.endpoint?"Datos ficticios locales":r.data?`Datos cargados (${r.data.data.length} registros)`:"Sin datos"}
+function normalizeJSON(json){
+ if(!json||typeof json!=="object"||!Array.isArray(json.data))throw new Error('Se requiere un objeto con array "data"');
+ const data=json.data.map((item,i)=>{
+  if(!item||typeof item!=="object"||typeof item.label!=="string"||typeof item.value!=="number"||!Number.isFinite(item.value))throw new Error(`Registro ${i+1}: se requiere label (texto) y value (número)`);
+  return {label:item.label,value:item.value};
+ });
+ if(data.length>1000)throw new Error("Máximo 1000 registros por tarjeta");
+ return {title:typeof json.title==="string"?json.title:"Datos JSON",data};
+}
+async function fetchCard(id){
+ const c=cards[id-1],r=runtime.get(id);r.controller?.abort();const request=++r.request;
+ if(!c.endpoint){r.data=null;r.error="";r.loading=false;renderCard(id);updateStatus(id);return}
+ let url;
+ try{url=new URL(c.endpoint,location.href);if(!["http:","https:"].includes(url.protocol))throw new Error("Utiliza una URL HTTP o HTTPS")}catch(e){r.error=e.message;r.loading=false;r.data=null;renderCard(id);updateStatus(id);return}
+ const controller=new AbortController();r.controller=controller;r.loading=true;r.error="";updateStatus(id);
+ const timeout=setTimeout(()=>controller.abort(),12000);
+ try{
+  const response=await fetch(url.href,{signal:controller.signal,headers:{Accept:"application/json"},cache:"no-store",credentials:"omit"});
+  if(!response.ok)throw new Error(`HTTP ${response.status}`);
+  const data=normalizeJSON(await response.json());
+  if(r.request!==request)return;
+  r.data=data;r.error="";
+ }catch(e){if(r.request!==request)return;r.error=e.name==="AbortError"?"Tiempo de espera agotado o petición cancelada":e.message;r.data=null}
+ finally{clearTimeout(timeout);if(r.request===request){r.loading=false;r.controller=null;renderCard(id);updateStatus(id)}}
+}
+function svgElement(tag,attrs={},text){const el=document.createElementNS("http://www.w3.org/2000/svg",tag);Object.entries(attrs).forEach(([k,v])=>el.setAttribute(k,String(v)));if(text!==undefined)el.textContent=String(text);return el}
+function renderCard(id){
+ const c=cards[id-1],r=runtime.get(id),container=document.getElementById(`content-${id}`),title=document.getElementById(`title-${id}`);
+ const dataset=c.endpoint?r.data:demoData(id);
+ title.textContent=dataset?.title||`Indicador ${id}`;
+ container.replaceChildren();
+ if(c.type==="none"){container.innerHTML='<div class="empty">Selecciona una visualización</div>';return}
+ if(!dataset){const div=document.createElement("div");div.className="empty";div.textContent=r.loading?"Cargando…":r.error?"Error al cargar datos":"Sin datos";container.append(div);return}
+ const data=dataset.data;
+ if(!data.length){container.innerHTML='<div class="empty">No hay registros</div>';return}
+ if(c.type==="table"){
+  const table=document.createElement("table"),thead=document.createElement("thead"),tr=document.createElement("tr");
+  for(const s of ["Categoría","Valor"]){const th=document.createElement("th");th.textContent=s;tr.append(th)}thead.append(tr);table.append(thead);
+  const tbody=document.createElement("tbody");data.forEach(d=>{const row=document.createElement("tr");for(const v of [d.label,d.value]){const td=document.createElement("td");td.textContent=v;row.append(td)}tbody.append(row)});table.append(tbody);container.append(table);return;
+ }
+ const wrapper=document.createElement("div");wrapper.className="chart";
+ const svg=svgElement("svg",{viewBox:"0 0 320 200",role:"img","aria-label":c.type==="bar"?"Gráfica de barras":"Gráfica de tarta"});
+ if(c.type==="bar"){
+  const min=Math.min(0,...data.map(d=>d.value)),max=Math.max(0,...data.map(d=>d.value));const range=max-min||1;
+  const zero=170-(0-min)/range*145;
+  svg.append(svgElement("line",{x1:10,y1:zero,x2:310,y2:zero,stroke:"#ccc"}));
+  const shown=data.slice(0,40),step=300/shown.length;
+  shown.forEach((d,i)=>{const x=10+i*step+step*.15,y=170-(d.value-min)/range*145;const bar=svgElement("rect",{x,y:Math.min(y,zero),width:step*.7,height:Math.max(1,Math.abs(zero-y)),rx:2,fill:colors[i%colors.length]});bar.append(svgElement("title",{},`${d.label}: ${d.value}`));svg.append(bar);if(shown.length<=12)svg.append(svgElement("text",{x:x+step*.35,y:189,"text-anchor":"middle","font-size":9,fill:"#777"},d.label.slice(0,8)))});
+ }else{
+  const positive=data.filter(d=>d.value>0),sum=positive.reduce((s,d)=>s+d.value,0);
+  if(!sum){const p=document.createElement("div");p.className="empty";p.textContent="La tarta necesita valores positivos";container.append(p);return}
+  let angle=-Math.PI/2;positive.forEach((d,i)=>{const sweep=d.value/sum*Math.PI*2;const end=angle+sweep;let shape;
+   if(sweep>=2*Math.PI-1e-8)shape=svgElement("circle",{cx:160,cy:100,r:76,fill:colors[i%colors.length]});
+   else{const x1=160+76*Math.cos(angle),y1=100+76*Math.sin(angle),x2=160+76*Math.cos(end),y2=100+76*Math.sin(end);shape=svgElement("path",{d:`M160 100 L${x1} ${y1} A76 76 0 ${sweep>Math.PI?1:0} 1 ${x2} ${y2} Z`,fill:colors[i%colors.length],stroke:"white","stroke-width":1})}
+   shape.append(svgElement("title",{},`${d.label}: ${d.value}`));svg.append(shape);angle=end;
+  });
+ }
+ wrapper.append(svg);container.append(wrapper);
+}
+function createCard(c){
+ const article=document.createElement("article");article.dataset.id=c.id;
+ const opts=(max,selected)=>Array.from({length:max},(_,i)=>i+1).map(n=>`<option value="${n}" ${n===selected?"selected":""}>${n}</option>`).join("");
+ article.innerHTML=`<div class="card">
+ <div class="face front"><button class="flip-button" type="button" aria-label="Configurar tarjeta" title="Configurar" >↻</button><h3 class="card-title" id="title-${c.id}"></h3><div class="content" id="content-${c.id}"></div></div>
+ <div class="face back"><button class="flip-button" type="button" aria-label="Volver al anverso" title="Volver">↻</button><h4>Configurar tarjeta ${c.id}</h4>
+ <label for="type-${c.id}">Visualización</label><select id="type-${c.id}"><option value="none">Sin seleccionar</option><option value="table">Tabla</option><option value="bar">Gráfica de barras</option><option value="pie">Gráfica de tarta</option></select>
+ <div class="size-controls"><div><label for="x-${c.id}">X · Columnas</label><select id="x-${c.id}">${opts(7,c.x)}</select></div><div><label for="y-${c.id}">Y · Filas</label><select id="y-${c.id}">${opts(6,c.y)}</select></div></div>
+ <div class="endpoint-group"><label for="endpoint-${c.id}">Endpoint JSON (GET)</label><input id="endpoint-${c.id}" type="url" placeholder="https://servidor/api/datos" spellcheck="false"></div>
+ <div class="actions"><button type="button" class="refresh">Actualizar datos</button><button type="button" class="demo">Usar demo</button></div><div class="status" id="status-${c.id}"></div></div></div>`;
+ dashboard.append(article);
+ article.querySelectorAll(".flip-button").forEach(b=>b.addEventListener("click",()=>flipCard(b)));
+ const type=article.querySelector(`#type-${c.id}`);type.value=c.type;type.addEventListener("change",()=>changeType(c.id,type.value));
+ for(const axis of ["x","y"]){const sel=article.querySelector(`#${axis}-${c.id}`);sel.addEventListener("change",()=>changeSize(c.id,axis,sel.value))}
+ const input=article.querySelector(`#endpoint-${c.id}`);input.value=c.endpoint;
+ // Guardar al salir del campo o pulsar Intro, evitando peticiones en cada pulsación.
+ input.addEventListener("change",()=>changeEndpoint(c.id,input.value));
+ article.querySelector(".refresh").addEventListener("click",()=>{if(input.value.trim()!==cards[c.id-1].endpoint)changeEndpoint(c.id,input.value);else fetchCard(c.id)});
+ article.querySelector(".demo").addEventListener("click",()=>{input.value="";changeEndpoint(c.id,"")});
+ renderCard(c.id);updateStatus(c.id);
+}
+function canPlace(grid,row,col,w,h,ncols){if(col+w>ncols)return false;for(let y=row;y<row+h;y++)for(let x=col;x<col+w;x++)if(grid[y]?.[x])return false;return true}
+function occupy(grid,row,col,w,h){for(let y=row;y<row+h;y++){if(!grid[y])grid[y]=[];for(let x=col;x<col+w;x++)grid[y][x]=true}}
+function pack(items,ncols){const grid=[],positions=new Map();for(const c of items){let placed=false;for(let row=0;!placed;row++)for(let col=0;col<=ncols-c.w;col++)if(canPlace(grid,row,col,c.w,c.h,ncols)){occupy(grid,row,col,c.w,c.h);positions.set(c.id,{row:row+1,col:col+1});placed=true;break}}
+ const height=grid.length;let holes=0;for(let y=0;y<height;y++)for(let x=0;x<ncols;x++)if(!grid[y]?.[x])holes++;return {positions,holes,height}}
+function arrangeCards(animate=true){
+ const articles=[...dashboard.querySelectorAll("article")];
+ const first=new Map(articles.map(el=>[el,el.getBoundingClientRect()]));
+ articles.forEach(el=>el.getAnimations().forEach(a=>a.cancel()));
+ const ncols=columns(),items=cards.map(c=>({id:c.id,w:Math.min(c.x,ncols),h:c.y}));
+ const orders=[
+  [...items].sort((a,b)=>b.w*b.h-a.w*a.h||b.h-a.h||a.id-b.id),
+  [...items].sort((a,b)=>b.h-a.h||b.w-a.w||a.id-b.id),
+  [...items].sort((a,b)=>b.w-a.w||b.h-a.h||a.id-b.id),
+  [...items].sort((a,b)=>a.id-b.id)
+ ];
+ let best=null;for(const order of orders){const result=pack(order,ncols);if(!best||result.holes<best.holes||(result.holes===best.holes&&result.height<best.height))best=result}
+ cards.forEach(c=>{const el=dashboard.querySelector(`article[data-id="${c.id}"]`),p=best.positions.get(c.id);el.style.gridColumn=`${p.col} / span ${Math.min(c.x,ncols)}`;el.style.gridRow=`${p.row} / span ${c.y}`});
+ if(!animate||matchMedia("(prefers-reduced-motion:reduce)").matches)return;
+ articles.forEach(el=>{const a=first.get(el),b=el.getBoundingClientRect();if(!b.width||!b.height)return;const dx=a.left-b.left,dy=a.top-b.top,sx=a.width/b.width,sy=a.height/b.height;
+  if(Math.abs(dx)<.5&&Math.abs(dy)<.5&&Math.abs(sx-1)<.001&&Math.abs(sy-1)<.001)return;
+  el.animate([{transformOrigin:"top left",transform:`translate(${dx}px,${dy}px) scale(${sx},${sy})`},{transformOrigin:"top left",transform:"translate(0,0) scale(1,1)"}],{duration:ANIMATION_DURATION,easing:"cubic-bezier(.22,1,.36,1)"});
+ });
+}
+cards.forEach(createCard);
+arrangeCards(false);
+// Solo se guardan ajustes, no respuestas de API ni credenciales.
+// La configuración se recupera del navegador en futuras visitas.
+cards.filter(c=>c.endpoint).forEach(c=>fetchCard(c.id));
+let resizeTimer;window.addEventListener("resize",()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>arrangeCards(),100)});
+</script>
+</body>
+</html>

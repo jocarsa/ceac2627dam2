@@ -1,0 +1,409 @@
+
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard 3D dinámico</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;width:100%}
+body{
+  background:#e5e5e7;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+#dashboard{
+  padding:20px;
+  display:grid;
+  grid-template-columns:repeat(7,minmax(0,1fr));
+  grid-auto-rows:110px;
+  gap:20px;
+}
+article{
+  perspective:1200px;
+  min-width:0;
+  min-height:0;
+}
+.card{
+  position:relative;
+  width:100%;height:100%;
+  transform-style:preserve-3d;
+  transition:transform .8s cubic-bezier(.2,.8,.2,1);
+}
+.card.flipped{transform:rotateY(180deg)}
+.face{
+  position:absolute;inset:0;
+  border-radius:12px;
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+  overflow:hidden;
+  box-shadow:0 3px 12px #00000012;
+}
+.front{background:white;padding:14px}
+.back{
+  background:#fafafa;
+  transform:rotateY(180deg);
+  padding:14px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  overflow:auto;
+}
+.flip-button{
+  position:absolute;top:9px;right:9px;
+  width:18px;height:18px;
+  border:1px solid #d94a43;
+  border-radius:50%;
+  background:linear-gradient(#ff7067,#ff453a);
+  box-shadow:inset 0 1px 1px #ffffff80,0 1px 3px #0002;
+  color:#7d1712;
+  font-size:12px;font-weight:bold;
+  display:grid;place-items:center;
+  cursor:pointer;z-index:5;
+  transition:filter .2s,transform .2s;
+}
+.flip-button:hover{
+  filter:brightness(1.1);
+  transform:scale(1.15);
+}
+.flip-button:active{transform:scale(.9)}
+.card-title{
+  font-size:12px;font-weight:600;
+  color:#555;margin:0 25px 8px 0;
+}
+.content{
+  height:calc(100% - 22px);
+  overflow:auto;
+  scrollbar-width:thin;
+}
+.back h4{margin:0 24px 4px 0;font-size:13px}
+.back label{font-size:11px;color:#666}
+.back select{
+  width:100%;padding:7px;
+  border:1px solid #ddd;
+  border-radius:7px;
+  background:white;
+  font:inherit;font-size:12px;
+}
+.size-controls{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+}
+.size-controls>div{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+.back p{font-size:11px;color:#888;margin:0}
+table{width:100%;border-collapse:collapse;font-size:11px}
+th,td{padding:5px;text-align:left;border-bottom:1px solid #eee}
+th{background:#f5f5f5;color:#666}
+.chart{width:100%;height:100%;min-height:35px}
+.chart svg{display:block;width:100%;height:100%}
+.empty{
+  height:100%;display:grid;place-items:center;
+  color:#aaa;font-size:12px;text-align:center;
+}
+@media(max-width:900px){
+  #dashboard{
+    grid-template-columns:repeat(4,minmax(0,1fr));
+  }
+}
+@media(max-width:500px){
+  #dashboard{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:10px;padding:10px;
+  }
+}
+</style>
+</head>
+<body>
+<main id="dashboard"></main>
+
+<script>
+const TOTAL=30;
+const labels=["Ene","Feb","Mar","Abr","May"];
+const colors=["#5b8def","#ff9f43","#35bfa3","#a78bfa","#ff6b81"];
+const dashboard=document.getElementById("dashboard");
+
+const cards=Array.from({length:TOTAL},(_,i)=>({
+  id:i+1,
+  x:1,
+  y:1,
+  type:"none"
+}));
+
+// Tamaños iniciales
+const initial={
+  1:[2,1],3:[1,3],5:[3,1],
+  8:[3,2],10:[1,2],12:[2,1],
+  15:[2,2],20:[1,3],25:[2,3]
+};
+cards.forEach(c=>{
+  if(initial[c.id]){
+    [c.x,c.y]=initial[c.id];
+  }
+});
+
+function columns(){
+  if(innerWidth<=500)return 2;
+  if(innerWidth<=900)return 4;
+  return 7;
+}
+
+function fakeData(id){
+  return labels.map((name,i)=>({
+    name,
+    value:Math.floor(15+Math.abs(Math.sin(id*7.3+i*2.1))*85)
+  }));
+}
+
+function flipCard(button){
+  button.closest(".card").classList.toggle("flipped");
+}
+
+function renderCard(id,type){
+  const container=document.getElementById("content-"+id);
+  const data=fakeData(id);
+  container.replaceChildren();
+
+  if(type==="none"){
+    container.innerHTML='<div class="empty">Selecciona una visualización</div>';
+    return;
+  }
+
+  if(type==="table"){
+    const table=document.createElement("table");
+    table.innerHTML="<thead><tr><th>Mes</th><th>Valor</th></tr></thead>";
+    const tbody=document.createElement("tbody");
+    data.forEach(d=>{
+      const tr=document.createElement("tr");
+      [d.name,d.value].forEach(v=>{
+        const td=document.createElement("td");
+        td.textContent=v;
+        tr.appendChild(td);
+      });
+      tbody.appendChild(tr);
+    });
+    table.appendChild(tbody);
+    container.appendChild(table);
+  }
+
+  if(type==="bar"){
+    const max=Math.max(...data.map(d=>d.value));
+    const bars=data.map((d,i)=>{
+      const h=d.value/max*75;
+      const x=12+i*19;
+      return `<rect x="${x}" y="${82-h}" width="12"
+        height="${h}" rx="2" fill="${colors[i]}"/>
+        <text x="${x+6}" y="94" text-anchor="middle"
+        font-size="7" fill="#777">${d.name}</text>`;
+    }).join("");
+    container.innerHTML=`
+      <div class="chart">
+        <svg viewBox="0 0 110 100" preserveAspectRatio="none">
+          <line x1="8" y1="82" x2="108" y2="82"
+            stroke="#ddd" stroke-width=".5"/>
+          ${bars}
+        </svg>
+      </div>`;
+  }
+
+  if(type==="pie"){
+    const total=data.reduce((s,d)=>s+d.value,0);
+    let angle=-Math.PI/2;
+    const paths=data.map((d,i)=>{
+      const sweep=d.value/total*Math.PI*2;
+      const end=angle+sweep;
+      const x1=50+38*Math.cos(angle);
+      const y1=50+38*Math.sin(angle);
+      const x2=50+38*Math.cos(end);
+      const y2=50+38*Math.sin(end);
+      const large=sweep>Math.PI?1:0;
+      angle=end;
+      return `<path d="M50 50 L${x1} ${y1}
+        A38 38 0 ${large} 1 ${x2} ${y2} Z"
+        fill="${colors[i]}" stroke="white" stroke-width="1"/>`;
+    }).join("");
+    container.innerHTML=`
+      <div class="chart">
+        <svg viewBox="0 0 100 100">
+          ${paths}
+        </svg>
+      </div>`;
+  }
+}
+
+function changeType(id,value){
+  const card=cards.find(c=>c.id===id);
+  card.type=value;
+  renderCard(id,value);
+}
+
+function changeSize(id,axis,value){
+  const card=cards.find(c=>c.id===id);
+  card[axis]=parseInt(value,10);
+  arrangeCards();
+}
+
+function createCard(c){
+  const article=document.createElement("article");
+  article.dataset.id=c.id;
+
+  const options=(max,selected)=>
+    Array.from({length:max},(_,i)=>i+1)
+      .map(n=>`<option value="${n}" ${n===selected?"selected":""}>${n}</option>`)
+      .join("");
+
+  article.innerHTML=`
+    <div class="card">
+      <div class="face front">
+        <button class="flip-button" type="button"
+          aria-label="Configurar tarjeta"
+          onclick="flipCard(this)">↻</button>
+        <h3 class="card-title">Indicador ${c.id}</h3>
+        <div class="content" id="content-${c.id}"></div>
+      </div>
+      <div class="face back">
+        <button class="flip-button" type="button"
+          aria-label="Volver al anverso"
+          onclick="flipCard(this)">↻</button>
+        <h4>Configurar tarjeta ${c.id}</h4>
+        <label for="type-${c.id}">Visualización</label>
+        <select id="type-${c.id}"
+          onchange="changeType(${c.id},this.value)">
+          <option value="none">Sin seleccionar</option>
+          <option value="table">Tabla</option>
+          <option value="bar">Gráfica de barras</option>
+          <option value="pie">Gráfica de tarta</option>
+        </select>
+        <div class="size-controls">
+          <div>
+            <label for="x-${c.id}">X · Columnas</label>
+            <select id="x-${c.id}"
+              onchange="changeSize(${c.id},'x',this.value)">
+              ${options(7,c.x)}
+            </select>
+          </div>
+          <div>
+            <label for="y-${c.id}">Y · Filas</label>
+            <select id="y-${c.id}"
+              onchange="changeSize(${c.id},'y',this.value)">
+              ${options(6,c.y)}
+            </select>
+          </div>
+        </div>
+        <p>El diseño se reorganiza automáticamente.</p>
+      </div>
+    </div>`;
+
+  dashboard.appendChild(article);
+  renderCard(c.id,c.type);
+}
+
+// Matriz de ocupación
+function canPlace(grid,row,col,w,h,ncols){
+  if(col+w>ncols)return false;
+  for(let y=row;y<row+h;y++){
+    for(let x=col;x<col+w;x++){
+      if(grid[y]?.[x])return false;
+    }
+  }
+  return true;
+}
+
+function occupy(grid,row,col,w,h){
+  for(let y=row;y<row+h;y++){
+    if(!grid[y])grid[y]=[];
+    for(let x=col;x<col+w;x++){
+      grid[y][x]=true;
+    }
+  }
+}
+
+// Coloca las tarjetas en el primer espacio válido.
+// Las grandes se colocan antes para reducir huecos.
+function pack(items,ncols){
+  const grid=[];
+  const positions=new Map();
+
+  const sorted=[...items].sort((a,b)=>
+    b.w*b.h-a.w*a.h ||
+    b.h-a.h ||
+    a.id-b.id
+  );
+
+  for(const c of sorted){
+    let placed=false;
+    for(let row=0;!placed;row++){
+      for(let col=0;col<=ncols-c.w;col++){
+        if(canPlace(grid,row,col,c.w,c.h,ncols)){
+          occupy(grid,row,col,c.w,c.h);
+          positions.set(c.id,{row:row+1,col:col+1});
+          placed=true;
+          break;
+        }
+      }
+    }
+  }
+
+  const height=grid.length;
+  let holes=0;
+  for(let y=0;y<height;y++){
+    for(let x=0;x<ncols;x++){
+      if(!grid[y]?.[x])holes++;
+    }
+  }
+  return {positions,holes,height};
+}
+
+// Prueba diferentes órdenes de colocación y elige
+// la distribución que deja menos celdas vacías.
+function arrangeCards(){
+  const ncols=columns();
+  const items=cards.map(c=>({
+    id:c.id,
+    w:Math.min(c.x,ncols),
+    h:c.y
+  }));
+
+  const orders=[
+    [...items].sort((a,b)=>b.w*b.h-a.w*a.h),
+    [...items].sort((a,b)=>b.h-a.h||b.w-a.w),
+    [...items].sort((a,b)=>b.w-a.w||b.h-a.h),
+    [...items].sort((a,b)=>a.id-b.id)
+  ];
+
+  let best=null;
+  for(const order of orders){
+    const result=pack(order,ncols);
+    if(!best ||
+       result.holes<best.holes ||
+       (result.holes===best.holes &&
+        result.height<best.height)){
+      best=result;
+    }
+  }
+
+  cards.forEach(c=>{
+    const article=dashboard.querySelector(
+      `article[data-id="${c.id}"]`
+    );
+    const p=best.positions.get(c.id);
+    article.style.gridColumn=`${p.col} / span ${Math.min(c.x,ncols)}`;
+    article.style.gridRow=`${p.row} / span ${c.y}`;
+  });
+}
+
+cards.forEach(createCard);
+arrangeCards();
+
+let resizeTimer;
+window.addEventListener("resize",()=>{
+  clearTimeout(resizeTimer);
+  resizeTimer=setTimeout(arrangeCards,100);
+});
+</script>
+</body>
+</html>

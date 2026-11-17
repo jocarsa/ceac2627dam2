@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Grid - Cards 3D</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      min-height: 100%;
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      grid-auto-rows: 100px;
+      grid-auto-flow: row dense;
+      gap: 20px;
+      background: lightgray;
+    }
+
+    article {
+      perspective: 1000px;
+      cursor: pointer;
+    }
+
+    .card {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.8s ease-in-out;
+    }
+
+    article:hover .card {
+      transform: rotateY(180deg);
+    }
+
+    .front,
+    .back {
+      position: absolute;
+      inset: 0;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Arial, sans-serif;
+      font-size: 20px;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+
+    .front {
+      background: white;
+      color: #555;
+    }
+
+    .back {
+      background: #444;
+      color: white;
+      transform: rotateY(180deg);
+    }
+
+    /* COLSPAN HORIZONTAL */
+    article:nth-child(1) {
+      grid-column: span 2;
+    }
+
+    article:nth-child(5) {
+      grid-column: span 3;
+    }
+
+    article:nth-child(12) {
+      grid-column: span 2;
+    }
+
+    /* ROWSPAN VERTICAL */
+    article:nth-child(3) {
+      grid-row: span 3;
+    }
+
+    article:nth-child(10) {
+      grid-row: span 2;
+    }
+
+    article:nth-child(20) {
+      grid-row: span 3;
+    }
+
+    /* COLSPAN + ROWSPAN */
+    article:nth-child(8) {
+      grid-column: span 3;
+      grid-row: span 2;
+    }
+
+    article:nth-child(15) {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+
+    article:nth-child(25) {
+      grid-column: span 2;
+      grid-row: span 3;
+    }
+  </style>
+</head>
+<body>
+
+  <script>
+    for (let i = 1; i <= 30; i++) {
+      document.write(`
+        <article>
+          <div class="card">
+            <div class="front">${i}</div>
+            <div class="back">Reverso ${i}</div>
+          </div>
+        </article>
+      `);
+    }
+  </script>
+
+</body>
+</html>
