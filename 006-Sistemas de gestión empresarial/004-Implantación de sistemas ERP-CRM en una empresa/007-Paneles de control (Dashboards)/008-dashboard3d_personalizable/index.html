@@ -13,8 +13,24 @@ article{position:relative;perspective:1200px;min-width:0;min-height:0;will-chang
 .card.flipped{transform:rotateY(180deg)}
 .face{position:absolute;inset:0;border-radius:var(--card-radius,12px);backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;box-shadow:0 3px var(--card-shadow,12px) #00000020}
 .front{background:var(--card-bg,#fff);padding:var(--card-padding,14px)}.back{background:var(--card-back,#fafafa);transform:rotateY(180deg);padding:var(--card-padding,14px);display:flex;flex-direction:column;gap:8px;overflow:auto;scrollbar-width:thin}
-.flip-button{position:absolute;top:9px;right:9px;width:18px;height:18px;border:1px solid #d94a43;border-radius:50%;background:linear-gradient(#ff7067,#ff453a);box-shadow:inset 0 1px 1px #ffffff80,0 1px 3px #0002;color:#7d1712;font-size:12px;font-weight:bold;display:grid;place-items:center;cursor:pointer;z-index:5;transition:filter .2s,transform .2s}
-.flip-button:hover{filter:brightness(1.1);transform:scale(1.15)}.flip-button:active{transform:scale(.9)}
+.flip-button{
+  position:absolute;
+  top:clamp(5px,calc(var(--card-radius,12px) * .38),14px);
+  right:clamp(5px,calc(var(--card-radius,12px) * .38),14px);
+  width:16px;height:16px;
+  padding:0;
+  border:0;
+  border-radius:50%;
+  background:var(--dash-bg,#e5e5e7);
+  box-shadow:none;
+  appearance:none;
+  cursor:pointer;
+  z-index:5;
+  transition:opacity .2s ease,transform .2s ease;
+}
+.flip-button:hover{opacity:.75;transform:scale(1.12)}
+.flip-button:active{transform:scale(.92)}
+.flip-button:focus-visible{outline:2px solid #007aff;outline-offset:3px}
 .card-title{font-size:var(--card-font,12px);font-weight:600;color:var(--card-text,#555);margin:0 25px 8px 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .content{height:calc(100% - 22px);overflow:auto;scrollbar-width:thin}
 .back h4{margin:0 24px 4px 0;font-size:13px}.back label{font-size:11px;color:#666}
@@ -177,8 +193,8 @@ function createCard(c){
  const article=document.createElement("article");article.dataset.id=c.id;
  const opts=(max,selected)=>Array.from({length:max},(_,i)=>i+1).map(n=>`<option value="${n}" ${n===selected?"selected":""}>${n}</option>`).join("");
  article.innerHTML=`<div class="card">
- <div class="face front"><button class="flip-button" type="button" aria-label="Configurar tarjeta" title="Configurar" >↻</button><h3 class="card-title" id="title-${c.id}"></h3><div class="content" id="content-${c.id}"></div></div>
- <div class="face back"><button class="flip-button" type="button" aria-label="Volver al anverso" title="Volver">↻</button><h4>Configurar tarjeta ${c.id}</h4>
+ <div class="face front"><button class="flip-button" type="button" aria-label="Configurar tarjeta" title="Configurar" ></button><h3 class="card-title" id="title-${c.id}"></h3><div class="content" id="content-${c.id}"></div></div>
+ <div class="face back"><button class="flip-button" type="button" aria-label="Volver al anverso" title="Volver"></button><h4>Configurar tarjeta ${c.id}</h4>
  <label for="type-${c.id}">Visualización</label><select id="type-${c.id}"><option value="none">Sin seleccionar</option><option value="table">Tabla</option><option value="bar">Gráfica de barras</option><option value="pie">Gráfica de tarta</option></select>
  <div class="size-controls"><div><label for="x-${c.id}">X · Columnas</label><select id="x-${c.id}">${opts(7,c.x)}</select></div><div><label for="y-${c.id}">Y · Filas</label><select id="y-${c.id}">${opts(6,c.y)}</select></div></div>
  <div class="endpoint-group"><label for="endpoint-${c.id}">Endpoint JSON (GET)</label><input id="endpoint-${c.id}" type="url" placeholder="https://servidor/api/datos" spellcheck="false"></div>
